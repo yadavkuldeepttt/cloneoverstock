@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="padding-top: 0rem">
+    <div class="wrapper homepage" style="padding-bottom: 130px">
+
+
+      <!-- header --><style>
+        
+        input{
+            outline: none;
+            border: 0;
+        }
+
+        .pxn-navbar {
+          width: 100%;
+          position: relative;
+          box-shadow: none;
+          background-color: initial;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+        }
+        .uni-navbar--shadow {
+          box-shadow: 0 1px 6px #ccc;
+        }
+        .uni-navbar__header {
+          display: flex;
+          padding: 0 10px;
+          flex-direction: row;
+          height: 44px;
+          font-size: 12px;
+        }
+        .uni-navbar__header-btns-left {
+          display: flex;
+          width: 62px;
+          justify-content: flex-start;
+          align-items: center;
+        }
+        .uni-navbar__header-container {
+          display: flex;
+          flex: 1;
+          padding: 0 10px;
+          overflow: hidden;
+        }
+        .uni-navbar__header-container-inner {
+          display: flex;
+          flex: 1;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          overflow: hidden;
+        }
+        .uni-nav-bar-text {
+          color: #333 !important;
+          font-size: 14px !important;
+        }
+        .uni-ellipsis-1 {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        .uni-navbar__header-btns-right {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+        }
+      </style>
+      <div class="pxn-navbar">
+        <div class="uni-navbar">
+          <div
+            class="uni-navbar__content uni-navbar--shadow"
+            style="
+              background-color: rgb(255, 255, 255);
+              border-bottom-color: rgb(51, 51, 51);
+            "
+          >
+            <div class="uni-status-bar" style="height: 0px"></div>
+            <div
+              class="uni-navbar__header"
+              style="
+                color: rgb(51, 51, 51);
+                background-color: rgb(255, 255, 255);
+                height: 44px;
+              "
+            >
+              <div
+                class="uni-navbar__header-btns uni-navbar__header-btns-left"
+                style="width: 60px"
+              >
+                <a href="/profile.html"
+                  ><img
+                    src="https://overstoc.cyou/red/fonts-google-svg/arrow_back_ios_1.svg"
+                    style="width: 18px; margin:0px 10px"
+                /></a>
+              </div>
+              <div class="uni-navbar__header-container">
+                <div class="uni-navbar__header-container-inner">
+                  <span
+                    class="uni-nav-bar-text uni-ellipsis-1"
+                    style="color: rgb(51, 51, 51)"
+                    >shipping address modification</span
+                  >
+                </div>
+              </div>
+              <div
+                class="uni-navbar__header-btns uni-navbar__header-btns-right"
+                style="width: 60px"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- header ends --><!----><style>
+        .layout-row {
+          position: relative;
+          padding: 0 20px;
+        }
+        .address-form {
+          position: relative;
+          margin-top: 20px;
+        }
+        .row-title {
+          padding: 0 10px;
+          font-size: 16px;
+          border-left: 5px solid #da0023;
+          line-height: 19px;
+          margin-bottom: 10px;
+        }
+        .account-input {
+          position: relative;
+          z-index: 1;
+          padding: 0 15px;
+          background-color: #fff;
+          border-radius: 31px;
+          margin-bottom: 15px;
+        }
+        .box-shadow {
+          box-shadow: 0 1px 0 0 rgba(213, 206, 216, 0.1);
+        }
+        .pxn-ac {
+          display: flex;
+          align-items: center;
+        }
+        .pxn-input {
+          padding: 5px;
+          height: 37px;
+          font-size: 14px;
+          flex: 1;
+          background: transparent;
+          color: #979799;
+        }
+        .uni-input-wrapper {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: flex;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+        }
+        .placeholder-input {
+          color: #989898;
+        }
+        .uni-input-input {
+          position: relative;
+          display: block;
+          height: 100%;
+          background: none;
+          color: inherit;
+          opacity: 1;
+          font: inherit;
+          line-height: inherit;
+          letter-spacing: inherit;
+          text-align: inherit;
+          text-indent: inherit;
+          text-transform: inherit;
+          text-shadow: inherit;
+        }
+        .btns {
+          position: relative;
+          margin-top: 31px;
+          padding: 0 8%;
+        }
+        .submit {
+          width: 100%;
+          font-size: 16px;
+          line-height: 49px;
+          background-color: #da0023;
+          color: #f0f0f0;
+          border:0
+        }
+      </style>
+      <div class="address-form layout-row">
+        <div class="uni-forms">
+          <form id="login-form">
+            <span
+              ><div class="row-title">real name</div>
+              <div class="account-input pxn-ac box-shadow">
+                <input
+                  name="shoujianren"
+                  type="text"
+                  value=""
+                  class="pxn-input"
+                  placeholder="No real name was entered, please set"
+                  maxlength="140"
+                  autocomplete="off"
+                  fdprocessedid="dfzsrb"
+                  data-has-listeners="true"
+                />
+              </div>
+              <div class="row-title">Telephone</div>
+              <div class="account-input pxn-ac box-shadow">
+                <input
+                  name="shouhuohaoma"
+                  type="text"
+                  value=""
+                  class="pxn-input"
+                  placeholder="No phone number has been entered, please set"
+                  maxlength="140"
+                  autocomplete="off"
+                  fdprocessedid="mev21"
+                  data-has-listeners="true"
+                />
+              </div>
+              <div class="row-title">region</div>
+              <div class="account-input pxn-ac box-shadow">
+                <input
+                  name="area"
+                  type="text"
+                  value=""
+                  class="pxn-input"
+                  placeholder="No region entered, please set"
+                  maxlength="140"
+                  autocomplete="off"
+                  fdprocessedid="4pyz2r"
+                  data-has-listeners="true"
+                />
+              </div>
+              <div class="row-title">Address</div>
+              <div class="account-input pxn-ac box-shadow">
+                <input
+                  name="address"
+                  type="text"
+                  value=""
+                  class="pxn-input"
+                  placeholder="No detailed address was entered, please set"
+                  maxlength="140"
+                  autocomplete="off"
+                  fdprocessedid="wdn1uc"
+                  data-has-listeners="true"
+                />
+              </div>
+              <div class="btns">
+                <button
+                  type="submit"
+                  class="submit save-btn"
+                  fdprocessedid="wdyzl"
+                >
+                  OK
+                </button>
+              </div></span
+            >
+          </form>
+        </div>
+      </div>
+      <!---->
+    </div>
+    <script charset="utf-8" src="/static_new/js/jquery.min.js"></script>
+    <script charset="utf-8" src="/static_new/js/dialog.min.js"></script>
+    <script charset="utf-8" src="/static_new/js/common.js"></script>
+    <script type="application/javascript">
+      $(function () {
+        $(".save-btn").on("click", function (eachCallback) {
+          if (
+            $("input[name=shoujianren]").val() == "" ||
+            $("input[name=shouhuohaoma]").val() == "" ||
+            $("input[name=address]").val() == ""
+          ) {
+            $(document).dialog({ infoText: "cannot be empty!" });
+            return false;
+          }
+          var loading = null;
+          $.ajax({
+            url: "/index/my/edit_address",
+            data: $("#login-form").serialize(),
+            type: "POST",
+            beforeSend: function () {
+              loading = $(document).dialog({
+                type: "notice",
+                infoIcon: "/static_new/img/loading.gif",
+                infoText: "loading...",
+                autoClose: 0,
+              });
+            },
+            success: function (data) {
+              if (data.code == 0) {
+                $(document).dialog({ infoText: "saved successfully" });
+                setTimeout(function () {
+                  window.location.href = "/index/my/index.html";
+                }, 2000);
+              } else {
+                loading.close();
+                $(document).dialog({ infoText: data.info });
+              }
+            },
+          });
+
+          return false;
+        });
+      });
+
+      $("#login-form").submit(function () {
+        return false;
+      });
+    </script>
+    <span id="PING_IFRAME_FORM_DETECTION" style="display: none"></span
+    ><style>
+      html,
+      :root,
+      .aiinhbfoop.light,
+      :host([class="light"]) {
+        --aiinhbfoop-main-color: 0, 102, 255;
+      }
+      .aiinhbfoop.dark,
+      :host([class="dark"]) {
+        --aiinhbfoop-main-color: 0, 102, 255;
+      }
+    </style>
+  </body>
+</html>

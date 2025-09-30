@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recharge</title>
+    <style>
+      :root {
+        --red: #d60b1c;
+        --red-700: #b00916;
+        --bg: #e6f2f4;
+        --panel: #ffffff;
+        --text: #19212a;
+        --muted: #6b7280;
+        --border: #e6e7eb;
+        --accent: #2f6bff;
+        --pill: #e6dbf7;
+        --radius: 12px;
+        --shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .app {
+        width: 375px;
+        min-height: 1000px;
+        background: var(--panel);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .app-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        height: 56px;
+        background: var(--red);
+        color: #fff;
+        display: grid;
+        grid-template-columns: 56px 1fr 56px;
+        align-items: center;
+        padding: 0 8px;
+      }
+
+      .app-header .title {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+      }
+
+      .icon-btn {
+        background: transparent;
+        border: 0;
+        color: #fff;
+        height: 40px;
+        width: 40px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .icon-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .icon {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .content {
+        padding: 11rem 11px 0px;
+      }
+
+      .card {
+        background: var(--panel);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+      }
+
+      .amount-card {
+        padding: 20px 16px;
+        margin-bottom: 20px;
+      }
+
+      .muted {
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      .amount-display {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--text);
+      }
+
+      .amount-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .amount-option {
+        height: 50px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: #fff;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .amount-option:hover {
+        background: #f9fafb;
+      }
+
+      .amount-option.selected {
+        background: var(--pill);
+        border-color: #b59af1;
+        color: var(--text);
+      }
+
+      .payment-section {
+        margin-top: 20px;
+      }
+
+      .section-title {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        margin: 0 0 16px;
+        color: #333;
+      }
+
+      .carousel {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+
+      .track {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 6px 0;
+        margin: 0;
+        list-style: none;
+        scrollbar-width: thin;
+      }
+
+      .track::-webkit-scrollbar {
+        height: 6px;
+      }
+      .track::-webkit-scrollbar-thumb {
+        background: #e2e3e8;
+        border-radius: 6px;
+      }
+
+      .pay-card {
+        min-width: 280px;
+        scroll-snap-align: center;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        transition: border-color 0.3s;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .pay-card.selected {
+        border-color: var(--accent);
+      }
+
+      .pay-card-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        background: var(--red);
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .pay-card-header .card-icon {
+        font-size: 16px;
+      }
+
+      .pay-card-header .label {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+      }
+
+      .pay-card-body {
+        padding: 16px 14px;
+        background: #d90c1c;
+        color: #fff;
+      }
+
+      .method-name {
+        margin: 0 0 6px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .range {
+        margin: 0;
+        opacity: 0.9;
+        font-size: 13px;
+      }
+
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 0;
+      }
+
+      .dots button {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 0;
+        background: #d1d5db;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .dots button.active {
+        background: #111827;
+        width: 24px;
+        border-radius: 4px;
+      }
+
+      .notice {
+        margin-top: 16px;
+        padding: 14px;
+        background: #f9fafb;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+      }
+
+      .notice p {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin-bottom: 8px;
+      }
+
+      .notice p:last-child {
+        margin-bottom: 0;
+      }
+
+      .action {
+        padding: 20px 0 24px;
+        display: grid;
+      }
+
+      .primary-btn {
+        height: 52px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--red);
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.04em;
+        box-shadow: 0 6px 12px rgba(217, 12, 28, 0.25);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .primary-btn:hover {
+        background: var(--red-700);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 16px rgba(217, 12, 28, 0.3);
+      }
+
+      .primary-btn:active {
+        transform: translateY(0);
+      }
+        .icon-btn {
+      background: transparent;
+      border: 0;
+      color: #fff;
+      height: 20px;
+      width: 20px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .icon-btn:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <a href="/profile.html" style="text-decoration: none">
+          <button class="icon-btn" aria-label="Back">
+            <span class="icon">‹</span>
+          </button>
+        </a>
+        <h1 class="title">RECHARGE</h1>
+    <button class="icon-btn" aria-label="Help">
+        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+        </svg>
+      </button>
+      </header>
+
+      <main class="content">
+        <section class="card amount-card">
+          <p class="muted">recharge amount</p>
+          <div class="amount-display" id="amountDisplay">100.00</div>
+
+          <div class="amount-grid">
+            <button class="amount-option selected" data-value="100.00">
+              100.00
+            </button>
+            <button class="amount-option" data-value="300.00">300.00</button>
+            <button class="amount-option" data-value="500.00">500.00</button>
+            <button class="amount-option" data-value="1000.00">1000.00</button>
+            <button class="amount-option" data-value="2000.00">2000.00</button>
+            <button class="amount-option" data-value="3000.00">3000.00</button>
+            <button class="amount-option" data-value="5000.00">5000.00</button>
+            <button class="amount-option" data-value="8000.00">8000.00</button>
+          </div>
+        </section>
+
+        <section class="payment-section">
+          <h2 class="section-title">PLEASE SELECT PAYMENT METHOD</h2>
+
+          <div class="carousel">
+            <ul class="track" id="track">
+              <li class="card pay-card selected" data-method="USDT">
+                <div class="pay-card-header">
+                  <span class="card-icon">💳</span>
+                  <span class="label">RECHARGE</span>
+                </div>
+                <div class="pay-card-body">
+                  <h3 class="method-name">USDT</h3>
+                  <p class="range">$20 ~ $1000000</p>
+                </div>
+              </li>
+
+              <li class="card pay-card" data-method="UPI">
+                <div class="pay-card-header">
+                  <span class="card-icon">💳</span>
+                  <span class="label">RECHARGE</span>
+                </div>
+                <div class="pay-card-body">
+                  <h3 class="method-name">UPI</h3>
+                  <p class="range">₹100 ~ ₹100000</p>
+                </div>
+              </li>
+
+              <li class="card pay-card" data-method="Bank Card">
+                <div class="pay-card-header">
+                  <span class="card-icon">💳</span>
+                  <span class="label">RECHARGE</span>
+                </div>
+                <div class="pay-card-body">
+                  <h3 class="method-name">Bank Card</h3>
+                  <p class="range">$10 ~ $20000</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="dots" id="dots"></div>
+
+          <div class="notice">
+            <p>
+              *1. The payment amount must be the same as the order amount,
+              otherwise it will not arrive automatically
+            </p>
+            <p>
+              *2. If you do not receive recharge and withdrawal, please consult
+              your supervisor to solve other problems.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // Amount selection
+      const amountDisplay = document.getElementById("amountDisplay");
+      const amountOptions = document.querySelectorAll(".amount-option");
+
+      amountOptions.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          amountOptions.forEach((b) => b.classList.remove("selected"));
+          btn.classList.add("selected");
+          amountDisplay.textContent = btn.dataset.value;
+        });
+      });
+
+      // Payment method carousel
+      const track = document.getElementById("track");
+      const payCards = document.querySelectorAll(".pay-card");
+      const dotsContainer = document.getElementById("dots");
+      let currentSlide = 0;
+
+      // Create dots
+      payCards.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = dotsContainer.querySelectorAll("button");
+
+      function goToSlide(index) {
+        currentSlide = index;
+        payCards.forEach((card, i) => {
+          card.classList.toggle("selected", i === index);
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+
+        // Scroll to card
+        const cardWidth = payCards[0].offsetWidth;
+        const gap = 12;
+        track.scrollTo({
+          left: index * (cardWidth + gap),
+          behavior: "smooth",
+        });
+      }
+
+      // Card click selection
+      payCards.forEach((card, i) => {
+        card.addEventListener("click", () => goToSlide(i));
+      });
+
+      // Track scroll for dot update
+      let scrollTimeout;
+      track.addEventListener("scroll", () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          const scrollPos = track.scrollLeft;
+          const cardWidth = payCards[0].offsetWidth;
+          const gap = 12;
+          const newIndex = Math.round(scrollPos / (cardWidth + gap));
+          if (newIndex !== currentSlide && newIndex < payCards.length) {
+            goToSlide(newIndex);
+          }
+        }, 100);
+      });
+
+      // Recharge button
+      document.getElementById("rechargeBtn").addEventListener("click", () => {
+        const amount = amountDisplay.textContent;
+        const method =
+          document.querySelector(".pay-card.selected").dataset.method;
+        alert(`Recharging ${amount} via ${method}`);
+      });
+    </script>
+  </body>
+</html>

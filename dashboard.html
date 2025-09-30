@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"
+    />
+    <title>Overstock</title>
+    <style type="text/css">
+      :root,
+      :host {
+        --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+        --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+        --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
+        --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
+        --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+        --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+        --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+        --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+        --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
+        --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
+        --fa-font-sharp-duotone-solid: normal 900 1em/1
+          "Font Awesome 6 Sharp Duotone";
+      }
+
+      svg:not(:root).svg-inline--fa,
+      svg:not(:host).svg-inline--fa {
+        overflow: visible;
+        box-sizing: content-box;
+      }
+
+      .svg-inline--fa {
+        display: var(--fa-display, inline-block);
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+      }
+      .svg-inline--fa.fa-2xs {
+        vertical-align: 0.1em;
+      }
+      .svg-inline--fa.fa-xs {
+        vertical-align: 0em;
+      }
+      .svg-inline--fa.fa-sm {
+        vertical-align: -0.0714285705em;
+      }
+      .svg-inline--fa.fa-lg {
+        vertical-align: -0.2em;
+      }
+      .svg-inline--fa.fa-xl {
+        vertical-align: -0.25em;
+      }
+      .svg-inline--fa.fa-2xl {
+        vertical-align: -0.3125em;
+      }
+      .svg-inline--fa.fa-pull-left {
+        margin-right: var(--fa-pull-margin, 0.3em);
+        width: auto;
+      }
+      .svg-inline--fa.fa-pull-right {
+        margin-left: var(--fa-pull-margin, 0.3em);
+        width: auto;
+      }
+      .svg-inline--fa.fa-li {
+        width: var(--fa-li-width, 2em);
+        top: 0.25em;
+      }
+      .svg-inline--fa.fa-fw {
+        width: var(--fa-fw-width, 1.25em);
+      }
+
+      .fa-layers svg.svg-inline--fa {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .fa-layers-counter,
+      .fa-layers-text {
+        display: inline-block;
+        position: absolute;
+        text-align: center;
+      }
+
+      .fa-layers {
+        display: inline-block;
+        height: 1em;
+        position: relative;
+        text-align: center;
+        vertical-align: -0.125em;
+        width: 1em;
+      }
+      .fa-layers svg.svg-inline--fa {
+        transform-origin: center center;
+      }
+
+      .fa-layers-text {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: center center;
+      }
+
+      .fa-layers-counter {
+        background-color: var(--fa-counter-background-color, #ff253a);
+        border-radius: var(--fa-counter-border-radius, 1em);
+        box-sizing: border-box;
+        color: var(--fa-inverse, #fff);
+        line-height: var(--fa-counter-line-height, 1);
+        max-width: var(--fa-counter-max-width, 5em);
+        min-width: var(--fa-counter-min-width, 1.5em);
+        overflow: hidden;
+        padding: var(--fa-counter-padding, 0.25em 0.5em);
+        right: var(--fa-right, 0);
+        text-overflow: ellipsis;
+        top: var(--fa-top, 0);
+        transform: scale(var(--fa-counter-scale, 0.25));
+        transform-origin: top right;
+      }
+
+      .fa-layers-bottom-right {
+        bottom: var(--fa-bottom, 0);
+        right: var(--fa-right, 0);
+        top: auto;
+        transform: scale(var(--fa-layers-scale, 0.25));
+        transform-origin: bottom right;
+      }
+
+      .fa-layers-bottom-left {
+        bottom: var(--fa-bottom, 0);
+        left: var(--fa-left, 0);
+        right: auto;
+        top: auto;
+        transform: scale(var(--fa-layers-scale, 0.25));
+        transform-origin: bottom left;
+      }
+
+      .fa-layers-top-right {
+        top: var(--fa-top, 0);
+        right: var(--fa-right, 0);
+        transform: scale(var(--fa-layers-scale, 0.25));
+        transform-origin: top right;
+      }
+
+      .fa-layers-top-left {
+        left: var(--fa-left, 0);
+        right: auto;
+        top: var(--fa-top, 0);
+        transform: scale(var(--fa-layers-scale, 0.25));
+        transform-origin: top left;
+      }
+
+      .fa-1x {
+        font-size: 1em;
+      }
+
+      .fa-2x {
+        font-size: 2em;
+      }
+
+      .fa-3x {
+        font-size: 3em;
+      }
+
+      .fa-4x {
+        font-size: 4em;
+      }
+
+      .fa-5x {
+        font-size: 5em;
+      }
+
+      .fa-6x {
+        font-size: 6em;
+      }
+
+      .fa-7x {
+        font-size: 7em;
+      }
+
+      .fa-8x {
+        font-size: 8em;
+      }
+
+      .fa-9x {
+        font-size: 9em;
+      }
+
+      .fa-10x {
+        font-size: 10em;
+      }
+
+      .fa-2xs {
+        font-size: 0.625em;
+        line-height: 0.1em;
+        vertical-align: 0.225em;
+      }
+
+      .fa-xs {
+        font-size: 0.75em;
+        line-height: 0.0833333337em;
+        vertical-align: 0.125em;
+      }
+
+      .fa-sm {
+        font-size: 0.875em;
+        line-height: 0.0714285718em;
+        vertical-align: 0.0535714295em;
+      }
+
+      .fa-lg {
+        font-size: 1.25em;
+        line-height: 0.05em;
+        vertical-align: -0.075em;
+      }
+
+      .fa-xl {
+        font-size: 1.5em;
+        line-height: 0.0416666682em;
+        vertical-align: -0.125em;
+      }
+
+      .fa-2xl {
+        font-size: 2em;
+        line-height: 0.03125em;
+        vertical-align: -0.1875em;
+      }
+
+      .fa-fw {
+        text-align: center;
+        width: 1.25em;
+      }
+
+      .fa-ul {
+        list-style-type: none;
+        margin-left: var(--fa-li-margin, 2.5em);
+        padding-left: 0;
+      }
+      .fa-ul > li {
+        position: relative;
+      }
+
+      .fa-li {
+        left: calc(-1 * var(--fa-li-width, 2em));
+        position: absolute;
+        text-align: center;
+        width: var(--fa-li-width, 2em);
+        line-height: inherit;
+      }
+
+      .fa-border {
+        border-color: var(--fa-border-color, #eee);
+        border-radius: var(--fa-border-radius, 0.1em);
+        border-style: var(--fa-border-style, solid);
+        border-width: var(--fa-border-width, 0.08em);
+        padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+      }
+
+      .fa-pull-left {
+        float: left;
+        margin-right: var(--fa-pull-margin, 0.3em);
+      }
+
+      .fa-pull-right {
+        float: right;
+        margin-left: var(--fa-pull-margin, 0.3em);
+      }
+
+      .fa-beat {
+        animation-name: fa-beat;
+        animation-delay: var(--fa-animation-delay, 0s);
+        animation-direction: var(--fa-animation-direction, normal);
+        animation-duration: var(--fa-animation-duration, 1s);
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-timing-function: var(--fa-animation-timing, ease-in-out);
+      }
+
+      .fa-bounce {
+        animation-name: fa-bounce;
+        animation-delay: var(--fa-animation-delay, 0s);
+        animation-direction: var(--fa-animation-direction, normal);
+        animation-duration: var(--fa-animation-duration, 1s);
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-timing-function: var(
+          --fa-animation-timing,
+          cubic-bezier(0.28, 0.84, 0.42, 1)
+        );
+      }
+
+      .fa-fade {
+        animation-name: fa-fade;
+        animation-delay: var(--fa-animation-delay, 0s);
+        animation-direction: var(--fa-animation-direction, normal);
+        animation-duration: var(--fa-animation-duration, 1s);
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-timing-function: var(
+          --fa-animation-timing,
+          cubic-bezier(0.4, 0, 0.6, 1)
+        );
+      }
+
+      .fa-beat-fade {
+        animation-name: fa-beat-fade;
+        animation-delay: var(--fa-animation-delay, 0s);
+        animation-direction: var(--fa-animation-direction, normal);
+        animation-duration: var(--fa-animation-duration, 1s);
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-timing-function: var(
+          --fa-animation-timing,
+          cubic-bezier(0.4, 0, 0.6, 1)
+        );
+      }
+
+      .fa-flip {
+        animation-name: fa-flip;
+        animation-delay: var(--fa-animation-delay, 0s);
+        animation-direction: var(--fa-animation-direction, normal);
+        animation-duration: var(--fa-animation-duration, 1s);
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-timing-function: var(--fa-animation-timing, ease-in-out);
+      }
+
+      .fa-shake {
+        animation-name: fa-shake;
+        animation-delay: var(--fa-animation-delay, 0s);
+        animation-direction: var(--fa-animation-direction, normal);
+        animation-duration: var(--fa-animation-duration, 1s);
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-timing-function: var(--fa-animation-timing, linear);
+      }
+
+      .fa-spin {
+        animation-name: fa-spin;
+        animation-delay: var(--fa-animation-delay, 0s);
+        animation-direction: var(--fa-animation-direction, normal);
+        animation-duration: var(--fa-animation-duration, 2s);
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-timing-function: var(--fa-animation-timing, linear);
+      }
+
+      .fa-spin-reverse {
+        --fa-animation-direction: reverse;
+      }
+
+      .fa-pulse,
+      .fa-spin-pulse {
+        animation-name: fa-spin;
+        animation-direction: var(--fa-animation-direction, normal);
+        animation-duration: var(--fa-animation-duration, 1s);
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-timing-function: var(--fa-animation-timing, steps(8));
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .fa-beat,
+        .fa-bounce,
+        .fa-fade,
+        .fa-beat-fade,
+        .fa-flip,
+        .fa-pulse,
+        .fa-shake,
+        .fa-spin,
+        .fa-spin-pulse {
+          animation-delay: -1ms;
+          animation-duration: 1ms;
+          animation-iteration-count: 1;
+          transition-delay: 0s;
+          transition-duration: 0s;
+        }
+      }
+      @keyframes fa-beat {
+        0%,
+        90% {
+          transform: scale(1);
+        }
+        45% {
+          transform: scale(var(--fa-beat-scale, 1.25));
+        }
+      }
+      @keyframes fa-bounce {
+        0% {
+          transform: scale(1, 1) translateY(0);
+        }
+        10% {
+          transform: scale(
+              var(--fa-bounce-start-scale-x, 1.1),
+              var(--fa-bounce-start-scale-y, 0.9)
+            )
+            translateY(0);
+        }
+        30% {
+          transform: scale(
+              var(--fa-bounce-jump-scale-x, 0.9),
+              var(--fa-bounce-jump-scale-y, 1.1)
+            )
+            translateY(var(--fa-bounce-height, -0.5em));
+        }
+        50% {
+          transform: scale(
+              var(--fa-bounce-land-scale-x, 1.05),
+              var(--fa-bounce-land-scale-y, 0.95)
+            )
+            translateY(0);
+        }
+        57% {
+          transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+        }
+        64% {
+          transform: scale(1, 1) translateY(0);
+        }
+        100% {
+          transform: scale(1, 1) translateY(0);
+        }
+      }
+      @keyframes fa-fade {
+        50% {
+          opacity: var(--fa-fade-opacity, 0.4);
+        }
+      }
+      @keyframes fa-beat-fade {
+        0%,
+        100% {
+          opacity: var(--fa-beat-fade-opacity, 0.4);
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(var(--fa-beat-fade-scale, 1.125));
+        }
+      }
+      @keyframes fa-flip {
+        50% {
+          transform: rotate3d(
+            var(--fa-flip-x, 0),
+            var(--fa-flip-y, 1),
+            var(--fa-flip-z, 0),
+            var(--fa-flip-angle, -180deg)
+          );
+        }
+      }
+      @keyframes fa-shake {
+        0% {
+          transform: rotate(-15deg);
+        }
+        4% {
+          transform: rotate(15deg);
+        }
+        8%,
+        24% {
+          transform: rotate(-18deg);
+        }
+        12%,
+        28% {
+          transform: rotate(18deg);
+        }
+        16% {
+          transform: rotate(-22deg);
+        }
+        20% {
+          transform: rotate(22deg);
+        }
+        32% {
+          transform: rotate(-12deg);
+        }
+        36% {
+          transform: rotate(12deg);
+        }
+        40%,
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes fa-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .fa-rotate-90 {
+        transform: rotate(90deg);
+      }
+
+      .fa-rotate-180 {
+        transform: rotate(180deg);
+      }
+
+      .fa-rotate-270 {
+        transform: rotate(270deg);
+      }
+
+      .fa-flip-horizontal {
+        transform: scale(-1, 1);
+      }
+
+      .fa-flip-vertical {
+        transform: scale(1, -1);
+      }
+
+      .fa-flip-both,
+      .fa-flip-horizontal.fa-flip-vertical {
+        transform: scale(-1, -1);
+      }
+
+      .fa-rotate-by {
+        transform: rotate(var(--fa-rotate-angle, 0));
+      }
+
+      .fa-stack {
+        display: inline-block;
+        vertical-align: middle;
+        height: 2em;
+        position: relative;
+        width: 2.5em;
+      }
+
+      .fa-stack-1x,
+      .fa-stack-2x {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: var(--fa-stack-z-index, auto);
+      }
+
+      .svg-inline--fa.fa-stack-1x {
+        height: 1em;
+        width: 1.25em;
+      }
+      .svg-inline--fa.fa-stack-2x {
+        height: 2em;
+        width: 2.5em;
+      }
+
+      .fa-inverse {
+        color: var(--fa-inverse, #fff);
+      }
+
+      .sr-only,
+      .fa-sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      .sr-only-focusable:not(:focus),
+      .fa-sr-only-focusable:not(:focus) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      .svg-inline--fa .fa-primary {
+        fill: var(--fa-primary-color, currentColor);
+        opacity: var(--fa-primary-opacity, 1);
+      }
+
+      .svg-inline--fa .fa-secondary {
+        fill: var(--fa-secondary-color, currentColor);
+        opacity: var(--fa-secondary-opacity, 0.4);
+      }
+
+      .svg-inline--fa.fa-swap-opacity .fa-primary {
+        opacity: var(--fa-secondary-opacity, 0.4);
+      }
+
+      .svg-inline--fa.fa-swap-opacity .fa-secondary {
+        opacity: var(--fa-primary-opacity, 1);
+      }
+
+      .svg-inline--fa mask .fa-primary,
+      .svg-inline--fa mask .fa-secondary {
+        fill: black;
+      }
+
+      .fad.fa-inverse,
+      .fa-duotone.fa-inverse {
+        color: var(--fa-inverse, #fff);
+      }
+    </style>
+    <link rel="icon" type="image/png" href="/skin2025/img/tx11.png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Roboto fonts CSS -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap.min.css" rel="stylesheet" />
+    <!-- Swiper CSS -->
+    <link href="/red/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/red/liMarquee.css?v=V1759223805" rel="stylesheet" />
+    <link href="/red/style.css?v=V1.24" rel="stylesheet" />
+    <link rel="stylesheet" href="/static_new/css/public.css?v=V1.24" />
+    <link
+      href="/public/js/layer_mobile/need/layer.css?2.0"
+      type="text/css"
+      rel="styleSheet"
+      id="layermcss"
+    />
+    <link rel="stylesheet" href="/style2.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="top">
+        <div class="top_left">
+          <a href="/index/user/lang"
+            ><img
+              src="https://overstoc.cyou/red/fonts-google-svg/g_translate_1.svg"
+              style="margin: 10px"
+          /></a>
+        </div>
+        <div class="top_center">
+          <div
+            class="logo"
+            style="
+              font-size: 20px;
+              color: #da0023;
+              font-weight: bold;
+              font-style: italic;
+            "
+          >
+            Overstock
+          </div>
+        </div>
+        <div class="top_right">
+          <a href="/index/support/index"
+            ><img
+              src="https://overstoc.cyou/red/fonts-google-svg/support_agent_1.svg"
+              style="margin: 10px"
+          /></a>
+        </div>
+      </div>
+      <div class="main">
+        <style>
+          .swiper-container-banner {
+            width: 100%;
+            overflow: hidden;
+          }
+
+          .swiper-wrapper {
+            display: flex;
+            transition-timing-function: ease;
+          }
+
+          .swiper-slide {
+            width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .swiper-slide img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+          }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+          $(function () {
+            var bannerSwiper = new Swiper(".swiper-container-banner", {
+              slidesPerView: 1,
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+              },
+              loop: true,
+            });
+          });
+        </script>
+        <div
+          class="b1 swiper-container-banner swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"
+        >
+          <div
+            class="swiper-wrapper"
+            id="swiper-wrapper-623fb444830ce303"
+            aria-live="off"
+            style="
+              transition-duration: 0ms;
+              transform: translate3d(-375px, 0px, 0px);
+              transition-delay: 0ms;
+            "
+          >
+            <div
+              class="swiper-slide swiper-slide-next swiper-slide-prev"
+              role="group"
+              aria-label="2 / 2"
+              data-swiper-slide-index="1"
+              style="width: 375px"
+            >
+              <img src="https://overstoc.cyou/skin2025/img/250408_b111.jpg" />
+            </div>
+            <div
+              class="swiper-slide swiper-slide-active"
+              role="group"
+              aria-label="1 / 2"
+              data-swiper-slide-index="0"
+              style="width: 375px"
+            >
+              <img src="https://overstoc.cyou/skin2025/img/250408_b222.jpg" />
+            </div>
+          </div>
+          <span
+            class="swiper-notification"
+            aria-live="assertive"
+            aria-atomic="true"
+          ></span>
+        </div>
+        <div class="a2">
+          <ul>
+            <li>
+              <div class="icon">
+                <svg
+                  t="1739533302988"
+                  class="icon"
+                  viewBox="0 0 1024 1024"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  p-id="4347"
+                  width="35"
+                  height="35"
+                >
+                  <path
+                    d="M498.625 48.157a29.906 29.906 0 0 1 26.75 0l436.774 218.387a30.382 30.382 0 0 1 0.621 0.311l0.117 0.06 0.232 0.123 0.057 0.031 0.114 0.061 0.105 0.057 0.212 0.117c7.006 3.861 11.62 9.861 13.843 16.54a20.656 20.656 0 0 1 0.163 0.5 29.381 29.381 0 0 1 0.838 3.308l0.01 0.05a29.93 29.93 0 0 1 0.204 1.202l0.006 0.038c0.093 0.626 0.166 1.26 0.22 1.901l0.047 0.63c0.04 0.653 0.062 1.313 0.062 1.98v437.094c0 0.15-0.001 0.302-0.003 0.452l0.003-0.452c0 7.34-2.644 14.062-7.032 19.266-0.64 0.76-1.317 1.488-2.032 2.182l-0.07 0.066c-0.079 0.078-0.16 0.155-0.24 0.232a28.568 28.568 0 0 1-1.036 0.934l-0.061 0.051a29.104 29.104 0 0 1-1.094 0.892l-0.114 0.088a29.87 29.87 0 0 1-5.41 3.317L525.878 975.591a29.737 29.737 0 0 1-12.361 3.371l-0.107 0.005-0.374 0.015-0.138 0.004c-0.064 0.003-0.129 0.004-0.193 0.006l-0.096 0.002a29.93 29.93 0 0 1-0.858 0.005L512 979c-5.025 0-9.761-1.24-13.919-3.43L61.531 757.297A29.906 29.906 0 0 1 45 730.546V293.454c0-3.405 0.549-6.628 1.55-9.609 2.238-6.722 6.896-12.756 13.977-16.615l0.297-0.16c0.233-0.124 0.47-0.246 0.708-0.365l-0.596 0.305c0.302-0.16 0.607-0.315 0.915-0.465zM104.812 341.843v370.222l377.281 188.637V530.483l-377.281-188.64z m814.375 0l-162.66 81.332c-0.783 0.436-1.584 0.836-2.401 1.2l-212.22 106.108v370.219l377.281-188.64V341.843zM311.329 208.677l-169.551 84.776L512 478.563l163.858-81.93-364.529-187.956zM512 108.342l-134.41 67.204 364.53 187.957 140.1-70.05L512 108.342z"
+                    fill="#da0023"
+                    p-id="4348"
+                  ></path>
+                </svg>
+              </div>
+              <div class="text">
+                We offer millions of items from a huge range of sellers
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <svg
+                  t="1739533857831"
+                  class="icon"
+                  viewBox="0 0 1024 1024"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  p-id="10689"
+                  width="35"
+                  height="35"
+                >
+                  <path
+                    d="M87.402667 837.333333a342.421333 342.421333 0 0 1 210.389333-257.216 233.173333 233.173333 0 0 1-107.392-195.818666 238.378667 238.378667 0 0 1 474.581333-28.053334 232.874667 232.874667 0 0 1-105.706666 223.872 342.4 342.4 0 0 1 210.389333 257.216 32.512 32.512 0 0 1-64.170667 10.538667 281.941333 281.941333 0 0 0-553.898666 0 32.533333 32.533333 0 0 1-64.192-10.538667z m341.12-282.538666a170.496 170.496 0 1 0-173.184-170.496 171.861333 171.861333 0 0 0 173.184 170.496z"
+                    fill="#da0023"
+                    p-id="10690"
+                  ></path>
+                  <path
+                    d="M905.258667 807.978667a32.533333 32.533333 0 0 1-31.744-29.098667 215.893333 215.893333 0 0 0-158.592-181.034667 41.450667 41.450667 0 0 1-31.573334-40v-1.792a41.685333 41.685333 0 0 1 24.96-39.253333 130.325333 130.325333 0 0 0 6.805334-238.933333 32.618667 32.618667 0 0 1-16.064-42.069334 31.786667 31.786667 0 0 1 43.477333-16.512 195.882667 195.882667 0 0 1 34.730667 332.352 281.770667 281.770667 0 0 1 160 220.181334 32.298667 32.298667 0 0 1-32 36.16z"
+                    fill="#da0023"
+                    p-id="10691"
+                  ></path>
+                </svg>
+              </div>
+              <div class="text">
+                Hundreds of thousands of people participated in the 'Overstock'
+                evaluation
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <svg
+                  t="1740229893353"
+                  class="icon"
+                  viewBox="0 0 1024 1024"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  p-id="112758"
+                  width="35"
+                  height="35"
+                >
+                  <path
+                    d="M879 189H144c-44.2 0-80 35.8-80 80v80c0 44.2 35.8 80 80 80h735c44.2 0 80-35.8 80-80v-80c0-44.2-35.8-80-80-80z m20 160c0 11-9 20-20 20H144c-11 0-20-9-20-20v-80c0-11 9-20 20-20h735c11 0 20 9 20 20v80zM790.8 563H232.7l5.5-60h547.1z"
+                    fill="#da0023"
+                    p-id="112759"
+                  ></path>
+                  <path
+                    d="M245 429l-6.8 74-5.5 60-31.3 338.5c-1.4 15.6-14.5 27.2-29.8 27.2-0.9 0-1.9 0-2.8-0.1-16.5-1.5-28.6-16.1-27.1-32.6l43.2-467H245z m609.8 499.6c-0.9 0.1-1.9 0.1-2.8 0.1-15.3 0-28.4-11.7-29.8-27.2L790.8 563l-5.5-60-6.8-74h60.3L882 896c1.4 16.5-10.7 31.1-27.2 32.6z"
+                    fill="#da0023"
+                    p-id="112760"
+                  ></path>
+                </svg>
+              </div>
+              <div class="text">
+                Our product range includes furniture, appliances, electronic
+                products.
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <svg
+                  t="1739534241067"
+                  class="icon"
+                  viewBox="0 0 1024 1024"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  p-id="32337"
+                  width="35"
+                  height="35"
+                >
+                  <path
+                    d="M827.389622 192.340633 192.189695 192.340633c-71.761394 0-130.145106 55.656601-130.145106 124.065643l0 65.462944 895.488091 0 0-65.462944C957.533704 247.997234 899.151016 192.340633 827.389622 192.340633zM62.04459 770.34286c0 68.411089 58.382689 124.066667 130.145106 124.066667l635.199926 0c71.761394 0 130.144082-55.656601 130.144082-124.066667L957.533704 508.759189 62.04459 508.759189 62.04459 770.34286zM602.391195 703.187367l186.241728 0c18.650779 0 33.769105 15.118326 33.769105 33.769105s-15.118326 33.769105-33.769105 33.769105l-186.241728 0c-18.650779 0-33.769105-15.118326-33.769105-33.769105S583.740416 703.187367 602.391195 703.187367z"
+                    fill="#da0023"
+                    p-id="32338"
+                  ></path>
+                </svg>
+              </div>
+              <div class="text">
+                We provide safe, fast and simple payment methods
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="b2">
+          <div class="b2-1">
+            With Overstock<br />You can easily earn<br />commissions.
+          </div>
+          <div class="b2-2">Just 3 simple steps.</div>
+          <ul class="b2-3">
+            <li style="display: flex;align-items: flex-start;">
+              <div class="icon"><img src="	https://overstoc.cyou/skin2025/img/icon_tag.png" /></div>
+              <div class="text">
+                <div class="text1">1. Recharge to obtain evaluation qualifications</div>
+                <div class="text2">You need to prepare funds before you can purchase and
+                  evaluate. After the evaluation is completed,the purchase
+                  amount and commission will be returned to your account at the
+                  same time.
+                </div>
+              </div>
+              <div class="qc"></div>
+            </li>
+            <li>
+              <div class="icon"><img src="	https://overstoc.cyou/skin2025/img/icon_group.png" /></div>
+              <div class="text">
+                <div class="text1">2. Complete assigned orders</div>
+                <div class="text2">
+                  Each person receives 3 orders per day; Each order contains 50
+                  items; You have enough time to complete 50 reviews
+                </div>
+              </div>
+              <div class="qc"></div>
+            </li>
+            <li>
+              <div class="icon"><img src="	https://overstoc.cyou/skin2025/img/icon_earn.png" /></div>
+              <div class="text">
+                <div class="text1">3. Earn Commission</div>
+                <div class="text2">
+                  When you complete the order you picked up,you need to withdraw
+                  all the balance before you can pick up a new order again
+                </div>
+              </div>
+              <div class="qc"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="b3">
+          <div class="b3-1">Why would you choose Overstock?</div>
+          <ul class="b3-2">
+            <li>
+              <span class="iconfont icon-duigou"></span>Average order value over
+              $150
+            </li>
+            <li>
+              <span class="iconfont icon-duigou"></span>Competitive commission
+              rates program-wide
+            </li>
+            <li>
+              <span class="iconfont icon-duigou"></span>Over 6 million products
+              &amp; growing
+            </li>
+            <li>
+              <span class="iconfont icon-duigou"></span>Available on all devices
+            </li>
+            <li><span class="iconfont icon-duigou"></span>Regular updates</li>
+            <li>
+              <span class="iconfont icon-duigou"></span>Brimming with over 300
+              categories
+            </li>
+            <li>
+              <span class="iconfont icon-duigou"></span>Coverage on all devices
+            </li>
+          </ul>
+          <div class="b3-3">
+            Promote brands across the spectrum that consumers around the world
+            know and love.
+          </div>
+        </div>
+      </div>
+      <style>
+        .icon-box {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          background: #696969;
+        }
+        .icon-box-img {
+          width: 32%;
+          height: 58px;
+          margin-bottom: 8px;
+        }
+      </style>
+      <div class="foot">
+        <div class="f1">
+          <div class="icon-box">
+            <img
+              src="https://overstoc.cyou/index_new/logo_img/db_1.jpg"
+              alt="PCI DSS badge"
+              class="icon-box-img"
+            />
+            <img
+              src="https://overstoc.cyou/index_new/logo_img/db_2.jpg"
+              alt="TrustedSite badge"
+                            class="icon-box-img"
+
+            />
+            <img
+              src="https://overstoc.cyou/index_new/logo_img/db_5.jpg"
+              alt="SafeKey badge"
+                            class="icon-box-img"
+
+            />
+            <img
+              src="https://overstoc.cyou/index_new/logo_img/db_6.jpg"
+              alt="ID Check badge"
+                            class="icon-box-img"
+
+            />
+            <img
+              src="https://overstoc.cyou/index_new/logo_img/db_4.jpg"
+              alt="ProtectBuy badge"
+                            class="icon-box-img"
+
+            />
+            <img
+              src="https://overstoc.cyou/index_new/logo_img/db_3.jpg"
+              alt="JCB J/Secure badge"
+                            class="icon-box-img"
+
+            />
+          </div>
+          <div class="qc"></div>
+        </div>
+        <div class="f2" style="margin-bottom: 50px">
+          <div class="f2-1" style="font-size: 30px; font-weight: bold">
+            Overstock
+          </div>
+          <p>© 2025 WhaleCo Inc.</p>
+          <p>Umsatzsteueridentifikationsnr:IE123456TH</p>
+          <p>Address:799 West Coliseum Way, Midvale, Utah, USA</p>
+          <p>Email:shop@shop.com</p>
+        </div>
+      </div>
+      <style>
+        .btn img {
+          max-width: 28px;
+          vertical-align: middle;
+        }
+      </style>
+      <div class="footer">
+        <div class="no-gutters">
+          <div class="col-auto mx-auto">
+            <div class="row no-gutters justify-content-center">
+              <div class="col-auto">
+                <a
+                  href="/dashboard.html"
+                  class="btn btn-link-default active"
+                  ><img
+                    src="https://overstoc.cyou/red/fonts-google-svg/home_1.svg"
+                    style="width: 28px"
+                    class="icon"
+                /></a>
+              </div>
+              <div class="col-auto">
+                <a
+                  href="/news.html"
+                  class="btn btn-link-default"
+                  ><img
+                    src="https://overstoc.cyou/red/fonts-google-svg/local_mall_hs.svg"
+                    style="width: 28px"
+                    class="icon"
+                /></a>
+              </div>
+              <div class="col-auto">
+                <a
+                  href="/rot_order.html"
+                  class="btn btn-link-default"
+                  ><img
+                    src="https://overstoc.cyou/red/fonts-google-svg/electric_bolt_hs.svg"
+                    style="width: 28px"
+                    class="icon"
+                /></a>
+              </div>
+              <div class="col-auto">
+                <a href="/support.html" class="btn btn-link-default"
+                  ><img
+                    src="https://overstoc.cyou/red/fonts-google-svg/chat_hs.svg"
+                    style="width: 28px"
+                    class="icon"
+                /></a>
+              </div>
+              <div class="col-auto">
+                <a href="/profile.html" class="btn btn-link-default"
+                  ><img
+                    src="https://overstoc.cyou/red/fonts-google-svg/person_hs.svg"
+                    style="width: 28px"
+                    class="icon"
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
