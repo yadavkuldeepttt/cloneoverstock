@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Register</title>
 
     <style>
       input {
@@ -74,7 +74,7 @@
         filter: invert(1);
       }
 
-      <style > .pxn-column {
+      .pxn-column {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -277,9 +277,9 @@
             style="color: rgb(51, 51, 51); background-color: transparent"
           >
             <div class="uni-navbar__header-btns-left">
-              <a href="/login.html"
+              <a href="/register.html"
                 ><img
-                  src="	https://overstoc.cyou/red/fonts-google-svg/arrow_back_ios_ls.svg"
+                  src="https://overstoc.cyou/red/fonts-google-svg/arrow_back_ios_ls.svg"
               /></a>
             </div>
             <div class="uni-navbar__header-container">
@@ -306,16 +306,16 @@
       <div class="sign-con">
         <div class="item">
           <a href="/login"
-            ><div class="link aclink"><span>Login</span></div></a
+            ><div class="link"><span>Login</span></div></a
           >
         </div>
         <div class="item">
-          <a href="/register.html"
-            ><div class="link"><span>Register</span></div></a
+          <a href="/register"
+            ><div class="link aclink"><span>Register</span></div></a
           >
         </div>
       </div>
-      <form id="loginForm" class="form-con pxn-column">
+      <form id="registerForm" class="form-con pxn-column">
         <div>
           <div class="input-title">
             <span style="color: red">*</span>your mobile phone number
@@ -332,8 +332,25 @@
                   pattern="[0-9]*"
                   autocomplete="off"
                   required=""
-                  fdprocessedid="yenyr"
-                  data-has-listeners="true"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="input-title">
+            <span style="color: red">*</span>Please enter a user name
+          </div>
+          <div class="account-input pxn-ac">
+            <div class="pxn-input">
+              <div class="uni-input-wrapper">
+                <input
+                  type="text"
+                  name="username"
+                  class="uni-input-input"
+                  placeholder="Please enter a user name"
+                  autocomplete="off"
+                  required=""
                 />
               </div>
             </div>
@@ -353,8 +370,6 @@
                   placeholder="your password"
                   autocomplete="off"
                   required=""
-                  fdprocessedid="qiy1ic"
-                  data-has-listeners="true"
                 />
               </div>
             </div>
@@ -364,8 +379,50 @@
             ></span>
           </div>
         </div>
-        <button type="submit" class="login-btn" fdprocessedid="dvvjrk">
-          Login
+        <div>
+          <div class="input-title">
+            <span style="color: red">*</span>Confirm Password
+          </div>
+          <div class="account-input pxn-ac">
+            <div class="pxn-input">
+              <div class="uni-input-wrapper">
+                <input
+                  type="password"
+                  name="confirm_pwd"
+                  class="uni-input-input"
+                  placeholder="Please confirm the password"
+                  autocomplete="off"
+                  required=""
+                />
+              </div>
+            </div>
+            <span
+              class="uni-icons uniui-eye-slash-filled"
+              style="font-size: 22px"
+            ></span>
+          </div>
+        </div>
+        <div>
+          <div class="input-title">
+            <span style="color: red">*</span>Invite Code
+          </div>
+          <div class="account-input pxn-ac">
+            <div class="pxn-input">
+              <div class="uni-input-wrapper">
+                <input
+                  type="text"
+                  name="invite_code"
+                  class="uni-input-input"
+                  placeholder="Please enter the invitation code"
+                  autocomplete="off"
+                  required=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="login-btn">
+          REGISTERED ACCOUNT
         </button>
       </form>
       <div class="footer-con">
