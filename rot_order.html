@@ -380,7 +380,7 @@
           <div class="col-auto mx-auto">
             <div class="row no-gutters justify-content-center">
               <div class="col-auto">
-                <a href="/dashboard.html" class="btn btn-link-default "
+                <a href="/dashboard.html" class="btn btn-link-default"
                   ><img
                     src="	https://overstoc.cyou/red/fonts-google-svg/home_hs.svg"
                     style="width: 28px"
@@ -458,8 +458,7 @@
       var oid = "";
       var add_id = "";
       var isLoading = false;
-
-
+      var user_id = localStorage.getItem("user_id");
 
       function showLoading() {
         document.getElementById("loadingOverlay").classList.add("active");
@@ -480,7 +479,6 @@
         };
       }
 
-    
       $(function () {
         $("#autoStart").click(function () {
           if (isLoading) return;
@@ -500,84 +498,114 @@
         });
       });
 
-    function setCookiesFromString(cookieString) {
-  // Split cookies and set each individually
-  cookieString.split(";").forEach(pair => {
-    const [name, ...rest] = pair.trim().split("=");
-    if (!name || !rest.length) return;
-    const value = rest.join("=");
-    document.cookie = `${name}=${encodeURIComponent(value)}; path=/;`;
-  });
-}
-
-function start(tokenCookieString, v = 0, real = 0) {
-  if (!tokenCookieString || tokenCookieString.trim() === "") {
-    showAlert("Error", "Missing token cookies!");
-    return;
-  }
-
-  // Set cookies before making the request
-  setCookiesFromString(tokenCookieString);
-
-  // Make sure cookies are included in the cross-origin request
-  $.ajax({
-    url:
-      "https://999.viptemugo.com/index/rot_order/submit_order.html" +
-      "?cid=" + cid +
-      "&reCAPTCHA=" + "" + // empty reCAPTCHA as per your requirement
-      "&v=" + v +
-      "&m=" + Math.random() +
-      "&real=" + real,
-    type: "POST",
-    dataType: "json",
-    crossDomain: true,
-    xhrFields: { withCredentials: true }, // Send cookies with request
-
-    beforeSend: function () {
-      showLoading("Processing your request...");
-      $("#autoStart").text("Grabbing order...");
-      isLoading = true;
-    },
-
-    success: function (data) {
-      hideLoading();
-      $("#autoStart").text("Start Grabbing Orders");
-      isLoading = false;
-
-      console.log("API Response:", data);
-
-      if (data.code === 1) {
-        if (data.image) {
-          showAlert("Notice", "Please complete verification", function () {
-            start(tokenCookieString, 1, 1);
-          });
-        } else if (data.tcwz) {
-          showAlert("Notice", data.tcwz, function () {
-            start(tokenCookieString, 1, 1);
-          });
-        } else {
-          showAlert("Notice", data.info, function () {
-            if (data.url) window.location.href = data.url;
-          });
-        }
-      } else if (data.code === 0 && data.oid) {
-        showAlert("Success", data.info || "Order grabbed successfully!");
-        oid = data.oid;
-        add_id = data.add_id;
-      } else {
-        showAlert("Error", data.info || "System busy, please try again later.");
+      function setCookiesFromString(cookieString) {
+        // Split cookies and set each individually
+        cookieString.split(";").forEach((pair) => {
+          const [name, ...rest] = pair.trim().split("=");
+          if (!name || !rest.length) return;
+          const value = rest.join("=");
+          document.cookie = `${name}=${encodeURIComponent(value)}; path=/;`;
+        });
       }
-    },
 
-    error: function (xhr, textStatus, errorThrown) {
-      hideLoading();
-      $("#autoStart").text("Start Grabbing Orders");
-      isLoading = false;
-      console.error("Submit order error:", textStatus, errorThrown);
-      showAlert("Error", "Failed to grab order, please try again later!");
-    },
-  });
-}
+      function start(tokenCookieString, v = 0, real = 0) {
+        if (!tokenCookieString || tokenCookieString.trim() === "") {
+          showAlert("Error", "Missing token cookies!");
+          return;
+        }
+
+        // Set cookies before making the request
+        setCookiesFromString(tokenCookieString);
+
+        // Make sure cookies are included in the cross-origin request
+        $.ajax({
+          url:
+            "https://999.viptemugo.com/index/rot_order/submit_order" +
+            "?cid=" +
+            cid +
+            "&user_id=" +
+            user_id +
+            "&reCAPTCHA=" +
+            "" + // empty reCAPTCHA as per your requirement
+            "&v=" +
+            v +
+            "&m=" +
+            Math.random() +
+            "&real=" +
+            real,
+          type: "POST",
+          dataType: "json",
+          crossDomain: true,
+          xhrFields: { withCredentials: true }, // Send cookies with request
+
+          beforeSend: function () {
+            showLoading("Processing your request...");
+            $("#autoStart").text("Grabbing order...");
+            isLoading = true;
+          },
+
+          success: function (data) {
+            hideLoading();
+            $("#autoStart").text("Start Grabbing Orders");
+            isLoading = false;
+
+            console.log("API Response:", data);
+
+            console.log("====================================");
+            console.log(data);
+            console.log("====================================");
+
+            if (
+              data.code === 0 &&
+              typeof data.info === "string" &&
+              data.info.includes("Please log in first")
+            ) {
+              showAlert(
+                "Success",
+                "The number of member level transactions is insufficient. Please contact the customer personnel for handling"
+              );
+              return;
+            }
+
+            if (data.code === 1) {
+              if (data.image) {
+                showAlert(
+                  "Notice",
+                  "Please complete verification",
+                  function () {
+                    start(tokenCookieString, 1, 1);
+                  }
+                );
+              } else if (data.tcwz) {
+                showAlert("Notice", data.tcwz, function () {
+                  start(tokenCookieString, 1, 1);
+                });
+              } else {
+                showAlert("Notice", data.info, function () {
+                  if (data.url) window.location.href = data.url;
+                });
+              }
+            } else if (data.code === 0 && data.oid) {
+              showAlert("Success", data.info || "Order grabbed successfully!");
+              oid = data.oid;
+              add_id = data.add_id;
+            } else {
+              showAlert(
+                "Error",
+                data.info || "System busy, please try again later."
+              );
+            }
+          },
+
+          error: function (xhr, textStatus, errorThrown) {
+            hideLoading();
+            $("#autoStart").text("Start Grabbing Orders");
+            isLoading = false;
+            console.error("Submit order error:", textStatus, errorThrown);
+            showAlert("Error", "Failed to grab order, please try again later!");
+          },
+        });
+      }
 
       function copy_txt(xx) {
         var text = document.getElementById("webcopyinput");
