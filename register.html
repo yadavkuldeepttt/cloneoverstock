@@ -432,5 +432,53 @@
         >
       </div>
     </div>
+
+    <script>
+      document.getElementById('registerForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const tel = document.querySelector('input[name="tel"]').value;
+        const username = document.querySelector('input[name="username"]').value;
+        const pwd = document.querySelector('input[name="pwd"]').value;
+        const confirmPwd = document.querySelector('input[name="confirm_pwd"]').value;
+        const inviteCode = document.querySelector('input[name="invite_code"]').value;
+        
+        // Check if passwords match
+        if (pwd !== confirmPwd) {
+          alert('Passwords do not match!');
+          return;
+        }
+        
+        try {
+          const response = await fetch('https://999.viptemugo.com/index/user/do_register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              tel: tel,
+              user_name: username,
+              pwd: pwd,
+              deposit_pwd: "111111",
+              qh: "+86",
+              invite_code: inviteCode,
+              verify: 0
+            })
+          });
+          
+          const data = await response.json();
+          
+          if (data.code === 0) {
+            alert(data.info || 'Registration successful!');
+            window.location.href = 'login.html';
+          } else {
+            alert(data.info || 'Registration failed!');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred during registration. Please try again.');
+        }
+      });
+    </script>
   </body>
 </html>

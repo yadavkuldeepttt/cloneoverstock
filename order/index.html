@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en" class="deeppurple-theme">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"
+    />
+    <title>Order Management</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        padding-bottom: 130px;
+      }
+      .header {
+        background: white;
+        padding: 5px;
+      }
+      .header .material-icons {
+        font-size: 24px;
+      }
+      .icon-slide {
+        padding: 20px 0;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .icon-slide .btn {
+        margin: 0 5px;
+      }
+      .btn-outline-default {
+        background: red;
+        color: white;
+        border: none;
+      }
+      .btn-rounded {
+        border-radius: 20px;
+        padding: 8px 20px;
+      }
+      .card {
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .card-header {
+        background: white;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .badge-warning {
+        background: #ffc107;
+        color: #333;
+      }
+      .icon-60 {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+      .payment-all {
+        position: fixed;
+        bottom: 100px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        z-index: 20;
+      }
+      .payment-time {
+        position: fixed;
+        bottom: 60px;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 0 20px;
+        z-index: 19;
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: white;
+        box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 18;
+      }
+      .footer .btn-link {
+        color: #999;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer .btn-link.active {
+        color: red;
+      }
+      .modal-content {
+        border-radius: 12px;
+      }
+      .star-rating {
+        display: flex;
+        gap: 3px;
+      }
+      .star-rating img {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+      .rating-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 0;
+        margin: 0 0 3px 0;
+      }
+      .rating-row span {
+        font-size: 16px;
+        color: #222;
+      }
+      #rating-notice {
+        display: none;
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        color: #856404;
+        padding: 10px;
+        margin: 0 25px 8px 25px;
+        border-radius: 4px;
+        font-size: 12px;
+        text-align: center;
+      }
+      .product-info {
+        padding: 20px;
+        background: #f5f5f5;
+        margin: 10px 0;
+        text-align: center;
+      }
+      .product-info img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      .product-info p {
+        font-size: 14px;
+        color: #333;
+        margin: 0;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="row no-gutters align-items-center">
+        <div class="col-auto"></div>
+        <div class="col text-center"></div>
+        <div class="col-auto">
+          <a href="#" class="btn btn-link text-dark">
+            <i class="material-icons">notifications_none</i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-3">
+      <div class="icon-slide">
+        <a
+          class="btn btn-sm btn-outline-default btn-rounded active"
+          href="#"
+          data-status="all"
+          >ALL</a
+        >
+        <a class="btn btn-sm btn-rounded ml-1" href="#" data-status="pending"
+          >PENDING</a
+        >
+        <a class="btn btn-sm btn-rounded ml-1" href="#" data-status="completed"
+          >COMPLETED</a
+        >
+        <a class="btn btn-sm btn-rounded ml-1" href="#" data-status="freezing"
+          >FREEZING</a
+        >
+      </div>
+    </div>
+
+    <div class="container" id="orderList">
+      <!-- Orders will be loaded here -->
+    </div>
+
+    <div class="payment-all" id="paymentBar" style="display: none">
+      <div>Total: <span id="totalPrice">$0</span></div>
+      <div>
+        <button
+          class="btn btn-default shadow btn-rounded btn-sm"
+          onclick="submitAllOrders()"
+        >
+          Submit All
+        </button>
+      </div>
+    </div>
+
+    <div class="payment-time" id="freezeTimer" style="display: none">
+      <div>Freeze Time: <span id="freeze_etime">00:00:00</span></div>
+    </div>
+
+    <div class="footer">
+      <a href="/dashboard.html" class="btn btn-link-default active"
+        ><img
+          src="https://overstoc.cyou/red/fonts-google-svg/home_1.svg"
+          style="width: 28px"
+          class="icon"
+      /></a>
+      <a href="/news.html" class="btn btn-link-default"
+        ><img
+          src="https://overstoc.cyou/red/fonts-google-svg/local_mall_hs.svg"
+          style="width: 28px"
+          class="icon"
+      /></a>
+      <a href="/rot_order.html" class="btn btn-link-default"
+        ><img
+          src="https://overstoc.cyou/red/fonts-google-svg/electric_bolt_hs.svg"
+          style="width: 28px"
+          class="icon"
+      /></a>
+      <a href="/support.html" class="btn btn-link-default"
+        ><img
+          src="https://overstoc.cyou/red/fonts-google-svg/chat_hs.svg"
+          style="width: 28px"
+          class="icon"
+      /></a>
+      <a href="/profile.html" class="btn btn-link-default"
+        ><img
+          src="https://overstoc.cyou/red/fonts-google-svg/person_hs.svg"
+          style="width: 28px"
+          class="icon"
+      /></a>
+    </div>
+
+    <!-- Order Detail Modal -->
+    <div class="modal fade" id="orderDetail" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5>Order Details</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center" id="orderListInfo"></div>
+          <div class="modal-footer border-0">
+            <button
+              class="btn btn-cancel btn-rounded mr-2"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              class="btn btn-default btn-rounded ml-2"
+              onclick="proceedToRating()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating Modal -->
+    <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5>Product Rating</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center pt-0">
+            <div class="product-info">
+              <img id="rating-product-image" src="" alt="Product" />
+              <p id="rating-product-name"></p>
+            </div>
+          </div>
+          <div style="padding: 10px 25px">
+            <div class="rating-row">
+              <span>Description Match</span>
+              <div class="star-rating" id="description-stars"></div>
+            </div>
+            <div class="rating-row">
+              <span>Logistics Service</span>
+              <div class="star-rating" id="logistics-stars"></div>
+            </div>
+            <div class="rating-row">
+              <span>Service Attitude</span>
+              <div class="star-rating" id="service-stars"></div>
+            </div>
+          </div>
+          <div id="rating-notice">
+            Please rate all categories before submitting
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              class="btn btn-cancel btn-rounded mr-2"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              class="btn btn-default btn-rounded ml-2"
+              onclick="submitRating()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Sample order data (replace with actual API calls)
+      const sampleOrders = [];
+
+      let currentOrderId = null;
+      let currentOrderData = null;
+      let ratings = {
+        description: 0,
+        logistics: 0,
+        service: 0,
+      };
+
+      // Initialize star images
+      const starDefault =
+        'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+      const starActive =
+        'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="%23FFC107" stroke="%23FFC107" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+
+      // Load orders
+      function loadOrders(status = "all") {
+        let filteredOrders = sampleOrders;
+        if (status !== "all") {
+          const statusMap = { pending: 0, completed: 1, freezing: 5 };
+          filteredOrders = sampleOrders.filter(
+            (o) => o.status === statusMap[status]
+          );
+        }
+
+        let html = "";
+        let noPayCount = 0;
+        let noPayPrice = 0;
+        let noPayIds = [];
+
+        filteredOrders.forEach((order) => {
+          if (order.status === 0) {
+            noPayCount++;
+            noPayPrice += order.num;
+            noPayIds.push(order.id);
+          }
+
+          const statusText =
+            order.status === 0
+              ? "PENDING"
+              : order.status === 1
+              ? "COMPLETED"
+              : "FREEZING";
+          const date = new Date(order.addtime * 1000).toLocaleString();
+
+          html += `
+                    <div class="card mb-3">
+                        <div class="card-header bg-none">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="text-secondary small">${date}</p>
+                                </div>
+                                <div class="col-auto">
+                                    <p class="badge badge-warning">${statusText}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="media">
+                                <img src="${
+                                  order.goods_pic
+                                }" class="icon-60 mr-3" alt="Product">
+                                <div class="media-body">
+                                    <p class="small text-secondary mb-1">${
+                                      order.goods_name
+                                    }</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="text-muted">Total Amount:</p>
+                                    <p class="text-muted">Commission:</p>
+                                </div>
+                                <div class="col-auto">
+                                    <p class="text-right">$${order.num}</p>
+                                    <p class="text-right">$${
+                                      order.commission
+                                    }</p>
+                                </div>
+                            </div>
+                            ${
+                              order.status === 0
+                                ? `
+                            <div class="mt-2">
+                                <button onclick="tijiao(${order.id})" class="btn btn-default shadow btn-rounded btn-block">Submit</button>
+                            </div>
+                            `
+                                : ""
+                            }
+                        </div>
+                    </div>
+                `;
+        });
+
+        $("#orderList").html(
+          html || '<p class="text-center text-muted">No orders found</p>'
+        );
+
+        if (noPayCount > 0) {
+          $("#totalPrice").text("$" + noPayPrice.toFixed(2));
+          $("#paymentBar").show();
+        } else {
+          $("#paymentBar").hide();
+        }
+      }
+
+      // Tab switching
+      $(".icon-slide a").click(function (e) {
+        e.preventDefault();
+        $(".icon-slide a").removeClass("btn-outline-default active");
+        $(this).addClass("btn-outline-default active");
+        const status = $(this).data("status");
+        loadOrders(status);
+      });
+
+      // Submit single order
+      function tijiao(id) {
+        currentOrderId = id;
+        const order = sampleOrders.find((o) => o.id === id);
+        if (order) {
+          currentOrderData = [order];
+          let html = `
+                    <div class="product-info">
+                        <img src="${order.goods_pic}" alt="Product">
+                        <p>${order.goods_name}</p>
+                    </div>
+                `;
+          $("#orderListInfo").html(html);
+          $("#orderDetail").modal("show");
+        }
+      }
+
+      // Proceed to rating
+      function proceedToRating() {
+        $("#orderDetail").modal("hide");
+        showRatingModal();
+      }
+
+      // Show rating modal
+      function showRatingModal() {
+        if (currentOrderData && currentOrderData.length > 0) {
+          const order = currentOrderData[0];
+          $("#rating-product-image").attr("src", order.goods_pic);
+          $("#rating-product-name").text(order.goods_name);
+
+          // Initialize stars
+          ["description", "logistics", "service"].forEach((category) => {
+            let starsHtml = "";
+            for (let i = 1; i <= 5; i++) {
+              starsHtml += `<img src="${starDefault}" data-category="${category}" data-rating="${i}" onclick="setRating('${category}', ${i})">`;
+            }
+            $(`#${category}-stars`).html(starsHtml);
+          });
+
+          ratings = { description: 0, logistics: 0, service: 0 };
+          $("#rating-notice").hide();
+          $("#ratingModal").modal("show");
+        }
+      }
+
+      // Set rating
+      function setRating(category, rating) {
+        ratings[category] = rating;
+        const stars = $(`#${category}-stars img`);
+        stars.each(function (index) {
+          const starRating = parseInt($(this).data("rating"));
+          $(this).attr("src", starRating <= rating ? starActive : starDefault);
+        });
+        $("#rating-notice").hide();
+      }
+
+      // Submit rating
+      function submitRating() {
+        if (
+          ratings.description === 0 ||
+          ratings.logistics === 0 ||
+          ratings.service === 0
+        ) {
+          $("#rating-notice").show();
+          return;
+        }
+
+        $("#ratingModal").modal("hide");
+
+        // Simulate API call
+        setTimeout(() => {
+          alert("Order submitted successfully!");
+          loadOrders("all");
+        }, 500);
+      }
+
+      // Submit all orders
+      function submitAllOrders() {
+        const pendingOrders = sampleOrders.filter((o) => o.status === 0);
+        if (pendingOrders.length > 0) {
+          currentOrderData = pendingOrders;
+          currentOrderId = pendingOrders.map((o) => o.id);
+
+          let html = "";
+          pendingOrders.forEach((order) => {
+            html += `
+                        <div class="product-info">
+                            <img src="${order.goods_pic}" alt="Product">
+                            <p>${order.goods_name}</p>
+                        </div>
+                    `;
+          });
+          $("#orderListInfo").html(html);
+          $("#orderDetail").modal("show");
+        }
+      }
+
+      // Initialize
+      $(document).ready(function () {
+        loadOrders("all");
+      });
+    </script>
+  </body>
+</html>

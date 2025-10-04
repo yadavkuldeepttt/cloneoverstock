@@ -8,662 +8,94 @@
     />
     <meta name="description" content="" />
     <title>grab an order</title>
-    <style type="text/css">
-      :root,
-      :host {
-        --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
-        --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
-        --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
-        --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
-        --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
-        --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
-        --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-duotone-solid: normal 900 1em/1
-          "Font Awesome 6 Sharp Duotone";
-      }
 
-      svg:not(:root).svg-inline--fa,
-      svg:not(:host).svg-inline--fa {
-        overflow: visible;
-        box-sizing: content-box;
-      }
-
-      .svg-inline--fa {
-        display: var(--fa-display, inline-block);
-        height: 1em;
-        overflow: visible;
-        vertical-align: -0.125em;
-      }
-      .svg-inline--fa.fa-2xs {
-        vertical-align: 0.1em;
-      }
-      .svg-inline--fa.fa-xs {
-        vertical-align: 0em;
-      }
-      .svg-inline--fa.fa-sm {
-        vertical-align: -0.0714285705em;
-      }
-      .svg-inline--fa.fa-lg {
-        vertical-align: -0.2em;
-      }
-      .svg-inline--fa.fa-xl {
-        vertical-align: -0.25em;
-      }
-      .svg-inline--fa.fa-2xl {
-        vertical-align: -0.3125em;
-      }
-      .svg-inline--fa.fa-pull-left {
-        margin-right: var(--fa-pull-margin, 0.3em);
-        width: auto;
-      }
-      .svg-inline--fa.fa-pull-right {
-        margin-left: var(--fa-pull-margin, 0.3em);
-        width: auto;
-      }
-      .svg-inline--fa.fa-li {
-        width: var(--fa-li-width, 2em);
-        top: 0.25em;
-      }
-      .svg-inline--fa.fa-fw {
-        width: var(--fa-fw-width, 1.25em);
-      }
-
-      .fa-layers svg.svg-inline--fa {
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
-      .fa-layers-counter,
-      .fa-layers-text {
-        display: inline-block;
-        position: absolute;
-        text-align: center;
-      }
-
-      .fa-layers {
-        display: inline-block;
-        height: 1em;
-        position: relative;
-        text-align: center;
-        vertical-align: -0.125em;
-        width: 1em;
-      }
-      .fa-layers svg.svg-inline--fa {
-        transform-origin: center center;
-      }
-
-      .fa-layers-text {
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transform-origin: center center;
-      }
-
-      .fa-layers-counter {
-        background-color: var(--fa-counter-background-color, #ff253a);
-        border-radius: var(--fa-counter-border-radius, 1em);
-        box-sizing: border-box;
-        color: var(--fa-inverse, #fff);
-        line-height: var(--fa-counter-line-height, 1);
-        max-width: var(--fa-counter-max-width, 5em);
-        min-width: var(--fa-counter-min-width, 1.5em);
-        overflow: hidden;
-        padding: var(--fa-counter-padding, 0.25em 0.5em);
-        right: var(--fa-right, 0);
-        text-overflow: ellipsis;
-        top: var(--fa-top, 0);
-        transform: scale(var(--fa-counter-scale, 0.25));
-        transform-origin: top right;
-      }
-
-      .fa-layers-bottom-right {
-        bottom: var(--fa-bottom, 0);
-        right: var(--fa-right, 0);
-        top: auto;
-        transform: scale(var(--fa-layers-scale, 0.25));
-        transform-origin: bottom right;
-      }
-
-      .fa-layers-bottom-left {
-        bottom: var(--fa-bottom, 0);
-        left: var(--fa-left, 0);
-        right: auto;
-        top: auto;
-        transform: scale(var(--fa-layers-scale, 0.25));
-        transform-origin: bottom left;
-      }
-
-      .fa-layers-top-right {
-        top: var(--fa-top, 0);
-        right: var(--fa-right, 0);
-        transform: scale(var(--fa-layers-scale, 0.25));
-        transform-origin: top right;
-      }
-
-      .fa-layers-top-left {
-        left: var(--fa-left, 0);
-        right: auto;
-        top: var(--fa-top, 0);
-        transform: scale(var(--fa-layers-scale, 0.25));
-        transform-origin: top left;
-      }
-
-      .fa-1x {
-        font-size: 1em;
-      }
-
-      .fa-2x {
-        font-size: 2em;
-      }
-
-      .fa-3x {
-        font-size: 3em;
-      }
-
-      .fa-4x {
-        font-size: 4em;
-      }
-
-      .fa-5x {
-        font-size: 5em;
-      }
-
-      .fa-6x {
-        font-size: 6em;
-      }
-
-      .fa-7x {
-        font-size: 7em;
-      }
-
-      .fa-8x {
-        font-size: 8em;
-      }
-
-      .fa-9x {
-        font-size: 9em;
-      }
-
-      .fa-10x {
-        font-size: 10em;
-      }
-
-      .fa-2xs {
-        font-size: 0.625em;
-        line-height: 0.1em;
-        vertical-align: 0.225em;
-      }
-
-      .fa-xs {
-        font-size: 0.75em;
-        line-height: 0.0833333337em;
-        vertical-align: 0.125em;
-      }
-
-      .fa-sm {
-        font-size: 0.875em;
-        line-height: 0.0714285718em;
-        vertical-align: 0.0535714295em;
-      }
-
-      .fa-lg {
-        font-size: 1.25em;
-        line-height: 0.05em;
-        vertical-align: -0.075em;
-      }
-
-      .fa-xl {
-        font-size: 1.5em;
-        line-height: 0.0416666682em;
-        vertical-align: -0.125em;
-      }
-
-      .fa-2xl {
-        font-size: 2em;
-        line-height: 0.03125em;
-        vertical-align: -0.1875em;
-      }
-
-      .fa-fw {
-        text-align: center;
-        width: 1.25em;
-      }
-
-      .fa-ul {
-        list-style-type: none;
-        margin-left: var(--fa-li-margin, 2.5em);
-        padding-left: 0;
-      }
-      .fa-ul > li {
-        position: relative;
-      }
-
-      .fa-li {
-        left: calc(-1 * var(--fa-li-width, 2em));
-        position: absolute;
-        text-align: center;
-        width: var(--fa-li-width, 2em);
-        line-height: inherit;
-      }
-
-      .fa-border {
-        border-color: var(--fa-border-color, #eee);
-        border-radius: var(--fa-border-radius, 0.1em);
-        border-style: var(--fa-border-style, solid);
-        border-width: var(--fa-border-width, 0.08em);
-        padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
-      }
-
-      .fa-pull-left {
-        float: left;
-        margin-right: var(--fa-pull-margin, 0.3em);
-      }
-
-      .fa-pull-right {
-        float: right;
-        margin-left: var(--fa-pull-margin, 0.3em);
-      }
-
-      .fa-beat {
-        animation-name: fa-beat;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, ease-in-out);
-      }
-
-      .fa-bounce {
-        animation-name: fa-bounce;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.28, 0.84, 0.42, 1)
-        );
-      }
-
-      .fa-fade {
-        animation-name: fa-fade;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.4, 0, 0.6, 1)
-        );
-      }
-
-      .fa-beat-fade {
-        animation-name: fa-beat-fade;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.4, 0, 0.6, 1)
-        );
-      }
-
-      .fa-flip {
-        animation-name: fa-flip;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, ease-in-out);
-      }
-
-      .fa-shake {
-        animation-name: fa-shake;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, linear);
-      }
-
-      .fa-spin {
-        animation-name: fa-spin;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 2s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, linear);
-      }
-
-      .fa-spin-reverse {
-        --fa-animation-direction: reverse;
-      }
-
-      .fa-pulse,
-      .fa-spin-pulse {
-        animation-name: fa-spin;
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, steps(8));
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .fa-beat,
-        .fa-bounce,
-        .fa-fade,
-        .fa-beat-fade,
-        .fa-flip,
-        .fa-pulse,
-        .fa-shake,
-        .fa-spin,
-        .fa-spin-pulse {
-          animation-delay: -1ms;
-          animation-duration: 1ms;
-          animation-iteration-count: 1;
-          transition-delay: 0s;
-          transition-duration: 0s;
-        }
-      }
-      @keyframes fa-beat {
-        0%,
-        90% {
-          transform: scale(1);
-        }
-        45% {
-          transform: scale(var(--fa-beat-scale, 1.25));
-        }
-      }
-      @keyframes fa-bounce {
-        0% {
-          transform: scale(1, 1) translateY(0);
-        }
-        10% {
-          transform: scale(
-              var(--fa-bounce-start-scale-x, 1.1),
-              var(--fa-bounce-start-scale-y, 0.9)
-            )
-            translateY(0);
-        }
-        30% {
-          transform: scale(
-              var(--fa-bounce-jump-scale-x, 0.9),
-              var(--fa-bounce-jump-scale-y, 1.1)
-            )
-            translateY(var(--fa-bounce-height, -0.5em));
-        }
-        50% {
-          transform: scale(
-              var(--fa-bounce-land-scale-x, 1.05),
-              var(--fa-bounce-land-scale-y, 0.95)
-            )
-            translateY(0);
-        }
-        57% {
-          transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-        }
-        64% {
-          transform: scale(1, 1) translateY(0);
-        }
-        100% {
-          transform: scale(1, 1) translateY(0);
-        }
-      }
-      @keyframes fa-fade {
-        50% {
-          opacity: var(--fa-fade-opacity, 0.4);
-        }
-      }
-      @keyframes fa-beat-fade {
-        0%,
-        100% {
-          opacity: var(--fa-beat-fade-opacity, 0.4);
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(var(--fa-beat-fade-scale, 1.125));
-        }
-      }
-      @keyframes fa-flip {
-        50% {
-          transform: rotate3d(
-            var(--fa-flip-x, 0),
-            var(--fa-flip-y, 1),
-            var(--fa-flip-z, 0),
-            var(--fa-flip-angle, -180deg)
-          );
-        }
-      }
-      @keyframes fa-shake {
-        0% {
-          transform: rotate(-15deg);
-        }
-        4% {
-          transform: rotate(15deg);
-        }
-        8%,
-        24% {
-          transform: rotate(-18deg);
-        }
-        12%,
-        28% {
-          transform: rotate(18deg);
-        }
-        16% {
-          transform: rotate(-22deg);
-        }
-        20% {
-          transform: rotate(22deg);
-        }
-        32% {
-          transform: rotate(-12deg);
-        }
-        36% {
-          transform: rotate(12deg);
-        }
-        40%,
-        100% {
-          transform: rotate(0deg);
-        }
-      }
-      @keyframes fa-spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      .fa-rotate-90 {
-        transform: rotate(90deg);
-      }
-
-      .fa-rotate-180 {
-        transform: rotate(180deg);
-      }
-
-      .fa-rotate-270 {
-        transform: rotate(270deg);
-      }
-
-      .fa-flip-horizontal {
-        transform: scale(-1, 1);
-      }
-
-      .fa-flip-vertical {
-        transform: scale(1, -1);
-      }
-
-      .fa-flip-both,
-      .fa-flip-horizontal.fa-flip-vertical {
-        transform: scale(-1, -1);
-      }
-
-      .fa-rotate-by {
-        transform: rotate(var(--fa-rotate-angle, 0));
-      }
-
-      .fa-stack {
-        display: inline-block;
-        vertical-align: middle;
-        height: 2em;
-        position: relative;
-        width: 2.5em;
-      }
-
-      .fa-stack-1x,
-      .fa-stack-2x {
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: var(--fa-stack-z-index, auto);
-      }
-
-      .svg-inline--fa.fa-stack-1x {
-        height: 1em;
-        width: 1.25em;
-      }
-      .svg-inline--fa.fa-stack-2x {
-        height: 2em;
-        width: 2.5em;
-      }
-
-      .fa-inverse {
-        color: var(--fa-inverse, #fff);
-      }
-
-      .sr-only,
-      .fa-sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-      }
-
-      .sr-only-focusable:not(:focus),
-      .fa-sr-only-focusable:not(:focus) {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-      }
-
-      .svg-inline--fa .fa-primary {
-        fill: var(--fa-primary-color, currentColor);
-        opacity: var(--fa-primary-opacity, 1);
-      }
-
-      .svg-inline--fa .fa-secondary {
-        fill: var(--fa-secondary-color, currentColor);
-        opacity: var(--fa-secondary-opacity, 0.4);
-      }
-
-      .svg-inline--fa.fa-swap-opacity .fa-primary {
-        opacity: var(--fa-secondary-opacity, 0.4);
-      }
-
-      .svg-inline--fa.fa-swap-opacity .fa-secondary {
-        opacity: var(--fa-primary-opacity, 1);
-      }
-
-      .svg-inline--fa mask .fa-primary,
-      .svg-inline--fa mask .fa-secondary {
-        fill: black;
-      }
-
-      .fad.fa-inverse,
-      .fa-duotone.fa-inverse {
-        color: var(--fa-inverse, #fff);
-      }
-
-      .f1 {
-    display: flex
-;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #878787;
-}
-
-    </style>
     <link rel="shortcut icon" href="/skin2025/img/tx11.png" />
-    <!-- Roboto fonts CSS -->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"
       rel="stylesheet"
     />
-    <!-- Bootstrap core CSS -->
     <link href="/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="/style2.css" />
-
-    <!-- Swiper CSS -->
-    <link href="/red/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="/static_new/css/public.css?v=V1.24" />
-    <link
-      href="/public/js/layer_mobile/need/layer.css?2.0"
-      type="text/css"
-      rel="styleSheet"
-      id="layermcss"
-    />
-    <link href="/red/liMarquee.css?v=V1759225341" rel="stylesheet" />
-    <link rel="stylesheet" href="/public/js/layer_mobile/need/layer.css" />
+    <link rel="stylesheet" href="/style2.css" />
     <link
       href="https://overstoc.cyou/public/js/layer_mobile/need/layer.css?2.0"
       type="text/css"
       rel="styleSheet"
       id="layermcss"
     />
+
+    <style>
+      .loading-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .loading-overlay.active {
+        display: flex;
+      }
+
+      .loading-content {
+        text-align: center;
+      }
+
+      .alert-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .alert-overlay.active {
+        display: flex;
+      }
+
+      .alert-content {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        max-width: 80%;
+        text-align: center;
+      }
+
+      .alert-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .alert-message {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .alert-button {
+        background: #da0023;
+        color: #fff;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
   </head>
 
   <body class="">
     <div class="wrapper homepage">
-      <!-- header --><style>
+      <style>
         .tab-title {
           display: flex;
           justify-content: space-between;
@@ -683,13 +115,14 @@
             src="https://overstoc.cyou/index_new/img/tab-title_img1.png"
           /><span class="text">Get orders</span>
         </div>
-        <a href="/index/order/index.html"
+        <a href="/order/index.html"
           ><img
             src="https://overstoc.cyou/red/fonts-google-png/update_28_bs.png"
             style="width: 28px; height: 28px"
         /></a>
       </div>
-      <!-- header ends --><!--111--><style>
+
+      <style>
         .van-notice-bar {
           position: relative;
           display: flex;
@@ -731,7 +164,8 @@
           />
         </div>
       </div>
-      <!--222--><style>
+
+      <style>
         .content {
           padding: 10px;
           font-size: 16px;
@@ -797,6 +231,7 @@
           text-align: center;
           line-height: 60px;
           font-weight: 700;
+          cursor: pointer;
         }
       </style>
       <div class="content">
@@ -831,7 +266,8 @@
         </div>
         <div id="autoStart" class="submit">start grabbing orders</div>
       </div>
-      <!--333--><style>
+
+      <style>
         .c3 {
           background: #fff;
         }
@@ -846,6 +282,9 @@
           grid-template-columns: repeat(2, 1fr);
           grid-gap: 0.1rem;
           padding: 0.1rem;
+        }
+        .c3-2 li {
+          list-style: none;
         }
         .c3-2 li img {
           width: 160px;
@@ -929,62 +368,11 @@
           </li>
         </ul>
       </div>
-      <!--444--><style>
-        .foot-icon-box {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          flex-wrap: wrap;
-          background: #696969;
-        }
-        .foot-icon-box-img {
-          width: 32%;
-          height: 58px;
-          margin-bottom: 8px;
-        }
-        .foot {
-          background-color: #696969;
-          color: #fff;
-          padding: 1rem 0.8rem;
-          line-height: 1rem;
-        }
-        .qc {
-          clear: both;
-        }
-        .f1 {
-          display: flex;
-          padding-top: 1.5rem;
-          padding-bottom: 1.5rem;
-          border-bottom: 1px solid #878787;
-        }
-        .f1-1 {
-          margin-right: 0.3rem;
-        }
-        .f1-1 img {
-          width: 1rem;
-        }
-        .f1-2 {
-        }
-        .f2 {
-          padding-top: 1.5rem;
-          text-align: center;
-        }
-        .f2-1 {
-          margin-bottom: 1.5rem;
-        }
-        .f2-1 img {
-          height: 0.45rem;
-        }
-      </style>
- 
-      <!-- footer--><style>
+
+      <style>
         .btn img {
           max-width: 28px;
           vertical-align: middle;
-        }
-        .foot .f1{
-            display: flex;
-
         }
       </style>
       <div class="footer">
@@ -992,19 +380,15 @@
           <div class="col-auto mx-auto">
             <div class="row no-gutters justify-content-center">
               <div class="col-auto">
-                <a
-                  href="/dashboard.html"
-                  class="btn btn-link-default active"
+                <a href="/dashboard.html" class="btn btn-link-default "
                   ><img
-                    src="https://overstoc.cyou/red/fonts-google-svg/home_1.svg"
+                    src="	https://overstoc.cyou/red/fonts-google-svg/home_hs.svg"
                     style="width: 28px"
                     class="icon"
                 /></a>
               </div>
               <div class="col-auto">
-                <a
-                  href="/news.html"
-                  class="btn btn-link-default"
+                <a href="/news.html" class="btn btn-link-default"
                   ><img
                     src="https://overstoc.cyou/red/fonts-google-svg/local_mall_hs.svg"
                     style="width: 28px"
@@ -1012,11 +396,9 @@
                 /></a>
               </div>
               <div class="col-auto">
-                <a
-                  href="/rot_order.html"
-                  class="btn btn-link-default"
+                <a href="/rot_order.html" class="btn btn-link-default active"
                   ><img
-                    src="https://overstoc.cyou/red/fonts-google-svg/electric_bolt_hs.svg"
+                    src="https://overstoc.cyou/red/fonts-google-svg/electric_bolt_1.svg"
                     style="width: 28px"
                     class="icon"
                 /></a>
@@ -1041,1704 +423,171 @@
           </div>
         </div>
       </div>
-      <!-- footer ends--><style>
-        .van-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
 
-        .grabSuccess {
-          border-radius: 0.32rem;
-          margin: 1.373333rem auto 0;
-          position: relative;
-        }
-
-        .grabSuccess .title {
-          height: 2.586667rem;
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-pack: center;
-          justify-content: center;
-          -ms-flex-align: center;
-          align-items: center;
-          position: relative;
-        }
-
-        .grabSuccess .title:after,
-        .grabSuccess .title:before {
-          content: "";
-          width: 0.893333rem;
-          height: 1rem;
-          background-size: 100%;
-          position: absolute;
-          top: 1.093333rem;
-        }
-
-        .grabSuccess .records_tabs_box .records_tabs_box_top {
-          font-size: 0.32rem;
-          color: #9e9e9e;
-          font-weight: 400;
-          text-align: left;
-          font-family: PingFangSC-Regular, PingFang SC;
-        }
-
-        .grabSuccess .records_tabs_box .records_tabs_box_img {
-          width: 1.733333rem;
-          height: auto;
-          position: absolute;
-          top: 0.266667rem;
-          right: 0.133333rem;
-        }
-
-        .grabSuccess .records_tabs_box .records_tabs_box_des {
-          background: #f2f2f2;
-          border-radius: 0.133333rem;
-          margin: 0.266667rem 0;
-          display: -ms-flexbox;
-          display: flex;
-          overflow: hidden;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .grabSuccess .records_tabs_box .records_tabs_box_des .tabs_box_des_img {
-          width: 10rem;
-          height: 10rem;
-        }
-
-        .grabSuccess
-          .records_tabs_box
-          .records_tabs_box_des
-          .tabs_box_des_img
-          > img {
-          width: 10rem;
-          height: 10rem;
-          -o-object-fit: cover;
-          object-fit: cover;
-        }
-
-        .grabSuccess .records_tabs_box .records_tabs_box_des .tabs_box_des_r {
-          text-align: left;
-          padding: 0.266667rem;
-          font-size: 0.266667rem;
-        }
-
-        .grabSuccess
-          .records_tabs_box
-          .records_tabs_box_des
-          .tabs_box_des_r
-          .tabs_box_des_r_tit {
-          overflow: hidden;
-          font-size: 0.75rem;
-          color: #424242;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          font-family: PingFangSC-Regular, PingFang SC;
-          text-align: center;
-        }
-
-        .grabSuccess .records_tabs_box .tabs_box_des_r_pic {
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-pack: justify;
-          justify-content: space-between;
-          margin-top: 0.4rem;
-          font-size: 0.373333rem;
-          color: #424242;
-        }
-
-        .grabSuccess .records_tabs_box .gray {
-          color: #969696;
-          font-size: 0.373333rem;
-        }
-
-        .grabSuccess .records_tabs_box .txt1 {
-          color: #ff9a2c;
-          font-size: 1rem !important;
-        }
-
-        .grabSuccess .tabs_btn {
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-pack: center;
-          justify-content: center;
-        }
-        /*241015*/
-        .modal {
-          overflow: hidden;
-          overflow-y: auto;
-        }</style
-      ><input
+      <input
         name=""
         id="webcopyinput"
         type="text"
         style="top: -100px; position: absolute"
         value=""
-        data-has-listeners="true"
-      /><!-- jquery, popper and bootstrap js -->
-      <script src="/red/jquery-3.3.1.min.js"></script>
-      <script src="/red/popper.min.js"></script>
-      <script src="/red/bootstrap/js/bootstrap.min.js"></script>
-      <!-- swiper js -->
-      <script src="/red/swiper/swiper-bundle.min.js"></script>
-      <!-- cookie js -->
-      <script src="/red/jquery.cookie.js"></script>
-      <script charset="utf-8" src="/static_new/js/dialog.min.js"></script>
-      <script src="/public/js/layer_mobile/layer.js"></script>
-      <script charset="utf-8" src="/static_new/js/common.js"></script>
-      <!-- template custom js --><!--<script src="/red/main.js?v=V1.24"></script>--><!-- page level script -->
-      <script src="/red/jquery.liMarquee.js?v=1759225341"></script>
-      <!--gdxg-->
-      <script>
-        $(function () {
-          //  $('#announcement').liMarquee();
-          $("#hallFame").liMarquee({ direction: "up" });
-
-          //  $('#announcement2').liMarquee();
-        });
-      </script>
-      <span style="display: none"
-        ><audio
-          id="audio"
-          src="/static_new/img/hongbao.mp3"
-          controls="controls"
-        ></audio
-      ></span>
+      />
     </div>
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="vip_modal"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <button
-            type="button"
-            class="close close-rounded"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">×</span>
-          </button>
-          <div
-            class="modal-body text-center pt-0"
-            style="max-height: 500px; overflow: scroll"
-          >
-            <style>
-              .rule_msg img {
-                max-width: 100%;
-              }
-            </style>
-            <p class="rule_msg" style="margin-top: 1rem"></p>
-            <p style="text-align: center">&nbsp; &nbsp;</p>
-            <p></p>
-            <p></p>
-            <div class="swiper-container vip-slide" style="width: 1px">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_0">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">Free</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            Current level
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_1">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP1</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            Current level
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_2">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP2</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=3"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_3">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP3</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=4"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_4">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP4</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=5"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_5">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP5</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=6"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_6">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP6</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=7"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_7">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP7</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=8"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_8">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP8</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=9"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_9">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP9</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=10"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_10">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP10</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=11"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_11">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP11</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=12"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_12">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP12</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=13"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_13">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP13</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=14"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_14">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP14</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=15"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide pb-5">
-                  <div class="container z-1 position-relative">
-                    <div class="card shadow mt-4 h-150 vip_bg_15">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-6 text-left">
-                            <h3 class="text-white">VIP15</h3>
-                          </div>
-                          <div class="col-6 text-right text-white">
-                            <a
-                              href="/index/ctrl/recharge.html?vip_id=16"
-                              style=""
-                              >Join&gt;&gt;</a
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-2">
-                            <span class="font-weight-normal"
-                              >Required investment&nbsp;$0.00</span
-                            >
-                          </div>
-                        </div>
-                        <div class="row text-white">
-                          <div class="col-12 mt-1">
-                            <p>commission&nbsp;1% | 0&nbsp;Order</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-        </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-content">
+        <img
+          src="https://overstoc.cyou/red/make.gif"
+          style="width: 128px; height: 128px"
+        />
       </div>
     </div>
-    <div
-      class="modal fade"
-      id="orderDetail"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-        <div class="modal-content grabSuccess">
-          <div class="modal-header border-0">
-            <h5>submit all orders</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body text-center pt-0" id="orderListInfo"></div>
-          <div class="modal-footer border-0 tabs_btn">
-            <div class="tabs_btn1 btn btn-cancel btn-rounded mr-2 shadow">
-              cancel
-            </div>
-            <div class="tabs_btn2 btn btn-default btn-rounded ml-2 shadow">
-              Product Rating
-            </div>
-          </div>
-        </div>
+
+    <!-- Alert Overlay -->
+    <div class="alert-overlay" id="alertOverlay">
+      <div class="alert-content">
+        <div class="alert-title" id="alertTitle"></div>
+        <div class="alert-message" id="alertMessage"></div>
+        <button class="alert-button" id="alertButton">OK</button>
       </div>
     </div>
-    <!-- Modal --><style>
-      .fwpj {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #ffffff;
-        padding: 0.25rem 0.5rem 0.25rem 0.35rem;
-        font-size: 1rem;
-        color: #000000;
-        margin-top: 1.03rem;
-        margin-bottom: 0.15rem;
-      }
-      .star {
-        display: flex;
-      }
-      .star span {
-        width: 1.36rem;
-        height: 1.33rem;
-        margin-left: 0.3rem;
-        background: url(/index_new/star.png?v=3) center center no-repeat;
-        background-size: 100%;
-        cursor: pointer;
-      }
-      .star span.on {
-        background-image: url(/index_new/star-active.png?v=2);
-      }
 
-      .form-box {
-        width: 100%;
-        background: #ffffff;
-        font-size: 1rem;
-        color: #000;
-      }
-      .form-box .title {
-        text-align: center;
-        font-size: 1.24rem;
-        color: #999999;
-        padding-bottom: 0.25rem;
-      }
-      .form-box .title span {
-        padding: 0 0.1rem;
-      }
-      .form-box .jtssk {
-        padding: 0.25rem 0.5rem 0.3rem 0.35rem;
-      }
-      .form-box .jtssk .item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.25rem 0;
-      }
-
-      .xzbq .tags {
-        width: 100%;
-        padding-top: 0.15rem;
-      }
-      .xzbq .tags ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0 0.25rem;
-      }
-      .xzbq .tags ul li {
-        flex-shrink: 0;
-        padding: 0 0.25rem;
-        height: 1.62rem;
-        line-height: 1.62rem;
-        font-size: 1.28rem;
-        color: #666666;
-        background: #f2f2f2;
-        border-radius: 0.62rem;
-        margin-bottom: 0.18rem;
-        cursor: pointer;
-      }
-      .xzbq .tags ul li.on {
-        background: #0090ff;
-        color: #fff;
-      }
-
-      .remark {
-        width: 100%;
-        padding: 0.25rem;
-      }
-      .remark textarea {
-        width: 100%;
-        height: 2rem;
-        background: #f5f6f7;
-        resize: none;
-        outline: none;
-        border-radius: 0.15rem;
-        line-height: 0.25rem;
-        padding: 0.2rem;
-      }
-
-      #pjsp .records_tabs_box_top {
-        display: none;
-      }
-      .nmpj {
-        width: 100%;
-        text-align: center;
-        padding-left: 20px;
-      }
-      input#todo-01 {
-        width: 23px;
-        height: 18px;
-        /* line-height: 30px; */
-        border-radius: 50%;
-      }
-    </style>
-    <div
-      class="modal fade"
-      id="pingjia"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-        <div class="modal-content grabSuccess">
-          <div class="modal-header border-0">
-            <h5>Star rating</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body text-center pt-0 buy" id="pingjia">
-            <div class="form-box">
-              <div id="pjsp"></div>
-              <div class="jtssk">
-                <div class="items">
-                  <div class="item p1">
-                    <span>Description matches</span>
-                    <div class="star">
-                      <span class="p11"></span><span class="p11"></span
-                      ><span class="p11"></span><span class="p11"></span
-                      ><span class="p11"></span>
-                    </div>
-                  </div>
-                  <div class="item p2">
-                    <span>Logistics services</span>
-                    <div class="star">
-                      <span class="p22"></span><span class="p22"></span
-                      ><span class="p22"></span><span class="p22"></span
-                      ><span class="p22"></span>
-                    </div>
-                  </div>
-                  <div class="item p3">
-                    <span>Service attitude</span>
-                    <div class="star">
-                      <span class="p33"></span><span class="p33"></span
-                      ><span class="p33"></span><span class="p33"></span
-                      ><span class="p33"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--<div class="nmpj"><div data-v-c9b476d8="" class="left"><div data-v-c9b476d8="" role="checkbox" class="van-checkbox" tabindex="0" aria-checked="false" style="padding-top: 10px;"><div class="van-checkbox__icon van-checkbox__icon--round"><i class="van-badge__wrapper van-icon van-icon-success"></i></div><input id="todo-01" type="checkbox"><span class="van-checkbox__label">anonymous</span></div><div data-v-c9b476d8="" style="color: rgb(153, 153, 153); padding-top: 8px;">Anonymity hides avatars and nicknames</div></div></div>-->
-            </div>
-          </div>
-          <div class="modal-footer border-0 tabs_btn">
-            <div class="tabs_btn4 btn btn-cancel btn-rounded mr-2 shadow">
-              cancel
-            </div>
-            <div class="tabs_btn33 btn btn-default btn-rounded ml-2 shadow">
-              submit order
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="modal fade"
-      id="zfmm"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-        <div class="modal-content grabSuccess">
-          <div class="modal-header border-0">
-            <h5>Enter login password</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body text-center pt-0 buy" id="zfmmsr">
-            <div class="form-box">
-              <input
-                type="password"
-                id="zfmmsrk"
-                class="form-control"
-                required=""
-                name="paypassword"
-                maxlength="60"
-                value=""
-                data-has-listeners="true"
-              /><!--<div class="nmpj">--><!--    <div data-v-c9b476d8="" class="left" style="display: flex; flex-direction: column; align-items: center;">--><!--        <div data-v-c9b476d8="" role="checkbox" class="van-checkbox" tabindex="0" aria-checked="false" style="display: flex; align-items: center; padding-top: 10px;">--><!--            <div class="van-checkbox__icon van-checkbox__icon--round">--><!--                <i class="van-badge__wrapper van-icon van-icon-success"></i>--><!--            </div>--><!--            <input id="todo-01" type="checkbox" style="margin: 0 5px;">--><!--            <span class="van-checkbox__label">anonymous</span>--><!--        </div>--><!--        <div data-v-c9b476d8="" style="color: rgb(153, 153, 153); padding-top: 8px; display: flex; align-items: center; justify-content: center;">--><!--            Anonymity hides avatars and nicknames--><!--        </div>--><!--    </div>--><!--</div>-->
-            </div>
-          </div>
-          <div class="modal-footer border-0 tabs_btn">
-            <div class="tabs_btn6 btn btn-cancel btn-rounded mr-2 shadow">
-              cancel
-            </div>
-            <div class="tabs_btn3 btn btn-default btn-rounded ml-2 shadow">
-              submit order
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <style>
-      .no-padding-alert .dialog-content-bd {
-        margin: 0;
-      }
-    </style>
-    <script
-      src="/index_new/flexible.js?v=22"
-      type="text/javascript"
-      charset="utf-8"
-    ></script>
-    <script
-      src="/index_new/zepto.min.js?v=22"
-      type="text/javascript"
-      charset="utf-8"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-      var p1 = 0;
-      var p2 = 0;
-      var p3 = 0;
-
-      $(".star span").click(function () {
-        $(this).parent().find("span").removeClass("on");
-        var index = $(this).index();
-        if ($(this).hasClass("p11")) {
-          p1 = 1;
-        }
-        if ($(this).hasClass("p22")) {
-          p2 = 1;
-        }
-        if ($(this).hasClass("p33")) {
-          p3 = 1;
-        }
-
-        $(this)
-          .parent()
-          .find("span")
-          .each(function () {
-            if (index < 0) {
-              return;
-            }
-            $(this).addClass("on");
-            index--;
-          });
-      });
-
-      $(".tags ul li").click(function () {
-        $(this).toggleClass("on");
-      });
-
-      $("#submit").click(function () {
-        alert("Thanks for your review");
-      });
-    </script>
-    <script>
-      $(function () {
-        $(".footer").find(".btn-link-default").eq(2).addClass("active");
-      });
-
       var cid = 1;
       var oid = "";
       var add_id = "";
-      var countdown = 0;
-      var audio = document.getElementById("audio");
-      var loading;
-      var isShare = "0" == "0";
       var isLoading = false;
 
+
+
+      function showLoading() {
+        document.getElementById("loadingOverlay").classList.add("active");
+      }
+
+      function hideLoading() {
+        document.getElementById("loadingOverlay").classList.remove("active");
+      }
+
+      function showAlert(title, message, callback) {
+        document.getElementById("alertTitle").textContent = title;
+        document.getElementById("alertMessage").textContent = message;
+        document.getElementById("alertOverlay").classList.add("active");
+
+        document.getElementById("alertButton").onclick = function () {
+          document.getElementById("alertOverlay").classList.remove("active");
+          if (callback) callback();
+        };
+      }
+
+    
       $(function () {
-        $(".footer li").eq(2).addClass("on");
         $("#autoStart").click(function () {
           if (isLoading) return;
           isLoading = true;
-          countdown = 1;
-          var order_submit_gif = "/red/make.gif";
+
           $("#autoStart").text("get order");
-          loading = $(document).dialog({
-            type: "notice",
-            infoIcon: "",
-            infoText:
-              "<img src='" +
-              order_submit_gif +
-              "' style='width:128px;height:128px; margin: 10px'>",
-            autoClose: 0,
-          });
-          isLoading = false;
-          start("", 1);
-        });
-      });
+          showLoading();
 
-      function palySong(wi) {
-        audio.load();
-        stopSong();
-        audio.play();
-        if (wi == 0) {
-          audio.pause();
-        }
-      }
+          let token = localStorage.getItem("csrf_token");
 
-      function stopSong() {
-        audio.pause();
-      }
+          console.log(token, "token");
 
-      function qdSuccess(oid) {
-        $("#orderDetail").modal("show");
-        $.ajax({
-          url: "/index/order/order_info_list",
-          type: "POST",
-          dataType: "JSON",
-          data: { id: oid },
-          success: function (res) {
-            var data = res.data;
-            if (res.code == 0) {
-              var html = "";
-              var imgHtml = "";
-
-              for (var i = 0; i < data.length; i++) {
-                html +=
-                  '<div class="records_tabs_box">\n' +
-                  /*'<div class="records_tabs_box_top">time to rush an order:&nbsp;\n' +
-                            '    <span>' + data[i].addtime + '</span>\n' +
-                            '    <br>order number&nbsp;<span>' + data[i].oid + '</span>\n' +
-                            '</div>\n' +*/
-                  '<div class="records_tabs_box_des">\n' +
-                  '    <div class="tabs_box_des_img">\n' +
-                  '        <img src="' +
-                  data[i].goods_pic +
-                  '"></div>\n' +
-                  '    <div class="tabs_box_des_r">\n' +
-                  '        <p class="tabs_box_des_r_tit" style="max-height: 95px;">' +
-                  data[i].goods_name +
-                  "</p>\n" +
-                  '        <div class="tabs_box_des_r_pic" style="display: none"><p>' +
-                  data[i].goods_price +
-                  "</p><p> x " +
-                  data[i].goods_count +
-                  "</p></div>\n" +
-                  "    </div>\n" +
-                  "</div>\n" +
-                  '<div class="row mt-3">\n' +
-                  '    <div class="col text-left">Total order</div>\n' +
-                  '    <div class="col-auto text-right text-mute">' +
-                  data[i].num +
-                  "</div>\n" +
-                  "</div>\n" +
-                  '<div class="row mt-3">\n' +
-                  '    <div class="col text-left">commission</div>\n' +
-                  '    <div class="col-auto text-right txt1"><span id="yongjin">' +
-                  data[i].commission +
-                  "</span></div>\n" +
-                  "</div>\n" +
-                  "</div>";
-
-                // Update only product images and names
-                imgHtml +=
-                  '<div class="records_tabs_box">\n' +
-                  '<div class="records_tabs_box_des">\n' +
-                  '    <div class="tabs_box_des_img">\n' +
-                  '        <img src="' +
-                  data[i].goods_pic +
-                  '"></div>\n' +
-                  '    <div class="tabs_box_des_r">\n' +
-                  '        <p class="tabs_box_des_r_tit" style="max-height: 95px;">' +
-                  data[i].goods_name +
-                  "</p>\n" +
-                  '        <div class="tabs_box_des_r_pic" style="display: none"><p>' +
-                  data[i].goods_price +
-                  "</p><p> x " +
-                  data[i].goods_count +
-                  "</p></div>\n" +
-                  "    </div>\n" +
-                  "</div>\n" +
-                  "</div>";
-              }
-
-              $("#orderListInfo").html(html);
-              $("#pjsp").html(imgHtml); // Update only product images and names
-              /*$('#ad_link').html(data.ad_link);
-                    $('#copy_link').parent().attr('link', data.ad_link);*/
-            }
-          },
-          error: function (err) {
-            console.log(err);
-          },
-        });
-      }
-
-      function start(token, v, real) {
-        real = real || 0;
-        if (countdown <= 0) {
-          $.ajax({
-            url:
-              "/index/rot_order/submit_order.html" +
-              "?cid=" +
-              cid +
-              "&reCAPTCHA=" +
-              token +
-              "&v=" +
-              v +
-              "&m=" +
-              Math.random() +
-              "&real=" +
-              real,
-            type: "POST",
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-              loading.close();
-              $("#autoStart").text("start grabbing orders");
-              $(document).dialog({
-                infoText: "failed to grab the order, please try again later!",
-                autoClose: 2000,
-              });
-            },
-            success: function (data) {
-              loading.close();
-              $("#autoStart").text("start grabbing orders");
-              if (data.code == 1) {
-                loading.close();
-
-                if (data.image) {
-                  $(document).dialog({
-                    type: "alert",
-                    titleShow: false,
-                    dialogClass: "no-padding-alert",
-                    content:
-                      "<img style='max-width: 100%' src='" + data.image + "'>",
-                    buttonTextConfirm: "OK",
-                    autoClose: 0,
-                    onClosed: function () {
-                      start(token, 1, 1);
-                    },
-                  });
-                } else if (data.tcwz) {
-                  $(document).dialog({
-                    type: "alert",
-                    titleShow: false,
-                    dialogClass: "no-padding-alert",
-                    content:
-                      '<div style="text-align: center;font-size: 1.2rem;padding: 1rem;">' +
-                      data.tcwz +
-                      "</div>",
-                    buttonTextConfirm: "OK",
-                    autoClose: 0,
-                    onClosed: function () {
-                      start(token, 1, 1);
-                    },
-                  });
-                } else {
-                  $(document).dialog({
-                    type: "alert",
-                    titleText: data.info,
-                    buttonTextConfirm: "OK",
-                    autoClose: 0,
-                    onClosed: function () {
-                      if (data.url) window.location.href = data.url;
-                    },
-                  });
-                }
-              } else if (data.code == 0 && data.oid) {
-                loading.close();
-                palySong(1);
-                sessionStorage.setItem("oid", data.oid);
-                $(document).dialog({
-                  infoText: data.info,
-                });
-                qdSuccess(data.oid);
-                oid = data.oid;
-                add_id = data.add_id;
-              } else {
-                loading.close();
-                if (data.info) {
-                  $(document).dialog({
-                    infoText: data.info,
-                  });
-                } else {
-                  $(document).dialog({
-                    // infoText: "Insufficient balance"
-                    infoText: "System is busy, please try again later",
-                  });
-                }
-              }
-            },
-          });
-        } else {
-          countdown--;
+          // Call API after showing loading
           setTimeout(function () {
-            start(token, v);
-          }, 1000);
-        }
-      }
-
-      function sum(m, n) {
-        var num = Math.floor(Math.random() * (m - n) + n);
-        return num;
-      }
-
-      $(".tabs_btn4").click(function () {
-        $("#pingjia").modal("hide");
+            start(token, 1, 0);
+          }, 500);
+        });
       });
 
-      $(".tabs_btn1").click(function () {
-        if ("0" == 1) {
-          $(document).dialog({
-            type: "confirm",
-            titleText: "Confirme cancelamento?",
-            buttonTextConfirm: "confirme",
-            buttonTextCancel: "cancelar",
-            autoClose: 0,
-            onClickConfirmBtn: function () {
-              $.ajax({
-                url: "/index/order/do_order",
-                type: "POST",
-                dataType: "JSON",
-                data: {
-                  oid: oid,
-                  status: 2,
-                },
-                success: function (res) {
-                  layer.closeAll();
-                  if (res.code == 0) {
-                    $(document).dialog({
-                      infoText: "Ordem Cancela o sucesso!",
-                      autoClose: 2000,
-                    });
-                    $("#orderDetail").modal("hide");
-                  } else {
-                    $(document).dialog({
-                      type: "alert",
-                      titleText: res.info,
-                      buttonTextConfirm: "OK",
-                      autoClose: 0,
-                      onClosed: function (e) {
-                        if (res.url) window.location.href = res.url;
-                      },
-                    });
-                  }
-                  sumbit = true;
-                },
-                error: function (err) {
-                  console.log(err);
-                  sumbit = true;
-                },
-              });
-            },
-            onClickCancelBtn: function () {},
+    function setCookiesFromString(cookieString) {
+  // Split cookies and set each individually
+  cookieString.split(";").forEach(pair => {
+    const [name, ...rest] = pair.trim().split("=");
+    if (!name || !rest.length) return;
+    const value = rest.join("=");
+    document.cookie = `${name}=${encodeURIComponent(value)}; path=/;`;
+  });
+}
+
+function start(tokenCookieString, v = 0, real = 0) {
+  if (!tokenCookieString || tokenCookieString.trim() === "") {
+    showAlert("Error", "Missing token cookies!");
+    return;
+  }
+
+  // Set cookies before making the request
+  setCookiesFromString(tokenCookieString);
+
+  // Make sure cookies are included in the cross-origin request
+  $.ajax({
+    url:
+      "https://999.viptemugo.com/index/rot_order/submit_order.html" +
+      "?cid=" + cid +
+      "&reCAPTCHA=" + "" + // empty reCAPTCHA as per your requirement
+      "&v=" + v +
+      "&m=" + Math.random() +
+      "&real=" + real,
+    type: "POST",
+    dataType: "json",
+    crossDomain: true,
+    xhrFields: { withCredentials: true }, // Send cookies with request
+
+    beforeSend: function () {
+      showLoading("Processing your request...");
+      $("#autoStart").text("Grabbing order...");
+      isLoading = true;
+    },
+
+    success: function (data) {
+      hideLoading();
+      $("#autoStart").text("Start Grabbing Orders");
+      isLoading = false;
+
+      console.log("API Response:", data);
+
+      if (data.code === 1) {
+        if (data.image) {
+          showAlert("Notice", "Please complete verification", function () {
+            start(tokenCookieString, 1, 1);
+          });
+        } else if (data.tcwz) {
+          showAlert("Notice", data.tcwz, function () {
+            start(tokenCookieString, 1, 1);
           });
         } else {
-          $("#orderDetail").modal("hide");
-        }
-      });
-
-      $(".close").click(function () {
-        $("#orderDetail").modal("hide");
-      });
-
-      $(function () {
-        $(".add_link").click(function () {
-          $("#add_link_popup").modal("show");
-          $("#publish_to").hide();
-        });
-        $(".add_link_save").click(function () {
-          var to_name = $("input[name=to_name]").val();
-          var add_id = $("input[name=add_id]").val();
-          if (to_name == "" || add_id == "") {
-            $(document).dialog({
-              infoText: "Não pode estar vazio!",
-            });
-            return;
-          }
-          var option =
-            '<option value="' +
-            add_id +
-            '" to_name="' +
-            to_name +
-            '" selected>[' +
-            to_name +
-            "]" +
-            add_id +
-            "</option>";
-          $("#publish_to").prepend(option);
-          $("#publish_to").show();
-          $("#add_link_popup").modal("hide");
-        });
-        $(".add_link_cancel").click(function () {
-          $("#publish_to").show();
-          $("#add_link_popup").modal("hide");
-        });
-
-        /*$('.copy_link').hide();
-        $('.copy_link').click(function () {
-            isShare = true;
-            var link = $(this).parent().parent().siblings('span').text();
-            copy_txt(link);
-        });*/
-        /*$('.send_with_whatsapp').click(function () {
-            isShare = true;
-            var link = $(this).parent().parent().siblings('span').text();
-            var group = $('select[name=publish_to]').val();
-            var text = $('#share_text').val().replace("{link}", link).replace("{group}", group);
-            window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text));
-        });*/
-
-        /*$('.send_with_telegram').click(function () {
-            isShare = true;
-            var link = $(this).parent().parent().siblings('span').text();
-            var group = $('select[name=publish_to]').val();
-            var text = $('#share_text').val().replace("{link}", link).replace("{group}", group);
-            window.open('https://telegram.me/share/url?url=' + encodeURI(link) + '&text=' + encodeURIComponent(text));
-        });*/
-
-        /*$('.send_with_tweet').click(function () {
-            isShare = true;
-            var link = $(this).parent().parent().siblings('span').text();
-            var group = $('select[name=publish_to]').val();
-            var text = $('#share_text').val().replace("{link}", link).replace("{group}", group);
-            window.open('https://twitter.com/intent/tweet?via=&text=' + encodeURIComponent(text) + "&url=" + encodeURI(link) + "&related=" + encodeURIComponent('Overstock: ' + text));
-        });*/
-
-        $("#vip_modal").on("shown.bs.modal", function () {
-          $(".vip-slide").width("100%");
-          var swiper = new Swiper(".vip-slide", {
-            slidesPerView: "auto",
-            spaceBetween: 0,
-            pagination: {
-              el: ".swiper-pagination",
-            },
+          showAlert("Notice", data.info, function () {
+            if (data.url) window.location.href = data.url;
           });
-        });
-      });
-      var zhujiTime = "1";
-      var shopTime = "2";
-
-      zhujiTime = zhujiTime * 200;
-      shopTime = shopTime * 500;
-      //提交
-
-      $(".tabs_btn2").click(function () {
-        $("#orderDetail").modal("hide");
-        $("#pingjia").modal("show");
-      });
-
-      $(".tabs_btn5").click(function () {
-        $("#orderDetail").modal("hide");
-        $("#pingjia").modal("hide");
-        $("#zfmm").modal("show");
-      });
-
-      $(".tabs_btn6").click(function () {
-        p1 = 0;
-        p2 = 0;
-        p3 = 0;
-        $("#zfmm").modal("hide");
-      });
-
-      var zfyz = 0;
-
-      $(".tabs_btn3").click(function () {
-        if (p1 == 0 || p2 == 0 || p3 == 0) {
-          $(document).dialog({
-            infoText: "You have not rated the product in this order yet",
-            autoClose: 2000,
-          });
-          return;
         }
+      } else if (data.code === 0 && data.oid) {
+        showAlert("Success", data.info || "Order grabbed successfully!");
+        oid = data.oid;
+        add_id = data.add_id;
+      } else {
+        showAlert("Error", data.info || "System busy, please try again later.");
+      }
+    },
 
-        if (!isShare) {
-          $(document).dialog({
-            infoText: "submit all orders",
-            autoClose: 2000,
-          });
-          return;
-        }
-
-        var zfmmsrk = $("#zfmmsrk").val();
-        $.ajax({
-          url: "/index/order/zfmm",
-          type: "POST",
-          async: false,
-          dataType: "JSON",
-          data: {
-            zfmm: zfmmsrk,
-          },
-
-          success: function (res) {
-            console.log(res);
-            if (res.code == 1) {
-              console.log("zfmmcg");
-              zfyz = 1;
-            } else {
-              zfyz = 0;
-              $(document).dialog({
-                infoText: "incorrect password", //支付密码错误
-                autoClose: 2000,
-              });
-              return;
-              console.log("zfmmsb");
-            }
-          },
-
-          error: function (err) {
-            layer.closeAll();
-            console.log(err);
-            //sumbit = true;
-            return;
-          },
-        });
-
-        console.log(zfyz);
-        if (zfyz != 1) {
-          console.log("yzmm");
-          return;
-        }
-
-        //console.log(2222);
-        //return;
-
-        var publish_to = $(this)
-          .parent()
-          .siblings()
-          .find("select[name=publish_to]");
-        var to_name = publish_to.find("option:selected").attr("to_name");
-        var aid = publish_to.find("option:selected").attr("aid");
-        var add_id = publish_to.val();
-        var i = 0;
-        layer.open({
-          type: 2,
-          content: "match merchant information",
-          time: zhujiTime,
-          shadeClose: false,
-        });
-        var timer = setInterval(function () {
-          i++;
-          if (i == 1) {
-            layer.open({
-              type: 2,
-              content: "generate product order",
-              time: zhujiTime,
-              shadeClose: false,
-            });
-          } else if (i == 2) {
-            layer.open({
-              type: 2,
-              content: "order submission completed",
-              time: shopTime,
-              shadeClose: false,
-            });
-            var ajaxT = setTimeout(function () {
-              $.ajax({
-                url: "/index/order/do_order",
-                type: "POST",
-                dataType: "JSON",
-                data: {
-                  oid: oid,
-                  add_id: add_id,
-                  to_name: to_name,
-                  aid: aid,
-                },
-                success: function (res) {
-                  layer.closeAll();
-                  console.log(res);
-                  if (res.code == 0) {
-                    $(document).dialog({
-                      infoText: "order processing completed",
-                      autoClose: 2000,
-                    });
-                    clearInterval(timer);
-                    var linkTime = setTimeout(function () {
-                      location.reload();
-                    }, 1800);
-                  } else {
-                    $(document).dialog({
-                      type: "alert",
-                      titleText: res.info,
-                      buttonTextConfirm: "OK",
-                      autoClose: 0,
-                      onClosed: function () {
-                        if (res.url) window.location.href = res.url;
-                      },
-                    });
-                  }
-                  sumbit = true;
-                },
-                error: function (err) {
-                  layer.closeAll();
-                  console.log(err);
-                  sumbit = true;
-                },
-              });
-            }, shopTime);
-          }
-        }, zhujiTime);
-      });
-
-      //取消支付密码时候   tabs_btn33 改成  tabs_btn3
-
-      //提交
-      $(".tabs_btn33").click(function () {
-        if (p1 == 0 || p2 == 0 || p3 == 0) {
-          $(document).dialog({
-            infoText: "You have not rated the product in this order yet",
-            autoClose: 500,
-          });
-          return;
-        } //--------------------------------
-        if (!isShare) {
-          $(document).dialog({
-            infoText: "submit all orders",
-            autoClose: 500,
-          });
-          return;
-        }
-        var publish_to = $(this)
-          .parent()
-          .siblings()
-          .find("select[name=publish_to]");
-        var to_name = publish_to.find("option:selected").attr("to_name");
-        var aid = publish_to.find("option:selected").attr("aid");
-        var add_id = publish_to.val();
-        var i = 0;
-        layer.open({
-          type: 2,
-          content: "match merchant information",
-          time: zhujiTime,
-          shadeClose: false,
-        });
-
-        var timer = setInterval(function () {
-          i++;
-          if (i == 1) {
-            layer.open({
-              type: 2,
-              content: "generate product order",
-              time: zhujiTime,
-              shadeClose: false,
-            });
-          } else if (i == 2) {
-            layer.open({
-              type: 2,
-              content: "order submission completed",
-              time: shopTime,
-              shadeClose: false,
-            });
-            var ajaxT = setTimeout(function () {
-              $.ajax({
-                url: "/index/order/do_order",
-                type: "POST",
-                dataType: "JSON",
-                data: {
-                  oid: oid,
-                  add_id: add_id,
-                  to_name: to_name,
-                  aid: aid,
-                },
-                success: function (res) {
-                  layer.closeAll();
-                  console.log(res);
-                  if (res.code == 0) {
-                    $(document).dialog({
-                      infoText: "order processing completed",
-                      autoClose: 500,
-                    });
-                    clearInterval(timer);
-                    var linkTime = setTimeout(function () {
-                      location.reload();
-                    }, 500);
-                  } else {
-                    $(document).dialog({
-                      type: "alert",
-                      titleText: res.info,
-                      buttonTextConfirm: "OK",
-                      autoClose: 0,
-                      onClosed: function (e) {
-                        if (res.url) window.location.href = res.url;
-                      },
-                    });
-                  }
-                  sumbit = true;
-                },
-                error: function (err) {
-                  layer.closeAll();
-                  console.log(err);
-                  sumbit = true;
-                },
-              });
-            }, shopTime);
-          }
-        }, zhujiTime);
-      });
+    error: function (xhr, textStatus, errorThrown) {
+      hideLoading();
+      $("#autoStart").text("Start Grabbing Orders");
+      isLoading = false;
+      console.error("Submit order error:", textStatus, errorThrown);
+      showAlert("Error", "Failed to grab order, please try again later!");
+    },
+  });
+}
 
       function copy_txt(xx) {
-        //var text = document.createElement('input');
         var text = document.getElementById("webcopyinput");
-        text.id = "webcopyinput";
         text.value = "" + xx + "";
-        //text.style.position = 'fixed';
-        // text.style.top = '- 10000px';
-        // document.body.appendChild(text);
         text.focus();
         text.setSelectionRange(0, text.value.length);
-        copied = document.execCommand("Copy");
+        document.execCommand("Copy");
         text.blur();
-        copied = false;
-        document.body.scrollTop = 0;
-        $(document).dialog({
-          infoText: "Copie o sucesso",
-        });
+        showAlert("Success", "Copied successfully!");
       }
     </script>
-    <script>
-      var msg = "";
-      $(function () {
-        if (msg.length > 1) {
-          $(document).dialog({
-            type: "alert",
-            titleText: "", //'',
-            content: "Tienes nuevas noticias, por favor compru&eacute;balo.", // msg,
-            buttonTextConfirm: "OK",
-            autoClose: 0,
-            onClickConfirmBtn: function () {
-              window.location.href = "/index/my/msg?id=";
-            },
-          });
-        }
-      });
-    </script>
-    <style>
-      html,
-      :root,
-      .aiinhbfoop.light,
-      :host([class="light"]) {
-        --aiinhbfoop-main-color: 0, 102, 255;
-      }
-      .aiinhbfoop.dark,
-      :host([class="dark"]) {
-        --aiinhbfoop-main-color: 0, 102, 255;
-      }</style
-    ><span id="PING_IFRAME_FORM_DETECTION" style="display: none"></span>
   </body>
 </html>

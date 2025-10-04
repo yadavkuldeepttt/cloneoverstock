@@ -3,643 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=0"><meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
     <meta
       name="viewport"
-      content="width=drvice-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"
     />
     <title>personal information</title>
-    <style type="text/css">
-      :root,
-      :host {
-        --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
-        --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
-        --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
-        --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
-        --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
-        --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
-        --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-duotone-solid: normal 900 1em/1
-          "Font Awesome 6 Sharp Duotone";
-      }
-
-      svg:not(:root).svg-inline--fa,
-      svg:not(:host).svg-inline--fa {
-        overflow: visible;
-        box-sizing: content-box;
-      }
-
-      .svg-inline--fa {
-        display: var(--fa-display, inline-block);
-        height: 1em;
-        overflow: visible;
-        vertical-align: -0.125em;
-      }
-      .svg-inline--fa.fa-2xs {
-        vertical-align: 0.1em;
-      }
-      .svg-inline--fa.fa-xs {
-        vertical-align: 0em;
-      }
-      .svg-inline--fa.fa-sm {
-        vertical-align: -0.0714285705em;
-      }
-      .svg-inline--fa.fa-lg {
-        vertical-align: -0.2em;
-      }
-      .svg-inline--fa.fa-xl {
-        vertical-align: -0.25em;
-      }
-      .svg-inline--fa.fa-2xl {
-        vertical-align: -0.3125em;
-      }
-      .svg-inline--fa.fa-pull-left {
-        margin-right: var(--fa-pull-margin, 0.3em);
-        width: auto;
-      }
-      .svg-inline--fa.fa-pull-right {
-        margin-left: var(--fa-pull-margin, 0.3em);
-        width: auto;
-      }
-      .svg-inline--fa.fa-li {
-        width: var(--fa-li-width, 2em);
-        top: 0.25em;
-      }
-      .svg-inline--fa.fa-fw {
-        width: var(--fa-fw-width, 1.25em);
-      }
-
-      .fa-layers svg.svg-inline--fa {
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
-      .fa-layers-counter,
-      .fa-layers-text {
-        display: inline-block;
-        position: absolute;
-        text-align: center;
-      }
-
-      .fa-layers {
-        display: inline-block;
-        height: 1em;
-        position: relative;
-        text-align: center;
-        vertical-align: -0.125em;
-        width: 1em;
-      }
-      .fa-layers svg.svg-inline--fa {
-        transform-origin: center center;
-      }
-
-      .fa-layers-text {
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transform-origin: center center;
-      }
-
-      .fa-layers-counter {
-        background-color: var(--fa-counter-background-color, #ff253a);
-        border-radius: var(--fa-counter-border-radius, 1em);
-        box-sizing: border-box;
-        color: var(--fa-inverse, #fff);
-        line-height: var(--fa-counter-line-height, 1);
-        max-width: var(--fa-counter-max-width, 5em);
-        min-width: var(--fa-counter-min-width, 1.5em);
-        overflow: hidden;
-        padding: var(--fa-counter-padding, 0.25em 0.5em);
-        right: var(--fa-right, 0);
-        text-overflow: ellipsis;
-        top: var(--fa-top, 0);
-        transform: scale(var(--fa-counter-scale, 0.25));
-        transform-origin: top right;
-      }
-
-      .fa-layers-bottom-right {
-        bottom: var(--fa-bottom, 0);
-        right: var(--fa-right, 0);
-        top: auto;
-        transform: scale(var(--fa-layers-scale, 0.25));
-        transform-origin: bottom right;
-      }
-
-      .fa-layers-bottom-left {
-        bottom: var(--fa-bottom, 0);
-        left: var(--fa-left, 0);
-        right: auto;
-        top: auto;
-        transform: scale(var(--fa-layers-scale, 0.25));
-        transform-origin: bottom left;
-      }
-
-      .fa-layers-top-right {
-        top: var(--fa-top, 0);
-        right: var(--fa-right, 0);
-        transform: scale(var(--fa-layers-scale, 0.25));
-        transform-origin: top right;
-      }
-
-      .fa-layers-top-left {
-        left: var(--fa-left, 0);
-        right: auto;
-        top: var(--fa-top, 0);
-        transform: scale(var(--fa-layers-scale, 0.25));
-        transform-origin: top left;
-      }
-
-      .fa-1x {
-        font-size: 1em;
-      }
-
-      .fa-2x {
-        font-size: 2em;
-      }
-
-      .fa-3x {
-        font-size: 3em;
-      }
-
-      .fa-4x {
-        font-size: 4em;
-      }
-
-      .fa-5x {
-        font-size: 5em;
-      }
-
-      .fa-6x {
-        font-size: 6em;
-      }
-
-      .fa-7x {
-        font-size: 7em;
-      }
-
-      .fa-8x {
-        font-size: 8em;
-      }
-
-      .fa-9x {
-        font-size: 9em;
-      }
-
-      .fa-10x {
-        font-size: 10em;
-      }
-
-      .fa-2xs {
-        font-size: 0.625em;
-        line-height: 0.1em;
-        vertical-align: 0.225em;
-      }
-
-      .fa-xs {
-        font-size: 0.75em;
-        line-height: 0.0833333337em;
-        vertical-align: 0.125em;
-      }
-
-      .fa-sm {
-        font-size: 0.875em;
-        line-height: 0.0714285718em;
-        vertical-align: 0.0535714295em;
-      }
-
-      .fa-lg {
-        font-size: 1.25em;
-        line-height: 0.05em;
-        vertical-align: -0.075em;
-      }
-
-      .fa-xl {
-        font-size: 1.5em;
-        line-height: 0.0416666682em;
-        vertical-align: -0.125em;
-      }
-
-      .fa-2xl {
-        font-size: 2em;
-        line-height: 0.03125em;
-        vertical-align: -0.1875em;
-      }
-
-      .fa-fw {
-        text-align: center;
-        width: 1.25em;
-      }
-
-      .fa-ul {
-        list-style-type: none;
-        margin-left: var(--fa-li-margin, 2.5em);
-        padding-left: 0;
-      }
-      .fa-ul > li {
-        position: relative;
-      }
-
-      .fa-li {
-        left: calc(-1 * var(--fa-li-width, 2em));
-        position: absolute;
-        text-align: center;
-        width: var(--fa-li-width, 2em);
-        line-height: inherit;
-      }
-
-      .fa-border {
-        border-color: var(--fa-border-color, #eee);
-        border-radius: var(--fa-border-radius, 0.1em);
-        border-style: var(--fa-border-style, solid);
-        border-width: var(--fa-border-width, 0.08em);
-        padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
-      }
-
-      .fa-pull-left {
-        float: left;
-        margin-right: var(--fa-pull-margin, 0.3em);
-      }
-
-      .fa-pull-right {
-        float: right;
-        margin-left: var(--fa-pull-margin, 0.3em);
-      }
-
-      .fa-beat {
-        animation-name: fa-beat;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, ease-in-out);
-      }
-
-      .fa-bounce {
-        animation-name: fa-bounce;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.28, 0.84, 0.42, 1)
-        );
-      }
-
-      .fa-fade {
-        animation-name: fa-fade;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.4, 0, 0.6, 1)
-        );
-      }
-
-      .fa-beat-fade {
-        animation-name: fa-beat-fade;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.4, 0, 0.6, 1)
-        );
-      }
-
-      .fa-flip {
-        animation-name: fa-flip;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, ease-in-out);
-      }
-
-      .fa-shake {
-        animation-name: fa-shake;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, linear);
-      }
-
-      .fa-spin {
-        animation-name: fa-spin;
-        animation-delay: var(--fa-animation-delay, 0s);
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 2s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, linear);
-      }
-
-      .fa-spin-reverse {
-        --fa-animation-direction: reverse;
-      }
-
-      .fa-pulse,
-      .fa-spin-pulse {
-        animation-name: fa-spin;
-        animation-direction: var(--fa-animation-direction, normal);
-        animation-duration: var(--fa-animation-duration, 1s);
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-timing-function: var(--fa-animation-timing, steps(8));
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .fa-beat,
-        .fa-bounce,
-        .fa-fade,
-        .fa-beat-fade,
-        .fa-flip,
-        .fa-pulse,
-        .fa-shake,
-        .fa-spin,
-        .fa-spin-pulse {
-          animation-delay: -1ms;
-          animation-duration: 1ms;
-          animation-iteration-count: 1;
-          transition-delay: 0s;
-          transition-duration: 0s;
-        }
-      }
-      @keyframes fa-beat {
-        0%,
-        90% {
-          transform: scale(1);
-        }
-        45% {
-          transform: scale(var(--fa-beat-scale, 1.25));
-        }
-      }
-      @keyframes fa-bounce {
-        0% {
-          transform: scale(1, 1) translateY(0);
-        }
-        10% {
-          transform: scale(
-              var(--fa-bounce-start-scale-x, 1.1),
-              var(--fa-bounce-start-scale-y, 0.9)
-            )
-            translateY(0);
-        }
-        30% {
-          transform: scale(
-              var(--fa-bounce-jump-scale-x, 0.9),
-              var(--fa-bounce-jump-scale-y, 1.1)
-            )
-            translateY(var(--fa-bounce-height, -0.5em));
-        }
-        50% {
-          transform: scale(
-              var(--fa-bounce-land-scale-x, 1.05),
-              var(--fa-bounce-land-scale-y, 0.95)
-            )
-            translateY(0);
-        }
-        57% {
-          transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-        }
-        64% {
-          transform: scale(1, 1) translateY(0);
-        }
-        100% {
-          transform: scale(1, 1) translateY(0);
-        }
-      }
-      @keyframes fa-fade {
-        50% {
-          opacity: var(--fa-fade-opacity, 0.4);
-        }
-      }
-      @keyframes fa-beat-fade {
-        0%,
-        100% {
-          opacity: var(--fa-beat-fade-opacity, 0.4);
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(var(--fa-beat-fade-scale, 1.125));
-        }
-      }
-      @keyframes fa-flip {
-        50% {
-          transform: rotate3d(
-            var(--fa-flip-x, 0),
-            var(--fa-flip-y, 1),
-            var(--fa-flip-z, 0),
-            var(--fa-flip-angle, -180deg)
-          );
-        }
-      }
-      @keyframes fa-shake {
-        0% {
-          transform: rotate(-15deg);
-        }
-        4% {
-          transform: rotate(15deg);
-        }
-        8%,
-        24% {
-          transform: rotate(-18deg);
-        }
-        12%,
-        28% {
-          transform: rotate(18deg);
-        }
-        16% {
-          transform: rotate(-22deg);
-        }
-        20% {
-          transform: rotate(22deg);
-        }
-        32% {
-          transform: rotate(-12deg);
-        }
-        36% {
-          transform: rotate(12deg);
-        }
-        40%,
-        100% {
-          transform: rotate(0deg);
-        }
-      }
-      @keyframes fa-spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      .fa-rotate-90 {
-        transform: rotate(90deg);
-      }
-
-      .fa-rotate-180 {
-        transform: rotate(180deg);
-      }
-
-      .fa-rotate-270 {
-        transform: rotate(270deg);
-      }
-
-      .fa-flip-horizontal {
-        transform: scale(-1, 1);
-      }
-
-      .fa-flip-vertical {
-        transform: scale(1, -1);
-      }
-
-      .fa-flip-both,
-      .fa-flip-horizontal.fa-flip-vertical {
-        transform: scale(-1, -1);
-      }
-
-      .fa-rotate-by {
-        transform: rotate(var(--fa-rotate-angle, 0));
-      }
-
-      .fa-stack {
-        display: inline-block;
-        vertical-align: middle;
-        height: 2em;
-        position: relative;
-        width: 2.5em;
-      }
-
-      .fa-stack-1x,
-      .fa-stack-2x {
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: var(--fa-stack-z-index, auto);
-      }
-
-      .svg-inline--fa.fa-stack-1x {
-        height: 1em;
-        width: 1.25em;
-      }
-      .svg-inline--fa.fa-stack-2x {
-        height: 2em;
-        width: 2.5em;
-      }
-
-      .fa-inverse {
-        color: var(--fa-inverse, #fff);
-      }
-
-      .sr-only,
-      .fa-sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-      }
-
-      .sr-only-focusable:not(:focus),
-      .fa-sr-only-focusable:not(:focus) {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-      }
-
-      .svg-inline--fa .fa-primary {
-        fill: var(--fa-primary-color, currentColor);
-        opacity: var(--fa-primary-opacity, 1);
-      }
-
-      .svg-inline--fa .fa-secondary {
-        fill: var(--fa-secondary-color, currentColor);
-        opacity: var(--fa-secondary-opacity, 0.4);
-      }
-
-      .svg-inline--fa.fa-swap-opacity .fa-primary {
-        opacity: var(--fa-secondary-opacity, 0.4);
-      }
-
-      .svg-inline--fa.fa-swap-opacity .fa-secondary {
-        opacity: var(--fa-primary-opacity, 1);
-      }
-
-      .svg-inline--fa mask .fa-primary,
-      .svg-inline--fa mask .fa-secondary {
-        fill: black;
-      }
-
-      .fad.fa-inverse,
-      .fa-duotone.fa-inverse {
-        color: var(--fa-inverse, #fff);
-      }
-    </style>
     <link rel="icon" type="image/png" href="/skin2025/img/tx11.png" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <!-- Roboto fonts CSS -->
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet" />
-    <!-- Swiper CSS -->
     <link href="/red/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <!-- Custom styles for this template -->
     <link href="/red/liMarquee.css?v=V1759227325" rel="stylesheet" />
     <link href="/style2.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static_new/css/public.css?v=V1.24" />
@@ -653,16 +32,125 @@
     <link rel="stylesheet" href="/skin2025/iconfont/iconfont.css" />
     <script src="/skin2025/layui/layui.js"></script>
     <link rel="stylesheet" href="/skin2025/style.css?v=202501" />
+    <style>
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-overlay.show {
+        display: flex;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        max-width: 340px;
+        width: 90%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        animation: modalSlideIn 0.3s ease-out;
+      }
+
+      @keyframes modalSlideIn {
+        from {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .modal-header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .modal-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 16px;
+        background: #fff3f3;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-icon svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      .modal-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      .modal-message {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.5;
+      }
+
+      .modal-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .modal-btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .modal-btn-cancel {
+        background: #f5f5f5;
+        color: #666;
+      }
+
+      .modal-btn-cancel:hover {
+        background: #e8e8e8;
+      }
+
+      .modal-btn-confirm {
+        background: #da0023;
+        color: white;
+      }
+
+      .modal-btn-confirm:hover {
+        background: #b8001d;
+      }
+    </style>
   </head>
   <body>
     <div class="app">
       <div class="top">
         <div class="top_left">
-          <a href="/index/user/lang"
-            ><img
-              src="	https://overstoc.cyou/red/fonts-google-svg/g_translate_1.svg"
+          <a href="/language.html">
+            <img
+              src="https://overstoc.cyou/red/fonts-google-svg/g_translate_1.svg"
               style="margin: 10px"
-          /></a>
+            />
+          </a>
         </div>
         <div class="top_center">
           <div
@@ -678,34 +166,36 @@
           </div>
         </div>
         <div class="top_right">
-          <a href="/index/support/index"
-            ><img
+          <a href="/support.html">
+            <img
               src="https://overstoc.cyou/red/fonts-google-svg/support_agent_1.svg"
               style="margin: 10px"
-          /></a>
+            />
+          </a>
         </div>
       </div>
+
       <div class="main">
         <div class="g1">
           <div class="g1-1">
-            <div class="g1-1-1">11112222</div>
-            <div class="g1-1-2">Evie</div>
-            <div class="g1-1-2">my balance:0.00$</div>
+            <div class="g1-1-1" id="userPhone">Loading...</div>
+            <div class="g1-1-2" id="userName">Loading...</div>
+            <div class="g1-1-2">
+              my balance:<span id="userBalance">0.00</span>$
+            </div>
             <div class="g1-1-3">
-              Invite Code:<span id="copy1">XKENQY</span
-              ><img
-                src="	https://overstoc.cyou/red/img/copy.png"
+              Invite Code:<span id="copy1" data-invite-code="">Loading...</span>
+              <img
+                src="https://overstoc.cyou/red/img/copy.png"
                 style="width: 22px; cursor: pointer"
                 class="invite"
-              /><input
+              />
+              <input
                 type="text"
                 id="hiddenInput"
                 style="position: absolute; left: -9999px"
-                fdprocessedid="64nq3c"
-                data-has-listeners="true"
               />
             </div>
-            <!--<div class="g1-1-3">Credit Score:100</div>-->
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
               $(document).ready(function () {
@@ -714,23 +204,23 @@
                   var tempInput = $("#hiddenInput");
                   tempInput.val(inviteCode).select();
                   document.execCommand("copy");
-
-                  return $(document).dialog({
-                    infoText: "copy successfully",
-                    autoClose: 2000,
-                  });
+                  alert("Copy successfully");
                 });
               });
             </script>
           </div>
-          <div class="g1-2"><img src="https://overstoc.cyou/skin2025/img/tx11.png" /></div>
+          <div class="g1-2">
+            <img src="https://overstoc.cyou/skin2025/img/tx11.png" />
+          </div>
         </div>
+
         <div class="g2">
           <ul>
             <li><a href="/withdraw.html">Withdraw</a></li>
             <li class="on"><a href="/recharge.html">Recharge</a></li>
           </ul>
         </div>
+
         <div class="g3">
           <ul>
             <li>
@@ -749,8 +239,6 @@
                     d="M513.4848 689.6128c-99.6864 0-180.7872-81.1008-180.7872-180.7872 0-14.2336 1.6896-28.5184 5.0688-42.4448a35.87584 35.87584 0 0 1 34.8672-27.4432h281.8048c16.5376 0 30.976 11.3664 34.8672 27.4432 3.3792 13.9264 5.0688 28.2112 5.0688 42.4448-0.1024 99.6864-81.2032 180.7872-180.8896 180.7872zM404.3776 510.6176c0.9728 59.3408 49.5104 107.3152 109.1072 107.3152s108.1344-47.9744 109.1072-107.3152H404.3776z"
                     fill="#da0023"
                     p-id="9982"
-                    data-spm-anchor-id="a313x.search_index.0.i15.75ec3a81IeAFnU"
-                    class="selected"
                   ></path>
                   <path
                     d="M775.5264 945.2544H253.696c-107.0592 0-194.1504-87.0912-194.1504-194.1504V400.0768c0-107.0592 87.0912-194.1504 194.1504-194.1504h521.8304c107.0592 0 194.1504 87.0912 194.1504 194.1504v351.0784c0 107.008-87.0912 194.0992-194.1504 194.0992zM253.696 277.6064c-67.5328 0-122.4704 54.9376-122.4704 122.4704v351.0784c0 67.5328 54.9376 122.4704 122.4704 122.4704h521.8304c67.5328 0 122.4704-54.9376 122.4704-122.4704V400.0768c0-67.5328-54.9376-122.4704-122.4704-122.4704H253.696z"
@@ -770,7 +258,7 @@
                 </svg>
               </div>
               <div class="text1">Total</div>
-              <div class="text2">0$</div>
+              <div class="text2" id="totalAmount">0$</div>
             </li>
             <li>
               <div class="icon">
@@ -793,13 +281,11 @@
                     d="M640 288H384c-17.6 0-32 14.4-32 32s14.4 32 32 32h256c17.6 0 32-14.4 32-32s-14.4-32-32-32z"
                     fill="#da0023"
                     p-id="22513"
-                    data-spm-anchor-id="a313x.search_index.0.i35.75ec3a81IeAFnU"
-                    class="selected"
                   ></path>
                 </svg>
               </div>
               <div class="text1">Today</div>
-              <div class="text2">0$</div>
+              <div class="text2" id="todayAmount">0$</div>
             </li>
             <li>
               <div class="icon">
@@ -822,22 +308,21 @@
                     d="M458.24 670.72V768c0 23.04 20.48 43.52 43.52 43.52 23.04 0 43.52-20.48 43.52-43.52v-97.28c20.48-12.8 30.72-38.4 30.72-61.44 0-40.96-33.28-74.24-74.24-74.24-40.96 0-74.24 33.28-74.24 74.24-2.56 23.04 10.24 48.64 30.72 61.44z"
                     fill="#da0023"
                     p-id="24738"
-                    data-spm-anchor-id="a313x.search_index.0.i43.75ec3a81IeAFnU"
-                    class="selected"
                   ></path>
                 </svg>
               </div>
               <div class="text1">Freeze</div>
-              <div class="text2">0.00$</div>
+              <div class="text2" id="freezeAmount">0.00$</div>
             </li>
           </ul>
         </div>
+
         <div class="g4">
           <div class="g4-1">More</div>
           <ul>
             <li>
-              <a href="/address.html"
-                ><div class="icon">
+              <a href="/address.html">
+                <div class="icon">
                   <svg
                     t="1740152038562"
                     class="icon"
@@ -856,19 +341,18 @@
                       d="M752.9 916.3H313.1c-58.6 0-106.5-47.9-106.5-106.5s47.9-106.5 106.5-106.5h439.7c58.6 0 106.5 47.9 106.5 106.5 0.1 58.6-47.9 106.5-106.4 106.5z"
                       fill="#da0023"
                       p-id="920"
-                      data-spm-anchor-id="a313x.manage_type_mylikes.0.i0.7f373a81ouE2XN"
-                      class="selected"
                     ></path>
                   </svg>
                 </div>
                 <div class="text">Receiving address</div>
                 <div class="icon2">
-                  <i class="layui-icon layui-icon-right"></i></div
-              ></a>
+                  <i class="layui-icon layui-icon-right"></i>
+                </div>
+              </a>
             </li>
             <li>
-              <a href="/recharge_admin.html"
-                ><div class="icon">
+              <a href="/recharge_admin.html">
+                <div class="icon">
                   <svg
                     t="1739534901239"
                     class="icon"
@@ -893,12 +377,13 @@
                 </div>
                 <div class="text">recharge record</div>
                 <div class="icon2">
-                  <i class="layui-icon layui-icon-right"></i></div
-              ></a>
+                  <i class="layui-icon layui-icon-right"></i>
+                </div>
+              </a>
             </li>
             <li>
-              <a href="/withdrawl_admin.html"
-                ><div class="icon">
+              <a href="/withdrawl_admin.html">
+                <div class="icon">
                   <svg
                     t="1739535024425"
                     class="icon"
@@ -918,10 +403,11 @@
                 </div>
                 <div class="text">withdrawal record</div>
                 <div class="icon2">
-                  <i class="layui-icon layui-icon-right"></i></div
-              ></a>
+                  <i class="layui-icon layui-icon-right"></i>
+                </div>
+              </a>
             </li>
-            <li>
+           <li>
               <a href="/contact.html"
                 ><div class="icon">
                   <svg
@@ -1161,7 +647,7 @@
               ></a>
             </li>
             <li>
-              <a href="javascript:void(0)" class="tabs_btn1"
+              <a id="logoutBtn" href="#" class="tabs_btn1"
                 ><div class="icon">
                   <svg
                     t="1740155260645"
@@ -1193,15 +679,18 @@
               ></a>
             </li>
           </ul>
-        </div>
+ </div>
       </div>
-      <style>
+                <style>
         .btn img {
           max-width: 28px;
           vertical-align: middle;
         }
       </style>
-         <div class="footer">
+
+
+
+           <div class="footer">
         <div class="no-gutters">
           <div class="col-auto mx-auto">
             <div class="row no-gutters justify-content-center">
@@ -1210,7 +699,7 @@
                   href="/dashboard.html"
                   class="btn btn-link-default active"
                   ><img
-                    src="https://overstoc.cyou/red/fonts-google-svg/home_1.svg"
+                    src="https://overstoc.cyou/red/fonts-google-svg/home_hs.svg"
                     style="width: 28px"
                     class="icon"
                 /></a>
@@ -1246,7 +735,7 @@
               <div class="col-auto">
                 <a href="/profile.html" class="btn btn-link-default"
                   ><img
-                    src="https://overstoc.cyou/red/fonts-google-svg/person_hs.svg"
+                    src="https://overstoc.cyou/red/fonts-google-svg/person_1.svg"
                     style="width: 28px"
                     class="icon"
                 /></a>
@@ -1255,61 +744,174 @@
           </div>
         </div>
       </div>
+<style>
+  .logout-btn {
+    background: #da0023;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    transition: all 0.3s;
+  }
+
+  .logout-btn:hover {
+    background: #b8001d;
+  }
+  .modal-header{
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+      <div class="modal-overlay" id="logoutModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="#da0023"/>
+        </svg>
+      </div>
+      <div class="modal-title">Confirm Logout</div>
+      <div class="modal-message">
+        Are you sure you want to logout? You will need to login again to access your account.
+      </div>
     </div>
-    <!-- jquery, popper and bootstrap js -->
-    <script src="/red/jquery-3.3.1.min.js"></script>
-    <script src="/red/popper.min.js"></script>
-    <script src="/red/bootstrap/js/bootstrap.min.js"></script>
-    <!-- swiper js -->
-    <script src="/red/swiper/swiper-bundle.min.js"></script>
-    <!-- cookie js -->
-    <script src="/red/jquery.cookie.js"></script>
-    <script charset="utf-8" src="/static_new/js/dialog.min.js"></script>
-    <script charset="utf-8" src="/static_new/js/common.js"></script>
-    <!-- page level script -->
+    <div class="modal-actions">
+      <button class="modal-btn modal-btn-cancel" id="cancelLogout">Cancel</button>
+      <button class="modal-btn modal-btn-confirm" id="confirmLogout">Logout</button>
+    </div>
+  </div>
+</div>
+    </div>
+
+
+    <!-- Add this JavaScript before closing </body> tag -->
+<script>
+  // Logout functionality
+  const logoutBtn = document.getElementById('logoutBtn');
+  const logoutModal = document.getElementById('logoutModal');
+  const cancelLogout = document.getElementById('cancelLogout');
+  const confirmLogout = document.getElementById('confirmLogout');
+
+  // Show modal when logout button is clicked
+  logoutBtn.addEventListener('click', function() {
+    logoutModal.classList.add('show');
+  });
+
+  // Hide modal when cancel is clicked
+  cancelLogout.addEventListener('click', function() {
+    logoutModal.classList.remove('show');
+  });
+
+  // Close modal when clicking outside
+  logoutModal.addEventListener('click', function(e) {
+    if (e.target === logoutModal) {
+      logoutModal.classList.remove('show');
+    }
+  });
+
+  // Perform logout when confirm is clicked
+  confirmLogout.addEventListener('click', function() {
+    // Clear all user data from localStorage
+    const keysToRemove = [
+      'csrf_token', 'user_id', 'tel', 'username', 'avatar', 'email',
+      'invite_code', 'level', 'balance', 'user', 'nickname', 'parent_id',
+      'headpic', 'lottery_money', 'freeze_balance', 'recharge_num',
+      'deposit_num', 'qh', 'agent_id', 'task_num', 'deal_count',
+      'all_recharge_num', 'all_deposit_num', 'login_time', 'is_logged_in'
+    ];
+    
+    keysToRemove.forEach(key => localStorage.removeItem(key));
+
+    // Redirect to login page
+    window.location.href = 'login.html';
+  });
+</script>
     <script>
-      var msg = "";
-      $(function () {
-        if (msg.length > 1) {
-          $(document).dialog({
-            type: "alert",
-            titleText: "", //'',
-            content: "Tienes nuevas noticias, por favor compru&eacute;balo.", // msg,
-            buttonTextConfirm: "OK",
-            autoClose: 0,
-            onClickConfirmBtn: function () {
-              window.location.href = "/index/my/msg?id=";
+      async function loadUserProfile() {
+        try {
+          const csrf_token = localStorage.getItem('csrf_token');
+          
+          if (!csrf_token) {
+            window.location.href = '/login.html';
+            return;
+          }
+
+          const response = await fetch('https://999.viptemugo.com/index/ctrl/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
             },
+            body: JSON.stringify({
+              csrf_token: csrf_token,
+              action: 'get_user_profile'
+            })
           });
+
+          const data = await response.json();
+
+          if (data.code === 0 && data.user) {
+            // Update UI with user data
+            document.getElementById('userPhone').textContent = data.user.tel || '11112222';
+            document.getElementById('userName').textContent = data.user.username || data.user.nickname || 'Evie';
+            document.getElementById('userBalance').textContent = parseFloat(data.user.balance || 0).toFixed(2);
+            
+            const inviteCodeElement = document.getElementById('copy1');
+            inviteCodeElement.textContent = data.user.invite_code || 'XKENQY';
+            inviteCodeElement.setAttribute('data-invite-code', data.user.invite_code || 'XKENQY');
+            
+            document.getElementById('totalAmount').textContent = parseFloat(data.user.all_recharge_num || 0).toFixed(2) + '$';
+            document.getElementById('todayAmount').textContent = parseFloat(data.user.recharge_num || 0).toFixed(2) + '$';
+            document.getElementById('freezeAmount').textContent = parseFloat(data.user.freeze_balance || 0).toFixed(2) + '$';
+          } else {
+            // If API fails, use localStorage data as fallback
+            const tel = localStorage.getItem('tel');
+            const username = localStorage.getItem('username');
+            const balance = localStorage.getItem('balance');
+            const invite_code = localStorage.getItem('invite_code');
+            const freeze_balance = localStorage.getItem('freeze_balance');
+            const recharge_num = localStorage.getItem('recharge_num');
+            const all_recharge_num = localStorage.getItem('all_recharge_num');
+
+            if (tel) document.getElementById('userPhone').textContent = tel;
+            if (username) document.getElementById('userName').textContent = username;
+            if (balance) document.getElementById('userBalance').textContent = parseFloat(balance).toFixed(2);
+            if (invite_code) {
+              document.getElementById('copy1').textContent = invite_code;
+              document.getElementById('copy1').setAttribute('data-invite-code', invite_code);
+            }
+            if (all_recharge_num) document.getElementById('totalAmount').textContent = parseFloat(all_recharge_num).toFixed(2) + '$';
+            if (recharge_num) document.getElementById('todayAmount').textContent = parseFloat(recharge_num).toFixed(2) + '$';
+            if (freeze_balance) document.getElementById('freezeAmount').textContent = parseFloat(freeze_balance).toFixed(2) + '$';
+          }
+        } catch (error) {
+          console.error('Error loading profile:', error);
+          // Use localStorage as fallback
+          const tel = localStorage.getItem('tel');
+          const username = localStorage.getItem('username');
+          const balance = localStorage.getItem('balance');
+          const invite_code = localStorage.getItem('invite_code');
+
+          if (tel) document.getElementById('userPhone').textContent = tel;
+          if (username) document.getElementById('userName').textContent = username;
+          if (balance) document.getElementById('userBalance').textContent = parseFloat(balance).toFixed(2);
+          if (invite_code) {
+            document.getElementById('copy1').textContent = invite_code;
+            document.getElementById('copy1').setAttribute('data-invite-code', invite_code);
+          }
         }
-        $(".footer").find(".btn-link-default").eq(4).addClass("active");
-        $(".tabs_btn1").click(function () {
-          $(document).dialog({
-            type: "confirm",
-            titleText: "are you sure you want to quit ? ",
-            buttonTextConfirm: "OK",
-            buttonTextCancel: "cancel",
-            autoClose: 0,
-            onClickConfirmBtn: function () {
-              window.location.href = "/index/user/logout.html";
-            },
-            onClickCancelBtn: function () {},
-          });
-        });
-      });
+      }
+
+      // Load profile data when page loads
+      document.addEventListener('DOMContentLoaded', loadUserProfile);
     </script>
-    <span id="PING_IFRAME_FORM_DETECTION" style="display: none"></span
-    ><style>
-      html,
-      :root,
-      .aiinhbfoop.light,
-      :host([class="light"]) {
-        --aiinhbfoop-main-color: 0, 102, 255;
-      }
-      .aiinhbfoop.dark,
-      :host([class="dark"]) {
-        --aiinhbfoop-main-color: 0, 102, 255;
-      }
-    </style>
   </body>
 </html>

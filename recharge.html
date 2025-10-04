@@ -380,27 +380,6 @@
                 </div>
               </li>
 
-              <li class="card pay-card" data-method="UPI">
-                <div class="pay-card-header">
-                  <span class="card-icon">💳</span>
-                  <span class="label">RECHARGE</span>
-                </div>
-                <div class="pay-card-body">
-                  <h3 class="method-name">UPI</h3>
-                  <p class="range">₹100 ~ ₹100000</p>
-                </div>
-              </li>
-
-              <li class="card pay-card" data-method="Bank Card">
-                <div class="pay-card-header">
-                  <span class="card-icon">💳</span>
-                  <span class="label">RECHARGE</span>
-                </div>
-                <div class="pay-card-body">
-                  <h3 class="method-name">Bank Card</h3>
-                  <p class="range">$10 ~ $20000</p>
-                </div>
-              </li>
             </ul>
           </div>
 
@@ -415,6 +394,10 @@
               *2. If you do not receive recharge and withdrawal, please consult
               your supervisor to solve other problems.
             </p>
+          </div>
+
+          <div class="action">
+            <button class="primary-btn" id="rechargeBtn">RECHARGE</button>
           </div>
         </section>
       </main>
@@ -488,12 +471,44 @@
         }, 100);
       });
 
-      // Recharge button
-      document.getElementById("rechargeBtn").addEventListener("click", () => {
+      document.getElementById("rechargeBtn").addEventListener("click", async () => {
         const amount = amountDisplay.textContent;
-        const method =
-          document.querySelector(".pay-card.selected").dataset.method;
-        alert(`Recharging ${amount} via ${method}`);
+        const method = document.querySelector(".pay-card.selected").dataset.method;
+        const csrf_token = localStorage.getItem('csrf_token');
+
+        if (!csrf_token) {
+          alert('Please login first');
+          window.location.href = '/login.html';
+          return;
+        }
+
+        try {
+          const response = await fetch('https://999.viptemugo.com/index/ctrl/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              csrf_token: csrf_token,
+              action: 'create_recharge',
+              amount: parseFloat(amount),
+              payment_method: method
+            })
+          });
+
+          const data = await response.json();
+
+          if (data.code === 0) {
+            alert(`Recharge request submitted successfully! Amount: ${amount} via ${method}`);
+            // Optionally redirect to recharge records page
+            // window.location.href = '/recharge_admin.html';
+          } else {
+            alert(data.info || 'Recharge request failed. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again.');
+        }
       });
     </script>
   </body>
