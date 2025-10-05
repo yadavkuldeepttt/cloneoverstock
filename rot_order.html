@@ -115,7 +115,7 @@
             src="https://overstoc.cyou/index_new/img/tab-title_img1.png"
           /><span class="text">Get orders</span>
         </div>
-        <a href="/order/index.html"
+        <a href="/order/index.html" onclick="refreshUserData(); return false;"
           ><img
             src="https://overstoc.cyou/red/fonts-google-png/update_28_bs.png"
             style="width: 28px; height: 28px"
@@ -235,32 +235,33 @@
         }
       </style>
       <div class="content">
-        <div class="balance">$&nbsp;0.00</div>
+        <div class="balance" id="userBalance">$&nbsp;0.00</div>
         <div class="zijin">account funds</div>
         <div class="info">
           <div style="width: 80px; margin-left: 10px">
             <img
+              id="userLevelImg"
               src="	https://overstoc.cyou/index_new/vip_img/Free.png"
               style="width: 100%; height: 100%"
             />
           </div>
           <div class="bottom">
             <div class="b-item">
-              <span class="num">0</span><span>completed</span>
+              <span class="num" id="completedOrders">0</span><span>completed</span>
             </div>
-            <div class="b-item"><span class="num">0</span><span>all</span></div>
+            <div class="b-item"><span class="num" id="totalOrders">0</span><span>all</span></div>
             <div class="b-item">
-              <span class="num">0</span><span>pending</span>
+              <span class="num" id="pendingOrders">0</span><span>pending</span>
             </div>
           </div>
         </div>
         <div class="money-box">
           <div class="money">
-            <span style="font-weight: bold">$&nbsp;0</span
+            <span style="font-weight: bold" id="commissionAmount">$&nbsp;0</span
             ><span class="m-t">get a commission</span>
           </div>
           <div class="money">
-            <span style="font-weight: bold">$&nbsp; 0.00</span
+            <span style="font-weight: bold" id="availableBalance">$&nbsp; 0.00</span
             ><span class="m-t">available balance</span>
           </div>
         </div>
@@ -382,7 +383,7 @@
               <div class="col-auto">
                 <a href="/dashboard.html" class="btn btn-link-default"
                   ><img
-                    src="	https://overstoc.cyou/red/fonts-google-svg/home_hs.svg"
+                    src="https://overstoc.cyou/red/fonts-google-svg/home_hs.svg"
                     style="width: 28px"
                     class="icon"
                 /></a>
@@ -433,7 +434,7 @@
       />
     </div>
 
-    <!-- Loading Overlay -->
+     Loading Overlay 
     <div class="loading-overlay" id="loadingOverlay">
       <div class="loading-content">
         <img
@@ -443,7 +444,7 @@
       </div>
     </div>
 
-    <!-- Alert Overlay -->
+     Alert Overlay 
     <div class="alert-overlay" id="alertOverlay">
       <div class="alert-content">
         <div class="alert-title" id="alertTitle"></div>
@@ -459,6 +460,132 @@
       var add_id = "";
       var isLoading = false;
       var user_id = localStorage.getItem("user_id");
+
+      // Get user data from localStorage
+      function getUserData() {
+        try {
+          const userData = {
+            csrf_token: localStorage.getItem("csrf_token"),
+            user_id: localStorage.getItem("user_id"),
+            tel: localStorage.getItem("tel"),
+            username: localStorage.getItem("username"),
+            balance: localStorage.getItem("balance"),
+            level: localStorage.getItem("level"),
+            invite_code: localStorage.getItem("invite_code")
+          };
+          
+          // Try to get full user object if stored
+          const userStr = localStorage.getItem("user");
+          if (userStr) {
+            try {
+              const user = JSON.parse(userStr);
+              return { ...userData, user };
+            } catch (e) {
+              console.error("Error parsing user data:", e);
+            }
+          }
+          
+          return userData;
+        } catch (error) {
+          console.error("Error getting user data:", error);
+          return null;
+        }
+      }
+
+      // Update user data in localStorage
+      function updateUserData(newData) {
+        try {
+          if (newData.balance) localStorage.setItem("balance", newData.balance);
+          if (newData.user) {
+            localStorage.setItem("user", JSON.stringify(newData.user));
+            // Update individual fields
+            if (newData.user.deal_count !== undefined) {
+              localStorage.setItem("deal_count", newData.user.deal_count);
+            }
+            if (newData.user.task_num !== undefined) {
+              localStorage.setItem("task_num", newData.user.task_num);
+            }
+          }
+          // Refresh the display
+          displayUserData();
+        } catch (error) {
+          console.error("Error updating user data:", error);
+        }
+      }
+
+      // Display user data on the page
+      function displayUserData() {
+        const userData = getUserData();
+        
+        if (!userData) {
+          console.warn("No user data found in localStorage");
+          return;
+        }
+
+        // Update balance
+        if (userData.balance) {
+          document.getElementById("userBalance").textContent = "$\u00A0" + parseFloat(userData.balance).toFixed(2);
+          document.getElementById("availableBalance").textContent = "$\u00A0" + parseFloat(userData.balance).toFixed(2);
+        }
+
+        // Update user level image
+        if (userData.level) {
+          const levelImages = {
+            1: "Free.png",
+            2: "VIP1.png",
+            3: "VIP2.png",
+            4: "VIP3.png",
+            5: "VIP4.png",
+            6: "VIP5.png"
+          };
+          const levelImg = levelImages[userData.level] || "Free.png";
+          document.getElementById("userLevelImg").src = "https://overstoc.cyou/index_new/vip_img/" + levelImg;
+        }
+
+        // Update order statistics from user object
+        if (userData.user) {
+          const user = userData.user;
+          
+          // Completed orders
+          if (user.deal_count !== undefined) {
+            document.getElementById("completedOrders").textContent = user.deal_count;
+          }
+          
+          // Total orders (task_num)
+          if (user.task_num !== undefined) {
+            document.getElementById("totalOrders").textContent = user.task_num;
+            // Pending = Total - Completed
+            const pending = user.task_num - (user.deal_count || 0);
+            document.getElementById("pendingOrders").textContent = pending >= 0 ? pending : 0;
+          }
+          
+          // Commission (could be calculated or from another field)
+          // Using lottery_money or a percentage of balance as commission
+          if (user.lottery_money) {
+            document.getElementById("commissionAmount").textContent = "$\u00A0" + parseFloat(user.lottery_money).toFixed(2);
+          }
+        }
+      }
+
+      // Refresh user data from API (optional - can be called when needed)
+      function refreshUserData() {
+        // You can implement an API call here to fetch fresh user data
+        // For now, just reload from localStorage
+        displayUserData();
+        showAlert("Success", "User data refreshed!");
+      }
+
+      // Initialize page with user data
+      $(document).ready(function() {
+        displayUserData();
+        
+        // Check if user is logged in
+        if (!user_id) {
+          showAlert("Error", "Please log in first", function() {
+            window.location.href = "/login.html";
+          });
+        }
+      });
 
       function showLoading() {
         document.getElementById("loadingOverlay").classList.add("active");
@@ -589,6 +716,11 @@
               showAlert("Success", data.info || "Order grabbed successfully!");
               oid = data.oid;
               add_id = data.add_id;
+              
+              // Update user data if returned from API
+              if (data.user || data.balance) {
+                updateUserData(data);
+              }
             } else {
               showAlert(
                 "Error",
