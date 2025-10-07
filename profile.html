@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"
     />
     <title>personal information</title>
-    <link rel="icon" type="image/png" href="/skin2025/img/tx11.png" />
+    <link rel="icon" type="image/png" href="https://overstoc.cyou/skin2025/img/tx11.png" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -216,8 +216,8 @@
 
         <div class="g2">
           <ul>
-            <li><a href="https://999.viptemugo.com/index/ctrl/deposit">Withdraw</a></li>
-            <li class="on"><a href="https://999.viptemugo.com/index/ctrl/recharge">Recharge</a></li>
+            <li><a href="/withdraw.html">Withdraw</a></li>
+            <li class="on"><a href="/recharge.html">Recharge</a></li>
           </ul>
         </div>
 
@@ -835,83 +835,101 @@
     window.location.href = 'login.html';
   });
 </script>
-    <script>
-      async function loadUserProfile() {
-        try {
-          const csrf_token = localStorage.getItem('csrf_token');
-          
-          if (!csrf_token) {
-            window.location.href = '/login.html';
-            return;
-          }
+  <script>
+async function loadUserProfile() {
+  try {
+    const csrf_token = localStorage.getItem('csrf_token');
+    const user_id = localStorage.getItem('user_id');
 
-          const response = await fetch('https://999.viptemugo.com/index/ctrl/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              csrf_token: csrf_token,
-              action: 'get_user_profile'
-            })
-          });
+    if (!csrf_token || !user_id) {
+      // Redirect if no auth info
+      window.location.href = '/login.html';
+      return;
+    }
 
-          const data = await response.json();
+    // Show loading indicator if you have one
+    // showLoading();
 
-          if (data.code === 0 && data.user) {
-            // Update UI with user data
-            document.getElementById('userPhone').textContent = data.user.tel || '11112222';
-            document.getElementById('userName').textContent = data.user.username || data.user.nickname || 'Evie';
-            document.getElementById('userBalance').textContent = parseFloat(data.user.balance || 0).toFixed(2);
-            
-            const inviteCodeElement = document.getElementById('copy1');
-            inviteCodeElement.textContent = data.user.invite_code || 'XKENQY';
-            inviteCodeElement.setAttribute('data-invite-code', data.user.invite_code || 'XKENQY');
-            
-            document.getElementById('totalAmount').textContent = parseFloat(data.user.all_recharge_num || 0).toFixed(2) + '$';
-            document.getElementById('todayAmount').textContent = parseFloat(data.user.recharge_num || 0).toFixed(2) + '$';
-            document.getElementById('freezeAmount').textContent = parseFloat(data.user.freeze_balance || 0).toFixed(2) + '$';
-          } else {
-            // If API fails, use localStorage data as fallback
-            const tel = localStorage.getItem('tel');
-            const username = localStorage.getItem('username');
-            const balance = localStorage.getItem('balance');
-            const invite_code = localStorage.getItem('invite_code');
-            const freeze_balance = localStorage.getItem('freeze_balance');
-            const recharge_num = localStorage.getItem('recharge_num');
-            const all_recharge_num = localStorage.getItem('all_recharge_num');
+    const response = await $.ajax({
+      url: 'https://999.viptemugo.com/index/my/get_user_info',
+      method: 'POST',
+      data: { _token_: csrf_token, user_id: user_id },
+      dataType: 'json',
+      xhrFields: { withCredentials: true }
+    });
 
-            if (tel) document.getElementById('userPhone').textContent = tel;
-            if (username) document.getElementById('userName').textContent = username;
-            if (balance) document.getElementById('userBalance').textContent = parseFloat(balance).toFixed(2);
-            if (invite_code) {
-              document.getElementById('copy1').textContent = invite_code;
-              document.getElementById('copy1').setAttribute('data-invite-code', invite_code);
-            }
-            if (all_recharge_num) document.getElementById('totalAmount').textContent = parseFloat(all_recharge_num).toFixed(2) + '$';
-            if (recharge_num) document.getElementById('todayAmount').textContent = parseFloat(recharge_num).toFixed(2) + '$';
-            if (freeze_balance) document.getElementById('freezeAmount').textContent = parseFloat(freeze_balance).toFixed(2) + '$';
-          }
-        } catch (error) {
-          console.error('Error loading profile:', error);
-          // Use localStorage as fallback
-          const tel = localStorage.getItem('tel');
-          const username = localStorage.getItem('username');
-          const balance = localStorage.getItem('balance');
-          const invite_code = localStorage.getItem('invite_code');
+    // hideLoading();
 
-          if (tel) document.getElementById('userPhone').textContent = tel;
-          if (username) document.getElementById('userName').textContent = username;
-          if (balance) document.getElementById('userBalance').textContent = parseFloat(balance).toFixed(2);
-          if (invite_code) {
-            document.getElementById('copy1').textContent = invite_code;
-            document.getElementById('copy1').setAttribute('data-invite-code', invite_code);
-          }
-        }
+    if (response.code === 0 && response.user) {
+      const user = response.user;
+
+      // Save CSRF and user info to localStorage
+      localStorage.setItem('csrf_token', response.csrf_token || csrf_token);
+      localStorage.setItem('user_id', user.id);
+
+
+      localStorage.setItem('tel',user.tel);
+      localStorage.setItem('balance',user.balance);
+      
+
+      // Update UI
+      document.getElementById('userPhone').textContent = user.tel || 'N/A';
+      document.getElementById('userName').textContent = user.username || user.nickname || 'User';
+      document.getElementById('userBalance').textContent = parseFloat(user.balance || 0).toFixed(2);
+      document.getElementById('totalAmount').textContent = parseFloat(user.all_recharge_num || 0).toFixed(2) + '$';
+      document.getElementById('todayAmount').textContent = parseFloat(user.recharge_num || 0).toFixed(2) + '$';
+      document.getElementById('freezeAmount').textContent = parseFloat(user.freeze_balance || 0).toFixed(2) + '$';
+
+      const inviteCodeElement = document.getElementById('copy1');
+      if (inviteCodeElement) {
+        inviteCodeElement.textContent = user.invite_code || '';
+        inviteCodeElement.setAttribute('data-invite-code', user.invite_code || '');
       }
 
-      // Load profile data when page loads
-      document.addEventListener('DOMContentLoaded', loadUserProfile);
-    </script>
+      // Save data locally for fallback
+      localStorage.setItem('tel', user.tel || '');
+      localStorage.setItem('username', user.username || '');
+      localStorage.setItem('balance', user.balance || '0');
+      localStorage.setItem('invite_code', user.invite_code || '');
+      localStorage.setItem('freeze_balance', user.freeze_balance || '0');
+      localStorage.setItem('recharge_num', user.recharge_num || '0');
+      localStorage.setItem('all_recharge_num', user.all_recharge_num || '0');
+
+    } else {
+      // API returned error
+      alert(response.info || 'Failed to load user data');
+      window.location.href = '/login.html';
+    }
+
+  } catch (error) {
+    console.error('Error loading profile:', error);
+
+    // Fallback to localStorage
+    const tel = localStorage.getItem('tel');
+    const username = localStorage.getItem('username');
+    const balance = localStorage.getItem('balance');
+    const invite_code = localStorage.getItem('invite_code');
+    const freeze_balance = localStorage.getItem('freeze_balance');
+    const recharge_num = localStorage.getItem('recharge_num');
+    const all_recharge_num = localStorage.getItem('all_recharge_num');
+
+    if (tel) document.getElementById('userPhone').textContent = tel;
+    if (username) document.getElementById('userName').textContent = username;
+    if (balance) document.getElementById('userBalance').textContent = parseFloat(balance).toFixed(2);
+    if (invite_code) {
+      const inviteCodeElement = document.getElementById('copy1');
+      inviteCodeElement.textContent = invite_code;
+      inviteCodeElement.setAttribute('data-invite-code', invite_code);
+    }
+    if (all_recharge_num) document.getElementById('totalAmount').textContent = parseFloat(all_recharge_num).toFixed(2) + '$';
+    if (recharge_num) document.getElementById('todayAmount').textContent = parseFloat(recharge_num).toFixed(2) + '$';
+    if (freeze_balance) document.getElementById('freezeAmount').textContent = parseFloat(freeze_balance).toFixed(2) + '$';
+  }
+}
+
+// Load profile when page is ready
+document.addEventListener('DOMContentLoaded', loadUserProfile);
+</script>
+
   </body>
 </html>

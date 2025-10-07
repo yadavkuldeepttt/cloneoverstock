@@ -39,7 +39,8 @@
 
       .app {
         width: 375px;
-        min-height: 667px;
+        height: 100vh;
+        overflow-y: auto;
         background: var(--panel);
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
       }
@@ -136,6 +137,91 @@
       .info-value {
         color: var(--text);
         font-weight: 500;
+      }
+
+      .radio-group {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+        cursor: pointer;
+      }
+
+      .radio-option input[type="radio"] {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      .radio-label {
+        font-size: 14px;
+        color: var(--text);
+      }
+
+      .usdt-address-section {
+        display: none;
+        background: #f9fafb;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .usdt-address-section.show {
+        display: block;
+      }
+
+      .usdt-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .usdt-address {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: white;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
+
+      .address-text {
+        font-size: 13px;
+        color: var(--text);
+        word-break: break-all;
+        flex: 1;
+        margin-right: 10px;
+      }
+
+      .copy-btn {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .copy-btn:hover {
+        background: var(--red-700);
+      }
+
+      .loading-message {
+        text-align: center;
+        padding: 16px;
+        color: var(--muted);
+        font-size: 14px;
       }
 
       .form-section {
@@ -251,6 +337,26 @@
             <span class="info-label"></span>
             <span class="info-value" id="mobileNumber">111****2</span>
           </div>
+
+          <div class="radio-group">
+            <label class="radio-option" id="usdtOption">
+              <input
+                type="radio"
+                name="withdrawalMethod"
+                value="usdt"
+                id="usdtRadio"
+              />
+              <span class="radio-label">withdraw cash to USDT (scale 1)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="usdt-address-section" id="usdtAddressSection">
+          <div class="usdt-title">Your USDT Wallet Address</div>
+          <div class="usdt-address">
+            <span class="address-text" id="usdtAddressText">Loading...</span>
+            <button class="copy-btn" id="copyAddressBtn" onclick="copyAddress()">Copy</button>
+          </div>
         </div>
 
         <form class="form-section" id="withdrawalForm">
@@ -273,7 +379,7 @@
               type="password"
               class="input-field"
               id="loginPassword"
-              placeholder="Enter login password"
+              placeholder="Enter fund password"
               required
             />
           </div>
@@ -286,64 +392,168 @@
     </div>
 
     <script>
+      let userWalletAddress = '';
+
+      // Fetch user info including wallet details
+      async function fetchUserInfo() {
+        const csrf_token = localStorage.getItem('csrf_token');
+        const user_id = localStorage.getItem('user_id');
+
+        if (!csrf_token || !user_id) {
+          window.location.href = '/login.html';
+          return;
+        }
+
+        try {
+          const response = await fetch('https://999.viptemugo.com/index/my/get_user_info', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              _token_: csrf_token,
+              user_id: user_id
+            })
+          });
+
+          const data = await response.json();
+
+          if (data.code === 0 && data.user) {
+            // Store wallet info
+            if (data.wallet_info && data.wallet_info.address) {
+              userWalletAddress = data.wallet_info.address;
+              document.getElementById('usdtAddressText').textContent = userWalletAddress;
+            } else {
+              document.getElementById('usdtAddressText').textContent = 'No wallet address found';
+              document.getElementById('copyAddressBtn').disabled = true;
+            }
+
+            // Update balance
+            if (data.user.balance) {
+              localStorage.setItem('balance', data.user.balance);
+            }
+          } else {
+            console.error('Failed to fetch user info:', data.info);
+          }
+        } catch (error) {
+          console.error('Error fetching user info:', error);
+          document.getElementById('usdtAddressText').textContent = 'Error loading address';
+        }
+      }
+
+      // Copy address to clipboard
+      function copyAddress() {
+        if (!userWalletAddress) {
+          alert('No address to copy');
+          return;
+        }
+
+        navigator.clipboard.writeText(userWalletAddress).then(() => {
+          const btn = document.getElementById('copyAddressBtn');
+          const originalText = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => {
+            btn.textContent = originalText;
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy:', err);
+          alert('Failed to copy address');
+        });
+      }
+
       // Load user data
       function loadUserData() {
         const tel = localStorage.getItem("tel") || "";
-        const balance = localStorage.getItem("balance") || "0.00";
+        let balance = localStorage.getItem("balance") || "0.00";
 
         if (tel) {
           const maskedTel = tel.replace(/(\d{3})\d{4}(\d{2})/, "$1****$2");
           document.getElementById("mobileNumber").textContent = maskedTel;
         }
 
-        // Check if user has made a withdrawal before
         const hasWithdrawn = localStorage.getItem("has_withdrawn");
         if (hasWithdrawn === "true") {
           const withdrawableCard = document.getElementById("withdrawableCard");
           withdrawableCard.classList.add("show");
 
-          console.log('====================================');
-          console.log(balance);
-          console.log('====================================');
-          if (balance) {
-            if (isNaN(balance)) balance = 0;
-            document.getElementById("withdrawableAmount").textContent =
-              "$: " + balance ;
-          }
+          if (isNaN(balance)) balance = 0;
+          document.getElementById("withdrawableAmount").textContent =
+            "$: " + parseFloat(balance).toFixed(2);
         }
       }
 
+      // Handle USDT radio button toggle
+      document.getElementById('usdtRadio').addEventListener('change', function() {
+        const usdtSection = document.getElementById('usdtAddressSection');
+        if (this.checked) {
+          usdtSection.classList.add('show');
+        } else {
+          usdtSection.classList.remove('show');
+        }
+      });
+
       // Initialize on page load
       loadUserData();
+      fetchUserInfo();
 
+      // Handle withdrawal form submission
       document
         .getElementById("withdrawalForm")
         .addEventListener("submit", async function (e) {
           e.preventDefault();
 
-          const amount = document.getElementById("withdrawalAmount").value;
+          const amount = parseFloat(
+            document.getElementById("withdrawalAmount").value
+          );
           const password = document.getElementById("loginPassword").value;
-          const csrf_token = localStorage.getItem("csrf_token");
+          const withdrawalBtn = document.getElementById("withdrawalBtn");
+          const selectedMethod = document.querySelector(
+            'input[name="withdrawalMethod"]:checked'
+          );
 
-          if (!csrf_token) {
+          const csrf_token = localStorage.getItem("csrf_token");
+          const user_id = localStorage.getItem("user_id");
+
+          if (!csrf_token || !user_id) {
             alert("Please login first");
             window.location.href = "/login.html";
             return;
           }
 
-          if (!amount || parseFloat(amount) <= 0) {
+          if (!amount || amount <= 0) {
             alert("Please enter a valid withdrawal amount");
             return;
           }
 
           if (!password) {
-            alert("Please enter your login password");
+            alert("Please enter your fund password");
             return;
           }
 
-          const withdrawalBtn = document.getElementById("withdrawalBtn");
+          // Check if USDT is selected and wallet address exists
+          if (selectedMethod && selectedMethod.value === "usdt") {
+            if (!userWalletAddress) {
+              alert("Please add a USDT wallet address first");
+              window.location.href = "/wallet_address.html";
+              return;
+            }
+          }
+
           withdrawalBtn.disabled = true;
           withdrawalBtn.textContent = "PROCESSING...";
+
+          // Build request body
+          let requestBody = {
+            _token_: csrf_token,
+            user_id: user_id,
+            num: amount,
+            paypassword: password,
+          };
+
+          // Only add "type" if USDT is selected
+          if (selectedMethod && selectedMethod.value === "usdt") {
+            requestBody.type = "USDT";
+          }
 
           try {
             const response = await fetch(
@@ -353,49 +563,40 @@
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                  _csrf_: csrf_token,
-                  num: parseFloat(amount),
-                  paypassword: password,
-                  type: "USDT",
-                }),
+                body: JSON.stringify(requestBody),
               }
             );
 
             const data = await response.json();
 
             if (data.code === 0) {
-              // Mark that user has made a withdrawal
               localStorage.setItem("has_withdrawn", "true");
 
-              // Update balance
               const currentBalance =
                 parseFloat(localStorage.getItem("balance")) || 0;
-              const newBalance = currentBalance - parseFloat(amount);
+              const newBalance = currentBalance - amount;
               localStorage.setItem("balance", newBalance.toFixed(2));
 
-              alert("Member level withdrawal limit is20.00-1000000.00!");
-
-              console.log(newBalance, "new balance");
-
-              // Show withdrawable amount card
-              const withdrawableCard =
-                document.getElementById("withdrawableCard");
-              withdrawableCard.classList.add("show");
-              let balance = parseFloat(
-                String(newBalance).replace(/[^0-9.-]/g, "")
-              );
-              if (isNaN(balance)) balance = 0;
               document.getElementById("withdrawableAmount").textContent =
-                "$: " + balance;
+                "$: " + newBalance.toFixed(2);
 
-              // Reset form
+              const withdrawableCard = document.getElementById("withdrawableCard");
+              if (withdrawableCard) withdrawableCard.classList.add("show");
+
               document.getElementById("withdrawalForm").reset();
+              
+              // Hide USDT section after form reset
+              document.getElementById('usdtAddressSection').classList.remove('show');
+              
+              alert("Withdrawal successful!");
             } else {
-              alert("Member level withdrawal limit is20.00-1000000.00!");
+              alert(data.info || "Error");
+              if (data.url) {
+                window.location.href = data.url;
+              }
             }
           } catch (error) {
-            console.error("Error:", error);
+            console.error("Withdrawal error:", error);
             alert("An error occurred. Please try again.");
           } finally {
             withdrawalBtn.disabled = false;

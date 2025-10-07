@@ -9,7 +9,10 @@
     <meta name="description" content="" />
     <title>grab an order</title>
 
-    <link rel="shortcut icon" href="/skin2025/img/tx11.png" />
+    <link
+      rel="shortcut icon"
+      href="https://overstoc.cyou/skin2025/img/tx11.png"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"
       rel="stylesheet"
@@ -115,7 +118,7 @@
             src="https://overstoc.cyou/index_new/img/tab-title_img1.png"
           /><span class="text">Get orders</span>
         </div>
-        <a href="/order/index.html" onclick="refreshUserData(); return false;"
+        <a href="/index/order/index.html"
           ><img
             src="https://overstoc.cyou/red/fonts-google-png/update_28_bs.png"
             style="width: 28px; height: 28px"
@@ -247,9 +250,12 @@
           </div>
           <div class="bottom">
             <div class="b-item">
-              <span class="num" id="completedOrders">0</span><span>completed</span>
+              <span class="num" id="completedOrders">0</span
+              ><span>completed</span>
             </div>
-            <div class="b-item"><span class="num" id="totalOrders">0</span><span>all</span></div>
+            <div class="b-item">
+              <span class="num" id="totalOrders">0</span><span>all</span>
+            </div>
             <div class="b-item">
               <span class="num" id="pendingOrders">0</span><span>pending</span>
             </div>
@@ -261,7 +267,8 @@
             ><span class="m-t">get a commission</span>
           </div>
           <div class="money">
-            <span style="font-weight: bold" id="availableBalance">$&nbsp; 0.00</span
+            <span style="font-weight: bold" id="availableBalance"
+              >$&nbsp; 0.00</span
             ><span class="m-t">available balance</span>
           </div>
         </div>
@@ -434,7 +441,6 @@
       />
     </div>
 
-     Loading Overlay 
     <div class="loading-overlay" id="loadingOverlay">
       <div class="loading-content">
         <img
@@ -444,7 +450,6 @@
       </div>
     </div>
 
-     Alert Overlay 
     <div class="alert-overlay" id="alertOverlay">
       <div class="alert-content">
         <div class="alert-title" id="alertTitle"></div>
@@ -459,131 +464,8 @@
       var oid = "";
       var add_id = "";
       var isLoading = false;
-      var user_id = localStorage.getItem("user_id");
-
-      // Get user data from localStorage
-      function getUserData() {
-        try {
-          const userData = {
-            csrf_token: localStorage.getItem("csrf_token"),
-            user_id: localStorage.getItem("user_id"),
-            tel: localStorage.getItem("tel"),
-            username: localStorage.getItem("username"),
-            balance: localStorage.getItem("balance"),
-            level: localStorage.getItem("level"),
-            invite_code: localStorage.getItem("invite_code")
-          };
-          
-          // Try to get full user object if stored
-          const userStr = localStorage.getItem("user");
-          if (userStr) {
-            try {
-              const user = JSON.parse(userStr);
-              return { ...userData, user };
-            } catch (e) {
-              console.error("Error parsing user data:", e);
-            }
-          }
-          
-          return userData;
-        } catch (error) {
-          console.error("Error getting user data:", error);
-          return null;
-        }
-      }
-
-      // Update user data in localStorage
-      function updateUserData(newData) {
-        try {
-          if (newData.balance) localStorage.setItem("balance", newData.balance);
-          if (newData.user) {
-            localStorage.setItem("user", JSON.stringify(newData.user));
-            // Update individual fields
-            if (newData.user.deal_count !== undefined) {
-              localStorage.setItem("deal_count", newData.user.deal_count);
-            }
-            if (newData.user.task_num !== undefined) {
-              localStorage.setItem("task_num", newData.user.task_num);
-            }
-          }
-          // Refresh the display
-          displayUserData();
-        } catch (error) {
-          console.error("Error updating user data:", error);
-        }
-      }
-
-      // Display user data on the page
-      function displayUserData() {
-        const userData = getUserData();
-        
-        if (!userData) {
-          console.warn("No user data found in localStorage");
-          return;
-        }
-
-        // Update balance
-        if (userData.balance) {
-          document.getElementById("userBalance").textContent = "$\u00A0" + parseFloat(userData.balance).toFixed(2);
-          document.getElementById("availableBalance").textContent = "$\u00A0" + parseFloat(userData.balance).toFixed(2);
-        }
-
-        // Update user level image
-        if (userData.level) {
-          const levelImages = {
-            1: "Free.png",
-            2: "VIP1.png",
-            3: "VIP2.png",
-            4: "VIP3.png",
-            5: "VIP4.png",
-            6: "VIP5.png"
-          };
-        }
-
-        // Update order statistics from user object
-        if (userData.user) {
-          const user = userData.user;
-          
-          // Completed orders
-          if (user.deal_count !== undefined) {
-            document.getElementById("completedOrders").textContent = user.deal_count;
-          }
-          
-          // Total orders (task_num)
-          if (user.task_num !== undefined) {
-            document.getElementById("totalOrders").textContent = user.task_num;
-            // Pending = Total - Completed
-            const pending = user.task_num - (user.deal_count || 0);
-            document.getElementById("pendingOrders").textContent = pending >= 0 ? pending : 0;
-          }
-          
-          // Commission (could be calculated or from another field)
-          // Using lottery_money or a percentage of balance as commission
-          if (user.lottery_money) {
-            document.getElementById("commissionAmount").textContent = "$\u00A0" + parseFloat(user.lottery_money).toFixed(2);
-          }
-        }
-      }
-
-      // Refresh user data from API (optional - can be called when needed)
-      function refreshUserData() {
-        // You can implement an API call here to fetch fresh user data
-        // For now, just reload from localStorage
-        displayUserData();
-        showAlert("Success", "User data refreshed!");
-      }
-
-      // Initialize page with user data
-      $(document).ready(function() {
-        displayUserData();
-        
-        // Check if user is logged in
-        if (!user_id) {
-          showAlert("Error", "Please log in first", function() {
-            window.location.href = "/login.html";
-          });
-        }
-      });
+      var currentUserData = null;
+      const API_BASE_URL = 'https://999.viptemugo.com';
 
       function showLoading() {
         document.getElementById("loadingOverlay").classList.add("active");
@@ -604,7 +486,101 @@
         };
       }
 
-      $(function () {
+      function fetchUserData() {
+        var user_id = localStorage.getItem("user_id");
+        var csrf_token = localStorage.getItem("csrf_token");
+
+        if (!user_id || !csrf_token) {
+          showAlert("Error", "Please log in first", function () {
+            window.location.href = "/login.html";
+          });
+          return;
+        }
+
+        showLoading();
+
+        $.ajax({
+          url: API_BASE_URL + '/index/my/get_user_info',
+          method: 'POST',
+          data: { 
+            _token_: csrf_token,
+            user_id: user_id
+          },
+          dataType: 'json',
+          xhrFields: {
+            withCredentials: true
+          },
+          success: function(response) {
+            hideLoading();
+            
+            if (response.code === 0 && response.user) {
+              currentUserData = response;
+              displayUserData(response);
+              
+              if (response.csrf_token) {
+                localStorage.setItem("csrf_token", response.csrf_token);
+              }
+            } else {
+              showAlert("Error", response.info || "Failed to load user data", function () {
+                window.location.href = "/login.html";
+              });
+            }
+          },
+          error: function(xhr, textStatus, errorThrown) {
+            hideLoading();
+            console.error("Fetch user data error:", textStatus, errorThrown);
+            
+            if (xhr.status === 401 || xhr.status === 403) {
+              showAlert("Error", "Session expired. Please log in again.", function () {
+                window.location.href = "/login.html";
+              });
+            } else {
+              showAlert("Error", "Failed to load user data. Please try again.");
+            }
+          }
+        });
+      }
+
+      function displayUserData(data) {
+        if (!data || !data.user) {
+          console.warn("No user data to display");
+          return;
+        }
+
+        const user = data.user;
+
+        document.getElementById("userBalance").textContent =
+          "$\u00A0" + parseFloat(user.balance || 0).toFixed(2);
+        
+        document.getElementById("availableBalance").textContent =
+          "$\u00A0" + parseFloat(user.balance || 0).toFixed(2);
+
+        const levelImages = {
+          1: "/Free.png",
+          2: "/VIP1.png",
+          3: "/VIP2.png",
+          4: "/VIP3.png",
+          5: "/VIP4.png",
+          6: "/VIP5.png"
+        };
+
+          // if (user.level && levelImages[user.level]) {
+          //   document.getElementById("userLevelImg").src = levelImages[user.level];
+          // }
+
+        document.getElementById("completedOrders").textContent = user.deal_count || 0;
+        document.getElementById("totalOrders").textContent = user.task_num || 0;
+        
+        const pending = (user.task_num || 0) - (user.deal_count || 0);
+        document.getElementById("pendingOrders").textContent = pending >= 0 ? pending : 0;
+
+        document.getElementById("commissionAmount").textContent =
+          "$\u00A0" + parseFloat(user.lottery_money || 0).toFixed(2);
+      }
+
+      $(document).ready(function () {
+        fetchUserData();
+
         $("#autoStart").click(function () {
           if (isLoading) return;
           isLoading = true;
@@ -612,63 +588,46 @@
           $("#autoStart").text("get order");
           showLoading();
 
-          let token = localStorage.getItem("csrf_token");
+          let csrf_token = localStorage.getItem("csrf_token");
 
-          console.log(token, "token");
-
-          // Call API after showing loading
           setTimeout(function () {
-            start(token, 1, 0);
+            start(csrf_token, 1, 0);
           }, 500);
         });
       });
 
-      function setCookiesFromString(cookieString) {
-        // Split cookies and set each individually
-        cookieString.split(";").forEach((pair) => {
-          const [name, ...rest] = pair.trim().split("=");
-          if (!name || !rest.length) return;
-          const value = rest.join("=");
-          document.cookie = `${name}=${encodeURIComponent(value)}; path=/;`;
-        });
-      }
+      function start(csrf_token, v = 0, real = 0) {
+        var user_id = localStorage.getItem("user_id");
 
-      function start(tokenCookieString, v = 0, real = 0) {
-        if (!tokenCookieString || tokenCookieString.trim() === "") {
-          showAlert("Error", "Missing token cookies!");
+        if (!user_id) {
+          showAlert("Error", "User ID not found. Please log in again.", function () {
+            window.location.href = "/login.html";
+          });
           return;
         }
 
-        // Set cookies before making the request
-        setCookiesFromString(tokenCookieString);
-
-        // Make sure cookies are included in the cross-origin request
         $.ajax({
-          url:
-            "https://999.viptemugo.com/index/rot_order/submit_order" +
-            "?cid=" +
-            cid +
-            "&user_id=" +
-            user_id +
-            "&reCAPTCHA=" +
-            "" + // empty reCAPTCHA as per your requirement
-            "&v=" +
-            v +
-            "&m=" +
-            Math.random() +
-            "&real=" +
-            real,
+          url: API_BASE_URL + "/index/rot_order/submit_order",
           type: "POST",
           dataType: "json",
           crossDomain: true,
-          xhrFields: { withCredentials: true }, // Send cookies with request
-
+          xhrFields: {
+            withCredentials: true
+          },
+          data: {
+            cid: cid,
+            user_id: user_id,
+            reCAPTCHA: "",
+            v: v,
+            m: Math.random(),
+            real: real,
+            __token__: csrf_token || ""
+          },
           beforeSend: function () {
-            showLoading("Processing your request...");
+            showLoading();
             $("#autoStart").text("Grabbing order...");
             isLoading = true;
           },
-
           success: function (data) {
             hideLoading();
             $("#autoStart").text("Start Grabbing Orders");
@@ -676,64 +635,61 @@
 
             console.log("API Response:", data);
 
-            console.log("====================================");
-            console.log(data);
-            console.log("====================================");
-
-            if (
-              data.code === 0 &&
-              typeof data.info === "string" &&
-              data.info.includes("Please log in first")
-            ) {
-              showAlert(
-                "Success",
-                "The number of member level transactions is insufficient. Please contact the customer personnel for handling"
-              );
+            if (data.code === 1 && data.info && (data.info.includes("log in") || data.info.includes("Please log in first"))) {
+              showAlert("Error", "Session expired. Please log in again.", function () {
+                window.location.href = "/login.html";
+              });
               return;
             }
 
             if (data.code === 1) {
               if (data.image) {
-                showAlert(
-                  "Notice",
-                  "Please complete verification",
-                  function () {
-                    start(tokenCookieString, 1, 1);
-                  }
-                );
+                showAlert("Notice", "Please complete verification", function () {
+                  start(csrf_token, 1, 1);
+                });
               } else if (data.tcwz) {
                 showAlert("Notice", data.tcwz, function () {
-                  start(tokenCookieString, 1, 1);
+                  start(csrf_token, 1, 1);
                 });
               } else {
                 showAlert("Notice", data.info, function () {
-                  if (data.url) window.location.href = data.url;
+                  if (data.url) {
+                    window.location.href = data.url;
+                  }
                 });
               }
             } else if (data.code === 0 && data.oid) {
               showAlert("Success", data.info || "Order grabbed successfully!");
               oid = data.oid;
               add_id = data.add_id;
-              
-              // Update user data if returned from API
-              if (data.user || data.balance) {
-                updateUserData(data);
-              }
+
+              fetchUserData();
+            } else if (data.code === 0) {
+              showAlert("Success", data.info || "Request completed successfully.");
+              fetchUserData();
             } else {
-              showAlert(
-                "Error",
-                data.info || "System busy, please try again later."
-              );
+              showAlert("Error", data.info || "System busy, please try again later.");
             }
           },
-
           error: function (xhr, textStatus, errorThrown) {
             hideLoading();
             $("#autoStart").text("Start Grabbing Orders");
             isLoading = false;
+
             console.error("Submit order error:", textStatus, errorThrown);
-            showAlert("Error", "Failed to grab order, please try again later!");
-          },
+            console.error("XHR Status:", xhr.status);
+            console.error("Response Text:", xhr.responseText);
+
+            if (xhr.status === 0) {
+              showAlert("Error", "Connection failed. Please check your internet connection or try again later.");
+            } else if (xhr.status === 401 || xhr.status === 403) {
+              showAlert("Error", "Authentication failed. Please log in again.", function () {
+                window.location.href = "/login.html";
+              });
+            } else {
+              showAlert("Error", "Failed to grab order. Error: " + textStatus);
+            }
+          }
         });
       }
 
