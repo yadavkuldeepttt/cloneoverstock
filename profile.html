@@ -855,7 +855,7 @@ async function loadUserProfile() {
       method: 'POST',
       data: { _token_: csrf_token, user_id: user_id },
       dataType: 'json',
-      xhrFields: { withCredentials: true }
+      // xhrFields: { withCredentials: true }
     });
 
     // hideLoading();
