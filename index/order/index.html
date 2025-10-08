@@ -276,17 +276,18 @@
     </div>
 
     <div class="container" id="orderList">
-      <div class="loading">Loading orders...</div>
+      <div class="loading" data-i18n="orderManage.loadingOrders">
+        Loading orders...
+      </div>
     </div>
 
     <div class="payment-all" id="paymentBar" style="display: none">
-      <div data-i18n="profile.total">
-        Total: <span id="totalPrice">$0</span>
-      </div>
+      <div>Total: <span id="totalPrice">$0</span></div>
       <div>
         <button
           class="btn btn-default shadow btn-rounded btn-sm"
           onclick="submitAllOrders()"
+          data-i18n="orderManage.submitAll"
         >
           Submit All
         </button>
@@ -334,7 +335,7 @@
     <div class="spinner-overlay" id="loadingSpinner">
       <div class="spinner-container">
         <div class="spinner"></div>
-        <p>Processing order...</p>
+        <p data-i18n="orderManage.processing">Processing order...</p>
       </div>
     </div>
 
@@ -343,7 +344,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header border-0">
-            <h5>Order Details</h5>
+            <h5 data-i18n="orderManage.detailsTitle">Order Details</h5>
             <button type="button" class="close" data-dismiss="modal">
               <span>&times;</span>
             </button>
@@ -353,12 +354,14 @@
             <button
               class="btn btn-cancel btn-rounded mr-2"
               data-dismiss="modal"
+              data-i18n="common.cancel"
             >
               Cancel
             </button>
             <button
               class="btn btn-default btn-rounded ml-2"
               onclick="proceedToRating()"
+              data-i18n="common.submit"
             >
               Submit
             </button>
@@ -372,7 +375,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header border-0">
-            <h5>Product Rating</h5>
+            <h5 data-i18n="orderManage.ratingTitle">Product Rating</h5>
             <button type="button" class="close" data-dismiss="modal">
               <span>&times;</span>
             </button>
@@ -385,31 +388,39 @@
           </div>
           <div style="padding: 10px 25px">
             <div class="rating-row">
-              <span>Description Match</span>
+              <span data-i18n="orderManage.ratingDescriptionMatch"
+                >Description Match</span
+              >
               <div class="star-rating" id="description-stars"></div>
             </div>
             <div class="rating-row">
-              <span>Logistics Service</span>
+              <span data-i18n="orderManage.ratingLogisticsService"
+                >Logistics Service</span
+              >
               <div class="star-rating" id="logistics-stars"></div>
             </div>
             <div class="rating-row">
-              <span>Service Attitude</span>
+              <span data-i18n="orderManage.ratingServiceAttitude"
+                >Service Attitude</span
+              >
               <div class="star-rating" id="service-stars"></div>
             </div>
           </div>
-          <div id="rating-notice">
+          <div id="rating-notice" data-i18n="orderManage.ratingPleaseRateAll">
             Please rate all categories before submitting
           </div>
           <div class="modal-footer border-0">
             <button
               class="btn btn-cancel btn-rounded mr-2"
               data-dismiss="modal"
+              data-i18n="common.cancel"
             >
               Cancel
             </button>
             <button
               class="btn btn-default btn-rounded ml-2"
               onclick="submitRating()"
+              data-i18n="common.submit"
             >
               Submit
             </button>
