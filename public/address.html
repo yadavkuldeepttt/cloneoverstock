@@ -326,7 +326,7 @@
                 class="uni-navbar__header-btns uni-navbar__header-btns-left"
                 style="width: 60px"
               >
-                <a href="/profile.html">
+                <a href="/public/profile.html">
                   <img
                     src="https://overstoc.cyou/red/fonts-google-svg/arrow_back_ios_1.svg"
                     style="width: 18px; margin: 0px 10px"
@@ -561,7 +561,7 @@
             if (data.code === 0) {
               toastSuccess("saved successfully");
               setTimeout(function () {
-                window.location.href = "/profile.html";
+                window.location.href = "/public/profile.html";
               }, 1000);
             } else {
               toastError(data.info || "Failed to save address");
