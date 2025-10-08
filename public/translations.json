@@ -23,22 +23,22 @@
       "noDataYet": "no data yet"
     },
     "orderManage": {
-      "loadingOrders": "Cargando pedidos...",
-      "noOrders": "No se encontraron pedidos",
+      "loadingOrders": "Loading orders...",
+      "noOrders": "No orders found",
       "paymentBarTotal": "Total",
-      "submitAll": "Enviar todo",
-      "paymentCountdown": "Cuenta regresiva de pago",
-      "quantity": "Cantidad",
-      "totalAmount": "Monto total",
-      "commission": "Comisión",
-      "expectedEarnings": "Ganancias esperadas",
-      "detailsTitle": "Detalles del pedido",
-      "processing": "Procesando pedido...",
-      "ratingTitle": "Calificación del producto",
-      "ratingDescriptionMatch": "Coincidencia de la descripción",
-      "ratingLogisticsService": "Servicio de logística",
-      "ratingServiceAttitude": "Actitud del servicio",
-      "ratingPleaseRateAll": "Califica todas las categorías antes de enviar"
+      "submitAll": "Submit All",
+      "paymentCountdown": "Payment Countdown",
+      "quantity": "Quantity",
+      "totalAmount": "Total Amount",
+      "commission": "Commission",
+      "expectedEarnings": "Expected Earnings",
+      "detailsTitle": "Order Details",
+      "processing": "Processing order...",
+      "ratingTitle": "Product Rating",
+      "ratingDescriptionMatch": "Description Match",
+      "ratingLogisticsService": "Logistics Service",
+      "ratingServiceAttitude": "Service Attitude",
+      "ratingPleaseRateAll": "Please rate all categories before submitting"
     },
     "nav": {
       "home": "Home",
@@ -712,7 +712,7 @@
       "completed": "selesai",
       "noDataYet": "belum ada data"
     },
-      "orderManage": {
+    "orderManage": {
       "loadingOrders": "Memuat pesanan...",
       "noOrders": "Tidak ada pesanan ditemukan",
       "paymentBarTotal": "Total",
@@ -942,7 +942,7 @@
       "completed": "hoàn thành",
       "noDataYet": "chưa có dữ liệu"
     },
-       "orderManage": {
+    "orderManage": {
       "loadingOrders": "Đang tải đơn hàng...",
       "noOrders": "Không tìm thấy đơn hàng",
       "paymentBarTotal": "Tổng",
@@ -1172,7 +1172,7 @@
       "completed": "tamamlandı",
       "noDataYet": "henüz veri yok"
     },
-        "orderManage": {
+    "orderManage": {
       "loadingOrders": "Siparişler yükleniyor...",
       "noOrders": "Sipariş bulunamadı",
       "paymentBarTotal": "Toplam",
@@ -1402,7 +1402,7 @@
       "completed": "completed",
       "noDataYet": "no data yet"
     },
-      "orderManage": {
+    "orderManage": {
       "loadingOrders": "Loading orders...",
       "noOrders": "No orders found",
       "paymentBarTotal": "Total",
@@ -1639,7 +1639,7 @@
       "messages": "الرسائل",
       "profile": "الملف الشخصي"
     },
-        "orderManage": {
+    "orderManage": {
       "loadingOrders": "جارٍ تحميل الطلبات...",
       "noOrders": "لم يتم العثور على طلبات",
       "paymentBarTotal": "الإجمالي",
@@ -1838,7 +1838,7 @@
       "nonMediaInquiries": "للاستفسارات غير المتعلقة بالإعلام: shop@shop.com",
       "brandAssets": "أصول العلامة التجارية"
     }
-  },  
+  },
   "th-th": {
     "common": {
       "back": "กลับ",
@@ -1862,7 +1862,7 @@
       "completed": "เสร็จสิ้น",
       "noDataYet": "ยังไม่มีข้อมูล"
     },
-        "orderManage": {
+    "orderManage": {
       "loadingOrders": "กำลังโหลดคำสั่งซื้อ...",
       "noOrders": "ไม่พบคำสั่งซื้อ",
       "paymentBarTotal": "รวม",
@@ -2099,7 +2099,7 @@
       "messages": "Mesajlar",
       "profile": "Profil"
     },
-       "orderManage": {
+    "orderManage": {
       "loadingOrders": "Sifarişlər yüklənir...",
       "noOrders": "Sifariş tapılmadı",
       "paymentBarTotal": "Ümumi",
@@ -2329,7 +2329,7 @@
       "messages": "Xabarlar",
       "profile": "Profil"
     },
-       "orderManage": {
+    "orderManage": {
       "loadingOrders": "Buyurtmalar yuklanmoqda...",
       "noOrders": "Buyurtma topilmadi",
       "paymentBarTotal": "Umumi",
@@ -2771,6 +2771,24 @@
       "messages": "Сообщения",
       "profile": "Профиль"
     },
+    "orderManage": {
+      "loadingOrders": "Загрузка заказов...",
+      "noOrders": "Заказы не найдены",
+      "paymentBarTotal": "Итого",
+      "submitAll": "Отправить все",
+      "paymentCountdown": "Обратный отсчет оплаты",
+      "quantity": "Количество",
+      "totalAmount": "Общая сумма",
+      "commission": "Комиссия",
+      "expectedEarnings": "Ожидаемый доход",
+      "detailsTitle": "Детали заказа",
+      "processing": "Заказ обрабатывается...",
+      "ratingTitle": "Рейтинг товара",
+      "ratingDescriptionMatch": "Соответствие описанию",
+      "ratingLogisticsService": "Логистический сервис",
+      "ratingServiceAttitude": "Отношение к сервису",
+      "ratingPleaseRateAll": "Пожалуйста, оцените все категории перед отправкой"
+    },
     "orders": {
       "title": "Получить заказы",
       "accountFunds": "средства счета",
@@ -2982,6 +3000,24 @@
       "wallet": "वॉलेट",
       "messages": "संदेश",
       "profile": "प्रोफ़ाइल"
+    },
+    "orderManage": {
+      "loadingOrders": "ऑर्डर लोड हो रहे हैं...",
+      "noOrders": "कोई ऑर्डर नहीं मिला",
+      "paymentBarTotal": "कुल",
+      "submitAll": "सभी सबमिट करें",
+      "paymentCountdown": "भुगतान काउंटडाउन",
+      "quantity": "मात्रा",
+      "totalAmount": "कुल राशि",
+      "commission": "कमीशन",
+      "expectedEarnings": "अपेक्षित कमाई",
+      "detailsTitle": "ऑर्डर विवरण",
+      "processing": "ऑर्डर प्रोसेस हो रहा है...",
+      "ratingTitle": "उत्पाद रेटिंग",
+      "ratingDescriptionMatch": "विवरण मिलान",
+      "ratingLogisticsService": "लॉजिस्टिक सेवा",
+      "ratingServiceAttitude": "सेवा रवैया",
+      "ratingPleaseRateAll": "कृपया सबमिट करने से पहले सभी श्रेणियों को रेट करें"
     },
     "orders": {
       "title": "आदेश प्राप्त करें",
@@ -3195,6 +3231,24 @@
       "messages": "消息",
       "profile": "我的"
     },
+    "orderManage": {
+      "loadingOrders": "加载订单中...",
+      "noOrders": "未找到订单",
+      "paymentBarTotal": "总计",
+      "submitAll": "全部提交",
+      "paymentCountdown": "支付倒计时",
+      "quantity": "数量",
+      "totalAmount": "总金额",
+      "commission": "佣金",
+      "expectedEarnings": "预期收益",
+      "detailsTitle": "订单详情",
+      "processing": "订单处理中...",
+      "ratingTitle": "商品评分",
+      "ratingDescriptionMatch": "描述相符",
+      "ratingLogisticsService": "物流服务",
+      "ratingServiceAttitude": "服务态度",
+      "ratingPleaseRateAll": "请在提交前对所有类别进行评分"
+    },
     "orders": {
       "title": "获取订单",
       "accountFunds": "账户资金",
@@ -3406,6 +3460,24 @@
       "wallet": "ウォレット",
       "messages": "メッセージ",
       "profile": "マイページ"
+    },
+    "orderManage": {
+      "loadingOrders": "注文を読み込み中...",
+      "noOrders": "注文が見つかりません",
+      "paymentBarTotal": "合計",
+      "submitAll": "すべて送信",
+      "paymentCountdown": "支払いカウントダウン",
+      "quantity": "数量",
+      "totalAmount": "合計金額",
+      "commission": "コミッション",
+      "expectedEarnings": "予想収益",
+      "detailsTitle": "注文詳細",
+      "processing": "注文処理中...",
+      "ratingTitle": "商品評価",
+      "ratingDescriptionMatch": "説明との一致",
+      "ratingLogisticsService": "物流サービス",
+      "ratingServiceAttitude": "サービス態度",
+      "ratingPleaseRateAll": "送信前にすべてのカテゴリーを評価してください"
     },
     "orders": {
       "title": "注文を取得",
