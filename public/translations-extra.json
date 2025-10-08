@@ -1,0 +1,113 @@
+{
+  "bn-bd": {
+    "common": {
+      "back": "ফিরে যান",
+      "submit": "জমা দিন",
+      "cancel": "বাতিল",
+      "confirm": "নিশ্চিত করুন",
+      "loading": "লোড হচ্ছে...",
+      "error": "ত্রুটি",
+      "success": "সফল"
+    },
+    "nav": {
+      "home": "হোম",
+      "orders": "অর্ডার",
+      "wallet": "ওয়ালেট",
+      "messages": "বার্তা",
+      "profile": "প্রোফাইল"
+    },
+    "orders": {
+      "title": "অর্ডার নিন",
+      "accountFunds": "অ্যাকাউন্টের তহবিল",
+      "free": "ফ্রি",
+      "completed": "সম্পন্ন",
+      "all": "সব",
+      "pending": "অপেক্ষমাণ",
+      "getCommission": "কমিশন পান",
+      "availableBalance": "উপলব্ধ ব্যালেন্স",
+      "startGrabbingOrders": "অর্ডার নেওয়া শুরু করুন",
+      "collaborativeProducts": "সহযোগী পণ্য"
+    },
+    "dashboard": {
+      "whyChooseTitle": "আপনি কেন Overstock বেছে নেবেন?",
+      "averageOrderValue": "গড় অর্ডার মূল্য $150-এর বেশি",
+      "competitiveCommission": "সমগ্র প্রোগ্রামে প্রতিযোগিতামূলক কমিশন হার",
+      "millionProducts": "৬ মিলিয়নের বেশি পণ্য ও আরও বাড়ছে",
+      "availableAllDevices": "সব ডিভাইসে উপলব্ধ",
+      "regularUpdates": "নিয়মিত আপডেট",
+      "brimmingCategories": "৩০০টিরও বেশি ক্যাটাগরিতে পরিপূর্ণ",
+      "coverageAllDevices": "সব ডিভাইসে কভারেজ",
+      "promoteBrands": "বিশ্বজুড়ে ভোক্তারা যেসব ব্র্যান্ড চেনে ও ভালোবাসে, সেগুলোকে প্রচার করুন।",
+      "earnCommissionsTitle": "Overstock-এর সাথে সহজেই কমিশন আয় করতে পারেন।",
+      "simpleSteps": "মাত্র ৩টি সহজ ধাপ।",
+      "step1Title": "১. মূল্যায়নের যোগ্যতা পেতে রিচার্জ করুন",
+      "step1Desc": "ক্রয় ও মূল্যায়নের আগে তহবিল প্রস্তুত করতে হবে। মূল্যায়ন শেষ হলে ক্রয়মূল্য ও কমিশন একই সাথে আপনার অ্যাকাউন্টে ফেরত যাবে।",
+      "step2Title": "২. বরাদ্দকৃত অর্ডার সম্পন্ন করুন",
+      "step2Desc": "প্রতিজন দিনে ৩টি অর্ডার পান; প্রতিটি অর্ডারে ৫০টি আইটেম থাকে, ৫০টি রিভিউ সম্পন্ন করার জন্য যথেষ্ট সময় থাকে",
+      "step3Title": "৩. কমিশন উপার্জন করুন",
+      "step3Desc": "আপনি যে অর্ডারটি নিয়েছিলেন তা সম্পন্ন হলে, নতুন অর্ডার নেওয়ার আগে আপনাকে সব ব্যালেন্স তুলে নিতে হবে",
+      "offerMillions": "আমরা বিস্তৃত বিক্রেতাদের কাছ থেকে লক্ষ লক্ষ আইটেম অফার করি",
+      "thousandsParticipated": "‘Overstock’ মূল্যায়নে লক্ষ লক্ষ মানুষ অংশগ্রহণ করেছেন",
+      "productRange": "আমাদের পণ্যের পরিসরে আসবাব, গৃহস্থালি যন্ত্রপাতি, ইলেকট্রনিক পণ্য অন্তর্ভুক্ত।",
+      "safePayment": "আমরা নিরাপদ, দ্রুত এবং সহজ পেমেন্ট পদ্ধতি প্রদান করি"
+    },
+    "profile": {
+      "myBalance": "আমার ব্যালেন্স",
+      "inviteCode": "আমন্ত্রণ কোড",
+      "withdraw": "উত্তোলন",
+      "recharge": "রিচার্জ",
+      "total": "মোট",
+      "today": "আজ",
+      "freeze": "ফ্রিজ",
+      "more": "আরও",
+      "receivingAddress": "গ্রহণের ঠিকানা",
+      "rechargeRecord": "রিচার্জ রেকর্ড",
+      "withdrawalRecord": "উত্তোলন রেকর্ড",
+      "contactUs": "যোগাযোগ করুন",
+      "creditScore": "ক্রেডিট স্কোর",
+      "message": "বার্তা",
+      "walletAddress": "ওয়ালেট ঠিকানা",
+      "accountSecurity": "অ্যাকাউন্ট সিকিউরিটি",
+      "selectLanguage": "ভাষা নির্বাচন করুন",
+      "aboutUs": "আমাদের সম্পর্কে",
+      "exit": "প্রস্থান"
+    },
+    "withdrawal": {
+      "title": "উত্তোলন",
+      "amountCanWithdraw": "যে পরিমাণ উত্তোলন করা যাবে",
+      "accountName": "অ্যাকাউন্টের নাম",
+      "mobileNumber": "মোবাইল নম্বর",
+      "withdrawCashToUSDT": "USDT-তে নগদ উত্তোলন (স্কেল ১)",
+      "withdrawalAmount": "উত্তোলনের পরিমাণ",
+      "withdrawButton": "উত্তোলন"
+    },
+    "language": {
+      "selectLanguage": "ভাষা নির্বাচন করুন",
+      "english": "ইংরেজি",
+      "spanish": "স্প্যানিশ",
+      "portuguese": "পর্তুগিজ",
+      "indonesia": "ইন্দোনেশিয়া",
+      "vietnamese": "ভিয়েতনামি",
+      "turkish": "তুর্কি",
+      "australia": "অস্ট্রেলিয়া",
+      "arabic": "আরবি",
+      "thai": "থাই",
+      "azerbaijani": "আজারবাইজানি",
+      "uzbekistan": "উজবেকিস্তান",
+      "korea": "কোরিয়া",
+      "russia": "রাশিয়া",
+      "bengali": "বাংলা"
+    },
+    "footer": {
+      "copyright": "© ২০২৫ WhaleCo Inc.",
+      "taxId": "Umsatzsteuernentifikationsnr:IE123456TH",
+      "address": "ঠিকানা: 799 West Coliseum Way, Midvale, Utah, USA",
+      "email": "ইমেইল: shop@shop.com"
+    },
+    "toast": {
+      "loginFirst": "অনুগ্রহ করে প্রথমে লগইন করুন।",
+      "languageChangeFailed": "ভাষা পরিবর্তন ব্যর্থ হয়েছে!",
+      "languageChangeSuccess": "ভাষা সফলভাবে পরিবর্তিত হয়েছে!"
+    }
+  }
+}

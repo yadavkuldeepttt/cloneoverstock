@@ -325,6 +325,7 @@
                   <span
                     class="uni-nav-bar-text uni-ellipsis-1"
                     style="color: #fff"
+                    data-i18n="common.rechargeRecordTitle"
                   >
                     RECHARGE RECORD
                   </span>
@@ -351,10 +352,10 @@
       <!-- Content -->
       <div class="recharge-content">
         <div class="recharge-info">
-          <div class="section-title">RECHARGE RECORD</div>
+          <div class="section-title" data-i18n="common.rechargeRecordTitle">RECHARGE RECORD</div>
           
           <div class="info-row">
-            <span class="info-label">Cumulative recharge:</span>
+            <span class="info-label" data-i18n="common.cumulativeRecharge">Cumulative recharge:</span>
             <span class="info-value amount" id="totalRecharge">$0.00</span>
           </div>
 
@@ -381,6 +382,11 @@
         </div>
       </div>
     </div>
+
+
+
+        <script src="/public/i18n.js"></script>
+
 
     <script>
       // Format timestamp to readable date

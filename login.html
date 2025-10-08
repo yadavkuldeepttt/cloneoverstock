@@ -259,6 +259,159 @@
         font-weight: 600;
         color: #da0023;
       }
+      /* Toast Container */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999999;
+  pointer-events: none;
+}
+
+/* Toast Styles */
+.toast {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 300px;
+  max-width: 400px;
+  pointer-events: auto;
+  animation: slideIn 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.toast.removing {
+  animation: slideOut 0.3s ease-out forwards;
+}
+
+.toast.success {
+  border-left: 4px solid #10b981;
+}
+
+.toast.error {
+  border-left: 4px solid #ef4444;
+}
+
+.toast.warning {
+  border-left: 4px solid #f59e0b;
+}
+
+.toast.info {
+  border-left: 4px solid #3b82f6;
+}
+
+.toast-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.toast.success .toast-icon {
+  color: #10b981;
+}
+
+.toast.error .toast-icon {
+  color: #ef4444;
+}
+
+.toast.warning .toast-icon {
+  color: #f59e0b;
+}
+
+.toast.info .toast-icon {
+  color: #3b82f6;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-message {
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.toast-close:hover {
+  color: #4b5563;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: currentColor;
+  opacity: 0.3;
+  animation: progress linear;
+}
+
+@keyframes progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@media (max-width: 480px) {
+  #toast-container {
+    left: 10px;
+    right: 10px;
+    top: 10px;
+  }
+
+  .toast {
+    min-width: auto;
+    max-width: 100%;
+  }
+}
     </style>
   </head>
   <body>
@@ -377,6 +530,83 @@
     </div>
 
     <script>
+
+      // Toast Notification System
+function createToastContainer() {
+  let container = document.getElementById('toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'toast-container';
+    document.body.appendChild(container);
+  }
+  return container;
+}
+
+function getToastIcon(type) {
+  const icons = {
+    success: '✓',
+    error: '✕',
+    warning: '⚠',
+    info: 'ℹ'
+  };
+  return icons[type] || icons.info;
+}
+
+function showToast(message, type = 'info', duration = 3000) {
+  const container = createToastContainer();
+  
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  
+  toast.innerHTML = `
+    <div class="toast-icon">${getToastIcon(type)}</div>
+    <div class="toast-content">
+      <p class="toast-message">${message}</p>
+    </div>
+    <button class="toast-close" aria-label="Close">×</button>
+    <div class="toast-progress" style="animation-duration: ${duration}ms;"></div>
+  `;
+  
+  container.appendChild(toast);
+  
+  const closeBtn = toast.querySelector('.toast-close');
+  closeBtn.addEventListener('click', () => {
+    removeToast(toast);
+  });
+  
+  if (duration > 0) {
+    setTimeout(() => {
+      removeToast(toast);
+    }, duration);
+  }
+  
+  return toast;
+}
+
+function removeToast(toast) {
+  toast.classList.add('removing');
+  setTimeout(() => {
+    if (toast.parentElement) {
+      toast.parentElement.removeChild(toast);
+    }
+  }, 300);
+}
+
+function toastSuccess(message, duration = 3000) {
+  return showToast(message, 'success', duration);
+}
+
+function toastError(message, duration = 4000) {
+  return showToast(message, 'error', duration);
+}
+
+function toastWarning(message, duration = 3500) {
+  return showToast(message, 'warning', duration);
+}
+
+function toastInfo(message, duration = 3000) {
+  return showToast(message, 'info', duration);
+}
       document.getElementById('loginForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         
@@ -435,10 +665,10 @@
             // Set logged in flag
             localStorage.setItem('is_logged_in', 'true');
             
-            alert(data.info);
+            toastSuccess(data.info);
             window.location.href = 'dashboard.html';
           } else {
-            alert(data.info || 'Login failed!');
+            toastError(data.info || 'Login failed!');
           }
         } catch (error) {
           console.error('Error:', error);
@@ -477,4 +707,5 @@
       }
     </script>
   </body>
+
 </html>

@@ -386,6 +386,160 @@
       .hidden {
         display: none;
       }
+
+      /* Toast Container */
+      #toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 999999;
+        pointer-events: none;
+      }
+
+      /* Toast Styles */
+      .toast {
+        background: #fff;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 300px;
+        max-width: 400px;
+        pointer-events: auto;
+        animation: slideIn 0.3s ease-out;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .toast.removing {
+        animation: slideOut 0.3s ease-out forwards;
+      }
+
+      .toast.success {
+        border-left: 4px solid #10b981;
+      }
+
+      .toast.error {
+        border-left: 4px solid #ef4444;
+      }
+
+      .toast.warning {
+        border-left: 4px solid #f59e0b;
+      }
+
+      .toast.info {
+        border-left: 4px solid #3b82f6;
+      }
+
+      .toast-icon {
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+
+      .toast.success .toast-icon {
+        color: #10b981;
+      }
+
+      .toast.error .toast-icon {
+        color: #ef4444;
+      }
+
+      .toast.warning .toast-icon {
+        color: #f59e0b;
+      }
+
+      .toast.info .toast-icon {
+        color: #3b82f6;
+      }
+
+      .toast-content {
+        flex: 1;
+      }
+
+      .toast-message {
+        color: #1f2937;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4;
+        margin: 0;
+      }
+
+      .toast-close {
+        background: none;
+        border: none;
+        color: #9ca3af;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: color 0.2s;
+      }
+
+      .toast-close:hover {
+        color: #4b5563;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideOut {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+      }
+
+      .toast-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: currentColor;
+        opacity: 0.3;
+        animation: progress linear;
+      }
+
+      @keyframes progress {
+        from {
+          width: 100%;
+        }
+        to {
+          width: 0%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #toast-container {
+          left: 10px;
+          right: 10px;
+          top: 10px;
+        }
+
+        .toast {
+          min-width: auto;
+          max-width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
@@ -396,7 +550,7 @@
             <span class="icon">‹</span>
           </button>
         </a>
-        <h1 class="title">RECHARGE</h1>
+        <h1 class="title" data-i18n="recharge.title">RECHARGE</h1>
         <button class="icon-btn" aria-label="Help">
           <svg
             class="icon"
@@ -464,7 +618,7 @@
                 >
                   <div class="pay-card-header">
                     <span class="card-icon">💳</span>
-                    <span class="label">RECHARGE</span>
+                    <span class="label" data-i18n="recharge.title">RECHARGE</span>
                   </div>
                   <div class="pay-card-body">
                     <h3 class="method-name">USDT</h3>
@@ -475,18 +629,24 @@
             </div>
 
             <div class="notice">
-              <p>
+              <p data-i18n="recharge.note1">
                 *1. The payment amount must be the same as the order amount,
                 otherwise it will not arrive automatically
               </p>
-              <p>
+              <p data-i18n="recharge.note2">
                 *2. If you do not receive recharge and withdrawal, please
                 consult your supervisor to solve other problems.
               </p>
             </div>
 
             <div class="action">
-              <button class="primary-btn" id="rechargeBtn">RECHARGE</button>
+              <button
+                class="primary-btn"
+                id="rechargeBtn"
+                data-i18n="recharge.title"
+              >
+                RECHARGE
+              </button>
             </div>
           </div>
         </section>
@@ -494,17 +654,22 @@
         <section id="uploadSection" class="upload-section">
           <div class="card amount-card">
             <p class="muted">
-              amount: $<span id="confirmedAmount">100.00</span>
+              <span data-i18n="recharge.amountLabel">amount</span>: $<span
+                id="confirmedAmount"
+                >100.00</span
+              >
             </p>
             <div class="amount-display">
-              You have to pay: USDT (<span id="confirmedPayAmount">100.00</span
-              >)
+              <span data-i18n="recharge.youHaveToPay">
+                You have to pay: USDT</span
+              >
+              (<span id="confirmedPayAmount">100.00</span>)
             </div>
           </div>
 
           <div class="payment-section">
-            <h2 class="section-title">USDT</h2>
-            <p class="range" style="text-align: center; margin-bottom: 10px">
+            <h2 class="section-title" data-i18n="recharge.usdt">USDT</h2>
+            <p class="range" data-i18n="recharge.trc20" style="text-align: center; margin-bottom: 10px">
               TRC20
             </p>
 
@@ -512,7 +677,7 @@
               <span class="qr-icon">🔍</span>
             </div>
 
-            <p class="upload-label">Please upload proof of payment</p>
+            <p class="upload-label" data-i18n="recharge.uploadProofOfPayment">Please upload proof of payment</p>
 
             <input
               type="file"
@@ -524,6 +689,7 @@
               class="upload-btn"
               id="uploadBtn"
               onclick="document.getElementById('fileInput').click()"
+              data-i18n="recharge.chooseFile"
             >
               Choose File
             </button>
@@ -535,7 +701,12 @@
             />
 
             <div class="action">
-              <button class="primary-btn" id="submitBtn" disabled>
+              <button
+                class="primary-btn"
+                id="submitBtn"
+                disabled
+                data-i18n="common.submit"
+              >
                 SUBMIT
               </button>
             </div>
@@ -544,6 +715,8 @@
       </main>
     </div>
 
+    
+    <script src="/public/i18n.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
@@ -553,6 +726,83 @@
       let uploadedFile = null;
       let orderSn = null;
       let userId = null;
+
+      // Toast Notification System
+      function createToastContainer() {
+        let container = document.getElementById("toast-container");
+        if (!container) {
+          container = document.createElement("div");
+          container.id = "toast-container";
+          document.body.appendChild(container);
+        }
+        return container;
+      }
+
+      function getToastIcon(type) {
+        const icons = {
+          success: "✓",
+          error: "✕",
+          warning: "⚠",
+          info: "ℹ",
+        };
+        return icons[type] || icons.info;
+      }
+
+      function showToast(message, type = "info", duration = 3000) {
+        const container = createToastContainer();
+
+        const toast = document.createElement("div");
+        toast.className = `toast ${type}`;
+
+        toast.innerHTML = `
+    <div class="toast-icon">${getToastIcon(type)}</div>
+    <div class="toast-content">
+      <p class="toast-message">${message}</p>
+    </div>
+    <button class="toast-close" aria-label="Close">×</button>
+    <div class="toast-progress" style="animation-duration: ${duration}ms;"></div>
+  `;
+
+        container.appendChild(toast);
+
+        const closeBtn = toast.querySelector(".toast-close");
+        closeBtn.addEventListener("click", () => {
+          removeToast(toast);
+        });
+
+        if (duration > 0) {
+          setTimeout(() => {
+            removeToast(toast);
+          }, duration);
+        }
+
+        return toast;
+      }
+
+      function removeToast(toast) {
+        toast.classList.add("removing");
+        setTimeout(() => {
+          if (toast.parentElement) {
+            toast.parentElement.removeChild(toast);
+          }
+        }, 300);
+      }
+
+      function toastSuccess(message, duration = 3000) {
+        return showToast(message, "success", duration);
+      }
+
+      function toastError(message, duration = 4000) {
+        return showToast(message, "error", duration);
+      }
+
+      function toastWarning(message, duration = 3500) {
+        return showToast(message, "warning", duration);
+      }
+
+      function toastInfo(message, duration = 3000) {
+        return showToast(message, "info", duration);
+      }
 
       // Amount selection
       const amountLabel = document.getElementById("amountLabel");
@@ -595,7 +845,6 @@
         });
       });
 
-  
       document
         .getElementById("rechargeBtn")
         .addEventListener("click", async () => {
@@ -607,7 +856,7 @@
             return;
           }
           if (selectedAmount <= 0) {
-            alert("Please enter a valid amount");
+            toastError("Please enter a valid amount");
             return;
           }
 
@@ -632,7 +881,7 @@
             console.log("recharge_do_before response:", beforeData);
 
             if (beforeData.code !== 0) {
-              alert(
+              toastError(
                 beforeData.info ||
                   "Recharge validation failed. Please try again."
               );
@@ -663,14 +912,14 @@
               document.getElementById("confirmedPayAmount").textContent =
                 selectedAmount.toFixed(2);
             } else {
-              alert(
+              toastError(
                 bitDetailsData.info?.message ||
                   "Failed to create order. Please try again."
               );
             }
           } catch (error) {
             console.error("Error:", error);
-            alert("An error occurred. Please try again.");
+            toastError("An error occurred. Please try again.");
           }
         });
 
@@ -711,32 +960,32 @@
           });
 
           if (uploadResponse.code !== 0) {
-            alert(uploadResponse.info || "File upload failed");
+            toastError(uploadResponse.info || "File upload failed");
             submitBtn.disabled = true;
           } else {
             console.log("File uploaded successfully:", uploadResponse);
           }
         } catch (error) {
           console.error("Upload error:", error);
-          alert("File upload failed. Please try again.");
+          toastError("File upload failed. Please try again.");
           submitBtn.disabled = true;
         }
       });
 
-          submitBtn.addEventListener("click", async () => {
+      submitBtn.addEventListener("click", async () => {
         if (!uploadedFile) {
-          alert("Please upload payment proof");
+          toastInfo("Please upload payment proof");
           return;
         }
 
         if (!orderSn) {
-          alert("Order SN not found. Please try again.");
+          toastError("Order SN not found. Please try again.");
           return;
         }
 
         try {
           const user_id = localStorage.getItem("user_id");
-          
+
           const formData = new FormData();
           formData.append("img", uploadedFile);
           formData.append("user_id", user_id);
@@ -753,18 +1002,20 @@
           console.log("Submit response:", response);
 
           if (response.code === 1) {
-            alert(response.info);
-            window.location.href = "/profile.html";
+            toastSuccess(response.info);
+            setTimeout(() => {
+              window.location.href = "/profile.html";
+            }, 3000);
           } else {
-            alert(
+            toastError(
               response.info || "Recharge submission failed. Please try again."
             );
           }
         } catch (error) {
           console.error("Error:", error);
-          alert("An error occurred. Please try again.");
+          toastError("An error occurred. Please try again.");
         }
       });
-   </script>
+    </script>
   </body>
 </html>

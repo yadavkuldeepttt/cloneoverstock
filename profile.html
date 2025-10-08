@@ -8,7 +8,11 @@
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"
     />
     <title>personal information</title>
-    <link rel="icon" type="image/png" href="https://overstoc.cyou/skin2025/img/tx11.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://overstoc.cyou/skin2025/img/tx11.png"
+    />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -178,13 +182,13 @@
       <div class="main">
         <div class="g1">
           <div class="g1-1">
-            <div class="g1-1-1" id="userPhone">Loading...</div>
-            <div class="g1-1-2" id="userName">Loading...</div>
-            <div class="g1-1-2">
+            <div class="g1-1-1" id="userPhone" data-i18n="common.loading">Loading...</div>
+            <div class="g1-1-2" id="userName" data-i18n="common.loading">Loading...</div>
+            <div class="g1-1-2" data-i18n="profile.myBalance">
               my balance:<span id="userBalance">0.00</span>$
             </div>
-            <div class="g1-1-3">
-              Invite Code:<span id="copy1" data-invite-code="">Loading...</span>
+            <div class="g1-1-3" data-i18n="profile.inviteCode">
+              Invite Code:<span id="copy1" data-invite-code="" data-i18n="common.loading">Loading...</span>
               <img
                 src="https://overstoc.cyou/red/img/copy.png"
                 style="width: 22px; cursor: pointer"
@@ -195,6 +199,17 @@
                 id="hiddenInput"
                 style="position: absolute; left: -9999px"
               />
+              <span
+                id="copyMsg"
+                style="
+                  color: green;
+                  font-weight: bold;
+                  margin-left: 5px;
+                  display: none;
+                "
+              >
+                Copied!
+              </span>
             </div>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
@@ -204,7 +219,15 @@
                   var tempInput = $("#hiddenInput");
                   tempInput.val(inviteCode).select();
                   document.execCommand("copy");
-                  alert("Copy successfully");
+
+                  // Show "Copied" message
+                  var msg = $("#copyMsg");
+                  msg.show();
+
+                  // Hide it after 2 seconds
+                  setTimeout(function () {
+                    msg.fadeOut();
+                  }, 2000);
                 });
               });
             </script>
@@ -216,8 +239,12 @@
 
         <div class="g2">
           <ul>
-            <li><a href="/withdraw.html">Withdraw</a></li>
-            <li class="on"><a href="/recharge.html">Recharge</a></li>
+            <li>
+              <a href="/withdraw.html" data-i18n="profile.withdraw">Withdraw</a>
+            </li>
+            <li class="on">
+              <a href="/recharge.html" data-i18n="profile.recharge">Recharge</a>
+            </li>
           </ul>
         </div>
 
@@ -257,7 +284,7 @@
                   ></path>
                 </svg>
               </div>
-              <div class="text1">Total</div>
+              <div class="text1" data-i18n="profile.total">Total</div>
               <div class="text2" id="totalAmount">0$</div>
             </li>
             <li>
@@ -284,7 +311,7 @@
                   ></path>
                 </svg>
               </div>
-              <div class="text1">Today</div>
+              <div class="text1" data-i18n="profile.today">Today</div>
               <div class="text2" id="todayAmount">0$</div>
             </li>
             <li>
@@ -311,14 +338,14 @@
                   ></path>
                 </svg>
               </div>
-              <div class="text1">Freeze</div>
+              <div class="text1" data-i18n="profile.freeze">Freeze</div>
               <div class="text2" id="freezeAmount">0.00$</div>
             </li>
           </ul>
         </div>
 
         <div class="g4">
-          <div class="g4-1">More</div>
+          <div class="g4-1" data-i18n="profile.more">More</div>
           <ul>
             <li>
               <a href="/address.html">
@@ -344,7 +371,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">Receiving address</div>
+                <div class="text" data-i18n="profile.receivingAddress">
+                  Receiving address
+                </div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i>
                 </div>
@@ -375,7 +404,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">recharge record</div>
+                <div class="text" data-i18n="profile.rechargeRecord">
+                  recharge record
+                </div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i>
                 </div>
@@ -401,13 +432,15 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">withdrawal record</div>
+                <div class="text" data-i18n="profile.withdrawalRecord">
+                  withdrawal record
+                </div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i>
                 </div>
               </a>
             </li>
-           <li>
+            <li>
               <a href="/contact.html"
                 ><div class="icon">
                   <svg
@@ -441,7 +474,7 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">contact us</div>
+                <div class="text" data-i18n="profile.contactUs">contact us</div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i></div
               ></a>
@@ -473,7 +506,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">Credit Score</div>
+                <div class="text" data-i18n="profile.creditScore">
+                  Credit Score
+                </div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i></div
               ></a>
@@ -515,7 +550,7 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">message</div>
+                <div class="text" data-i18n="profile.message">message</div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i></div
               ></a>
@@ -547,7 +582,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">Wallet address</div>
+                <div class="text" data-i18n="profile.walletAddress">
+                  Wallet address
+                </div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i></div
               ></a>
@@ -578,7 +615,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">Account Security</div>
+                <div class="text" data-i18n="profile.accountSecurity">
+                  Account Security
+                </div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i></div
               ></a>
@@ -610,7 +649,9 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">Select language</div>
+                <div class="text" data-i18n="profile.selectLanguage">
+                  Select language
+                </div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i></div
               ></a>
@@ -641,7 +682,7 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">About us</div>
+                <div class="text" data-i18n="profile.aboutUs">About us</div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i></div
               ></a>
@@ -673,31 +714,27 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text">exit</div>
+                <div class="text" data-i18n="profile.exit">exit</div>
                 <div class="icon2">
                   <i class="layui-icon layui-icon-right"></i></div
               ></a>
             </li>
           </ul>
- </div>
+        </div>
       </div>
-                <style>
+      <style>
         .btn img {
           max-width: 28px;
           vertical-align: middle;
         }
       </style>
 
-
-
-           <div class="footer">
+      <div class="footer">
         <div class="no-gutters">
           <div class="col-auto mx-auto">
             <div class="row no-gutters justify-content-center">
               <div class="col-auto">
-                <a
-                  href="/dashboard.html"
-                  class="btn btn-link-default active"
+                <a href="/dashboard.html" class="btn btn-link-default active"
                   ><img
                     src="https://overstoc.cyou/red/fonts-google-svg/home_hs.svg"
                     style="width: 28px"
@@ -705,9 +742,7 @@
                 /></a>
               </div>
               <div class="col-auto">
-                <a
-                  href="/news.html"
-                  class="btn btn-link-default"
+                <a href="/news.html" class="btn btn-link-default"
                   ><img
                     src="https://overstoc.cyou/red/fonts-google-svg/local_mall_hs.svg"
                     style="width: 28px"
@@ -715,9 +750,7 @@
                 /></a>
               </div>
               <div class="col-auto">
-                <a
-                  href="/rot_order.html"
-                  class="btn btn-link-default"
+                <a href="/rot_order.html" class="btn btn-link-default"
                   ><img
                     src="https://overstoc.cyou/red/fonts-google-svg/electric_bolt_hs.svg"
                     style="width: 28px"
@@ -744,192 +777,322 @@
           </div>
         </div>
       </div>
-<style>
-  .logout-btn {
-    background: #da0023;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    margin: 20px auto;
-    display: block;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
-    transition: all 0.3s;
-  }
+      <style>
+        .logout-btn {
+          background: #da0023;
+          color: white;
+          border: none;
+          padding: 12px;
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          margin: 20px auto;
+          display: block;
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          max-width: 300px;
+          transition: all 0.3s;
+        }
 
-  .logout-btn:hover {
-    background: #b8001d;
-  }
-  .modal-header{
-    display: flex;
-    flex-direction: column;
-  }
-</style>
+        .logout-btn:hover {
+          background: #b8001d;
+        }
+        .modal-header {
+          display: flex;
+          flex-direction: column;
+        }
+      </style>
       <div class="modal-overlay" id="logoutModal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <div class="modal-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="#da0023"/>
-        </svg>
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+                  fill="#da0023"
+                />
+              </svg>
+            </div>
+            <div class="modal-title" data-i18n="modal.confirmLogoutTitle">Confirm Logout</div>
+            <div class="modal-message" data-i18n="modal.confirmLogoutDesc">
+              Are you sure you want to logout? You will need to login again to
+              access your account.
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button class="modal-btn modal-btn-cancel" id="cancelLogout" data-i18n="common.cancel">
+              Cancel
+            </button>
+            <button class="modal-btn modal-btn-confirm" id="confirmLogout" data-i18n="modal.logout">
+              Logout
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="modal-title">Confirm Logout</div>
-      <div class="modal-message">
-        Are you sure you want to logout? You will need to login again to access your account.
-      </div>
-    </div>
-    <div class="modal-actions">
-      <button class="modal-btn modal-btn-cancel" id="cancelLogout">Cancel</button>
-      <button class="modal-btn modal-btn-confirm" id="confirmLogout">Logout</button>
-    </div>
-  </div>
-</div>
     </div>
 
+    <script src="/public/i18n.js"></script>
 
     <!-- Add this JavaScript before closing </body> tag -->
-<script>
-  // Logout functionality
-  const logoutBtn = document.getElementById('logoutBtn');
-  const logoutModal = document.getElementById('logoutModal');
-  const cancelLogout = document.getElementById('cancelLogout');
-  const confirmLogout = document.getElementById('confirmLogout');
+    <script>
+      // Logout functionality
+      const logoutBtn = document.getElementById("logoutBtn");
+      const logoutModal = document.getElementById("logoutModal");
+      const cancelLogout = document.getElementById("cancelLogout");
+      const confirmLogout = document.getElementById("confirmLogout");
 
-  // Show modal when logout button is clicked
-  logoutBtn.addEventListener('click', function() {
-    logoutModal.classList.add('show');
-  });
-
-  // Hide modal when cancel is clicked
-  cancelLogout.addEventListener('click', function() {
-    logoutModal.classList.remove('show');
-  });
-
-  // Close modal when clicking outside
-  logoutModal.addEventListener('click', function(e) {
-    if (e.target === logoutModal) {
-      logoutModal.classList.remove('show');
-    }
-  });
-
-  // Perform logout when confirm is clicked
-  confirmLogout.addEventListener('click', function() {
-    // Clear all user data from localStorage
-    const keysToRemove = [
-      'csrf_token', 'user_id', 'tel', 'username', 'avatar', 'email',
-      'invite_code', 'level', 'balance', 'user', 'nickname', 'parent_id',
-      'headpic', 'lottery_money', 'freeze_balance', 'recharge_num',
-      'deposit_num', 'qh', 'agent_id', 'task_num', 'deal_count',
-      'all_recharge_num', 'all_deposit_num', 'login_time', 'is_logged_in'
-    ];
-    
-    keysToRemove.forEach(key => localStorage.removeItem(key));
-
-    // Redirect to login page
-    window.location.href = 'login.html';
-  });
-</script>
-  <script>
-async function loadUserProfile() {
-  try {
-    const csrf_token = localStorage.getItem('csrf_token');
-    const user_id = localStorage.getItem('user_id');
-
-    if (!csrf_token || !user_id) {
-      // Redirect if no auth info
-      window.location.href = '/login.html';
-      return;
-    }
-
-    // Show loading indicator if you have one
-    // showLoading();
-
-    const response = await $.ajax({
-      url: 'https://999.viptemugo.com/index/my/get_user_info',
-      method: 'POST',
-      data: { _token_: csrf_token, user_id: user_id },
-      dataType: 'json',
-      // xhrFields: { withCredentials: true }
-    });
-
-    // hideLoading();
-
-    if (response.code === 0 && response.user) {
-      const user = response.user;
-
-      // Save CSRF and user info to localStorage
-      localStorage.setItem('csrf_token', response.csrf_token || csrf_token);
-      localStorage.setItem('user_id', user.id);
-
-
-      localStorage.setItem('tel',user.tel);
-      localStorage.setItem('balance',user.balance);
-      
-
-      // Update UI
-      document.getElementById('userPhone').textContent = user.tel || 'N/A';
-      document.getElementById('userName').textContent = user.username || user.nickname || 'User';
-      document.getElementById('userBalance').textContent = parseFloat(user.balance || 0).toFixed(2);
-      document.getElementById('totalAmount').textContent = parseFloat(user.all_recharge_num || 0).toFixed(2) + '$';
-      document.getElementById('todayAmount').textContent = parseFloat(user.recharge_num || 0).toFixed(2) + '$';
-      document.getElementById('freezeAmount').textContent = parseFloat(user.freeze_balance || 0).toFixed(2) + '$';
-
-      const inviteCodeElement = document.getElementById('copy1');
-      if (inviteCodeElement) {
-        inviteCodeElement.textContent = user.invite_code || '';
-        inviteCodeElement.setAttribute('data-invite-code', user.invite_code || '');
+      // Toast Notification System
+      function createToastContainer() {
+        let container = document.getElementById("toast-container");
+        if (!container) {
+          container = document.createElement("div");
+          container.id = "toast-container";
+          document.body.appendChild(container);
+        }
+        return container;
       }
 
-      // Save data locally for fallback
-      localStorage.setItem('tel', user.tel || '');
-      localStorage.setItem('username', user.username || '');
-      localStorage.setItem('balance', user.balance || '0');
-      localStorage.setItem('invite_code', user.invite_code || '');
-      localStorage.setItem('freeze_balance', user.freeze_balance || '0');
-      localStorage.setItem('recharge_num', user.recharge_num || '0');
-      localStorage.setItem('all_recharge_num', user.all_recharge_num || '0');
+      function getToastIcon(type) {
+        const icons = {
+          success: "✓",
+          error: "✕",
+          warning: "⚠",
+          info: "ℹ",
+        };
+        return icons[type] || icons.info;
+      }
 
-    } else {
-      // API returned error
-      alert(response.info || 'Failed to load user data');
-      window.location.href = '/login.html';
-    }
+      function showToast(message, type = "info", duration = 3000) {
+        const container = createToastContainer();
 
-  } catch (error) {
-    console.error('Error loading profile:', error);
+        const toast = document.createElement("div");
+        toast.className = `toast ${type}`;
 
-    // Fallback to localStorage
-    const tel = localStorage.getItem('tel');
-    const username = localStorage.getItem('username');
-    const balance = localStorage.getItem('balance');
-    const invite_code = localStorage.getItem('invite_code');
-    const freeze_balance = localStorage.getItem('freeze_balance');
-    const recharge_num = localStorage.getItem('recharge_num');
-    const all_recharge_num = localStorage.getItem('all_recharge_num');
+        toast.innerHTML = `
+    <div class="toast-icon">${getToastIcon(type)}</div>
+    <div class="toast-content">
+      <p class="toast-message">${message}</p>
+    </div>
+    <button class="toast-close" aria-label="Close">×</button>
+    <div class="toast-progress" style="animation-duration: ${duration}ms;"></div>
+  `;
 
-    if (tel) document.getElementById('userPhone').textContent = tel;
-    if (username) document.getElementById('userName').textContent = username;
-    if (balance) document.getElementById('userBalance').textContent = parseFloat(balance).toFixed(2);
-    if (invite_code) {
-      const inviteCodeElement = document.getElementById('copy1');
-      inviteCodeElement.textContent = invite_code;
-      inviteCodeElement.setAttribute('data-invite-code', invite_code);
-    }
-    if (all_recharge_num) document.getElementById('totalAmount').textContent = parseFloat(all_recharge_num).toFixed(2) + '$';
-    if (recharge_num) document.getElementById('todayAmount').textContent = parseFloat(recharge_num).toFixed(2) + '$';
-    if (freeze_balance) document.getElementById('freezeAmount').textContent = parseFloat(freeze_balance).toFixed(2) + '$';
-  }
-}
+        container.appendChild(toast);
 
-// Load profile when page is ready
-document.addEventListener('DOMContentLoaded', loadUserProfile);
-</script>
+        const closeBtn = toast.querySelector(".toast-close");
+        closeBtn.addEventListener("click", () => {
+          removeToast(toast);
+        });
 
+        if (duration > 0) {
+          setTimeout(() => {
+            removeToast(toast);
+          }, duration);
+        }
+
+        return toast;
+      }
+
+      function removeToast(toast) {
+        toast.classList.add("removing");
+        setTimeout(() => {
+          if (toast.parentElement) {
+            toast.parentElement.removeChild(toast);
+          }
+        }, 300);
+      }
+
+      function toastSuccess(message, duration = 3000) {
+        return showToast(message, "success", duration);
+      }
+
+      function toastError(message, duration = 4000) {
+        return showToast(message, "error", duration);
+      }
+
+      function toastWarning(message, duration = 3500) {
+        return showToast(message, "warning", duration);
+      }
+
+      function toastInfo(message, duration = 3000) {
+        return showToast(message, "info", duration);
+      }
+
+      // Show modal when logout button is clicked
+      logoutBtn.addEventListener("click", function () {
+        logoutModal.classList.add("show");
+      });
+
+      // Hide modal when cancel is clicked
+      cancelLogout.addEventListener("click", function () {
+        logoutModal.classList.remove("show");
+      });
+
+      // Close modal when clicking outside
+      logoutModal.addEventListener("click", function (e) {
+        if (e.target === logoutModal) {
+          logoutModal.classList.remove("show");
+        }
+      });
+
+      // Perform logout when confirm is clicked
+      confirmLogout.addEventListener("click", function () {
+        // Clear all user data from localStorage
+        const keysToRemove = [
+          "csrf_token",
+          "user_id",
+          "tel",
+          "username",
+          "avatar",
+          "email",
+          "invite_code",
+          "level",
+          "balance",
+          "user",
+          "nickname",
+          "parent_id",
+          "headpic",
+          "lottery_money",
+          "freeze_balance",
+          "recharge_num",
+          "deposit_num",
+          "qh",
+          "agent_id",
+          "task_num",
+          "deal_count",
+          "all_recharge_num",
+          "all_deposit_num",
+          "login_time",
+          "is_logged_in",
+        ];
+
+        keysToRemove.forEach((key) => localStorage.removeItem(key));
+
+        // Redirect to login page
+        window.location.href = "login.html";
+      });
+    </script>
+    <script>
+      async function loadUserProfile() {
+        try {
+          const csrf_token = localStorage.getItem("csrf_token");
+          const user_id = localStorage.getItem("user_id");
+
+          if (!csrf_token || !user_id) {
+            // Redirect if no auth info
+            window.location.href = "/login.html";
+            return;
+          }
+
+          // Show loading indicator if you have one
+          // showLoading();
+
+          const response = await $.ajax({
+            url: "https://999.viptemugo.com/index/my/get_user_info",
+            method: "POST",
+            data: { _token_: csrf_token, user_id: user_id },
+            dataType: "json",
+            // xhrFields: { withCredentials: true }
+          });
+
+          // hideLoading();
+
+          if (response.code === 0 && response.user) {
+            const user = response.user;
+
+            // Save CSRF and user info to localStorage
+            localStorage.setItem(
+              "csrf_token",
+              response.csrf_token || csrf_token
+            );
+            localStorage.setItem("user_id", user.id);
+
+            localStorage.setItem("tel", user.tel);
+            localStorage.setItem("balance", user.balance);
+
+            // Update UI
+            document.getElementById("userPhone").textContent =
+              user.tel || "N/A";
+            document.getElementById("userName").textContent =
+              user.username || user.nickname || "User";
+            document.getElementById("userBalance").textContent = parseFloat(
+              user.balance || 0
+            ).toFixed(2);
+            document.getElementById("totalAmount").textContent =
+              parseFloat(user.all_recharge_num || 0).toFixed(2) + "$";
+            document.getElementById("todayAmount").textContent =
+              parseFloat(user.recharge_num || 0).toFixed(2) + "$";
+            document.getElementById("freezeAmount").textContent =
+              parseFloat(user.freeze_balance || 0).toFixed(2) + "$";
+
+            const inviteCodeElement = document.getElementById("copy1");
+            if (inviteCodeElement) {
+              inviteCodeElement.textContent = user.invite_code || "";
+              inviteCodeElement.setAttribute(
+                "data-invite-code",
+                user.invite_code || ""
+              );
+            }
+
+            // Save data locally for fallback
+            localStorage.setItem("tel", user.tel || "");
+            localStorage.setItem("username", user.username || "");
+            localStorage.setItem("balance", user.balance || "0");
+            localStorage.setItem("invite_code", user.invite_code || "");
+            localStorage.setItem("freeze_balance", user.freeze_balance || "0");
+            localStorage.setItem("recharge_num", user.recharge_num || "0");
+            localStorage.setItem(
+              "all_recharge_num",
+              user.all_recharge_num || "0"
+            );
+          } else {
+            // API returned error
+            alert(response.info || "Failed to load user data");
+            window.location.href = "/login.html";
+          }
+        } catch (error) {
+          console.error("Error loading profile:", error);
+
+          // Fallback to localStorage
+          const tel = localStorage.getItem("tel");
+          const username = localStorage.getItem("username");
+          const balance = localStorage.getItem("balance");
+          const invite_code = localStorage.getItem("invite_code");
+          const freeze_balance = localStorage.getItem("freeze_balance");
+          const recharge_num = localStorage.getItem("recharge_num");
+          const all_recharge_num = localStorage.getItem("all_recharge_num");
+
+          if (tel) document.getElementById("userPhone").textContent = tel;
+          if (username)
+            document.getElementById("userName").textContent = username;
+          if (balance)
+            document.getElementById("userBalance").textContent =
+              parseFloat(balance).toFixed(2);
+          if (invite_code) {
+            const inviteCodeElement = document.getElementById("copy1");
+            inviteCodeElement.textContent = invite_code;
+            inviteCodeElement.setAttribute("data-invite-code", invite_code);
+          }
+          if (all_recharge_num)
+            document.getElementById("totalAmount").textContent =
+              parseFloat(all_recharge_num).toFixed(2) + "$";
+          if (recharge_num)
+            document.getElementById("todayAmount").textContent =
+              parseFloat(recharge_num).toFixed(2) + "$";
+          if (freeze_balance)
+            document.getElementById("freezeAmount").textContent =
+              parseFloat(freeze_balance).toFixed(2) + "$";
+        }
+      }
+
+      // Load profile when page is ready
+      document.addEventListener("DOMContentLoaded", loadUserProfile);
+    </script>
   </body>
 </html>

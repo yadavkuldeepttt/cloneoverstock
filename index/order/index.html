@@ -255,12 +255,21 @@
           class="btn btn-sm btn-outline-default btn-rounded active"
           href="#"
           data-type="1"
+          data-i18n="common.pending"
           >PENDING</a
         >
-        <a class="btn btn-sm btn-rounded ml-1" href="#" data-type="2"
+        <a
+          class="btn btn-sm btn-rounded ml-1"
+          href="#"
+          data-type="2"
+          data-i18n="common.freezing"
           >FREEZING</a
         >
-        <a class="btn btn-sm btn-rounded ml-1" href="#" data-type="3"
+        <a
+          class="btn btn-sm btn-rounded ml-1"
+          href="#"
+          data-type="3"
+          data-i18n="common.completed"
           >COMPLETED</a
         >
       </div>
@@ -271,7 +280,9 @@
     </div>
 
     <div class="payment-all" id="paymentBar" style="display: none">
-      <div>Total: <span id="totalPrice">$0</span></div>
+      <div data-i18n="profile.total">
+        Total: <span id="totalPrice">$0</span>
+      </div>
       <div>
         <button
           class="btn btn-default shadow btn-rounded btn-sm"
@@ -407,6 +418,7 @@
       </div>
     </div>
 
+    <script src="/public/i18n.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -662,41 +674,40 @@
         const type = $(this).data("type");
         loadOrders(type, 1);
       });
-// Submit single order - now opens rating modal directly
+      // Submit single order - now opens rating modal directly
       function openRatingModal(id) {
         currentOrderId = id;
-        
+
         var user_id = localStorage.getItem("user_id");
         let csrf_token = localStorage.getItem("csrf_token");
-        
+
         showLoading();
-        
+
         $.ajax({
           url: `${API_BASE_URL}/index/order/order_info`,
-          method: 'POST',
-          data: { 
+          method: "POST",
+          data: {
             id: id,
             user_id: user_id,
-            __token__: csrf_token || ''
+            __token__: csrf_token || "",
           },
-          dataType: 'json',
-          success: function(response) {
+          dataType: "json",
+          success: function (response) {
             hideLoading();
-            
+
             if (response.code === 0) {
               currentOrderData = [response.data];
               showRatingModal();
             } else {
-              alert(response.info || 'Failed to load order details');
+              console.error(response.info || "Failed to load order details");
             }
           },
-          error: function() {
+          error: function () {
             hideLoading();
-            alert('Failed to load order details. Please try again.');
-          }
+            console.error("Failed to load order details. Please try again.");
+          },
         });
       }
-
 
       // Show loading spinner
       function showLoading() {
@@ -729,11 +740,11 @@
               currentOrderData = [response.data];
               displayOrderDetail(response.data);
             } else {
-              alert(response.info || "Failed to load order details");
+              console.error(response.info || "Failed to load order details");
             }
           },
           error: function () {
-            alert("Failed to load order details. Please try again.");
+            console.error("Failed to load order details. Please try again.");
           },
         });
       }
@@ -840,14 +851,23 @@
           dataType: "json",
           success: function (response) {
             if (response.code === 0) {
-              alert(response.info);
-              loadOrders(currentType, currentPage);
+              // toastSuccess(response.info);
+              setTimeout(() => {
+                // Switch to "COMPLETED" tab after successful submission
+                $(".icon-slide a").removeClass("btn-outline-default active");
+                $(`.icon-slide a[data-type="3"]`).addClass(
+                  "btn-outline-default active"
+                );
+
+                // Load completed orders (type = 3)
+                loadOrders(3, 1);
+              }, 3000);
             } else {
-              alert(response.info || "Failed to submit order");
+              console.error(response.info || "Failed to submit order");
             }
           },
           error: function () {
-            alert("Failed to submit order. Please try again.");
+            console.error("Failed to submit order. Please try again.");
           },
         });
       }
@@ -887,11 +907,11 @@
               $("#orderListInfo").html(html);
               $("#orderDetail").modal("show");
             } else {
-              alert(response.info || "Failed to load orders");
+              console.error(response.info || "Failed to load orders");
             }
           },
           error: function () {
-            alert("Failed to load orders. Please try again.");
+            console.error("Failed to load orders. Please try again.");
           },
         });
       }
