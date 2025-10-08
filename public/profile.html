@@ -23,7 +23,7 @@
     />
     <link href="/public/bootstrap.min.css" rel="stylesheet" />
     <link href="/public/style2.css" rel="stylesheet" />
-  
+
     <style>
       .modal-overlay {
         display: none;
@@ -137,7 +137,7 @@
     <div class="app">
       <div class="top">
         <div class="top_left">
-          <a href="/language.html">
+          <a href="/public/language.html">
             <img
               src="https://overstoc.cyou/red/fonts-google-svg/g_translate_1.svg"
               style="margin: 10px"
@@ -170,13 +170,22 @@
       <div class="main">
         <div class="g1">
           <div class="g1-1">
-            <div class="g1-1-1" id="userPhone" data-i18n="common.loading">Loading...</div>
-            <div class="g1-1-2" id="userName" data-i18n="common.loading">Loading...</div>
-            <div class="g1-1-2" >
+            <div class="g1-1-1" id="userPhone" data-i18n="common.loading">
+              Loading...
+            </div>
+            <div class="g1-1-2" id="userName" data-i18n="common.loading">
+              Loading...
+            </div>
+            <div class="g1-1-2">
               my balance:<span id="userBalance">0.00</span>$
             </div>
-            <div class="g1-1-3" >
-              Invite Code:<span id="copy1" data-invite-code="" data-i18n="common.loading">Loading...</span>
+            <div class="g1-1-3">
+              Invite Code:<span
+                id="copy1"
+                data-invite-code=""
+                data-i18n="common.loading"
+                >Loading...</span
+              >
               <img
                 src="https://overstoc.cyou/red/img/copy.png"
                 style="width: 22px; cursor: pointer"
@@ -228,10 +237,14 @@
         <div class="g2">
           <ul>
             <li>
-              <a href="/withdraw.html" data-i18n="profile.withdraw">Withdraw</a>
+              <a href="/public/withdraw.html" data-i18n="profile.withdraw"
+                >Withdraw</a
+              >
             </li>
             <li class="on">
-              <a href="/recharge.html" data-i18n="profile.recharge">Recharge</a>
+              <a href="/public/recharge.html" data-i18n="profile.recharge"
+                >Recharge</a
+              >
             </li>
           </ul>
         </div>
@@ -368,7 +381,7 @@
               </a>
             </li>
             <li>
-              <a href="/recharge_admin.html">
+              <a href="/public/recharge_admin.html">
                 <div class="icon">
                   <svg
                     t="1739534901239"
@@ -401,7 +414,7 @@
               </a>
             </li>
             <li>
-              <a href="/withdrawl_admin.html">
+              <a href="/public/withdrawl_admin.html">
                 <div class="icon">
                   <svg
                     t="1739535024425"
@@ -429,7 +442,7 @@
               </a>
             </li>
             <li>
-              <a href="/contact.html"
+              <a href="/public/contact.html"
                 ><div class="icon">
                   <svg
                     t="1739535220105"
@@ -468,7 +481,7 @@
               ></a>
             </li>
             <li>
-              <a href="/creditScore.html"
+              <a href="/public/creditScore.html"
                 ><div class="icon">
                   <svg
                     t="1740664088540"
@@ -502,7 +515,7 @@
               ></a>
             </li>
             <li>
-              <a href="/message.html"
+              <a href="/public/message.html"
                 ><div class="icon">
                   <svg
                     t="1740153825133"
@@ -544,7 +557,7 @@
               ></a>
             </li>
             <li>
-              <a href="/walletAddress.html"
+              <a href="/public/walletAddress.html"
                 ><div class="icon">
                   <svg
                     t="1740154219870"
@@ -578,7 +591,7 @@
               ></a>
             </li>
             <li>
-              <a href="/security.html"
+              <a href="/public/security.html"
                 ><div class="icon">
                   <svg
                     t="1740154333466"
@@ -611,7 +624,7 @@
               ></a>
             </li>
             <li>
-              <a href="/language.html"
+              <a href="/public/language.html"
                 ><div class="icon">
                   <svg
                     t="1740154808681"
@@ -645,7 +658,7 @@
               ></a>
             </li>
             <li>
-              <a href="/aboutUs.html"
+              <a href="/public/aboutUs.html"
                 ><div class="icon">
                   <svg
                     t="1740154979002"
@@ -722,7 +735,9 @@
           <div class="col-auto mx-auto">
             <div class="row no-gutters justify-content-center">
               <div class="col-auto">
-                <a href="/public/dashboard.html" class="btn btn-link-default active"
+                <a
+                  href="/public/dashboard.html"
+                  class="btn btn-link-default active"
                   ><img
                     src="https://overstoc.cyou/red/fonts-google-svg/home_hs.svg"
                     style="width: 28px"
@@ -807,17 +822,27 @@
                 />
               </svg>
             </div>
-            <div class="modal-title" data-i18n="modal.confirmLogoutTitle">Confirm Logout</div>
+            <div class="modal-title" data-i18n="modal.confirmLogoutTitle">
+              Confirm Logout
+            </div>
             <div class="modal-message" data-i18n="modal.confirmLogoutDesc">
               Are you sure you want to logout? You will need to login again to
               access your account.
             </div>
           </div>
           <div class="modal-actions">
-            <button class="modal-btn modal-btn-cancel" id="cancelLogout" data-i18n="common.cancel">
+            <button
+              class="modal-btn modal-btn-cancel"
+              id="cancelLogout"
+              data-i18n="common.cancel"
+            >
               Cancel
             </button>
-            <button class="modal-btn modal-btn-confirm" id="confirmLogout" data-i18n="modal.logout">
+            <button
+              class="modal-btn modal-btn-confirm"
+              id="confirmLogout"
+              data-i18n="modal.logout"
+            >
               Logout
             </button>
           </div>
