@@ -22,6 +22,24 @@
       "completed": "completed",
       "noDataYet": "no data yet"
     },
+    "orderManage": {
+      "loadingOrders": "Cargando pedidos...",
+      "noOrders": "No se encontraron pedidos",
+      "paymentBarTotal": "Total",
+      "submitAll": "Enviar todo",
+      "paymentCountdown": "Cuenta regresiva de pago",
+      "quantity": "Cantidad",
+      "totalAmount": "Monto total",
+      "commission": "Comisión",
+      "expectedEarnings": "Ganancias esperadas",
+      "detailsTitle": "Detalles del pedido",
+      "processing": "Procesando pedido...",
+      "ratingTitle": "Calificación del producto",
+      "ratingDescriptionMatch": "Coincidencia de la descripción",
+      "ratingLogisticsService": "Servicio de logística",
+      "ratingServiceAttitude": "Actitud del servicio",
+      "ratingPleaseRateAll": "Califica todas las categorías antes de enviar"
+    },
     "nav": {
       "home": "Home",
       "orders": "Orders",
@@ -233,6 +251,24 @@
       "freezing": "congelar",
       "completed": "completado",
       "noDataYet": "no hay datos aún"
+    },
+    "orderManage": {
+      "loadingOrders": "Cargando pedidos...",
+      "noOrders": "No se encontraron pedidos",
+      "paymentBarTotal": "Total",
+      "submitAll": "Enviar todo",
+      "paymentCountdown": "Cuenta regresiva de pago",
+      "quantity": "Cantidad",
+      "totalAmount": "Monto total",
+      "commission": "Comisión",
+      "expectedEarnings": "Ganancias esperadas",
+      "detailsTitle": "Detalles del pedido",
+      "processing": "Procesando pedido...",
+      "ratingTitle": "Calificación del producto",
+      "ratingDescriptionMatch": "Coincidencia de la descripción",
+      "ratingLogisticsService": "Servicio de logística",
+      "ratingServiceAttitude": "Actitud del servicio",
+      "ratingPleaseRateAll": "Califica todas las categorías antes de enviar"
     },
     "nav": {
       "home": "Inicio",
@@ -446,6 +482,24 @@
       "completed": "concluído",
       "noDataYet": "ainda não há dados"
     },
+    "orderManage": {
+      "loadingOrders": "Carregando pedidos...",
+      "noOrders": "Nenhum pedido encontrado",
+      "paymentBarTotal": "Total",
+      "submitAll": "Enviar Todos",
+      "paymentCountdown": "Contagem regressiva de pagamento",
+      "quantity": "Quantidade",
+      "totalAmount": "Valor total",
+      "commission": "Comissão",
+      "expectedEarnings": "Ganhos esperados",
+      "detailsTitle": "Detalhes do pedido",
+      "processing": "Processando pedido...",
+      "ratingTitle": "Avaliação do produto",
+      "ratingDescriptionMatch": "Correspondência da descrição",
+      "ratingLogisticsService": "Serviço de logística",
+      "ratingServiceAttitude": "Atitude do serviço",
+      "ratingPleaseRateAll": "Por favor, avalie todas as categorias antes de enviar"
+    },
     "nav": {
       "home": "Início",
       "orders": "Pedidos",
@@ -657,6 +711,24 @@
       "freezing": "dibekukan",
       "completed": "selesai",
       "noDataYet": "belum ada data"
+    },
+      "orderManage": {
+      "loadingOrders": "Memuat pesanan...",
+      "noOrders": "Tidak ada pesanan ditemukan",
+      "paymentBarTotal": "Total",
+      "submitAll": "Kirim Semua",
+      "paymentCountdown": "Hitung mundur pembayaran",
+      "quantity": "Jumlah",
+      "totalAmount": "Jumlah total",
+      "commission": "Komisi",
+      "expectedEarnings": "Pendapatan yang diharapkan",
+      "detailsTitle": "Detail Pesanan",
+      "processing": "Memproses pesanan...",
+      "ratingTitle": "Penilaian Produk",
+      "ratingDescriptionMatch": "Kesesuaian Deskripsi",
+      "ratingLogisticsService": "Layanan Logistik",
+      "ratingServiceAttitude": "Sikap Layanan",
+      "ratingPleaseRateAll": "Harap nilai semua kategori sebelum mengirim"
     },
     "nav": {
       "home": "Beranda",
@@ -870,6 +942,24 @@
       "completed": "hoàn thành",
       "noDataYet": "chưa có dữ liệu"
     },
+       "orderManage": {
+      "loadingOrders": "Đang tải đơn hàng...",
+      "noOrders": "Không tìm thấy đơn hàng",
+      "paymentBarTotal": "Tổng",
+      "submitAll": "Gửi tất cả",
+      "paymentCountdown": "Đếm ngược thanh toán",
+      "quantity": "Số lượng",
+      "totalAmount": "Tổng số tiền",
+      "commission": "Hoa hồng",
+      "expectedEarnings": "Thu nhập dự kiến",
+      "detailsTitle": "Chi tiết đơn hàng",
+      "processing": "Đang xử lý đơn hàng...",
+      "ratingTitle": "Đánh giá sản phẩm",
+      "ratingDescriptionMatch": "Khớp mô tả",
+      "ratingLogisticsService": "Dịch vụ hậu cần",
+      "ratingServiceAttitude": "Thái độ phục vụ",
+      "ratingPleaseRateAll": "Vui lòng đánh giá tất cả các danh mục trước khi gửi"
+    },
     "nav": {
       "home": "Trang chủ",
       "orders": "Đơn hàng",
@@ -1082,6 +1172,24 @@
       "completed": "tamamlandı",
       "noDataYet": "henüz veri yok"
     },
+        "orderManage": {
+      "loadingOrders": "Siparişler yükleniyor...",
+      "noOrders": "Sipariş bulunamadı",
+      "paymentBarTotal": "Toplam",
+      "submitAll": "Tümünü Gönder",
+      "paymentCountdown": "Ödeme Geri Sayımı",
+      "quantity": "Miktar",
+      "totalAmount": "Toplam Tutar",
+      "commission": "Komisyon",
+      "expectedEarnings": "Beklenen Kazançlar",
+      "detailsTitle": "Sipariş Detayları",
+      "processing": "Sipariş işleniyor...",
+      "ratingTitle": "Ürün Derecelendirmesi",
+      "ratingDescriptionMatch": "Açıklama Eşleşmesi",
+      "ratingLogisticsService": "Lojistik Hizmeti",
+      "ratingServiceAttitude": "Hizmet Tutumu",
+      "ratingPleaseRateAll": "Lütfen göndermeden önce tüm kategorileri derecelendirin"
+    },
     "nav": {
       "home": "Ana Sayfa",
       "orders": "Siparişler",
@@ -1293,6 +1401,24 @@
       "freezing": "freezing",
       "completed": "completed",
       "noDataYet": "no data yet"
+    },
+      "orderManage": {
+      "loadingOrders": "Loading orders...",
+      "noOrders": "No orders found",
+      "paymentBarTotal": "Total",
+      "submitAll": "Submit All",
+      "paymentCountdown": "Payment Countdown",
+      "quantity": "Quantity",
+      "totalAmount": "Total Amount",
+      "commission": "Commission",
+      "expectedEarnings": "Expected Earnings",
+      "detailsTitle": "Order Details",
+      "processing": "Processing order...",
+      "ratingTitle": "Product Rating",
+      "ratingDescriptionMatch": "Description Match",
+      "ratingLogisticsService": "Logistics Service",
+      "ratingServiceAttitude": "Service Attitude",
+      "ratingPleaseRateAll": "Please rate all categories before submitting"
     },
     "nav": {
       "home": "Home",
@@ -1513,6 +1639,24 @@
       "messages": "الرسائل",
       "profile": "الملف الشخصي"
     },
+        "orderManage": {
+      "loadingOrders": "جارٍ تحميل الطلبات...",
+      "noOrders": "لم يتم العثور على طلبات",
+      "paymentBarTotal": "الإجمالي",
+      "submitAll": "إرسال الكل",
+      "paymentCountdown": "العد التنازلي للدفع",
+      "quantity": "الكمية",
+      "totalAmount": "المبلغ الإجمالي",
+      "commission": "العمولة",
+      "expectedEarnings": "الأرباح المتوقعة",
+      "detailsTitle": "تفاصيل الطلب",
+      "processing": "جارٍ معالجة الطلب...",
+      "ratingTitle": "تقييم المنتج",
+      "ratingDescriptionMatch": "مطابقة الوصف",
+      "ratingLogisticsService": "خدمة اللوجستيات",
+      "ratingServiceAttitude": "موقف الخدمة",
+      "ratingPleaseRateAll": "يرجى تقييم جميع الفئات قبل الإرسال"
+    },
     "orders": {
       "title": "احصل على الطلبات",
       "accountFunds": "أموال الحساب",
@@ -1694,7 +1838,7 @@
       "nonMediaInquiries": "للاستفسارات غير المتعلقة بالإعلام: shop@shop.com",
       "brandAssets": "أصول العلامة التجارية"
     }
-  },
+  },  
   "th-th": {
     "common": {
       "back": "กลับ",
@@ -1717,6 +1861,24 @@
       "freezing": "แช่แข็ง",
       "completed": "เสร็จสิ้น",
       "noDataYet": "ยังไม่มีข้อมูล"
+    },
+        "orderManage": {
+      "loadingOrders": "กำลังโหลดคำสั่งซื้อ...",
+      "noOrders": "ไม่พบคำสั่งซื้อ",
+      "paymentBarTotal": "รวม",
+      "submitAll": "ส่งทั้งหมด",
+      "paymentCountdown": "การนับถอยหลังการชำระเงิน",
+      "quantity": "จำนวน",
+      "totalAmount": "จำนวนเงินทั้งหมด",
+      "commission": "ค่าคอมมิชชั่น",
+      "expectedEarnings": "รายได้ที่คาดหวัง",
+      "detailsTitle": "รายละเอียดคำสั่งซื้อ",
+      "processing": "กำลังดำเนินการคำสั่งซื้อ...",
+      "ratingTitle": "การให้คะแนนผลิตภัณฑ์",
+      "ratingDescriptionMatch": "การจับคู่คำอธิบาย",
+      "ratingLogisticsService": "บริการจัดส่ง",
+      "ratingServiceAttitude": "ทัศนคติการบริการ",
+      "ratingPleaseRateAll": "โปรดให้คะแนนทุกหมวดหมู่ก่อนส่ง"
     },
     "nav": {
       "home": "หน้าหลัก",
@@ -1937,6 +2099,24 @@
       "messages": "Mesajlar",
       "profile": "Profil"
     },
+       "orderManage": {
+      "loadingOrders": "Sifarişlər yüklənir...",
+      "noOrders": "Sifariş tapılmadı",
+      "paymentBarTotal": "Ümumi",
+      "submitAll": "Hamısını Göndər",
+      "paymentCountdown": "Ödəniş Geri Sayımı",
+      "quantity": "Miqdar",
+      "totalAmount": "Ümumi Məbləğ",
+      "commission": "Komissiya",
+      "expectedEarnings": "Gözlənilən Gəlirlər",
+      "detailsTitle": "Sifariş Detalları",
+      "processing": "Sifariş emal edilir...",
+      "ratingTitle": "Məhsul Qiymətləndirməsi",
+      "ratingDescriptionMatch": "Təsvir Uyğunluğu",
+      "ratingLogisticsService": "Logistika Xidməti",
+      "ratingServiceAttitude": "Xidmət Atmosferi",
+      "ratingPleaseRateAll": "Göndərmədən əvvəl bütün kateqoriyaları qiymətləndirin"
+    },
     "orders": {
       "title": "Sifarişləri al",
       "accountFunds": "hesab vəsaitləri",
@@ -2148,6 +2328,24 @@
       "wallet": "Hamyon",
       "messages": "Xabarlar",
       "profile": "Profil"
+    },
+       "orderManage": {
+      "loadingOrders": "Buyurtmalar yuklanmoqda...",
+      "noOrders": "Buyurtma topilmadi",
+      "paymentBarTotal": "Umumi",
+      "submitAll": "Hammasini yuborish",
+      "paymentCountdown": "To‘lovni hisoblash",
+      "quantity": "Miqdor",
+      "totalAmount": "Umumiy miqdor",
+      "commission": "Komissiya",
+      "expectedEarnings": "Kutilgan daromadlar",
+      "detailsTitle": "Buyurtma tafsilotlari",
+      "processing": "Buyurtma qayta ishlanmoqda...",
+      "ratingTitle": "Mahsulot reytingi",
+      "ratingDescriptionMatch": "Tavsif mosligi",
+      "ratingLogisticsService": "Logistika xizmati",
+      "ratingServiceAttitude": "Xizmat ko'rsatish odobi",
+      "ratingPleaseRateAll": "Iltimos, yuborishdan oldin barcha toifalar bo'yicha reyting bering"
     },
     "orders": {
       "title": "Buyurtmalarni oling",
