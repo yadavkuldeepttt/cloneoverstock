@@ -537,12 +537,7 @@
             .querySelector(".language-name")
             .textContent.trim();
           const langCode = langMap[langName];
-          const userId = localStorage.getItem("user_id");
 
-          if (!userId) {
-            toastError("Please log in first.");
-            return;
-          }
 
           try {
             // Save selected language to localStorage
