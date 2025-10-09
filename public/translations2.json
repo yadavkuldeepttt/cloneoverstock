@@ -1,0 +1,732 @@
+{
+  "en-ww": {
+    "index": {
+      "heroTitle": "Become an Overstock Affiliate partner and reap the rewards",
+      "heroSubtitle": "Join now and drive up your online affiliate traffic and sales through our Affiliate Program exclusively run by Impact.",
+      "ctaLoginRegister": "Login/Registration",
+      "partnerBrandsTitle": "Partner Brands",
+      "offerMillions": "We offer millions of items from a huge range of sellers",
+      "thousandsParticipated": "Hundreds of thousands of people participated in the 'Overstock' evaluation",
+      "productRange": "Our product range includes furniture, appliances, electronic products.",
+      "safePayment": "We provide safe, fast and simple payment methods"
+    },
+    "login": {
+      "title": "Login",
+      "phoneLabel": "your mobile phone number",
+      "phonePlaceholder": "your mobile phone number",
+      "passwordLabel": "your password",
+      "passwordPlaceholder": "your password",
+      "submit": "Login",
+      "footerAgree": "By continuing, you agree to our Terms and Conditions & Privacy Policy"
+    },
+    "register": {
+      "title": "Register",
+      "phoneLabel": "your mobile phone number",
+      "phonePlaceholder": "your mobile phone number",
+      "usernameLabel": "Please enter a user name",
+      "usernamePlaceholder": "Please enter a user name",
+      "passwordLabel": "your password",
+      "passwordPlaceholder": "your password",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Please confirm the password",
+      "inviteCodeLabel": "Invite Code",
+      "inviteCodePlaceholder": "Please enter the invitation code",
+      "submit": "REGISTER ACCOUNT",
+      "footerAgree": "By continuing, you agree to our Terms and Conditions & Privacy Policy"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "Tax ID: IE123456TH",
+      "address": "Address: 799 West Coliseum Way, Midvale, Utah, USA",
+      "email": "Email: shop@shop.com"
+    }
+  },
+
+  "en-au": {
+    "index": {
+      "heroTitle": "Become an Overstock Affiliate partner and reap the rewards",
+      "heroSubtitle": "Join now and drive up your online affiliate traffic and sales through our Affiliate Program exclusively run by Impact.",
+      "ctaLoginRegister": "Login/Registration",
+      "partnerBrandsTitle": "Partner Brands",
+      "offerMillions": "We offer millions of items from a huge range of sellers",
+      "thousandsParticipated": "Hundreds of thousands of people participated in the 'Overstock' evaluation",
+      "productRange": "Our product range includes furniture, appliances, electronic products.",
+      "safePayment": "We provide safe, fast and simple payment methods"
+    },
+    "login": {
+      "title": "Login",
+      "phoneLabel": "your mobile phone number",
+      "phonePlaceholder": "your mobile phone number",
+      "passwordLabel": "your password",
+      "passwordPlaceholder": "your password",
+      "submit": "Login",
+      "footerAgree": "By continuing, you agree to our Terms and Conditions & Privacy Policy"
+    },
+    "register": {
+      "title": "Register",
+      "phoneLabel": "your mobile phone number",
+      "phonePlaceholder": "your mobile phone number",
+      "usernameLabel": "Please enter a user name",
+      "usernamePlaceholder": "Please enter a user name",
+      "passwordLabel": "your password",
+      "passwordPlaceholder": "your password",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Please confirm the password",
+      "inviteCodeLabel": "Invite Code",
+      "inviteCodePlaceholder": "Please enter the invitation code",
+      "submit": "REGISTER ACCOUNT",
+      "footerAgree": "By continuing, you agree to our Terms and Conditions & Privacy Policy"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "Tax ID: IE123456TH",
+      "address": "Address: 799 West Coliseum Way, Midvale, Utah, USA",
+      "email": "Email: shop@shop.com"
+    }
+  },
+
+  "es-mx": {
+    "index": {
+      "heroTitle": "Conviértete en socio afiliado de Overstock y cosecha las recompensas",
+      "heroSubtitle": "Únete ahora y aumenta tu tráfico y ventas de afiliados en línea a través de nuestro Programa de Afiliados operado exclusivamente por Impact.",
+      "ctaLoginRegister": "Iniciar sesión/Registro",
+      "partnerBrandsTitle": "Marcas asociadas",
+      "offerMillions": "Ofrecemos millones de artículos de una amplia gama de vendedores",
+      "thousandsParticipated": "Cientos de miles de personas participaron en la evaluación de 'Overstock'",
+      "productRange": "Nuestra gama de productos incluye muebles, electrodomésticos, productos electrónicos.",
+      "safePayment": "Proporcionamos métodos de pago seguros, rápidos y simples"
+    },
+    "login": {
+      "title": "Iniciar sesión",
+      "phoneLabel": "tu número de teléfono móvil",
+      "phonePlaceholder": "tu número de teléfono móvil",
+      "passwordLabel": "tu contraseña",
+      "passwordPlaceholder": "tu contraseña",
+      "submit": "Iniciar sesión",
+      "footerAgree": "Al continuar, aceptas nuestros Términos y Condiciones y la Política de privacidad"
+    },
+    "register": {
+      "title": "Registrarse",
+      "phoneLabel": "tu número de teléfono móvil",
+      "phonePlaceholder": "tu número de teléfono móvil",
+      "usernameLabel": "Por favor ingrese un nombre de usuario",
+      "usernamePlaceholder": "Por favor ingrese un nombre de usuario",
+      "passwordLabel": "tu contraseña",
+      "passwordPlaceholder": "tu contraseña",
+      "confirmPasswordLabel": "Confirmar contraseña",
+      "confirmPasswordPlaceholder": "Por favor confirme la contraseña",
+      "inviteCodeLabel": "Código de invitación",
+      "inviteCodePlaceholder": "Por favor ingrese el código de invitación",
+      "submit": "REGISTRAR CUENTA",
+      "footerAgree": "Al continuar, aceptas nuestros Términos y Condiciones y la Política de privacidad"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "ID Fiscal: IE123456TH",
+      "address": "Dirección: 799 West Coliseum Way, Midvale, Utah, EE. UU.",
+      "email": "Correo electrónico: shop@shop.com"
+    }
+  },
+
+  "pt-br": {
+    "index": {
+      "heroTitle": "Torne-se um parceiro Afiliado da Overstock e colha as recompensas",
+      "heroSubtitle": "Junte-se agora e aumente seu tráfego e vendas de afiliados por meio do nosso Programa de Afiliados operado exclusivamente pela Impact.",
+      "ctaLoginRegister": "Entrar/Registrar",
+      "partnerBrandsTitle": "Marcas Parceiras",
+      "offerMillions": "Oferecemos milhões de itens de uma ampla gama de vendedores",
+      "thousandsParticipated": "Centenas de milhares de pessoas participaram da avaliação 'Overstock'",
+      "productRange": "Nossa gama de produtos inclui móveis, eletrodomésticos, produtos eletrônicos.",
+      "safePayment": "Fornecemos métodos de pagamento seguros, rápidos e simples"
+    },
+    "login": {
+      "title": "Entrar",
+      "phoneLabel": "seu número de telefone",
+      "phonePlaceholder": "seu número de telefone",
+      "passwordLabel": "sua senha",
+      "passwordPlaceholder": "sua senha",
+      "submit": "Entrar",
+      "footerAgree": "Ao continuar, você concorda com nossos Termos e Condições e Política de Privacidade"
+    },
+    "register": {
+      "title": "Registrar-se",
+      "phoneLabel": "seu número de telefone",
+      "phonePlaceholder": "seu número de telefone",
+      "usernameLabel": "Por favor, insira um nome de usuário",
+      "usernamePlaceholder": "Por favor, insira um nome de usuário",
+      "passwordLabel": "sua senha",
+      "passwordPlaceholder": "sua senha",
+      "confirmPasswordLabel": "Confirmar senha",
+      "confirmPasswordPlaceholder": "Por favor, confirme a senha",
+      "inviteCodeLabel": "Código de convite",
+      "inviteCodePlaceholder": "Por favor, insira o código de convite",
+      "submit": "REGISTRAR CONTA",
+      "footerAgree": "Ao continuar, você concorda com nossos Termos e Condições e Política de Privacidade"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "ID Fiscal: IE123456TH",
+      "address": "Endereço: 799 West Coliseum Way, Midvale, Utah, EUA",
+      "email": "E-mail: shop@shop.com"
+    }
+  },
+
+  "en-id": {
+    "index": {
+      "heroTitle": "Jadilah mitra Afiliasi Overstock dan raih keuntungannya",
+      "heroSubtitle": "Bergabunglah sekarang dan tingkatkan trafik serta penjualan afiliasi online Anda melalui Program Afiliasi kami yang dijalankan eksklusif oleh Impact.",
+      "ctaLoginRegister": "Masuk/Daftar",
+      "partnerBrandsTitle": "Merek Mitra",
+      "offerMillions": "Kami menawarkan jutaan item dari berbagai macam penjual",
+      "thousandsParticipated": "Ratusan ribu orang berpartisipasi dalam evaluasi 'Overstock'",
+      "productRange": "Rangkaian produk kami mencakup furnitur, peralatan rumah tangga, produk elektronik.",
+      "safePayment": "Kami menyediakan metode pembayaran yang aman, cepat dan sederhana"
+    },
+    "login": {
+      "title": "Masuk",
+      "phoneLabel": "nomor ponsel Anda",
+      "phonePlaceholder": "nomor ponsel Anda",
+      "passwordLabel": "kata sandi Anda",
+      "passwordPlaceholder": "kata sandi Anda",
+      "submit": "Masuk",
+      "footerAgree": "Dengan melanjutkan, Anda menyetujui Syarat & Ketentuan serta Kebijakan Privasi kami"
+    },
+    "register": {
+      "title": "Daftar",
+      "phoneLabel": "nomor ponsel Anda",
+      "phonePlaceholder": "nomor ponsel Anda",
+      "usernameLabel": "Silakan masukkan nama pengguna",
+      "usernamePlaceholder": "Silakan masukkan nama pengguna",
+      "passwordLabel": "kata sandi Anda",
+      "passwordPlaceholder": "kata sandi Anda",
+      "confirmPasswordLabel": "Konfirmasi Kata Sandi",
+      "confirmPasswordPlaceholder": "Silakan konfirmasi kata sandi",
+      "inviteCodeLabel": "Kode Undangan",
+      "inviteCodePlaceholder": "Silakan masukkan kode undangan",
+      "submit": "DAFTARKAN AKUN",
+      "footerAgree": "Dengan melanjutkan, Anda menyetujui Syarat & Ketentuan serta Kebijakan Privasi kami"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "ID Pajak: IE123456TH",
+      "address": "Alamat: 799 West Coliseum Way, Midvale, Utah, AS",
+      "email": "Email: shop@shop.com"
+    }
+  },
+
+  "iv-vn": {
+    "index": {
+      "heroTitle": "Trở thành đối tác Tiếp thị Liên kết của Overstock và nhận nhiều phần thưởng",
+      "heroSubtitle": "Tham gia ngay để tăng lưu lượng và doanh số liên kết trực tuyến thông qua Chương trình Liên kết do Impact vận hành độc quyền.",
+      "ctaLoginRegister": "Đăng nhập/Đăng ký",
+      "partnerBrandsTitle": "Thương hiệu đối tác",
+      "offerMillions": "Chúng tôi cung cấp hàng triệu sản phẩm từ nhiều người bán khác nhau",
+      "thousandsParticipated": "Hàng trăm nghìn người đã tham gia đánh giá 'Overstock'",
+      "productRange": "Danh mục sản phẩm của chúng tôi bao gồm đồ nội thất, thiết bị gia dụng, sản phẩm điện tử.",
+      "safePayment": "Chúng tôi cung cấp phương thức thanh toán an toàn, nhanh chóng và đơn giản"
+    },
+    "login": {
+      "title": "Đăng nhập",
+      "phoneLabel": "số điện thoại của bạn",
+      "phonePlaceholder": "số điện thoại của bạn",
+      "passwordLabel": "mật khẩu của bạn",
+      "passwordPlaceholder": "mật khẩu của bạn",
+      "submit": "Đăng nhập",
+      "footerAgree": "Tiếp tục nghĩa là bạn đồng ý với Điều khoản & Điều kiện và Chính sách quyền riêng tư của chúng tôi"
+    },
+    "register": {
+      "title": "Đăng ký",
+      "phoneLabel": "số điện thoại của bạn",
+      "phonePlaceholder": "số điện thoại của bạn",
+      "usernameLabel": "Vui lòng nhập tên người dùng",
+      "usernamePlaceholder": "Vui lòng nhập tên người dùng",
+      "passwordLabel": "mật khẩu của bạn",
+      "passwordPlaceholder": "mật khẩu của bạn",
+      "confirmPasswordLabel": "Xác nhận mật khẩu",
+      "confirmPasswordPlaceholder": "Vui lòng xác nhận mật khẩu",
+      "inviteCodeLabel": "Mã mời",
+      "inviteCodePlaceholder": "Vui lòng nhập mã mời",
+      "submit": "ĐĂNG KÝ TÀI KHOẢN",
+      "footerAgree": "Tiếp tục nghĩa là bạn đồng ý với Điều khoản & Điều kiện và Chính sách quyền riêng tư của chúng tôi"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "Mã số thuế: IE123456TH",
+      "address": "Địa chỉ: 799 West Coliseum Way, Midvale, Utah, Hoa Kỳ",
+      "email": "Email: shop@shop.com"
+    }
+  },
+
+  "tr-tr": {
+    "index": {
+      "heroTitle": "Bir Overstock Satış Ortaklığı partneri olun ve ödülleri kazanın",
+      "heroSubtitle": "Impact tarafından özel olarak yürütülen Satış Ortaklığı Programımızla çevrim içi satış ortaklığı trafiğinizi ve satışlarınızı artırın.",
+      "ctaLoginRegister": "Giriş/Kayıt",
+      "partnerBrandsTitle": "İş Ortaklarımız",
+      "offerMillions": "Çok çeşitli satıcılardan milyonlarca ürün sunuyoruz",
+      "thousandsParticipated": "Yüz binlerce kişi 'Overstock' değerlendirmesine katıldı",
+      "productRange": "Ürün yelpazemiz mobilya, ev aletleri, elektronik ürünleri içerir.",
+      "safePayment": "Güvenli, hızlı ve basit ödeme yöntemleri sağlıyoruz"
+    },
+    "login": {
+      "title": "Giriş yap",
+      "phoneLabel": "cep telefonu numaranız",
+      "phonePlaceholder": "cep telefonu numaranız",
+      "passwordLabel": "şifreniz",
+      "passwordPlaceholder": "şifreniz",
+      "submit": "Giriş yap",
+      "footerAgree": "Devam ederek, Şartlar ve Koşullarımızı ve Gizlilik Politikamızı kabul etmiş olursunuz"
+    },
+    "register": {
+      "title": "Kayıt ol",
+      "phoneLabel": "cep telefonu numaranız",
+      "phonePlaceholder": "cep telefonu numaranız",
+      "usernameLabel": "Lütfen bir kullanıcı adı girin",
+      "usernamePlaceholder": "Lütfen bir kullanıcı adı girin",
+      "passwordLabel": "şifreniz",
+      "passwordPlaceholder": "şifreniz",
+      "confirmPasswordLabel": "Şifreyi onaylayın",
+      "confirmPasswordPlaceholder": "Lütfen şifreyi onaylayın",
+      "inviteCodeLabel": "Davet kodu",
+      "inviteCodePlaceholder": "Lütfen davet kodunu girin",
+      "submit": "HESABI KAYDET",
+      "footerAgree": "Devam ederek, Şartlar ve Koşullarımızı ve Gizlilik Politikamızı kabul etmiş olursunuz"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "Vergi Kimlik No: IE123456TH",
+      "address": "Adres: 799 West Coliseum Way, Midvale, Utah, ABD",
+      "email": "E-posta: shop@shop.com"
+    }
+  },
+
+  "ar-ar": {
+    "index": {
+      "heroTitle": "كن شريكًا في برنامج تسويق Overstock بالعمولة واحصد المكافآت",
+      "heroSubtitle": "انضم الآن وزد حركة المرور والمبيعات عبر الإنترنت من خلال برنامج التسويق بالعمولة الذي تديره Impact حصريًا.",
+      "ctaLoginRegister": "تسجيل الدخول/التسجيل",
+      "partnerBrandsTitle": "العلامات التجارية الشريكة",
+      "offerMillions": "نقدم الملايين من المنتجات من مجموعة كبيرة من البائعين",
+      "thousandsParticipated": "شارك مئات الآلاف من الأشخاص في تقييم 'Overstock'",
+      "productRange": "تشمل مجموعة منتجاتنا الأثاث والأجهزة والمنتجات الإلكترونية.",
+      "safePayment": "نوفر طرق دفع آمنة وسريعة وبسيطة"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "phoneLabel": "رقم هاتفك المحمول",
+      "phonePlaceholder": "رقم هاتفك المحمول",
+      "passwordLabel": "كلمة المرور الخاصة بك",
+      "passwordPlaceholder": "كلمة المرور الخاصة بك",
+      "submit": "تسجيل الدخول",
+      "footerAgree": "بالمتابعة، فإنك توافق على الشروط والأحكام وسياسة الخصوصية الخاصة بنا"
+    },
+    "register": {
+      "title": "التسجيل",
+      "phoneLabel": "رقم هاتفك المحمول",
+      "phonePlaceholder": "رقم هاتفك المحمول",
+      "usernameLabel": "يرجى إدخال اسم المستخدم",
+      "usernamePlaceholder": "يرجى إدخال اسم المستخدم",
+      "passwordLabel": "كلمة المرور الخاصة بك",
+      "passwordPlaceholder": "كلمة المرور الخاصة بك",
+      "confirmPasswordLabel": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "يرجى تأكيد كلمة المرور",
+      "inviteCodeLabel": "رمز الدعوة",
+      "inviteCodePlaceholder": "يرجى إدخال رمز الدعوة",
+      "submit": "تسجيل الحساب",
+      "footerAgree": "بالمتابعة، فإنك توافق على الشروط والأحكام وسياسة الخصوصية الخاصة بنا"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "الرقم الضريبي: IE123456TH",
+      "address": "العنوان: 799 West Coliseum Way, Midvale, Utah, الولايات المتحدة الأمريكية",
+      "email": "البريد الإلكتروني: shop@shop.com"
+    }
+  },
+
+  "th-th": {
+    "index": {
+      "heroTitle": "เป็นพาร์ทเนอร์พันธมิตรของ Overstock และรับผลตอบแทน",
+      "heroSubtitle": "เข้าร่วมตอนนี้เพื่อเพิ่มทราฟฟิกและยอดขายผ่านโปรแกรมพันธมิตรที่ดำเนินงานโดย Impact โดยเฉพาะ",
+      "ctaLoginRegister": "เข้าสู่ระบบ/ลงทะเบียน",
+      "partnerBrandsTitle": "แบรนด์พาร์ทเนอร์",
+      "offerMillions": "เรานำเสนอสินค้านับล้านรายการจากผู้ขายหลากหลาย",
+      "thousandsParticipated": "คนหลายแสนคนเข้าร่วมการประเมิน 'Overstock'",
+      "productRange": "สินค้าของเรารวมถึงเฟอร์นิเจอร์ เครื่องใช้ไฟฟ้า ผลิตภัณฑ์อิเล็กทรอนิกส์",
+      "safePayment": "เรามีวิธีการชำระเงินที่ปลอดภัย รวดเร็ว และง่ายดาย"
+    },
+    "login": {
+      "title": "เข้าสู่ระบบ",
+      "phoneLabel": "หมายเลขโทรศัพท์มือถือของคุณ",
+      "phonePlaceholder": "หมายเลขโทรศัพท์มือถือของคุณ",
+      "passwordLabel": "รหัสผ่านของคุณ",
+      "passwordPlaceholder": "รหัสผ่านของคุณ",
+      "submit": "เข้าสู่ระบบ",
+      "footerAgree": "เมื่อดำเนินการต่อ คุณยอมรับข้อตกลงและเงื่อนไขและนโยบายความเป็นส่วนตัวของเรา"
+    },
+    "register": {
+      "title": "ลงทะเบียน",
+      "phoneLabel": "หมายเลขโทรศัพท์มือถือของคุณ",
+      "phonePlaceholder": "หมายเลขโทรศัพท์มือถือของคุณ",
+      "usernameLabel": "โปรดป้อนชื่อผู้ใช้",
+      "usernamePlaceholder": "โปรดป้อนชื่อผู้ใช้",
+      "passwordLabel": "รหัสผ่านของคุณ",
+      "passwordPlaceholder": "รหัสผ่านของคุณ",
+      "confirmPasswordLabel": "ยืนยันรหัสผ่าน",
+      "confirmPasswordPlaceholder": "โปรดยืนยันรหัสผ่าน",
+      "inviteCodeLabel": "รหัสเชิญ",
+      "inviteCodePlaceholder": "โปรดป้อนรหัสเชิญ",
+      "submit": "ลงทะเบียนบัญชี",
+      "footerAgree": "เมื่อดำเนินการต่อ คุณยอมรับข้อตกลงและเงื่อนไขและนโยบายความเป็นส่วนตัวของเรา"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "เลขประจำตัวผู้เสียภาษี: IE123456TH",
+      "address": "ที่อยู่: 799 West Coliseum Way, Midvale, Utah, สหรัฐอเมริกา",
+      "email": "อีเมล: shop@shop.com"
+    }
+  },
+
+  "az-az": {
+    "index": {
+      "heroTitle": "Overstock Tərəfdaşlıq proqramına qoşulun və mükafatlar qazanın",
+      "heroSubtitle": "Impact tərəfindən eksklüziv idarə olunan Tərəfdaşlıq Proqramımızla onlayn trafik və satışlarınızı artırın.",
+      "ctaLoginRegister": "Daxil ol/Qeydiyyat",
+      "partnerBrandsTitle": "Tərəfdaş Brendlər",
+      "offerMillions": "Biz müxtəlif satıcılardan milyonlarla məhsul təklif edirik",
+      "thousandsParticipated": "Yüz minlərlə insan 'Overstock' qiymətləndirməsində iştirak etdi",
+      "productRange": "Məhsul çeşidimizə mebel, məişət texnikası, elektron məhsullar daxildir.",
+      "safePayment": "Biz təhlükəsiz, sürətli və sadə ödəniş üsulları təqdim edirik"
+    },
+    "login": {
+      "title": "Daxil ol",
+      "phoneLabel": "mobil nömrəniz",
+      "phonePlaceholder": "mobil nömrəniz",
+      "passwordLabel": "şifrəniz",
+      "passwordPlaceholder": "şifrəniz",
+      "submit": "Daxil ol",
+      "footerAgree": "Davam etməklə, Şərt və Qaydalarımızı və Məxfilik Siyasətimizi qəbul edirsiniz"
+    },
+    "register": {
+      "title": "Qeydiyyat",
+      "phoneLabel": "mobil nömrəniz",
+      "phonePlaceholder": "mobil nömrəniz",
+      "usernameLabel": "Zəhmət olmasa istifadəçi adı daxil edin",
+      "usernamePlaceholder": "Zəhmət olmasa istifadəçi adı daxil edin",
+      "passwordLabel": "şifrəniz",
+      "passwordPlaceholder": "şifrəniz",
+      "confirmPasswordLabel": "Şifrəni təsdiq edin",
+      "confirmPasswordPlaceholder": "Zəhmət olmasa şifrəni təsdiq edin",
+      "inviteCodeLabel": "Dəvət kodu",
+      "inviteCodePlaceholder": "Zəhmət olmasa dəvət kodunu daxil edin",
+      "submit": "HESABI QEYDİYYATDAN KEÇİR",
+      "footerAgree": "Davam etməklə, Şərt və Qaydalarımızı və Məxfilik Siyasətimizi qəbul edirsiniz"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "Vergi İD: IE123456TH",
+      "address": "Ünvan: 799 West Coliseum Way, Midvale, Utah, ABŞ",
+      "email": "E-poçt: shop@shop.com"
+    }
+  },
+
+  "uz-uz": {
+    "index": {
+      "heroTitle": "Overstock hamkoriga aylaning va mukofotlarga ega bo'ling",
+      "heroSubtitle": "Impact tomonidan boshqariladigan Afiliasiya Dasturi orqali onlayn trafik va savdoni oshiring.",
+      "ctaLoginRegister": "Kirish/Roʻyxatdan oʻtish",
+      "partnerBrandsTitle": "Hamkor Brendlar",
+      "offerMillions": "Biz turli sotuvchilardan millionlab mahsulotlarni taklif qilamiz",
+      "thousandsParticipated": "Yuz minglab odamlar 'Overstock' baholashida qatnashdi",
+      "productRange": "Mahsulot assortimentimiz mebel, maishiy texnika, elektron mahsulotlarni o'z ichiga oladi.",
+      "safePayment": "Biz xavfsiz, tez va oddiy to'lov usullarini taqdim etamiz"
+    },
+    "login": {
+      "title": "Kirish",
+      "phoneLabel": "mobil telefon raqamingiz",
+      "phonePlaceholder": "mobil telefon raqamingiz",
+      "passwordLabel": "parolingiz",
+      "passwordPlaceholder": "parolingiz",
+      "submit": "Kirish",
+      "footerAgree": "Davom etish orqali Siz shartlar va Maxfiylik siyosatimizga rozilik bildirasiz"
+    },
+    "register": {
+      "title": "Roʻyxatdan oʻtish",
+      "phoneLabel": "mobil telefon raqamingiz",
+      "phonePlaceholder": "mobil telefon raqamingiz",
+      "usernameLabel": "Iltimos, foydalanuvchi nomini kiriting",
+      "usernamePlaceholder": "Iltimos, foydalanuvchi nomini kiriting",
+      "passwordLabel": "parolingiz",
+      "passwordPlaceholder": "parolingiz",
+      "confirmPasswordLabel": "Parolni tasdiqlang",
+      "confirmPasswordPlaceholder": "Iltimos, parolni tasdiqlang",
+      "inviteCodeLabel": "Taklif kodi",
+      "inviteCodePlaceholder": "Iltimos, taklif kodini kiriting",
+      "submit": "AKKAUNTNI ROʻYXATDAN OʻTKAZISH",
+      "footerAgree": "Davom etish orqali Siz shartlar va Maxfiylik siyosatimizga rozilik bildirasiz"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "Soliq ID: IE123456TH",
+      "address": "Manzil: 799 West Coliseum Way, Midvale, Utah, AQSH",
+      "email": "Elektron pochta: shop@shop.com"
+    }
+  },
+
+  "ko-kr": {
+    "index": {
+      "heroTitle": "Overstock 제휴 파트너가 되어 혜택을 누리세요",
+      "heroSubtitle": "Impact가 독점 운영하는 제휴 프로그램으로 온라인 트래픽과 매출을 높이세요.",
+      "ctaLoginRegister": "로그인/회원가입",
+      "partnerBrandsTitle": "파트너 브랜드",
+      "offerMillions": "다양한 판매자로부터 수백만 개의 상품을 제공합니다",
+      "thousandsParticipated": "수십만 명이 'Overstock' 평가에 참여했습니다",
+      "productRange": "우리의 제품 범위에는 가구, 가전제품, 전자제품이 포함됩니다.",
+      "safePayment": "안전하고 빠르며 간편한 결제 방법을 제공합니다"
+    },
+    "login": {
+      "title": "로그인",
+      "phoneLabel": "휴대폰 번호",
+      "phonePlaceholder": "휴대폰 번호",
+      "passwordLabel": "비밀번호",
+      "passwordPlaceholder": "비밀번호",
+      "submit": "로그인",
+      "footerAgree": "계속 진행하면 약관 및 개인정보 처리방침에 동의하는 것입니다"
+    },
+    "register": {
+      "title": "회원가입",
+      "phoneLabel": "휴대폰 번호",
+      "phonePlaceholder": "휴대폰 번호",
+      "usernameLabel": "사용자 이름을 입력하세요",
+      "usernamePlaceholder": "사용자 이름을 입력하세요",
+      "passwordLabel": "비밀번호",
+      "passwordPlaceholder": "비밀번호",
+      "confirmPasswordLabel": "비밀번호 확인",
+      "confirmPasswordPlaceholder": "비밀번호를 확인하세요",
+      "inviteCodeLabel": "초대 코드",
+      "inviteCodePlaceholder": "초대 코드를 입력하세요",
+      "submit": "계정 등록",
+      "footerAgree": "계속 진행하면 약관 및 개인정보 처리방침에 동의하는 것입니다"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "세금 ID: IE123456TH",
+      "address": "주소: 799 West Coliseum Way, Midvale, Utah, 미국",
+      "email": "이메일: shop@shop.com"
+    }
+  },
+
+  "ru-ru": {
+    "index": {
+      "heroTitle": "Станьте партнером программы аффилиатов Overstock и получайте вознаграждения",
+      "heroSubtitle": "Присоединяйтесь сейчас и увеличьте трафик и продажи по партнерской программе, управляемой эксклюзивно компанией Impact.",
+      "ctaLoginRegister": "Вход/Регистрация",
+      "partnerBrandsTitle": "Партнерские бренды",
+      "offerMillions": "Мы предлагаем миллионы товаров от широкого круга продавцов",
+      "thousandsParticipated": "Сотни тысяч людей приняли участие в оценке 'Overstock'",
+      "productRange": "Наш ассортимент включает мебель, бытовую технику, электронные товары.",
+      "safePayment": "Мы предоставляем безопасные, быстрые и простые способы оплаты"
+    },
+    "login": {
+      "title": "Войти",
+      "phoneLabel": "ваш номер мобильного телефона",
+      "phonePlaceholder": "ваш номер мобильного телефона",
+      "passwordLabel": "ваш пароль",
+      "passwordPlaceholder": "ваш пароль",
+      "submit": "Войти",
+      "footerAgree": "Продолжая, вы соглашаетесь с нашими Условиями и Политикой конфиденциальности"
+    },
+    "register": {
+      "title": "Регистрация",
+      "phoneLabel": "ваш номер мобильного телефона",
+      "phonePlaceholder": "ваш номер мобильного телефона",
+      "usernameLabel": "Пожалуйста, введите имя пользователя",
+      "usernamePlaceholder": "Пожалуйста, введите имя пользователя",
+      "passwordLabel": "ваш пароль",
+      "passwordPlaceholder": "ваш пароль",
+      "confirmPasswordLabel": "Подтвердите пароль",
+      "confirmPasswordPlaceholder": "Пожалуйста, подтвердите пароль",
+      "inviteCodeLabel": "Код приглашения",
+      "inviteCodePlaceholder": "Пожалуйста, введите код приглашения",
+      "submit": "ЗАРЕГИСТРИРОВАТЬ АККАУНТ",
+      "footerAgree": "Продолжая, вы соглашаетесь с нашими Условиями и Политикой конфиденциальности"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "Налоговый ID: IE123456TH",
+      "address": "Адрес: 799 West Coliseum Way, Midvale, Utah, США",
+      "email": "Эл. почта: shop@shop.com"
+    }
+  },
+
+  "hi-in": {
+    "index": {
+      "heroTitle": "Overstock एफिलिएट पार्टनर बनें और लाभ उठाएँ",
+      "heroSubtitle": "अभी जुड़ें और Impact द्वारा संचालित हमारे एफिलिएट प्रोग्राम के माध्यम से अपना ऑनलाइन एफिलिएट ट्रैफ़िक और बिक्री बढ़ाएँ।",
+      "ctaLoginRegister": "लॉगिन/रजिस्टर",
+      "partnerBrandsTitle": "भागीदार ब्रांड",
+      "offerMillions": "हम विभिन्न विक्रेताओं से लाखों वस्तुएँ प्रदान करते हैं",
+      "thousandsParticipated": "लाखों लोगों ने 'Overstock' मूल्यांकन में भाग लिया",
+      "productRange": "हमारे उत्पाद श्रृंखला में फर्नीचर, उपकरण, इलेक्ट्रॉनिक उत्पाद शामिल हैं।",
+      "safePayment": "हम सुरक्षित, तेज़ और सरल भुगतान विधियाँ प्रदान करते हैं"
+    },
+    "login": {
+      "title": "लॉगिन",
+      "phoneLabel": "आपका मोबाइल फोन नंबर",
+      "phonePlaceholder": "आपका मोबाइल फोन नंबर",
+      "passwordLabel": "आपका पासवर्ड",
+      "passwordPlaceholder": "आपका पासवर्ड",
+      "submit": "लॉगिन",
+      "footerAgree": "आगे बढ़कर, आप हमारी शर्तें और गोपनीयता नीति से सहमत होते हैं"
+    },
+    "register": {
+      "title": "रजिस्टर",
+      "phoneLabel": "आपका मोबाइल फोन नंबर",
+      "phonePlaceholder": "आपका मोबाइल फोन नंबर",
+      "usernameLabel": "कृपया उपयोगकर्ता नाम दर्ज करें",
+      "usernamePlaceholder": "कृपया उपयोगकर्ता नाम दर्ज करें",
+      "passwordLabel": "आपका पासवर्ड",
+      "passwordPlaceholder": "आपका पासवर्ड",
+      "confirmPasswordLabel": "पासवर्ड की पुष्टि करें",
+      "confirmPasswordPlaceholder": "कृपया पासवर्ड की पुष्टि करें",
+      "inviteCodeLabel": "आमंत्रण कोड",
+      "inviteCodePlaceholder": "कृपया आमंत्रण कोड दर्ज करें",
+      "submit": "खाता रजिस्टर करें",
+      "footerAgree": "आगे बढ़कर, आप हमारी शर्तें और गोपनीयता नीति से सहमत होते हैं"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "कर आईडी: IE123456TH",
+      "address": "पता: 799 West Coliseum Way, Midvale, Utah, संयुक्त राज्य अमेरिका",
+      "email": "ईमेल: shop@shop.com"
+    }
+  },
+
+  "bn-bd": {
+    "index": {
+      "heroTitle": "Overstock অ্যাফিলিয়েট পার্টনার হয়ে পুরস্কার অর্জন করুন",
+      "heroSubtitle": "এখনই যোগ দিন এবং Impact কর্তৃক একচেটিয়াভাবে পরিচালিত আমাদের অ্যাফিলিয়েট প্রোগ্রামের মাধ্যমে আপনার অনলাইন অ্যাফিলিয়েট ট্র্যাফিক ও বিক্রয় বাড়ান।",
+      "ctaLoginRegister": "লগইন/রেজিস্টার",
+      "partnerBrandsTitle": "সহযোগী ব্র্যান্ড",
+      "offerMillions": "আমরা বিভিন্ন বিক্রেতার কাছ থেকে লক্ষ লক্ষ পণ্য অফার করি",
+      "thousandsParticipated": "লক্ষ লক্ষ মানুষ 'Overstock' মূল্যায়নে অংশগ্রহণ করেছেন",
+      "productRange": "আমাদের পণ্য পরিসরে আসবাবপত্র, যন্ত্রপাতি, ইলেকট্রনিক পণ্য অন্তর্ভুক্ত রয়েছে।",
+      "safePayment": "আমরা নিরাপদ, দ্রুত এবং সহজ পেমেন্ট পদ্ধতি প্রদান করি"
+    },
+    "login": {
+      "title": "লগইন",
+      "phoneLabel": "আপনার মোবাইল ফোন নম্বর",
+      "phonePlaceholder": "আপনার মোবাইল ফোন নম্বর",
+      "passwordLabel": "আপনার পাসওয়ার্ড",
+      "passwordPlaceholder": "আপনার পাসওয়ার্ড",
+      "submit": "লগইন",
+      "footerAgree": "চালিয়ে গেলে আপনি আমাদের শর্তাবলী ও গোপনীয়তা নীতিতে সম্মত হন"
+    },
+    "register": {
+      "title": "রেজিস্টার",
+      "phoneLabel": "আপনার মোবাইল ফোন নম্বর",
+      "phonePlaceholder": "আপনার মোবাইল ফোন নম্বর",
+      "usernameLabel": "দয়া করে একটি ব্যবহারকারীর নাম লিখুন",
+      "usernamePlaceholder": "দয়া করে একটি ব্যবহারকারীর নাম লিখুন",
+      "passwordLabel": "আপনার পাসওয়ার্ড",
+      "passwordPlaceholder": "আপনার পাসওয়ার্ড",
+      "confirmPasswordLabel": "পাসওয়ার্ড নিশ্চিত করুন",
+      "confirmPasswordPlaceholder": "দয়া করে পাসওয়ার্ড নিশ্চিত করুন",
+      "inviteCodeLabel": "আমন্ত্রণ কোড",
+      "inviteCodePlaceholder": "দয়া করে আমন্ত্রণ কোড লিখুন",
+      "submit": "অ্যাকাউন্ট রেজিস্টার করুন",
+      "footerAgree": "চালিয়ে গেলে আপনি আমাদের শর্তাবলী ও গোপনীয়তা নীতিতে সম্মত হন"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "ট্যাক্স আইডি: IE123456TH",
+      "address": "ঠিকানা: 799 West Coliseum Way, Midvale, Utah, মার্কিন যুক্তরাষ্ট্র",
+      "email": "ইমেইল: shop@shop.com"
+    }
+  },
+
+  "zh-cn": {
+    "index": {
+      "heroTitle": "成为 Overstock 联盟合作伙伴并获得奖励",
+      "heroSubtitle": "立即加入，通过我们由 Impact 独家运营的联盟计划提升您的在线联盟流量和销售额。",
+      "ctaLoginRegister": "登录/注册",
+      "partnerBrandsTitle": "合作品牌",
+      "offerMillions": "我们提供来自众多卖家的数百万件商品",
+      "thousandsParticipated": "数十万人参与了 Overstock 评估",
+      "productRange": "我们的产品范围包括家具、家电、电子产品。",
+      "safePayment": "我们提供安全、快速和简单的支付方式"
+    },
+    "login": {
+      "title": "登录",
+      "phoneLabel": "您的手机号码",
+      "phonePlaceholder": "您的手机号码",
+      "passwordLabel": "您的密码",
+      "passwordPlaceholder": "您的密码",
+      "submit": "登录",
+      "footerAgree": "继续即表示您同意我们的条款和条件及隐私政策"
+    },
+    "register": {
+      "title": "注册",
+      "phoneLabel": "您的手机号码",
+      "phonePlaceholder": "您的手机号码",
+      "usernameLabel": "请输入用户名",
+      "usernamePlaceholder": "请输入用户名",
+      "passwordLabel": "您的密码",
+      "passwordPlaceholder": "您的密码",
+      "confirmPasswordLabel": "确认密码",
+      "confirmPasswordPlaceholder": "请确认密码",
+      "inviteCodeLabel": "邀请码",
+      "inviteCodePlaceholder": "请输入邀请码",
+      "submit": "注册账户",
+      "footerAgree": "继续即表示您同意我们的条款和条件及隐私政策"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "税号：IE123456TH",
+      "address": "地址：799 West Coliseum Way, Midvale, Utah, 美国",
+      "email": "邮箱：shop@shop.com"
+    }
+  },
+
+  "ja-jp": {
+    "index": {
+      "heroTitle": "Overstockアフィリエイトパートナーになって報酬を獲得しましょう",
+      "heroSubtitle": "今すぐ参加して、Impactが独占運営するアフィリエイトプログラムを通じてオンラインのアフィリエイトトラフィックと売上を向上させましょう。",
+      "ctaLoginRegister": "ログイン/登録",
+      "partnerBrandsTitle": "パートナーブランド",
+      "offerMillions": "多数の販売者から数百万点の商品を提供しています",
+      "thousandsParticipated": "数十万人が「Overstock」の評価に参加しました",
+      "productRange": "当社の製品範囲には、家具、家電製品、電子製品が含まれます。",
+      "safePayment": "安全で迅速かつシンプルな支払い方法を提供しています"
+    },
+    "login": {
+      "title": "ログイン",
+      "phoneLabel": "携帯電話番号",
+      "phonePlaceholder": "携帯電話番号",
+      "passwordLabel": "パスワード",
+      "passwordPlaceholder": "パスワード",
+      "submit": "ログイン",
+      "footerAgree": "続行することで、利用規約とプライバシーポリシーに同意したことになります"
+    },
+    "register": {
+      "title": "登録",
+      "phoneLabel": "携帯電話番号",
+      "phonePlaceholder": "携帯電話番号",
+      "usernameLabel": "ユーザー名を入力してください",
+      "usernamePlaceholder": "ユーザー名を入力してください",
+      "passwordLabel": "パスワード",
+      "passwordPlaceholder": "パスワード",
+      "confirmPasswordLabel": "パスワードの確認",
+      "confirmPasswordPlaceholder": "パスワードを確認してください",
+      "inviteCodeLabel": "招待コード",
+      "inviteCodePlaceholder": "招待コードを入力してください",
+      "submit": "アカウント登録",
+      "footerAgree": "続行することで、利用規約とプライバシーポリシーに同意したことになります"
+    },
+    "footer": {
+      "copyright": "© 2025 WhaleCo Inc.",
+      "taxId": "税ID：IE123456TH",
+      "address": "住所：799 West Coliseum Way, Midvale, Utah, アメリカ合衆国",
+      "email": "メール：shop@shop.com"
+    }
+  }
+}

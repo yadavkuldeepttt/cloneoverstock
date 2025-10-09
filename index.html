@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="top_right">
-          <a href="/public/login.html"
+          <a href="/public/lang.html"
             ><img
               src="	https://overstoc.cyou/red/fonts-google-svg/g_translate_1.svg"
               style="margin: 10px"
@@ -42,16 +42,16 @@
     <main>
       <section class="hero">
         <div class="container hero-inner">
-          <h1>
+          <h1 data-i18n="index.heroTitle">
             Become a Overstock<br />
             Affiliate partner and <br />
             reap the rewards
           </h1>
-          <p>
+          <p data-i18n="index.heroSubtitle">
             Join now and drive up your online affiliate traffic and sales
             through our Affiliate Program exclusively run by Impact.
           </p>
-          <button class="cta" id="ctaTop" type="button">
+          <button class="cta" id="ctaTop" type="button" data-i18n="index.ctaLoginRegister">
             Login/Registration
           </button>
         </div>
@@ -78,7 +78,7 @@
                 ></path>
               </svg>
             </div>
-            <p>We offer millions of items from a huge range of sellers</p>
+            <p data-i18n="index.offerMillions">We offer millions of items from a huge range of sellers</p>
           </article>
           <article class="feature">
             <div class="icon">
@@ -104,7 +104,7 @@
                 ></path>
               </svg>
             </div>
-            <p>
+            <p data-i18n="index.thousandsParticipated">
               Hundreds of thousands of people participated in the 'Overstock'
               evaluation
             </p>
@@ -133,7 +133,7 @@
                 ></path>
               </svg>
             </div>
-            <p>
+            <p data-i18n="index.productRange"> 
               Our product range includes furniture, appliances, electronic
               products.
             </p>
@@ -157,7 +157,7 @@
                 ></path>
               </svg>
             </div>
-            <p>We provide safe, fast and simple payment methods</p>
+            <p data-i18n="index.safePayment">We provide safe, fast and simple payment methods</p>
           </article>
         </div>
       </section>
@@ -174,7 +174,7 @@
 
       <section class="brands">
         <div class="container">
-          <h2>Partner Brands</h2>
+          <h2 data-i18n="index.partnerBrandsTitle">Partner Brands</h2>
           <div class="brand-grid">
             <figure class="brand-card">
               <img
@@ -276,12 +276,14 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <h3>Overstock</h3>
-        <p>© 2025 WhaleCo Inc.</p>
+        <p data-i18n="footer.copyright">© 2025 WhaleCo Inc.</p>
         <p>Umsatzsteueridentifikationsnr: IE123456TH</p>
-        <p>Address:799 West Coliseum Way, Midvale, Utah, USA</p>
-        <p>Email: shop@shop.com</p>
+        <p data-i18n="footer.address">Address:799 West Coliseum Way, Midvale, Utah, USA</p>
+        <p data-i18n="footer.email">Email: shop@shop.com</p>
       </div>
     </footer>
+
+    <script src="/public/i18n2.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
