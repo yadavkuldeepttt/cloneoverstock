@@ -288,12 +288,12 @@
         <div class="g2">
           <ul>
             <li>
-              <a href="/public/withdraw.html" data-i18n="profile.withdraw"
+              <a href="/index/ctrl/withdraw.html" data-i18n="profile.withdraw"
                 >Withdraw</a
               >
             </li>
             <li class="on">
-              <a href="/public/recharge.html" data-i18n="profile.recharge"
+              <a href="/index/ctrl/recharge.html" data-i18n="profile.recharge"
                 >Recharge</a
               >
             </li>
@@ -400,7 +400,7 @@
           <div class="g4-1" data-i18n="profile.more">More</div>
           <ul>
             <li>
-              <a href="/public/address.html">
+              <a href="/public/edit_address.html">
                 <div class="icon">
                   <svg
                     t="1740152038562"
@@ -1067,7 +1067,7 @@
           if (!csrf_token || !user_id) {
             hideLoader();
             // Redirect if no auth info
-            window.location.href = "/login.html";
+            window.location.href = "/public/login.html";
             return;
           }
 
@@ -1085,6 +1085,8 @@
           // hideLoading();
 
           if (response.code === 0 && response.user) {
+            console.log(response,'respinse');
+            
             const user = response.user;
 
             // Save CSRF and user info to localStorage
@@ -1106,9 +1108,9 @@
               user.balance || 0
             ).toFixed(2);
             document.getElementById("totalAmount").textContent =
-              parseFloat(user.all_recharge_num || 0).toFixed(2) + "$";
+              parseFloat(response.total_commission || 0).toFixed(2) + "$";
             document.getElementById("todayAmount").textContent =
-              parseFloat(user.recharge_num || 0).toFixed(2) + "$";
+              parseFloat(user.today_commission || 0).toFixed(2) + "$";
             document.getElementById("freezeAmount").textContent =
               parseFloat(user.freeze_balance || 0).toFixed(2) + "$";
 
@@ -1139,7 +1141,7 @@
 
             // API returned error
             alert(response.info || "Failed to load user data");
-            window.location.href = "/login.html";
+            window.location.href = "/public/login.html";
           }
         } catch (error) {
           console.error("Error loading profile:", error);

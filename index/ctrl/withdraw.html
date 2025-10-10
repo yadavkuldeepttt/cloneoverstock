@@ -823,6 +823,14 @@
           const usdtSection = document.getElementById("usdtAddressSection");
           if (this.checked) {
             usdtSection.classList.add("show");
+
+            if (!userWalletAddress) {
+              toastWarning("Please add a USDT wallet address first");
+              setTimeout(() => {
+                window.location.href = "/public/walletAddress.html";
+              }, 2000);
+              return;
+            }
           } else {
             usdtSection.classList.remove("show");
           }
@@ -869,8 +877,10 @@
           // Check if USDT is selected and wallet address exists
           if (selectedMethod && selectedMethod.value === "usdt") {
             if (!userWalletAddress) {
-              toastError("Please add a USDT wallet address first");
-              window.location.href = "/wallet_address.html";
+              toastWarning("Please add a USDT wallet address first");
+              setTimeout(() => {
+                window.location.href = "/public/walletAddress.html";
+              }, 2000);
               return;
             }
           }

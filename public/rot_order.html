@@ -34,7 +34,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        /* background: rgba(0, 0, 0, 0.5); */
         z-index: 9999;
         justify-content: center;
         align-items: center;
@@ -92,6 +92,190 @@
         border-radius: 6px;
         font-size: 16px;
         cursor: pointer;
+      }
+
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-overlay.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: #fff;
+        border-radius: 12px;
+        max-width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+      }
+
+      .modal-header {
+        background: #da0023;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 12px 12px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .close-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-body {
+        padding: 20px;
+      }
+
+      .product-info {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .product-info img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      .product-info p {
+        margin: 5px 0;
+      }
+
+      .product-info p strong {
+        font-size: 16px;
+        color: #333;
+      }
+
+      .small {
+        font-size: 14px;
+      }
+
+      .text-secondary {
+        color: #666;
+      }
+
+      .order-details {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 15px;
+      }
+
+      .detail-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .detail-row:last-child {
+        border-bottom: none;
+      }
+
+      .detail-label {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .detail-value {
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .text-success {
+        color: #28a745;
+      }
+
+      .text-primary {
+        color: #007bff;
+      }
+
+      .loading-spinner {
+        text-align: center;
+        padding: 40px;
+      }
+
+      .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #da0023;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: #da0023;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+
+      .submit-btn:hover {
+        background: #b80020;
+      }
+
+      .order-status {
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+
+      .status-completed {
+        background: #d4edda;
+        color: #155724;
+      }
+
+      .status-pending {
+        background: #fff3cd;
+        color: #856404;
       }
     </style>
   </head>
@@ -254,25 +438,37 @@
               ><span data-i18n="orders.completed">completed</span>
             </div>
             <div class="b-item">
-              <span class="num" id="totalOrders">0</span><span data-i18n="orders.all">all</span>
+              <span class="num" id="totalOrders">0</span
+              ><span data-i18n="orders.all">all</span>
             </div>
             <div class="b-item">
-              <span class="num" id="pendingOrders">0</span><span data-i18n="orders.pending">pending</span>
+              <span class="num" id="pendingOrders">0</span
+              ><span data-i18n="orders.pending">pending</span>
             </div>
           </div>
         </div>
         <div class="money-box">
           <div class="money">
             <span style="font-weight: bold" id="commissionAmount">$&nbsp;0</span
-            ><span class="m-t" data-i18n="orders.getCommission">get a commission</span>
+            ><span class="m-t" data-i18n="orders.getCommission"
+              >get a commission</span
+            >
           </div>
           <div class="money">
             <span style="font-weight: bold" id="availableBalance"
               >$&nbsp; 0.00</span
-            ><span class="m-t" data-i18n="orders.availableBalance">available balance</span>
+            ><span class="m-t" data-i18n="orders.availableBalance"
+              >available balance</span
+            >
           </div>
         </div>
-        <div id="autoStart" class="submit" data-i18n="orders.startGrabbingOrders">start grabbing orders</div>
+        <div
+          id="autoStart"
+          class="submit"
+          data-i18n="orders.startGrabbingOrders"
+        >
+          start grabbing orders
+        </div>
       </div>
 
       <style>
@@ -314,7 +510,9 @@
         }
       </style>
       <div class="c3">
-        <div class="c3-1" data-i18n="orders.collaborativeProducts">Collaborative Products</div>
+        <div class="c3-1" data-i18n="orders.collaborativeProducts">
+          Collaborative Products
+        </div>
         <ul class="c3-2">
           <li>
             <div class="img">
@@ -404,7 +602,9 @@
                 /></a>
               </div>
               <div class="col-auto">
-                <a href="/public/rot_order.html" class="btn btn-link-default active"
+                <a
+                  href="/public/rot_order.html"
+                  class="btn btn-link-default active"
                   ><img
                     src="https://overstoc.cyou/red/fonts-google-svg/electric_bolt_1.svg"
                     style="width: 28px"
@@ -458,6 +658,24 @@
       </div>
     </div>
 
+    <!-- Order Info Modal -->
+    <div class="modal-overlay" id="orderInfoModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">Order Details</div>
+          <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="orderModalBody">
+          <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p style="margin-top: 15px; color: #666">
+              Loading order details...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="/public/i18n.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -486,6 +704,47 @@
           document.getElementById("alertOverlay").classList.remove("active");
           if (callback) callback();
         };
+      }
+
+      // Function to fetch order info
+      function fetchOrderInfo(oid) {
+        const user_id = localStorage.getItem("user_id") || "899";
+        const csrf_token = localStorage.getItem("csrf_token");
+
+        document.getElementById("orderInfoModal").classList.add("active");
+        document.getElementById("orderModalBody").innerHTML = `
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p style="margin-top: 15px; color: #666;">Loading order details...</p>
+                </div>
+            `;
+
+        fetch(`${API_BASE_URL}/index/order/order_info`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            id: oid,
+            user_id: user_id,
+            __token__: csrf_token || "",
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.code === 0 && data.data) {
+              currentOrderData = data.data;
+              console.log(data.data, "data");
+
+              displayOrderDetail(data.data);
+            } else {
+              showError(data.info || "Failed to load order details");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching order info:", error);
+            showError("Failed to load order details. Please try again.");
+          });
       }
 
       function fetchUserData() {
@@ -551,6 +810,87 @@
         });
       }
 
+      // Function to close modal
+      function closeOrderModal() {
+        document.getElementById("orderInfoModal").classList.remove("active");
+      }
+
+      // Function to display order detail in modal
+      function displayOrderDetail(order) {
+        console.log(order, "order");
+
+        const statusClass =
+          order.status === "completed" ? "status-completed" : "status-pending";
+        const statusText =
+          order.status === "completed" ? "Completed" : "Pending";
+
+        const html = `
+                <div class="product-info">
+                    <img src="${
+                      order.goods_pic || "https://via.placeholder.com/300"
+                    }" alt="Product">
+                    <p><strong>${
+                      order.goods_name || "Product Name"
+                    }</strong></p>
+                    <p class="small text-secondary">${
+                      order.shop_name || "Shop Name"
+                    }</p>
+                    <span class="order-status ${statusClass}">${statusText}</span>
+                </div>
+                
+                <div class="order-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Order Number:</span>
+                        <span class="detail-value">${order.oid || "N/A"}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Quantity:</span>
+                        <span class="detail-value">${
+                          order.goods_count || 1
+                        }</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Total Amount:</span>
+                        <span class="detail-value">$${parseFloat(
+                          order.num || 0
+                        ).toFixed(2)}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Commission:</span>
+                        <span class="detail-value text-success">$${parseFloat(
+                          order.commission || 0
+                        ).toFixed(2)}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Expected Earnings:</span>
+                        <span class="detail-value text-primary">$${parseFloat(
+                          order.yuji || 0
+                        ).toFixed(2)}</span>
+                    </div>
+                    ${
+                      order.order_time
+                        ? `
+                    <div class="detail-row">
+                        <span class="detail-label">Order Time:</span>
+                        <span class="detail-value">${order.order_time}</span>
+                    </div>
+                    `
+                        : ""
+                    }
+                </div>
+
+                <a href="/index/order/index.html">
+
+                <button class="submit-btn">
+                    PRODUCT RATING
+                </button>
+
+                </a>
+            `;
+
+        document.getElementById("orderModalBody").innerHTML = html;
+      }
+
       function displayUserData(data) {
         if (!data || !data.user) {
           console.warn("No user data to display");
@@ -569,17 +909,17 @@
           1: "/public/Free.png",
           2: "/VIP1.png",
           3: "/VIP2.png",
-          4: "/VIP3.png",
+          4: "https://overstoc.cyou/index_new/vip_img/lv4-3ab742d5.png",
           5: "/VIP4.png",
           6: "/VIP5.png",
         };
 
-        // if (user.level && levelImages[user.level]) {
-        //   document.getElementById("userLevelImg").src = levelImages[user.level];
-        // }
+        if (user.level && levelImages[user.level]) {
+          document.getElementById("userLevelImg").src = levelImages[user.level];
+        }
 
         document.getElementById("completedOrders").textContent =
-          user.deal_count || 0;
+          user.deal_count || 0; 
         document.getElementById("totalOrders").textContent = user.task_num || 0;
 
         const pending = (user.task_num || 0) - (user.deal_count || 0);
@@ -587,7 +927,7 @@
           pending >= 0 ? pending : 0;
 
         document.getElementById("commissionAmount").textContent =
-          "$\u00A0" + parseFloat(user.lottery_money || 0).toFixed(2);
+          "$\u00A0" + parseFloat(data.total_commission || 0).toFixed(2);
       }
 
       $(document).ready(function () {
@@ -688,7 +1028,11 @@
                 });
               }
             } else if (data.code === 0 && data.oid) {
-              showAlert(window.I18N.t("common.success"), data.info || "Order grabbed successfully!");
+              console.log(data.oid, "data oid");
+
+              fetchOrderInfo(data?.oid);
+
+              // showAlert(window.I18N.t("common.success"), data.info || "Order grabbed successfully!");
               oid = data.oid;
               add_id = data.add_id;
 
@@ -729,7 +1073,10 @@
                 }
               );
             } else {
-              showAlert(window.I18N.t("common.error"), "Failed to grab order. Error: " + textStatus);
+              showAlert(
+                window.I18N.t("common.error"),
+                "Failed to grab order. Error: " + textStatus
+              );
             }
           },
         });
