@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -131,16 +132,16 @@
       .modal-btn-confirm:hover {
         background: #b8001d;
       }
-      /* Loader Styles */
+      
+      /* Updated Loader Styles - Remove text, keep only spinner */
       .page-loader {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         z-index: 10000;
@@ -150,15 +151,16 @@
       .page-loader.hidden {
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
       }
 
       .loader-spinner {
-        width: 50px;
-        height: 50px;
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #da0023;
+        width: 60px;
+        height: 60px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #da0023;
         border-radius: 50%;
-        animation: spin 1s linear infinite;
+        animation: spin 0.8s linear infinite;
       }
 
       @keyframes spin {
@@ -169,20 +171,13 @@
           transform: rotate(360deg);
         }
       }
-
-      .loader-text {
-        margin-top: 20px;
-        color: #da0023;
-        font-size: 16px;
-        font-weight: 500;
-      }
     </style>
   </head>
   <body>
-    <!-- Page Loader -->
+    <!-- Page Loader - Only spinner, no text -->
     <div class="page-loader" id="pageLoader">
       <div class="loader-spinner"></div>
-      <div class="loader-text" data-i18n="common.loading">Loading...</div>
+      
     </div>
 
     <div class="app">
@@ -221,22 +216,13 @@
       <div class="main">
         <div class="g1">
           <div class="g1-1">
-            <div class="g1-1-1" id="userPhone" data-i18n="common.loading">
-              Loading...
-            </div>
-            <div class="g1-1-2" id="userName" data-i18n="common.loading">
-              Loading...
-            </div>
+            <div class="g1-1-1" id="userPhone">••••••••</div>
+            <div class="g1-1-2" id="userName">User</div>
             <div class="g1-1-2">
               my balance:<span id="userBalance">0.00</span>$
             </div>
             <div class="g1-1-3">
-              Invite Code:<span
-                id="copy1"
-                data-invite-code=""
-                data-i18n="common.loading"
-                >Loading...</span
-              >
+              Invite Code:<span id="copy1" data-invite-code="">••••••</span>
               <img
                 src="https://overstoc.cyou/red/img/copy.png"
                 style="width: 22px; cursor: pointer"
@@ -268,11 +254,9 @@
                   tempInput.val(inviteCode).select();
                   document.execCommand("copy");
 
-                  // Show "Copied" message
                   var msg = $("#copyMsg");
                   msg.show();
 
-                  // Hide it after 2 seconds
                   setTimeout(function () {
                     msg.fadeOut();
                   }, 2000);
@@ -288,14 +272,10 @@
         <div class="g2">
           <ul>
             <li>
-              <a href="/index/ctrl/withdraw.html" data-i18n="profile.withdraw"
-                >Withdraw</a
-              >
+              <a href="/index/ctrl/withdraw.html" data-i18n="profile.withdraw">Withdraw</a>
             </li>
             <li class="on">
-              <a href="/index/ctrl/recharge.html" data-i18n="profile.recharge"
-                >Recharge</a
-              >
+              <a href="/index/ctrl/recharge.html" data-i18n="profile.recharge">Recharge</a>
             </li>
           </ul>
         </div>
@@ -304,36 +284,11 @@
           <ul>
             <li>
               <div class="icon">
-                <svg
-                  t="1740151286451"
-                  class="icon"
-                  viewBox="0 0 1024 1024"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  p-id="9981"
-                  width="40"
-                  height="40"
-                >
-                  <path
-                    d="M513.4848 689.6128c-99.6864 0-180.7872-81.1008-180.7872-180.7872 0-14.2336 1.6896-28.5184 5.0688-42.4448a35.87584 35.87584 0 0 1 34.8672-27.4432h281.8048c16.5376 0 30.976 11.3664 34.8672 27.4432 3.3792 13.9264 5.0688 28.2112 5.0688 42.4448-0.1024 99.6864-81.2032 180.7872-180.8896 180.7872zM404.3776 510.6176c0.9728 59.3408 49.5104 107.3152 109.1072 107.3152s108.1344-47.9744 109.1072-107.3152H404.3776z"
-                    fill="#da0023"
-                    p-id="9982"
-                  ></path>
-                  <path
-                    d="M775.5264 945.2544H253.696c-107.0592 0-194.1504-87.0912-194.1504-194.1504V400.0768c0-107.0592 87.0912-194.1504 194.1504-194.1504h521.8304c107.0592 0 194.1504 87.0912 194.1504 194.1504v351.0784c0 107.008-87.0912 194.0992-194.1504 194.0992zM253.696 277.6064c-67.5328 0-122.4704 54.9376-122.4704 122.4704v351.0784c0 67.5328 54.9376 122.4704 122.4704 122.4704h521.8304c67.5328 0 122.4704-54.9376 122.4704-122.4704V400.0768c0-67.5328-54.9376-122.4704-122.4704-122.4704H253.696z"
-                    fill="#4A576A"
-                    p-id="9983"
-                  ></path>
-                  <path
-                    d="M933.8368 509.4912H95.3856c-19.8144 0-35.84-16.0256-35.84-35.84V403.968c0-109.2096 88.832-198.0928 198.0928-198.0928h513.9968c109.2096 0 198.0928 88.832 198.0928 198.0928v69.6832a35.8912 35.8912 0 0 1-35.8912 35.84z m-802.6112-71.68h766.7712V403.968c0-69.6832-56.6784-126.4128-126.4128-126.4128H257.5872c-69.6832 0-126.4128 56.6784-126.4128 126.4128v33.8432z"
-                    fill="#4A576A"
-                    p-id="9984"
-                  ></path>
-                  <path
-                    d="M300.544 275.3536c-19.8144 0-35.84-16.0256-35.84-35.84v-45.1584c0-60.0064 48.8448-108.8512 108.8512-108.8512h265.3696c60.0576 0 108.8512 48.8448 108.8512 108.8512v44.032c0 19.8144-16.0256 35.84-35.84 35.84s-35.84-16.0256-35.84-35.84v-44.032c0-20.5312-16.6912-37.1712-37.1712-37.1712H373.5552c-20.5312 0-37.1712 16.6912-37.1712 37.1712v45.1584c0 19.8144-16.0768 35.84-35.84 35.84z"
-                    fill="#4A576A"
-                    p-id="9985"
-                  ></path>
+                <svg t="1740151286451" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9981" width="40" height="40">
+                  <path d="M513.4848 689.6128c-99.6864 0-180.7872-81.1008-180.7872-180.7872 0-14.2336 1.6896-28.5184 5.0688-42.4448a35.87584 35.87584 0 0 1 34.8672-27.4432h281.8048c16.5376 0 30.976 11.3664 34.8672 27.4432 3.3792 13.9264 5.0688 28.2112 5.0688 42.4448-0.1024 99.6864-81.2032 180.7872-180.8896 180.7872zM404.3776 510.6176c0.9728 59.3408 49.5104 107.3152 109.1072 107.3152s108.1344-47.9744 109.1072-107.3152H404.3776z" fill="#da0023" p-id="9982"></path>
+                  <path d="M775.5264 945.2544H253.696c-107.0592 0-194.1504-87.0912-194.1504-194.1504V400.0768c0-107.0592 87.0912-194.1504 194.1504-194.1504h521.8304c107.0592 0 194.1504 87.0912 194.1504 194.1504v351.0784c0 107.008-87.0912 194.0992-194.1504 194.0992zM253.696 277.6064c-67.5328 0-122.4704 54.9376-122.4704 122.4704v351.0784c0 67.5328 54.9376 122.4704 122.4704 122.4704h521.8304c67.5328 0 122.4704-54.9376 122.4704-122.4704V400.0768c0-67.5328-54.9376-122.4704-122.4704-122.4704H253.696z" fill="#4A576A" p-id="9983"></path>
+                  <path d="M933.8368 509.4912H95.3856c-19.8144 0-35.84-16.0256-35.84-35.84V403.968c0-109.2096 88.832-198.0928 198.0928-198.0928h513.9968c109.2096 0 198.0928 88.832 198.0928 198.0928v69.6832a35.8912 35.8912 0 0 1-35.8912 35.84z m-802.6112-71.68h766.7712V403.968c0-69.6832-56.6784-126.4128-126.4128-126.4128H257.5872c-69.6832 0-126.4128 56.6784-126.4128 126.4128v33.8432z" fill="#4A576A" p-id="9984"></path>
+                  <path d="M300.544 275.3536c-19.8144 0-35.84-16.0256-35.84-35.84v-45.1584c0-60.0064 48.8448-108.8512 108.8512-108.8512h265.3696c60.0576 0 108.8512 48.8448 108.8512 108.8512v44.032c0 19.8144-16.0256 35.84-35.84 35.84s-35.84-16.0256-35.84-35.84v-44.032c0-20.5312-16.6912-37.1712-37.1712-37.1712H373.5552c-20.5312 0-37.1712 16.6912-37.1712 37.1712v45.1584c0 19.8144-16.0768 35.84-35.84 35.84z" fill="#4A576A" p-id="9985"></path>
                 </svg>
               </div>
               <div class="text1" data-i18n="profile.total">Total</div>
@@ -341,26 +296,9 @@
             </li>
             <li>
               <div class="icon">
-                <svg
-                  t="1740151544781"
-                  class="icon"
-                  viewBox="0 0 1024 1024"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  p-id="22511"
-                  width="40"
-                  height="40"
-                >
-                  <path
-                    d="M752 96H272c-70.4 0-128 57.6-128 128v630.4c0 17.6 4.8 35.2 14.4 49.6 27.2 44.8 86.4 59.2 131.2 32l208-126.4c9.6-6.4 22.4-6.4 33.6 0l201.6 124.8c14.4 9.6 32 14.4 49.6 14.4 52.8 0 96-43.2 96-96V224c1.6-70.4-56-128-126.4-128z m64 756.8c0 17.6-14.4 32-32 32-6.4 0-11.2-1.6-16-4.8l-201.6-124.8c-30.4-19.2-68.8-19.2-99.2 0l-208 126.4c-14.4 9.6-35.2 4.8-43.2-11.2-3.2-4.8-4.8-11.2-4.8-16V224c0-35.2 28.8-64 64-64h480c35.2 0 64 28.8 64 64v628.8z"
-                    fill="#4A576A"
-                    p-id="22512"
-                  ></path>
-                  <path
-                    d="M640 288H384c-17.6 0-32 14.4-32 32s14.4 32 32 32h256c17.6 0 32-14.4 32-32s-14.4-32-32-32z"
-                    fill="#da0023"
-                    p-id="22513"
-                  ></path>
+                <svg t="1740151544781" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="22511" width="40" height="40">
+                  <path d="M752 96H272c-70.4 0-128 57.6-128 128v630.4c0 17.6 4.8 35.2 14.4 49.6 27.2 44.8 86.4 59.2 131.2 32l208-126.4c9.6-6.4 22.4-6.4 33.6 0l201.6 124.8c14.4 9.6 32 14.4 49.6 14.4 52.8 0 96-43.2 96-96V224c1.6-70.4-56-128-126.4-128z m64 756.8c0 17.6-14.4 32-32 32-6.4 0-11.2-1.6-16-4.8l-201.6-124.8c-30.4-19.2-68.8-19.2-99.2 0l-208 126.4c-14.4 9.6-35.2 4.8-43.2-11.2-3.2-4.8-4.8-11.2-4.8-16V224c0-35.2 28.8-64 64-64h480c35.2 0 64 28.8 64 64v628.8z" fill="#4A576A" p-id="22512"></path>
+                  <path d="M640 288H384c-17.6 0-32 14.4-32 32s14.4 32 32 32h256c17.6 0 32-14.4 32-32s-14.4-32-32-32z" fill="#da0023" p-id="22513"></path>
                 </svg>
               </div>
               <div class="text1" data-i18n="profile.today">Today</div>
@@ -368,26 +306,9 @@
             </li>
             <li>
               <div class="icon">
-                <svg
-                  t="1740151687568"
-                  class="icon"
-                  viewBox="0 0 1024 1024"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  p-id="24736"
-                  width="40"
-                  height="40"
-                >
-                  <path
-                    d="M163.84 483.84c0-28.16 23.04-51.2 51.2-51.2h568.32c28.16 0 51.2 23.04 51.2 51.2v378.88c0 28.16-23.04 51.2-51.2 51.2H217.6c-28.16 0-51.2-23.04-51.2-51.2V483.84z m163.84-140.8l2.56-46.08c0-104.96 74.24-181.76 174.08-181.76 20.48 0 35.84 2.56 51.2 5.12 79.36 20.48 128 87.04 128 174.08v48.64H327.68z m458.24 0h-15.36v-48.64c0-125.44-76.8-227.84-194.56-261.12-23.04-2.56-48.64-7.68-74.24-7.68-74.24 0-143.36 28.16-192 79.36-48.64 51.2-71.68 117.76-71.68 189.44l-2.56 46.08h-17.92c-76.8 0-138.24 61.44-138.24 138.24v378.88c0 76.8 61.44 138.24 138.24 138.24h568.32c76.8 0 138.24-61.44 138.24-138.24V483.84c-2.56-76.8-64-140.8-138.24-140.8z"
-                    fill="#515151"
-                    p-id="24737"
-                  ></path>
-                  <path
-                    d="M458.24 670.72V768c0 23.04 20.48 43.52 43.52 43.52 23.04 0 43.52-20.48 43.52-43.52v-97.28c20.48-12.8 30.72-38.4 30.72-61.44 0-40.96-33.28-74.24-74.24-74.24-40.96 0-74.24 33.28-74.24 74.24-2.56 23.04 10.24 48.64 30.72 61.44z"
-                    fill="#da0023"
-                    p-id="24738"
-                  ></path>
+                <svg t="1740151687568" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="24736" width="40" height="40">
+                  <path d="M163.84 483.84c0-28.16 23.04-51.2 51.2-51.2h568.32c28.16 0 51.2 23.04 51.2 51.2v378.88c0 28.16-23.04 51.2-51.2 51.2H217.6c-28.16 0-51.2-23.04-51.2-51.2V483.84z m163.84-140.8l2.56-46.08c0-104.96 74.24-181.76 174.08-181.76 20.48 0 35.84 2.56 51.2 5.12 79.36 20.48 128 87.04 128 174.08v48.64H327.68z m458.24 0h-15.36v-48.64c0-125.44-76.8-227.84-194.56-261.12-23.04-2.56-48.64-7.68-74.24-7.68-74.24 0-143.36 28.16-192 79.36-48.64 51.2-71.68 117.76-71.68 189.44l-2.56 46.08h-17.92c-76.8 0-138.24 61.44-138.24 138.24v378.88c0 76.8 61.44 138.24 138.24 138.24h568.32c76.8 0 138.24-61.44 138.24-138.24V483.84c-2.56-76.8-64-140.8-138.24-140.8z" fill="#515151" p-id="24737"></path>
+                  <path d="M458.24 670.72V768c0 23.04 20.48 43.52 43.52 43.52 23.04 0 43.52-20.48 43.52-43.52v-97.28c20.48-12.8 30.72-38.4 30.72-61.44 0-40.96-33.28-74.24-74.24-74.24-40.96 0-74.24 33.28-74.24 74.24-2.56 23.04 10.24 48.64 30.72 61.44z" fill="#da0023" p-id="24738"></path>
                 </svg>
               </div>
               <div class="text1" data-i18n="profile.freeze">Freeze</div>
@@ -1042,112 +963,91 @@
         window.location.href = "login.html";
       });
     </script>
+
     <script>
-      // Show loader function
+      // Show loader function - ensures loader is visible
       function showLoader() {
         const loader = document.getElementById("pageLoader");
         if (loader) {
           loader.classList.remove("hidden");
+          loader.style.display = 'flex';
         }
       }
 
-      // Hide loader function
+      // Hide loader function - only called when data is fully loaded
       function hideLoader() {
         const loader = document.getElementById("pageLoader");
         if (loader) {
           loader.classList.add("hidden");
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 300);
         }
       }
+
       async function loadUserProfile() {
+        // Ensure loader is showing at start
         showLoader();
+        
         try {
           const csrf_token = localStorage.getItem("csrf_token");
           const user_id = localStorage.getItem("user_id");
 
           if (!csrf_token || !user_id) {
-            hideLoader();
-            // Redirect if no auth info
             window.location.href = "/public/login.html";
             return;
           }
-
-          // Show loading indicator if you have one
-          // showLoading();
 
           const response = await $.ajax({
             url: "https://999.viptemugo.com/index/my/get_user_info",
             method: "POST",
             data: { _token_: csrf_token, user_id: user_id },
             dataType: "json",
-            // xhrFields: { withCredentials: true }
           });
 
-          // hideLoading();
-
           if (response.code === 0 && response.user) {
-            console.log(response,'respinse');
-            
             const user = response.user;
 
-            // Save CSRF and user info to localStorage
-            localStorage.setItem(
-              "csrf_token",
-              response.csrf_token || csrf_token
-            );
+            // Save data
+            localStorage.setItem("csrf_token", response.csrf_token || csrf_token);
             localStorage.setItem("user_id", user.id);
-
             localStorage.setItem("tel", user.tel);
             localStorage.setItem("balance", user.balance);
 
-            // Update UI
-            document.getElementById("userPhone").textContent =
-              user.tel || "N/A";
-            document.getElementById("userName").textContent =
-              user.username || user.nickname || "User";
-            document.getElementById("userBalance").textContent = parseFloat(
-              user.balance || 0
-            ).toFixed(2);
-            document.getElementById("totalAmount").textContent =
-              parseFloat(response.total_commission || 0).toFixed(2) + "$";
-            document.getElementById("todayAmount").textContent =
-              parseFloat(user.today_commission || 0).toFixed(2) + "$";
-            document.getElementById("freezeAmount").textContent =
-              parseFloat(user.freeze_balance || 0).toFixed(2) + "$";
+            // Update all UI elements
+            document.getElementById("userPhone").textContent = user.tel || "N/A";
+            document.getElementById("userName").textContent = user.username || user.nickname || "User";
+            document.getElementById("userBalance").textContent = parseFloat(user.balance || 0).toFixed(2);
+            document.getElementById("totalAmount").textContent = parseFloat(response.total_commission || 0).toFixed(2) + "$";
+            document.getElementById("todayAmount").textContent = parseFloat(user.today_commission || 0).toFixed(2) + "$";
+            document.getElementById("freezeAmount").textContent = parseFloat(user.freeze_balance || 0).toFixed(2) + "$";
 
             const inviteCodeElement = document.getElementById("copy1");
             if (inviteCodeElement) {
               inviteCodeElement.textContent = user.invite_code || "";
-              inviteCodeElement.setAttribute(
-                "data-invite-code",
-                user.invite_code || ""
-              );
+              inviteCodeElement.setAttribute("data-invite-code", user.invite_code || "");
             }
 
-            // Save data locally for fallback
-            localStorage.setItem("tel", user.tel || "");
+            // Store additional data
             localStorage.setItem("username", user.username || "");
-            localStorage.setItem("balance", user.balance || "0");
             localStorage.setItem("invite_code", user.invite_code || "");
             localStorage.setItem("freeze_balance", user.freeze_balance || "0");
             localStorage.setItem("recharge_num", user.recharge_num || "0");
-            localStorage.setItem(
-              "all_recharge_num",
-              user.all_recharge_num || "0"
-            );
+            localStorage.setItem("all_recharge_num", user.all_recharge_num || "0");
 
-            hideLoader(); // Hide loader after data loads
+            // Only hide loader after all data is loaded and UI is updated
+            setTimeout(() => {
+              hideLoader();
+            }, 300);
+
           } else {
-            hideLoader();
-
-            // API returned error
             alert(response.info || "Failed to load user data");
             window.location.href = "/public/login.html";
           }
         } catch (error) {
           console.error("Error loading profile:", error);
-          hideLoader(); // Hide loader on error
-
-          // Fallback to localStorage
+          
+          // Try to load from localStorage as fallback
           const tel = localStorage.getItem("tel");
           const username = localStorage.getItem("username");
           const balance = localStorage.getItem("balance");
@@ -1157,30 +1057,28 @@
           const all_recharge_num = localStorage.getItem("all_recharge_num");
 
           if (tel) document.getElementById("userPhone").textContent = tel;
-          if (username)
-            document.getElementById("userName").textContent = username;
-          if (balance)
-            document.getElementById("userBalance").textContent =
-              parseFloat(balance).toFixed(2);
+          if (username) document.getElementById("userName").textContent = username;
+          if (balance) document.getElementById("userBalance").textContent = parseFloat(balance).toFixed(2);
           if (invite_code) {
             const inviteCodeElement = document.getElementById("copy1");
             inviteCodeElement.textContent = invite_code;
             inviteCodeElement.setAttribute("data-invite-code", invite_code);
           }
-          if (all_recharge_num)
-            document.getElementById("totalAmount").textContent =
-              parseFloat(all_recharge_num).toFixed(2) + "$";
-          if (recharge_num)
-            document.getElementById("todayAmount").textContent =
-              parseFloat(recharge_num).toFixed(2) + "$";
-          if (freeze_balance)
-            document.getElementById("freezeAmount").textContent =
-              parseFloat(freeze_balance).toFixed(2) + "$";
+          if (all_recharge_num) document.getElementById("totalAmount").textContent = parseFloat(all_recharge_num).toFixed(2) + "$";
+          if (recharge_num) document.getElementById("todayAmount").textContent = parseFloat(recharge_num).toFixed(2) + "$";
+          if (freeze_balance) document.getElementById("freezeAmount").textContent = parseFloat(freeze_balance).toFixed(2) + "$";
+
+          // Hide loader after fallback data is displayed
+          setTimeout(() => {
+            hideLoader();
+          }, 300);
         }
       }
 
       // Load profile when page is ready
       document.addEventListener("DOMContentLoaded", loadUserProfile);
     </script>
+  </body>
+</html>
   </body>
 </html>
