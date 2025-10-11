@@ -238,7 +238,7 @@
         margin-top: 0.5rem;
       }
 
-         .alert-overlay {
+      .alert-overlay {
         display: none;
         position: fixed;
         top: 0;
@@ -283,7 +283,6 @@
         font-size: 16px;
         cursor: pointer;
       }
-
     </style>
   </head>
   <body>
@@ -479,14 +478,13 @@
       </div>
     </div>
 
-       <div class="alert-overlay" id="alertOverlay">
+    <div class="alert-overlay" id="alertOverlay">
       <div class="alert-content">
         <div class="alert-title" id="alertTitle"></div>
         <div class="alert-message" id="alertMessage"></div>
         <button class="alert-button" id="alertButton">OK</button>
       </div>
     </div>
-
 
     <script src="/public/i18n.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -736,8 +734,6 @@
         }
       }
 
-
-      
       // Tab switching
       $(".icon-slide a").click(function (e) {
         e.preventDefault();
@@ -896,7 +892,7 @@
         $("#rating-notice").hide();
       }
 
-         function showAlert(title, message, callback) {
+      function showAlert(title, message, callback) {
         document.getElementById("alertTitle").textContent = title;
         document.getElementById("alertMessage").textContent = message;
         document.getElementById("alertOverlay").classList.add("active");
@@ -906,7 +902,6 @@
           if (callback) callback();
         };
       }
-
 
       // Submit rating and order
       function submitRating() {
@@ -925,21 +920,6 @@
         var user_id = localStorage.getItem("user_id");
         let csrf_token = localStorage.getItem("csrf_token");
 
-        const balance = localStorage.getItem("balance");
-
-        console.log('====================================');
-        console.log(balance,"balance");
-        console.log('====================================');
-
-           // Check for insufficient balance
-        if (balance < currentOrderData.num) {
-          showAlert("Error", "Insufficient balance");
-
-          window.location.href = "/index/ctrl/recharge.html";
-          return; // Stop further execution
-        }
-
-
         $.ajax({
           url: `${API_BASE_URL}/index/order/do_order`,
           method: "POST",
@@ -950,7 +930,8 @@
           },
           dataType: "json",
           success: function (response) {
-            
+            hideLoading(); // ✅ hide loading when done
+
             if (response.code === 0) {
               // toastSuccess(response.info);
               setTimeout(() => {
@@ -959,11 +940,15 @@
                 $(`.icon-slide a[data-type="3"]`).addClass(
                   "btn-outline-default active"
                 );
-                
-                hideLoading(); // ✅ hide loading when done
+
                 // Load completed orders (type = 3)
                 loadOrders(3, 1);
               }, 3000);
+            } else if (response.code === 1) {
+              showAlert("error", response.info || "something went wrong");
+              setTimeout(() => {
+                window.location.href = response.url;
+              }, 2000);
             } else {
               console.error(response.info || "Failed to submit order");
             }

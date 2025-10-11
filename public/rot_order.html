@@ -1041,10 +1041,10 @@
         }
 
         document.getElementById("completedOrders").textContent =
-          user.deal_count || 0;
+          user.confirm_num || 0;
         document.getElementById("totalOrders").textContent = user.task_num || 0;
 
-        const pending = (user.task_num || 0) - (user.deal_count || 0);
+        const pending = (user.deal_count || 0) - (user.confirm_num || 0);
         document.getElementById("pendingOrders").textContent =
           pending >= 0 ? pending : 0;
 
@@ -1284,22 +1284,6 @@
         var user_id = localStorage.getItem("user_id");
         let csrf_token = localStorage.getItem("csrf_token");
 
-        console.log('====================================');
-        console.log(currentUserData);
-        console.log('====================================');
-
-
-        console.log('====================================');
-        console.log(currentOrderData);
-        console.log('====================================');
-        // Check for insufficient balance
-        if ((currentUserData?.user?.balance || currentUserData?.balance) < currentOrderData.num) {
-          showAlert("Error", "Insufficient balance");
-
-          window.location.href = "/index/ctrl/recharge.html";
-          return; // Stop further execution
-        }
-
         $.ajax({
           url: `${API_BASE_URL}/index/order/do_order`,
           method: "POST",
@@ -1310,9 +1294,9 @@
           },
           dataType: "json",
           success: function (response) {
+            hideLoading();
             if (response.code === 0) {
               setTimeout(() => {
-                hideLoading();
                 showAlert(
                   "Success",
                   response.info || "Order submitted successfully!",
@@ -1321,6 +1305,13 @@
                     fetchUserData();
                   }
                 );
+              }, 2000);
+            } else if (response.code === 1) {
+              showAlert("error", response.info || "something went wrong");
+              setTimeout(() => {
+                if (response.url) {
+                  window.location.href = response.url;
+                }
               }, 2000);
             } else {
               hideLoading();
