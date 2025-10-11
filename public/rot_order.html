@@ -26,6 +26,7 @@
       id="layermcss"
     />
 
+   
     <style>
       .loading-overlay {
         display: none;
@@ -34,7 +35,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-        /* background: rgba(0, 0, 0, 0.5); */
         z-index: 9999;
         justify-content: center;
         align-items: center;
@@ -123,7 +123,7 @@
       .modal-header {
         background: #da0023;
         color: white;
-        padding: 15px 20px;
+        padding: 15px;
         border-radius: 12px 12px 0 0;
         display: flex;
         justify-content: space-between;
@@ -149,7 +149,7 @@
       }
 
       .modal-body {
-        padding: 20px;
+        padding: 15px;
       }
 
       .product-info {
@@ -277,7 +277,72 @@
         background: #fff3cd;
         color: #856404;
       }
+
+      /* Rating Modal Styles */
+      .star-rating {
+        display: flex;
+        gap: 3px;
+        justify-content: center;
+      }
+
+      .star-rating img {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .rating-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        margin: 0 0 5px 0;
+      }
+
+      .rating-row span {
+        font-size: 16px;
+        color: #222;
+      }
+
+      #rating-notice {
+        display: none;
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        color: #856404;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .rating-modal-body {
+        padding: 20px;
+      }
+
+      .rating-product-info {
+        text-align: center;
+        padding: 15px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        margin-bottom: 5px;
+      }
+
+      .rating-product-info img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      .rating-product-info p {
+        font-size: 14px;
+        color: #333;
+        margin: 5px 0;
+      }
     </style>
+
   </head>
 
   <body class="">
@@ -676,6 +741,44 @@
       </div>
     </div>
 
+        <!-- Rating Modal -->
+    <div class="modal-overlay" id="ratingModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">Product Rating</div>
+          <button class="close-btn" onclick="closeRatingModal()">&times;</button>
+        </div>
+        <div class="rating-modal-body">
+          <div class="rating-product-info">
+            <img id="rating-product-image" src="" alt="Product" />
+            <p id="rating-product-name"></p>
+          </div>
+          <div style="padding: 10px 15px">
+            <div class="rating-row">
+              <span>Description Match</span>
+              <div class="star-rating" id="description-stars"></div>
+            </div>
+            <div class="rating-row">
+              <span>Logistics Service</span>
+              <div class="star-rating" id="logistics-stars"></div>
+            </div>
+            <div class="rating-row">
+              <span>Service Attitude</span>
+              <div class="star-rating" id="service-stars"></div>
+            </div>
+          </div>
+          <div id="rating-notice">
+            Please rate all categories before submitting
+          </div>
+          <div style="padding: 0 20px 20px 20px">
+            <button class="submit-btn" onclick="submitRating()">
+              Submit Rating
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="/public/i18n.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -685,6 +788,19 @@
       var add_id = "";
       var isLoading = false;
       var currentUserData = null;
+            var currentOrderData = null;
+
+
+                // Rating variables
+      let ratings = {
+        description: 0,
+        logistics: 0,
+        service: 0,
+      };
+      
+      const starDefault = "https://999.viptemugo.com/static_new6/img/star.png";
+      const starActive =
+        "https://999.viptemugo.com/static_new6/img/star-active.png";
       const API_BASE_URL = "https://999.viptemugo.com";
 
       function showLoading() {
@@ -815,6 +931,13 @@
         document.getElementById("orderInfoModal").classList.remove("active");
       }
 
+      
+      // Function to close rating modal
+      function closeRatingModal() {
+        document.getElementById("ratingModal").classList.remove("active");
+      }
+
+
       // Function to display order detail in modal
       function displayOrderDetail(order) {
         console.log(order, "order");
@@ -879,18 +1002,18 @@
                     }
                 </div>
 
-                <a href="/index/order/index.html">
 
-                <button class="submit-btn">
+                <button class="submit-btn" onclick="openRatingModalFromOrder()">
                     PRODUCT RATING
                 </button>
 
-                </a>
             `;
 
         document.getElementById("orderModalBody").innerHTML = html;
       }
 
+
+ 
       function displayUserData(data) {
         if (!data || !data.user) {
           console.warn("No user data to display");
@@ -919,7 +1042,7 @@
         }
 
         document.getElementById("completedOrders").textContent =
-          user.deal_count || 0; 
+          user.deal_count || 0;
         document.getElementById("totalOrders").textContent = user.task_num || 0;
 
         const pending = (user.task_num || 0) - (user.deal_count || 0);
@@ -1078,6 +1201,116 @@
                 "Failed to grab order. Error: " + textStatus
               );
             }
+          },
+        });
+      }
+
+
+      
+      // Open rating modal from order detail
+      function openRatingModalFromOrder() {
+        if (!currentOrderData) {
+          showAlert("Error", "Order data not available");
+          return;
+        }
+
+        // Close order modal
+        closeOrderModal();
+
+        // Show rating modal after a short delay
+        setTimeout(() => {
+          showRatingModal();
+        }, 300);
+      }
+
+      // Show rating modal
+      function showRatingModal() {
+        if (!currentOrderData) {
+          showAlert("Error", "Order data not available");
+          return;
+        }
+
+        const order = currentOrderData;
+        
+        // Set product info
+        document.getElementById("rating-product-image").src = order.goods_pic || "";
+        document.getElementById("rating-product-name").textContent = order.goods_name || "Product";
+
+        // Initialize star ratings
+        ["description", "logistics", "service"].forEach((category) => {
+          let starsHtml = "";
+          for (let i = 1; i <= 5; i++) {
+            starsHtml += `<img src="${starDefault}" data-category="${category}" data-rating="${i}" onclick="setRating('${category}', ${i})">`;
+          }
+          document.getElementById(`${category}-stars`).innerHTML = starsHtml;
+        });
+
+        // Reset ratings
+        ratings = { description: 0, logistics: 0, service: 0 };
+        document.getElementById("rating-notice").style.display = "none";
+
+        // Show modal
+        document.getElementById("ratingModal").classList.add("active");
+      }
+
+      // Set rating for a category
+      function setRating(category, rating) {
+        ratings[category] = rating;
+        const stars = document.querySelectorAll(`#${category}-stars img`);
+        stars.forEach((star, index) => {
+          const starRating = parseInt(star.getAttribute("data-rating"));
+          star.src = starRating <= rating ? starActive : starDefault;
+        });
+        document.getElementById("rating-notice").style.display = "none";
+      }
+
+      // Submit rating and order
+      function submitRating() {
+        // Validate all ratings are filled
+        if (
+          ratings.description === 0 ||
+          ratings.logistics === 0 ||
+          ratings.service === 0
+        ) {
+          document.getElementById("rating-notice").style.display = "block";
+          return;
+        }
+
+        // Close rating modal
+        closeRatingModal();
+
+        // Show loading
+        showLoading();
+
+        var user_id = localStorage.getItem("user_id");
+        let csrf_token = localStorage.getItem("csrf_token");
+
+        $.ajax({
+          url: `${API_BASE_URL}/index/order/do_order`,
+          method: "POST",
+          data: {
+            oid: currentOrderData.oid || currentOrderData.id,
+            user_id: user_id,
+            __token__: csrf_token || "",
+          },
+          dataType: "json",
+          success: function (response) {
+            if (response.code === 0) {
+              setTimeout(() => {
+                hideLoading();
+                showAlert("Success", response.info || "Order submitted successfully!", function() {
+                  // Refresh user data
+                  fetchUserData();
+                });
+              }, 2000);
+            } else {
+              hideLoading();
+              showAlert("Error", response.info || "Failed to submit order");
+            }
+          },
+          error: function () {
+            hideLoading();
+            showAlert("Error", "Failed to submit order. Please try again.");
           },
         });
       }
