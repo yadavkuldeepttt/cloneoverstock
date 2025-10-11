@@ -529,6 +529,8 @@
 
             const data = await response.json();
 
+            alert(JSON.stringify(data));
+
             if (data.code === 0) {
               toastSuccess("Login password changed successfully!");
               window.location.href = "/public/profile.html";
