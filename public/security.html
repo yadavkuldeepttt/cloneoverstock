@@ -293,7 +293,10 @@
   </head>
   <body>
     <div class="header">
-      <a href="/public/profile.html" style="text-decoration: none; font-size: 20px">
+      <a
+        href="/public/profile.html"
+        style="text-decoration: none; font-size: 20px"
+      >
         <div class="back-btn">‹</div>
       </a>
       <div class="header-title" data-i18n="security.title">change password</div>
@@ -302,14 +305,28 @@
     <div class="container">
       <div class="content-card">
         <div class="tabs">
-          <div class="tab active" data-tab="login" data-i18n="security.loginPasswordTab">Login Password</div>
-          <div class="tab" data-tab="payment" data-i18n="security.paymentPasswordTab">Payment password</div>
+          <div
+            class="tab active"
+            data-tab="login"
+            data-i18n="security.loginPasswordTab"
+          >
+            Login Password
+          </div>
+          <div
+            class="tab"
+            data-tab="payment"
+            data-i18n="security.paymentPasswordTab"
+          >
+            Payment password
+          </div>
         </div>
 
         <div id="loginTab" class="tab-content active">
           <form id="loginPasswordForm">
             <div class="form-group">
-              <label class="form-label" data-i18n="security.oldPassword">*Old password</label>
+              <label class="form-label" data-i18n="security.oldPassword"
+                >*Old password</label
+              >
               <input
                 type="password"
                 class="form-input"
@@ -321,7 +338,9 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" data-i18n="security.newPassword">*new password</label>
+              <label class="form-label" data-i18n="security.newPassword"
+                >*new password</label
+              >
               <input
                 type="password"
                 class="form-input"
@@ -333,7 +352,9 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" data-i18n="security.confirmPassword">*Confirm Password</label>
+              <label class="form-label" data-i18n="security.confirmPassword"
+                >*Confirm Password</label
+              >
               <input
                 type="password"
                 class="form-input"
@@ -344,14 +365,18 @@
               />
             </div>
 
-            <button type="submit" class="btn-next" data-i18n="security.next">NEXT</button>
+            <button type="submit" class="btn-next" data-i18n="security.next">
+              NEXT
+            </button>
           </form>
         </div>
 
         <div id="paymentTab" class="tab-content">
           <form id="paymentPasswordForm">
             <div class="form-group">
-              <label class="form-label" data-i18n="security.oldPassword">*Old password</label>
+              <label class="form-label" data-i18n="security.oldPassword"
+                >*Old password</label
+              >
               <input
                 type="password"
                 class="form-input"
@@ -363,7 +388,9 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" data-i18n="security.newPassword">*new password</label>
+              <label class="form-label" data-i18n="security.newPassword"
+                >*new password</label
+              >
               <input
                 type="password"
                 class="form-input"
@@ -375,7 +402,9 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" data-i18n="security.confirmPassword">*Confirm Password</label>
+              <label class="form-label" data-i18n="security.confirmPassword"
+                >*Confirm Password</label
+              >
               <input
                 type="password"
                 class="form-input"
@@ -386,7 +415,9 @@
               />
             </div>
 
-            <button type="submit" class="btn-next" data-i18n="security.next">NEXT</button>
+            <button type="submit" class="btn-next" data-i18n="security.next">
+              NEXT
+            </button>
           </form>
         </div>
 
@@ -528,10 +559,11 @@
 
             const data = await response.json();
 
-
             if (data.code === 0) {
               toastSuccess("Login password changed successfully!");
-              window.location.href = "/public/profile.html";
+              setTimeout(() => {
+                window.location.href = "/public/profile.html";
+              }, 2000);
             } else {
               toastError(data.info || "Failed to change password");
             }
@@ -581,7 +613,9 @@
 
             if (data.code === 0) {
               toastSuccess("Payment password changed successfully!");
-              window.location.href = "/public/profile.html";
+              setTimeout(() => {
+                window.location.href = "/public/profile.html";
+              }, 2000);
             } else {
               toastError(data.info || "Failed to change password");
             }
