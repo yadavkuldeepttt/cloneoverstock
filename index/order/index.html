@@ -237,6 +237,53 @@
       .product_detail {
         margin-top: 0.5rem;
       }
+
+         .alert-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .alert-overlay.active {
+        display: flex;
+      }
+
+      .alert-content {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        max-width: 80%;
+        text-align: center;
+      }
+
+      .alert-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .alert-message {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .alert-button {
+        background: #da0023;
+        color: #fff;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
     </style>
   </head>
   <body>
@@ -431,6 +478,15 @@
         </div>
       </div>
     </div>
+
+       <div class="alert-overlay" id="alertOverlay">
+      <div class="alert-content">
+        <div class="alert-title" id="alertTitle"></div>
+        <div class="alert-message" id="alertMessage"></div>
+        <button class="alert-button" id="alertButton">OK</button>
+      </div>
+    </div>
+
 
     <script src="/public/i18n.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -840,6 +896,18 @@
         $("#rating-notice").hide();
       }
 
+         function showAlert(title, message, callback) {
+        document.getElementById("alertTitle").textContent = title;
+        document.getElementById("alertMessage").textContent = message;
+        document.getElementById("alertOverlay").classList.add("active");
+
+        document.getElementById("alertButton").onclick = function () {
+          document.getElementById("alertOverlay").classList.remove("active");
+          if (callback) callback();
+        };
+      }
+
+
       // Submit rating and order
       function submitRating() {
         if (
@@ -856,6 +924,21 @@
         showLoading();
         var user_id = localStorage.getItem("user_id");
         let csrf_token = localStorage.getItem("csrf_token");
+
+        const balance = localStorage.getItem("balance");
+
+        console.log('====================================');
+        console.log(balance,"balance");
+        console.log('====================================');
+
+           // Check for insufficient balance
+        if (balance < currentOrderData.num) {
+          showAlert("Error", "Insufficient balance");
+
+          window.location.href = "/index/ctrl/recharge.html";
+          return; // Stop further execution
+        }
+
 
         $.ajax({
           url: `${API_BASE_URL}/index/order/do_order`,

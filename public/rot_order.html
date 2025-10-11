@@ -26,7 +26,6 @@
       id="layermcss"
     />
 
-   
     <style>
       .loading-overlay {
         display: none;
@@ -342,7 +341,6 @@
         margin: 5px 0;
       }
     </style>
-
   </head>
 
   <body class="">
@@ -741,12 +739,14 @@
       </div>
     </div>
 
-        <!-- Rating Modal -->
+    <!-- Rating Modal -->
     <div class="modal-overlay" id="ratingModal">
       <div class="modal-content">
         <div class="modal-header">
           <div class="modal-title">Product Rating</div>
-          <button class="close-btn" onclick="closeRatingModal()">&times;</button>
+          <button class="close-btn" onclick="closeRatingModal()">
+            &times;
+          </button>
         </div>
         <div class="rating-modal-body">
           <div class="rating-product-info">
@@ -788,16 +788,16 @@
       var add_id = "";
       var isLoading = false;
       var currentUserData = null;
-            var currentOrderData = null;
+      var currentOrderData = null;
+      var balance = null;
 
-
-                // Rating variables
+      // Rating variables
       let ratings = {
         description: 0,
         logistics: 0,
         service: 0,
       };
-      
+
       const starDefault = "https://999.viptemugo.com/static_new6/img/star.png";
       const starActive =
         "https://999.viptemugo.com/static_new6/img/star-active.png";
@@ -897,6 +897,9 @@
               if (response.csrf_token) {
                 localStorage.setItem("csrf_token", response.csrf_token);
               }
+              if (currentUserData.user.balance) {
+                localStorage.setItem("balance", currentUserData.user.balance);
+              }
             } else {
               showAlert(
                 "Error",
@@ -931,12 +934,10 @@
         document.getElementById("orderInfoModal").classList.remove("active");
       }
 
-      
       // Function to close rating modal
       function closeRatingModal() {
         document.getElementById("ratingModal").classList.remove("active");
       }
-
 
       // Function to display order detail in modal
       function displayOrderDetail(order) {
@@ -1012,8 +1013,6 @@
         document.getElementById("orderModalBody").innerHTML = html;
       }
 
-
- 
       function displayUserData(data) {
         if (!data || !data.user) {
           console.warn("No user data to display");
@@ -1030,11 +1029,11 @@
 
         const levelImages = {
           1: "/public/Free.png",
-          2: "/VIP1.png",
-          3: "/VIP2.png",
+          2: "/public/Free.png",
+          3: "/public/Free.png",
           4: "https://overstoc.cyou/index_new/vip_img/lv4-3ab742d5.png",
-          5: "/VIP4.png",
-          6: "/VIP5.png",
+          5: "https://overstoc.cyou/index_new/vip_img/lv4-3ab742d5.png",
+          6: "https://overstoc.cyou/index_new/vip_img/lv4-3ab742d5.png",
         };
 
         if (user.level && levelImages[user.level]) {
@@ -1205,8 +1204,6 @@
         });
       }
 
-
-      
       // Open rating modal from order detail
       function openRatingModalFromOrder() {
         if (!currentOrderData) {
@@ -1231,10 +1228,12 @@
         }
 
         const order = currentOrderData;
-        
+
         // Set product info
-        document.getElementById("rating-product-image").src = order.goods_pic || "";
-        document.getElementById("rating-product-name").textContent = order.goods_name || "Product";
+        document.getElementById("rating-product-image").src =
+          order.goods_pic || "";
+        document.getElementById("rating-product-name").textContent =
+          order.goods_name || "Product";
 
         // Initialize star ratings
         ["description", "logistics", "service"].forEach((category) => {
@@ -1285,6 +1284,22 @@
         var user_id = localStorage.getItem("user_id");
         let csrf_token = localStorage.getItem("csrf_token");
 
+        console.log('====================================');
+        console.log(currentUserData);
+        console.log('====================================');
+
+
+        console.log('====================================');
+        console.log(currentOrderData);
+        console.log('====================================');
+        // Check for insufficient balance
+        if ((currentUserData?.user?.balance || currentUserData?.balance) < currentOrderData.num) {
+          showAlert("Error", "Insufficient balance");
+
+          window.location.href = "/index/ctrl/recharge.html";
+          return; // Stop further execution
+        }
+
         $.ajax({
           url: `${API_BASE_URL}/index/order/do_order`,
           method: "POST",
@@ -1298,10 +1313,14 @@
             if (response.code === 0) {
               setTimeout(() => {
                 hideLoading();
-                showAlert("Success", response.info || "Order submitted successfully!", function() {
-                  // Refresh user data
-                  fetchUserData();
-                });
+                showAlert(
+                  "Success",
+                  response.info || "Order submitted successfully!",
+                  function () {
+                    // Refresh user data
+                    fetchUserData();
+                  }
+                );
               }, 2000);
             } else {
               hideLoading();

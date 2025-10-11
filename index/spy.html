@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Product Details</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #fff;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn .material-icons {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            flex: 1;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-btn .material-icons {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .product-gallery {
+            background: #fff;
+            position: relative;
+            padding: 20px;
+        }
+
+        .main-image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            margin-bottom: 16px;
+        }
+
+        .main-image {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            overflow-x: auto;
+            padding: 8px 0;
+        }
+
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            object-fit: cover;
+            transition: border-color 0.3s;
+        }
+
+        .thumbnail.active {
+            border-color: #ff4444;
+        }
+
+        .thumbnail:hover {
+            border-color: #ff6666;
+        }
+
+        .indicator-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ddd;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: #333;
+        }
+
+        .product-info {
+            background: #fff;
+            padding: 16px;
+            margin-top: 8px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .current-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ff4444;
+        }
+
+        .original-price {
+            font-size: 16px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .rating-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            color: #ffc107;
+            font-size: 16px;
+        }
+
+        .star.empty {
+            color: #ddd;
+        }
+
+        .rating-text {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .favorite-btn .material-icons {
+            font-size: 24px;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .favorite-btn.active .material-icons {
+            color: #ff4444;
+        }
+
+        .product-details {
+            background: #fff;
+            padding: 16px;
+            margin-top: 8px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .detail-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .detail-value {
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .action-buttons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            background: #fff;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+        }
+
+        .add-to-cart-btn,
+        .buy-now-btn {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .add-to-cart-btn {
+            background: #ffa726;
+            color: #fff;
+        }
+
+        .buy-now-btn {
+            background: #f44336;
+            color: #fff;
+        }
+
+        .add-to-cart-btn:active,
+        .buy-now-btn:active {
+            opacity: 0.8;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .nav-item.active {
+            color: #f44336;
+        }
+
+        .nav-item .material-icons {
+            font-size: 24px;
+        }
+
+        .nav-item span {
+            font-size: 12px;
+        }
+
+        .content-wrapper {
+            padding-bottom: 140px;
+        }
+
+        .description-section {
+            background: #fff;
+            padding: 16px;
+            margin-top: 8px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .description-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button class="back-btn" onclick="goBack()">
+            <span class="material-icons">arrow_back</span>
+        </button>
+        <div class="header-title">Product Details</div>
+        <div class="header-actions">
+            <button class="icon-btn">
+                <span class="material-icons">shopping_cart</span>
+            </button>
+            <button class="icon-btn">
+                <span class="material-icons">share</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="content-wrapper" id="productContainer">
+        <div class="product-gallery">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">
+                <span class="material-icons">favorite_border</span>
+            </button>
+            
+            <div class="main-image-container">
+                <img src="" 
+                     alt="Product" 
+                     class="main-image" 
+                     id="mainImage">
+            </div>
+
+            <div class="thumbnail-container" id="thumbnailContainer">
+                <!-- Thumbnails will be inserted here -->
+            </div>
+
+            <div class="indicator-dots" id="indicatorDots">
+                <!-- Dots will be inserted here -->
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title" id="productTitle"></h1>
+            
+            <div class="price-section">
+                <span class="current-price" id="currentPrice"></span>
+            </div>
+
+            <div class="rating-section" id="ratingSection">
+                <!-- Rating will be inserted here -->
+            </div>
+        </div>
+
+        <div class="product-details" id="productDetails">
+            <!-- Specifications will be inserted here -->
+        </div>
+
+        <div class="description-section">
+            <div class="section-title">Description</div>
+            <p class="description-text" id="productDescription"></p>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+        <button class="buy-now-btn" onclick="buyNow()">Buy it now</button>
+    </div>
+
+    <script src="/public/popularItems.js"></script>
+
+    <script>
+        function goBack() {
+            window.location.href = "/public/news.html"
+        }
+
+        function changeImage(thumbnail, index) {
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+            
+            document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+            document.querySelectorAll('.dot')[index].classList.add('active');
+            
+            document.getElementById('mainImage').src = thumbnail.src;
+        }
+
+        function toggleFavorite(btn) {
+            btn.classList.toggle('active');
+            const icon = btn.querySelector('.material-icons');
+            icon.textContent = btn.classList.contains('active') ? 'favorite' : 'favorite_border';
+        }
+
+        // Show custom alert modal
+        function showCustomAlert(message) {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            
+            // Create modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                background: white;
+                border-radius: 12px;
+                padding: 24px;
+                max-width: 320px;
+                width: 90%;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                animation: slideIn 0.3s ease-out;
+            `;
+            
+            // Add animation keyframes
+            if (!document.querySelector('#customAlertStyle')) {
+                const style = document.createElement('style');
+                style.id = 'customAlertStyle';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from {
+                            transform: translateY(-50px);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Create icon
+            const icon = document.createElement('div');
+            icon.style.cssText = `
+                width: 60px;
+                height: 60px;
+                background: #fee;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 16px;
+            `;
+            icon.innerHTML = `
+                <span class="material-icons" style="font-size: 32px; color: #f44336;">lock</span>
+            `;
+            
+            // Create title
+            const title = document.createElement('h3');
+            title.textContent = 'Permission Denied';
+            title.style.cssText = `
+                margin: 0 0 12px 0;
+                font-size: 20px;
+                font-weight: bold;
+                color: #333;
+            `;
+            
+            // Create message
+            const messageEl = document.createElement('p');
+            messageEl.textContent = message;
+            messageEl.style.cssText = `
+                margin: 0 0 20px 0;
+                color: #666;
+                line-height: 1.5;
+                font-size: 15px;
+            `;
+            
+            // Create button
+            const button = document.createElement('button');
+            button.textContent = 'OK';
+            button.style.cssText = `
+                background: #f44336;
+                color: white;
+                border: none;
+                padding: 12px 32px;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                width: 100%;
+                transition: background 0.3s;
+            `;
+            
+            button.onmouseover = () => {
+                button.style.background = '#d32f2f';
+            };
+            button.onmouseout = () => {
+                button.style.background = '#f44336';
+            };
+            
+            button.onclick = () => {
+                document.body.removeChild(overlay);
+            };
+            
+            // Assemble modal
+            modal.appendChild(icon);
+            modal.appendChild(title);
+            modal.appendChild(messageEl);
+            modal.appendChild(button);
+            overlay.appendChild(modal);
+            
+            // Add to page
+            document.body.appendChild(overlay);
+            
+            // Close on overlay click
+            overlay.onclick = (e) => {
+                if (e.target === overlay) {
+                    document.body.removeChild(overlay);
+                }
+            };
+        }
+
+        function addToCart() {
+            showCustomAlert("Sorry, your account doesn't have permission to purchase this product.");
+        }
+
+        function buyNow() {
+            showCustomAlert("Sorry, your account doesn't have permission to purchase this product.");
+        }
+
+        // Get product data from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // Load product details
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!productId) {
+                alert('No product ID found');
+                window.location.href = '/public/news.html';
+                return;
+            }
+
+            const product = getProductById(productId);
+            
+            if (!product) {
+                alert('Product not found');
+                window.location.href = '/public/news.html';
+                return;
+            }
+
+            // Set product details
+            document.getElementById('productTitle').textContent = product.title;
+            document.getElementById('currentPrice').textContent = '$' + product.price.toFixed(2);
+            document.getElementById('productDescription').textContent = product.description;
+
+            // Set main image
+            document.getElementById('mainImage').src = product.image;
+
+            // Create thumbnails (using same image 3 times as example)
+            const thumbnailContainer = document.getElementById('thumbnailContainer');
+            const indicatorDots = document.getElementById('indicatorDots');
+            
+            for (let i = 0; i < 3; i++) {
+                const thumb = document.createElement('img');
+                thumb.src = product.image;
+                thumb.className = 'thumbnail' + (i === 0 ? ' active' : '');
+                thumb.onclick = function() { changeImage(this, i); };
+                thumbnailContainer.appendChild(thumb);
+
+                const dot = document.createElement('span');
+                dot.className = 'dot' + (i === 0 ? ' active' : '');
+                indicatorDots.appendChild(dot);
+            }
+
+            // Create rating
+            const ratingSection = document.getElementById('ratingSection');
+            const starsDiv = document.createElement('div');
+            starsDiv.className = 'stars';
+            
+            for (let i = 1; i <= 5; i++) {
+                const star = document.createElement('span');
+                star.className = 'material-icons star' + (i > product.rating ? ' empty' : '');
+                star.textContent = 'star';
+                starsDiv.appendChild(star);
+            }
+            
+            const ratingText = document.createElement('span');
+            ratingText.className = 'rating-text';
+            ratingText.textContent = product.rating + '.0';
+            
+            ratingSection.appendChild(starsDiv);
+            ratingSection.appendChild(ratingText);
+
+            // Create specifications
+            const productDetails = document.getElementById('productDetails');
+            const specTitle = document.createElement('div');
+            specTitle.className = 'section-title';
+            specTitle.textContent = 'Specifications';
+            productDetails.appendChild(specTitle);
+
+            if (product.specifications) {
+                Object.entries(product.specifications).forEach(([key, value]) => {
+                    const row = document.createElement('div');
+                    row.className = 'detail-row';
+                    
+                    const label = document.createElement('span');
+                    label.className = 'detail-label';
+                    label.textContent = key.replace(/([A-Z])/g, ' $1').trim();
+                    
+                    const valueSpan = document.createElement('span');
+                    valueSpan.className = 'detail-value';
+                    valueSpan.textContent = value;
+                    
+                    row.appendChild(label);
+                    row.appendChild(valueSpan);
+                    productDetails.appendChild(row);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
