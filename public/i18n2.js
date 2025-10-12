@@ -1,6 +1,6 @@
 ;(() => {
   const MAIN_URL = "/public/translations2.json" // adjust path if needed
-  const EXTRAS = ["/public/translations.json"] // adjust path if needed
+  const EXTRAS = ["/public/translations.json","/public/common.json"] // adjust path if needed
 
   const alias = {
     // Map backend locale codes to our JSON locales (customize freely)

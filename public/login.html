@@ -413,7 +413,6 @@
         }
       }
 
-      
       /* Page Loader Styles */
       .page-loader {
         position: fixed;
@@ -470,7 +469,7 @@
     </style>
   </head>
   <body>
-           <!-- Page Loader -->
+    <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
       <div class="loader-spinner"></div>
     </div>
@@ -519,12 +518,16 @@
       <div class="sign-con">
         <div class="item">
           <a href="/public/login.html"
-            ><div class="link aclink"><span data-i18n="login.title">Login</span></div></a
+            ><div class="link aclink">
+              <span data-i18n="login.title">Login</span>
+            </div></a
           >
         </div>
         <div class="item">
           <a href="/public/register.html"
-            ><div class="link"><span data-i18n="register.title">Register</span></div></a
+            ><div class="link">
+              <span data-i18n="register.title">Register</span>
+            </div></a
           >
         </div>
       </div>
@@ -541,6 +544,7 @@
                   name="tel"
                   class="uni-input-input"
                   placeholder="your mobile phone number"
+                  data-i18n-placeholder="new.placeholders.phone"
                   maxlength="13"
                   pattern="[0-9]*"
                   autocomplete="off"
@@ -565,6 +569,7 @@
                   class="uni-input-input"
                   placeholder="your password"
                   autocomplete="off"
+                  data-i18n-placeholder="new.placeholders.password"
                   required=""
                   fdprocessedid="qiy1ic"
                   data-has-listeners="true"
@@ -577,7 +582,12 @@
             ></span>
           </div>
         </div>
-        <button type="submit" class="login-btn" fdprocessedid="dvvjrk" data-i18n="login.submit">
+        <button
+          type="submit"
+          class="login-btn"
+          fdprocessedid="dvvjrk"
+          data-i18n="login.submit"
+        >
           Login
         </button>
       </form>
@@ -591,9 +601,7 @@
     <script src="/public/i18n2.js"></script>
 
     <script>
-
-
-// Show loader on page load
+      // Show loader on page load
       window.addEventListener("load", function () {
         // Simulate minimum loading time for better UX
         setTimeout(function () {

@@ -579,7 +579,7 @@
         </div>
 
         <div class="usdt-address-section" id="usdtAddressSection">
-          <div class="usdt-title">Your USDT Wallet Address</div>
+          <div class="usdt-title"  data-i18n="new.usdtWalletAddress">Your USDT Wallet Address</div>
           <div class="usdt-address">
             <span
               class="address-text"
@@ -591,6 +591,7 @@
               class="copy-btn"
               id="copyAddressBtn"
               onclick="copyAddress()"
+              data-i18n="common.copy"
             >
               Copy
             </button>
@@ -608,6 +609,7 @@
               class="input-field"
               id="withdrawalAmount"
               placeholder="$ Please enter the withdrawal amount"
+              data-i18n-placeholder="new.withdrawAmountPrompt"
               step="0.01"
               min="0"
               required
@@ -620,6 +622,8 @@
               class="input-field"
               id="loginPassword"
               placeholder="Enter fund password"
+                            data-i18n-placeholder="new.placeholders.fundPassword"
+
               required
             />
           </div>
@@ -635,6 +639,9 @@
         </form>
       </main>
     </div>
+
+        <script src="/public/i18n.js"></script>
+
 
     <script>
       let userWalletAddress = "";
@@ -717,11 +724,13 @@
       }
 
       // Fetch user info including wallet details
+     // Fetch user info
       async function fetchUserInfo() {
         const csrf_token = localStorage.getItem("csrf_token");
         const user_id = localStorage.getItem("user_id");
 
         if (!csrf_token || !user_id) {
+          toastError(i18n.t("new.sessionExpired"));
           window.location.href = "/login.html";
           return;
         }
@@ -731,48 +740,41 @@
             "https://999.viptemugo.com/index/my/get_user_info",
             {
               method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                _token_: csrf_token,
-                user_id: user_id,
-              }),
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ _token_: csrf_token, user_id }),
             }
           );
 
           const data = await response.json();
 
           if (data.code === 0 && data.user) {
-            // Store wallet info
             if (data.wallet_info && data.wallet_info.address) {
               userWalletAddress = data.wallet_info.address;
               document.getElementById("usdtAddressText").textContent =
                 userWalletAddress;
             } else {
               document.getElementById("usdtAddressText").textContent =
-                "No wallet address found";
+                i18n.t("new.noWalletAddress");
               document.getElementById("copyAddressBtn").disabled = true;
             }
 
-            // Update balance
-            if (data.user.balance) {
+            if (data.user.balance)
               localStorage.setItem("balance", data.user.balance);
-            }
           } else {
-            console.error("Failed to fetch user info:", data.info);
+            console.error("Fetch failed:", data.info);
+            toastError(i18n.t("new.fetchUserInfoFailed"));
           }
         } catch (error) {
-          console.error("Error fetching user info:", error);
+          console.error("Error:", error);
           document.getElementById("usdtAddressText").textContent =
-            "Error loading address";
+            i18n.t("new.loadAddressError");
         }
       }
 
       // Copy address to clipboard
       function copyAddress() {
         if (!userWalletAddress) {
-          toastInfo("No address to copy");
+          toastInfo(i18n.t("new.noWalletAddress"));
           return;
         }
 
@@ -781,14 +783,15 @@
           .then(() => {
             const btn = document.getElementById("copyAddressBtn");
             const originalText = btn.textContent;
-            btn.textContent = "Copied!";
+                        btn.textContent = i18n.t("common.copied");
+
             setTimeout(() => {
               btn.textContent = originalText;
             }, 2000);
           })
           .catch((err) => {
             console.error("Failed to copy:", err);
-            toastError("Failed to copy address");
+            toastError(i18n.t("common.copyFailed"));
           });
       }
 

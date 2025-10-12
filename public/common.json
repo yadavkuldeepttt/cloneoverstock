@@ -1,0 +1,376 @@
+{
+  "en-ww": {
+    "new": {
+      "withdrawAmountPrompt": "Please enter the withdrawal amount",
+      "fundPasswordPrompt": "Enter fund password",
+      "usdtWalletAddress": "Your USDT Wallet Address",
+      "noWalletAddress": "No wallet address found",
+      "fetchUserInfoFailed": "Failed to fetch user info",
+      "loadAddressError": "Error loading address",
+      "sessionExpired": "Session expired. Please log in again",
+      "userIdNotFound": "User ID not found. Please log in again",
+      "orderDataUnavailable": "Order data not available",
+      "placeholders": {
+        "phone": "your mobile phone number",
+        "password": "your password",
+        "username": "Please enter a user name",
+        "confirmPassword": "Please confirm the password",
+        "inviteCode": "Please enter the invitation code",
+        "fundPassword": "Enter fund password",
+        "usdtWalletAddress": "Your USDT Wallet Address"
+      }
+    }
+  },
+  "en-au": {
+    "new": {
+      "withdrawAmountPrompt": "Please enter the withdrawal amount",
+      "fundPasswordPrompt": "Enter fund password",
+      "usdtWalletAddress": "Your USDT Wallet Address",
+      "noWalletAddress": "No wallet address found",
+      "fetchUserInfoFailed": "Failed to fetch user info",
+      "loadAddressError": "Error loading address",
+      "sessionExpired": "Session expired. Please log in again",
+      "userIdNotFound": "User ID not found. Please log in again",
+      "orderDataUnavailable": "Order data not available",
+      "placeholders": {
+        "phone": "your mobile phone number",
+        "password": "your password",
+        "username": "Please enter a user name",
+        "confirmPassword": "Please confirm the password",
+        "inviteCode": "Please enter the invitation code",
+        "fundPassword": "Enter fund password",
+        "usdtWalletAddress": "Your USDT Wallet Address"
+      }
+    }
+  },
+  "es-mx": {
+    "new": {
+      "withdrawAmountPrompt": "Por favor ingrese el monto de retiro",
+      "fundPasswordPrompt": "Ingrese la contraseña de fondos",
+      "usdtWalletAddress": "Su dirección de billetera USDT",
+      "noWalletAddress": "No se encontró ninguna dirección de billetera",
+      "fetchUserInfoFailed": "Error al obtener la información del usuario",
+      "loadAddressError": "Error al cargar la dirección",
+      "sessionExpired": "La sesión expiró. Por favor inicie sesión de nuevo",
+      "userIdNotFound": "ID de usuario no encontrado. Por favor inicie sesión de nuevo",
+      "orderDataUnavailable": "Datos de la orden no disponibles",
+      "placeholders": {
+        "phone": "tu número de teléfono móvil",
+        "password": "tu contraseña",
+        "username": "Por favor ingrese un nombre de usuario",
+        "confirmPassword": "Por favor confirme la contraseña",
+        "inviteCode": "Por favor ingrese el código de invitación",
+        "fundPassword": "Ingrese la contraseña de fondos",
+        "usdtWalletAddress": "Su dirección de billetera USDT"
+      }
+    }
+  },
+  "pt-br": {
+    "new": {
+      "withdrawAmountPrompt": "Por favor, insira o valor do saque",
+      "fundPasswordPrompt": "Insira a senha de fundos",
+      "usdtWalletAddress": "Seu endereço de carteira USDT",
+      "noWalletAddress": "Nenhum endereço de carteira encontrado",
+      "fetchUserInfoFailed": "Falha ao obter as informações do usuário",
+      "loadAddressError": "Erro ao carregar o endereço",
+      "sessionExpired": "Sessão expirada. Faça login novamente",
+      "userIdNotFound": "ID de usuário não encontrado. Faça login novamente",
+      "orderDataUnavailable": "Dados do pedido indisponíveis",
+      "placeholders": {
+        "phone": "seu número de telefone",
+        "password": "sua senha",
+        "username": "Por favor, insira um nome de usuário",
+        "confirmPassword": "Por favor, confirme a senha",
+        "inviteCode": "Por favor, insira o código de convite",
+        "fundPassword": "Insira a senha de fundos",
+        "usdtWalletAddress": "Seu endereço de carteira USDT"
+      }
+    }
+  },
+  "en-id": {
+    "new": {
+      "withdrawAmountPrompt": "Silakan masukkan jumlah penarikan",
+      "fundPasswordPrompt": "Masukkan kata sandi dana",
+      "usdtWalletAddress": "Alamat Dompet USDT Anda",
+      "noWalletAddress": "Alamat dompet tidak ditemukan",
+      "fetchUserInfoFailed": "Gagal mengambil info pengguna",
+      "loadAddressError": "Kesalahan memuat alamat",
+      "sessionExpired": "Sesi kedaluwarsa. Silakan masuk lagi",
+      "userIdNotFound": "ID pengguna tidak ditemukan. Silakan masuk lagi",
+      "orderDataUnavailable": "Data pesanan tidak tersedia",
+      "placeholders": {
+        "phone": "nomor ponsel Anda",
+        "password": "kata sandi Anda",
+        "username": "Silakan masukkan nama pengguna",
+        "confirmPassword": "Silakan konfirmasi kata sandi",
+        "inviteCode": "Silakan masukkan kode undangan",
+        "fundPassword": "Masukkan kata sandi dana",
+        "usdtWalletAddress": "Alamat Dompet USDT Anda"
+      }
+    }
+  },
+  "iv-vn": {
+    "new": {
+      "withdrawAmountPrompt": "Vui lòng nhập số tiền rút",
+      "fundPasswordPrompt": "Nhập mật khẩu quỹ",
+      "usdtWalletAddress": "Địa chỉ ví USDT của bạn",
+      "noWalletAddress": "Không tìm thấy địa chỉ ví",
+      "fetchUserInfoFailed": "Không thể lấy thông tin người dùng",
+      "loadAddressError": "Lỗi tải địa chỉ",
+      "sessionExpired": "Phiên làm việc đã hết hạn. Vui lòng đăng nhập lại",
+      "userIdNotFound": "Không tìm thấy ID người dùng. Vui lòng đăng nhập lại",
+      "orderDataUnavailable": "Dữ liệu đơn hàng không khả dụng",
+      "placeholders": {
+        "phone": "số điện thoại của bạn",
+        "password": "mật khẩu của bạn",
+        "username": "Vui lòng nhập tên người dùng",
+        "confirmPassword": "Vui lòng xác nhận mật khẩu",
+        "inviteCode": "Vui lòng nhập mã mời",
+        "fundPassword": "Nhập mật khẩu quỹ",
+        "usdtWalletAddress": "Địa chỉ ví USDT của bạn"
+      }
+    }
+  },
+  "tr-tr": {
+    "new": {
+      "withdrawAmountPrompt": "Lütfen çekim tutarını girin",
+      "fundPasswordPrompt": "Fon şifresini girin",
+      "usdtWalletAddress": "USDT Cüzdan Adresiniz",
+      "noWalletAddress": "Cüzdan adresi bulunamadı",
+      "fetchUserInfoFailed": "Kullanıcı bilgileri alınamadı",
+      "loadAddressError": "Adres yüklenirken hata oluştu",
+      "sessionExpired": "Oturum süresi doldu. Lütfen tekrar giriş yapın",
+      "userIdNotFound": "Kullanıcı kimliği bulunamadı. Lütfen tekrar giriş yapın",
+      "orderDataUnavailable": "Sipariş verileri mevcut değil",
+      "placeholders": {
+        "phone": "cep telefonu numaranız",
+        "password": "şifreniz",
+        "username": "Lütfen bir kullanıcı adı girin",
+        "confirmPassword": "Lütfen şifreyi onaylayın",
+        "inviteCode": "Lütfen davet kodunu girin",
+        "fundPassword": "Fon şifresini girin",
+        "usdtWalletAddress": "USDT Cüzdan Adresiniz"
+      }
+    }
+  },
+  "ar-ar": {
+    "new": {
+      "withdrawAmountPrompt": "يرجى إدخال مبلغ السحب",
+      "fundPasswordPrompt": "أدخل كلمة مرور الأموال",
+      "usdtWalletAddress": "عنوان محفظة USDT الخاص بك",
+      "noWalletAddress": "لم يتم العثور على عنوان محفظة",
+      "fetchUserInfoFailed": "فشل في جلب معلومات المستخدم",
+      "loadAddressError": "حدث خطأ أثناء تحميل العنوان",
+      "sessionExpired": "انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى",
+      "userIdNotFound": "لم يتم العثور على معرف المستخدم. يرجى تسجيل الدخول مرة أخرى",
+      "orderDataUnavailable": "بيانات الطلب غير متوفرة",
+      "placeholders": {
+        "phone": "رقم هاتفك المحمول",
+        "password": "كلمة المرور الخاصة بك",
+        "username": "يرجى إدخال اسم المستخدم",
+        "confirmPassword": "يرجى تأكيد كلمة المرور",
+        "inviteCode": "يرجى إدخال رمز الدعوة",
+        "fundPassword": "أدخل كلمة مرور الأموال",
+        "usdtWalletAddress": "عنوان محفظة USDT الخاص بك"
+      }
+    }
+  },
+  "th-th": {
+    "new": {
+      "withdrawAmountPrompt": "กรุณากรอกจำนวนเงินที่จะถอน",
+      "fundPasswordPrompt": "ป้อนรหัสผ่านกองทุน",
+      "usdtWalletAddress": "ที่อยู่กระเป๋าเงิน USDT ของคุณ",
+      "noWalletAddress": "ไม่พบที่อยู่กระเป๋าเงิน",
+      "fetchUserInfoFailed": "ดึงข้อมูลผู้ใช้ไม่สำเร็จ",
+      "loadAddressError": "เกิดข้อผิดพลาดในการโหลดที่อยู่",
+      "sessionExpired": "เซสชันหมดอายุ โปรดเข้าสู่ระบบอีกครั้ง",
+      "userIdNotFound": "ไม่พบทวีคูณผู้ใช้ โปรดเข้าสู่ระบบอีกครั้ง",
+      "orderDataUnavailable": "ไม่มีข้อมูลคำสั่งซื้อ",
+      "placeholders": {
+        "phone": "หมายเลขโทรศัพท์มือถือของคุณ",
+        "password": "รหัสผ่านของคุณ",
+        "username": "โปรดป้อนชื่อผู้ใช้",
+        "confirmPassword": "โปรดยืนยันรหัสผ่าน",
+        "inviteCode": "โปรดป้อนรหัสเชิญ",
+        "fundPassword": "ป้อนรหัสผ่านกองทุน",
+        "usdtWalletAddress": "ที่อยู่กระเป๋าเงิน USDT ของคุณ"
+      }
+    }
+  },
+  "az-az": {
+    "new": {
+      "withdrawAmountPrompt": "Zəhmət olmasa çıxarış məbləğini daxil edin",
+      "fundPasswordPrompt": "Fond şifrəsini daxil edin",
+      "usdtWalletAddress": "Sizin USDT Cüzdan Ünvanınız",
+      "noWalletAddress": "Cüzdan ünvanı tapılmadı",
+      "fetchUserInfoFailed": "İstifadəçi məlumatları alınmadı",
+      "loadAddressError": "Ünvan yüklənərkən xəta baş verdi",
+      "sessionExpired": "Sessiya bitdi. Zəhmət olmasa yenidən daxil olun",
+      "userIdNotFound": "İstifadəçi ID-si tapılmadı. Zəhmət olmasa yenidən daxil olun",
+      "orderDataUnavailable": "Sifariş məlumatları mövcud deyil",
+      "placeholders": {
+        "phone": "mobil nömrəniz",
+        "password": "şifrəniz",
+        "username": "Zəhmət olmasa istifadəçi adı daxil edin",
+        "confirmPassword": "Zəhmət olmasa şifrəni təsdiq edin",
+        "inviteCode": "Zəhmət olmasa dəvət kodunu daxil edin",
+        "fundPassword": "Fond şifrəsini daxil edin",
+        "usdtWalletAddress": "Sizin USDT Cüzdan Ünvanınız"
+      }
+    }
+  },
+  "uz-uz": {
+    "new": {
+      "withdrawAmountPrompt": "Iltimos, yechib olish summasini kiriting",
+      "fundPasswordPrompt": "Fond parolini kiriting",
+      "usdtWalletAddress": "Sizning USDT hamyon manzilingiz",
+      "noWalletAddress": "Hamyon manzili topilmadi",
+      "fetchUserInfoFailed": "Foydalanuvchi ma'lumotlarini olish muvaffaqiyatsiz tugadi",
+      "loadAddressError": "Manzilni yuklashda xatolik",
+      "sessionExpired": "Sessiya tugadi. Iltimos, qayta kiring",
+      "userIdNotFound": "Foydalanuvchi ID topilmadi. Iltimos, qayta kiring",
+      "orderDataUnavailable": "Buyurtma ma'lumotlari mavjud emas",
+      "placeholders": {
+        "phone": "mobil telefon raqamingiz",
+        "password": "parolingiz",
+        "username": "Iltimos, foydalanuvchi nomini kiriting",
+        "confirmPassword": "Iltimos, parolni tasdiqlang",
+        "inviteCode": "Iltimos, taklif kodini kiriting",
+        "fundPassword": "Fond parolini kiriting",
+        "usdtWalletAddress": "Sizning USDT hamyon manzilingiz"
+      }
+    }
+  },
+  "ko-kr": {
+    "new": {
+      "withdrawAmountPrompt": "출금 금액을 입력하세요",
+      "fundPasswordPrompt": "자금 비밀번호를 입력하세요",
+      "usdtWalletAddress": "귀하의 USDT 지갑 주소",
+      "noWalletAddress": "지갑 주소를 찾을 수 없습니다",
+      "fetchUserInfoFailed": "사용자 정보를 가져오지 못했습니다",
+      "loadAddressError": "주소를 불러오는 중 오류가 발생했습니다",
+      "sessionExpired": "세션이 만료되었습니다. 다시 로그인해 주세요",
+      "userIdNotFound": "사용자 ID를 찾을 수 없습니다. 다시 로그인해 주세요",
+      "orderDataUnavailable": "주문 데이터가 없습니다",
+      "placeholders": {
+        "phone": "휴대폰 번호",
+        "password": "비밀번호",
+        "username": "사용자 이름을 입력하세요",
+        "confirmPassword": "비밀번호를 확인하세요",
+        "inviteCode": "초대 코드를 입력하세요",
+        "fundPassword": "자금 비밀번호를 입력하세요",
+        "usdtWalletAddress": "귀하의 USDT 지갑 주소"
+      }
+    }
+  },
+  "ru-ru": {
+    "new": {
+      "withdrawAmountPrompt": "Пожалуйста, введите сумму вывода",
+      "fundPasswordPrompt": "Введите пароль средств",
+      "usdtWalletAddress": "Ваш адрес кошелька USDT",
+      "noWalletAddress": "Адрес кошелька не найден",
+      "fetchUserInfoFailed": "Не удалось получить информацию о пользователе",
+      "loadAddressError": "Ошибка загрузки адреса",
+      "sessionExpired": "Сеанс истёк. Пожалуйста, войдите снова",
+      "userIdNotFound": "ID пользователя не найден. Пожалуйста, войдите снова",
+      "orderDataUnavailable": "Данные заказа недоступны",
+      "placeholders": {
+        "phone": "ваш номер мобильного телефона",
+        "password": "ваш пароль",
+        "username": "Пожалуйста, введите имя пользователя",
+        "confirmPassword": "Пожалуйста, подтвердите пароль",
+        "inviteCode": "Пожалуйста, введите код приглашения",
+        "fundPassword": "Введите пароль средств",
+        "usdtWalletAddress": "Ваш адрес кошелька USDT"
+      }
+    }
+  },
+  "hi-in": {
+    "new": {
+      "withdrawAmountPrompt": "कृपया निकासी राशि दर्ज करें",
+      "fundPasswordPrompt": "फंड पासवर्ड दर्ज करें",
+      "usdtWalletAddress": "आपका USDT वॉलेट पता",
+      "noWalletAddress": "वॉलेट पता नहीं मिला",
+      "fetchUserInfoFailed": "उपयोगकर्ता जानकारी प्राप्त करने में विफल",
+      "loadAddressError": "पता लोड करने में त्रुटि",
+      "sessionExpired": "सत्र समाप्त हो गया। कृपया दोबारा लॉगिन करें",
+      "userIdNotFound": "उपयोगकर्ता आईडी नहीं मिली। कृपया दोबारा लॉगिन करें",
+      "orderDataUnavailable": "ऑर्डर डेटा उपलब्ध नहीं है",
+      "placeholders": {
+        "phone": "आपका मोबाइल फोन नंबर",
+        "password": "आपका पासवर्ड",
+        "username": "कृपया उपयोगकर्ता नाम दर्ज करें",
+        "confirmPassword": "कृपया पासवर्ड की पुष्टि करें",
+        "inviteCode": "कृपया आमंत्रण कोड दर्ज करें",
+        "fundPassword": "फंड पासवर्ड दर्ज करें",
+        "usdtWalletAddress": "आपका USDT वॉलेट पता"
+      }
+    }
+  },
+  "bn-bd": {
+    "new": {
+      "withdrawAmountPrompt": "অনুগ্রহ করে উত্তোলনের পরিমাণ লিখুন",
+      "fundPasswordPrompt": "ফান্ড পাসওয়ার্ড লিখুন",
+      "usdtWalletAddress": "আপনার USDT ওয়ালেট ঠিকানা",
+      "noWalletAddress": "কোনো ওয়ালেট ঠিকানা পাওয়া যায়নি",
+      "fetchUserInfoFailed": "ব্যবহারকারীর তথ্য আনতে ব্যর্থ",
+      "loadAddressError": "ঠিকানা লোড করতে ত্রুটি",
+      "sessionExpired": "সেশন মেয়াদোত্তীর্ণ। দয়া করে আবার লগইন করুন",
+      "userIdNotFound": "ব্যবহারকারী আইডি পাওয়া যায়নি। দয়া করে আবার লগইন করুন",
+      "orderDataUnavailable": "অর্ডার ডেটা উপলব্ধ নয়",
+      "placeholders": {
+        "phone": "আপনার মোবাইল ফোন নম্বর",
+        "password": "আপনার পাসওয়ার্ড",
+        "username": "দয়া করে একটি ব্যবহারকারীর নাম লিখুন",
+        "confirmPassword": "দয়া করে পাসওয়ার্ড নিশ্চিত করুন",
+        "inviteCode": "দয়া করে আমন্ত্রণ কোড লিখুন",
+        "fundPassword": "ফান্ড পাসওয়ার্ড লিখুন",
+        "usdtWalletAddress": "আপনার USDT ওয়ালেট ঠিকানা"
+      }
+    }
+  },
+  "zh-cn": {
+    "new": {
+      "withdrawAmountPrompt": "请输入提现金额",
+      "fundPasswordPrompt": "请输入资金密码",
+      "usdtWalletAddress": "您的 USDT 钱包地址",
+      "noWalletAddress": "未找到钱包地址",
+      "fetchUserInfoFailed": "获取用户信息失败",
+      "loadAddressError": "加载地址出错",
+      "sessionExpired": "登录已过期，请重新登录",
+      "userIdNotFound": "未找到用户ID，请重新登录",
+      "orderDataUnavailable": "订单数据不可用",
+      "placeholders": {
+        "phone": "您的手机号码",
+        "password": "您的密码",
+        "username": "请输入用户名",
+        "confirmPassword": "请确认密码",
+        "inviteCode": "请输入邀请码",
+        "fundPassword": "请输入资金密码",
+        "usdtWalletAddress": "您的 USDT 钱包地址"
+      }
+    }
+  },
+  "ja-jp": {
+    "new": {
+      "withdrawAmountPrompt": "出金額を入力してください",
+      "fundPasswordPrompt": "資金パスワードを入力してください",
+      "usdtWalletAddress": "あなたのUSDTウォレットアドレス",
+      "noWalletAddress": "ウォレットアドレスが見つかりません",
+      "fetchUserInfoFailed": "ユーザー情報の取得に失敗しました",
+      "loadAddressError": "住所の読み込みエラー",
+      "sessionExpired": "セッションの有効期限が切れました。もう一度ログインしてください",
+      "userIdNotFound": "ユーザーIDが見つかりません。もう一度ログインしてください",
+      "orderDataUnavailable": "注文データが利用できません",
+      "placeholders": {
+        "phone": "携帯電話番号",
+        "password": "パスワード",
+        "username": "ユーザー名を入力してください",
+        "confirmPassword": "パスワードを確認してください",
+        "inviteCode": "招待コードを入力してください",
+        "fundPassword": "資金パスワードを入力してください",
+        "usdtWalletAddress": "あなたのUSDTウォレットアドレス"
+      }
+    }
+  }
+}

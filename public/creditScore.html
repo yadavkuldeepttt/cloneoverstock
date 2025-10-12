@@ -6,9 +6,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"
     />
-    
+
     <title>Support Center</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
@@ -276,7 +279,6 @@
         position: relative;
       }
 
-            
       /* Page Loader Styles */
       .page-loader {
         position: fixed;
@@ -333,14 +335,17 @@
     </style>
   </head>
   <body>
-           <!-- Page Loader -->
+    <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
       <div class="loader-spinner"></div>
     </div>
     <div class="header">
       <a href="/public/profile.html"
-                  ><i class="material-icons" style="color: #fff;">chevron_left</i></a>
-      <div class="header-title" data-i18n="profile.creditScore">CREDIT SCORE</div>
+        ><i class="material-icons" style="color: #fff">chevron_left</i></a
+      >
+      <div class="header-title" data-i18n="profile.creditScore">
+        CREDIT SCORE
+      </div>
       <svg class="header-icon" viewBox="0 0 24 24" fill="white">
         <path
           d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
@@ -363,8 +368,8 @@
         </div>
         <div class="user-id">11112222</div>
         <div class="credit-score">
-          <span data-i18n="">          Credit Score
-</span>: <span class="credit-score-value">100</span>
+          <span data-i18n="profile.creditScore"> Credit Score </span>:
+          <span class="credit-score-value">100</span>
         </div>
       </div>
 
@@ -411,13 +416,10 @@
         </a>
       </div>
     </div>
-        <script src="/public/i18n.js"></script>
+    <script src="/public/i18n.js"></script>
 
-
-        <script>
-          
-
-// Show loader on page load
+    <script>
+      // Show loader on page load
       window.addEventListener("load", function () {
         // Simulate minimum loading time for better UX
         setTimeout(function () {
@@ -445,7 +447,6 @@
       setTimeout(function () {
         hideLoader();
       }, 3000);
-
-        </script>
+    </script>
   </body>
 </html>
