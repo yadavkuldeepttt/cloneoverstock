@@ -3,28 +3,176 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recharge Record</title>
+    <title data-i18n="common.rechargeRecordTitle">Recharge Record</title>
     <style>
+      /* --- Your same CSS --- */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
         background-color: #f5f5f5;
         padding-top: 0;
       }
-
       input {
         outline: none;
         border: 0;
       }
-
       .wrapper {
         min-height: 100vh;
         padding-bottom: 130px;
+      }
+      .pxn-navbar {
+        width: 100%;
+        position: relative;
+        background-color: initial;
+        left: 0;
+        top: 0;
+        z-index: 99999;
+      }
+      .uni-navbar__header {
+        display: flex;
+        padding: 0 10px;
+        flex-direction: row;
+        height: 44px;
+        font-size: 12px;
+        background-color: red;
+      }
+      .uni-nav-bar-text {
+        color: #fff !important;
+        font-size: 14px !important;
+      }
+      .back-arrow {
+        width: 18px;
+        margin: 0px 10px;
+        cursor: pointer;
+      }
+      .recharge-content {
+        background-color: #fff;
+        min-height: calc(100vh - 44px);
+      }
+      .recharge-info {
+        padding: 30px 20px;
+      }
+      .section-title {
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        border-bottom: 1px solid #f0f0f0;
+        margin-bottom: 20px;
+      }
+      .info-value.amount {
+        color: #da0023;
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .records-list {
+        margin-top: 10px;
+      }
+      .record-card {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+      .record-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      .record-id {
+        font-size: 11px;
+        color: #999;
+      }
+      .record-status {
+        padding: 5px 12px;
+        border-radius: 14px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .status-pending {
+        background-color: #fff3cd;
+        color: #856404;
+      }
+      .status-processing {
+        background-color: #cfe2ff;
+        color: #084298;
+      }
+      .status-completed {
+        background-color: #d1e7dd;
+        color: #0f5132;
+      }
+      .status-failed {
+        background-color: #f8d7da;
+        color: #842029;
+      }
+      .no-data {
+        text-align: center;
+        padding: 60px 20px;
+        color: #999;
+        font-size: 14px;
+      }
+      .loading-spinner {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #da0023;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .page-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .page-loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .loader-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #da0023;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      .loader-text {
+        margin-top: 20px;
+        color: #da0023;
+        font-size: 16px;
+        font-weight: 500;
       }
 
       /* Header Styles */
@@ -99,198 +247,21 @@
         cursor: pointer;
       }
 
-      /* Content Styles */
-      .recharge-content {
-        background-color: #fff;
-        margin: 0;
-        min-height: calc(100vh - 44px);
-      }
-
-      .recharge-info {
-        padding: 30px 20px;
-      }
-
-      .section-title {
-        font-size: 16px;
-        color: #333;
-        font-weight: 600;
-        margin-bottom: 20px;
-      }
-
-      .info-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 15px 0;
-        border-bottom: 1px solid #f0f0f0;
-        margin-bottom: 20px;
-      }
-
-      .info-label {
-        color: #666;
-        font-size: 14px;
-      }
-
-      .info-value {
-        color: #333;
-        font-size: 14px;
-        font-weight: 500;
-      }
-
-      .info-value.amount {
-        color: #da0023;
-        font-weight: 600;
-        font-size: 16px;
-      }
-
-      .records-list {
-        margin-top: 10px;
-      }
-
-      .record-card {
-        background: #fff;
-        border: 1px solid #e5e5e5;
-        border-radius: 10px;
-        padding: 16px;
-        margin-bottom: 16px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      }
-
-      .record-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 14px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid #f5f5f5;
-      }
-
-      .record-id {
-        font-size: 11px;
-        color: #999;
-        font-family: 'Courier New', monospace;
-        font-weight: 500;
-      }
-
-      .record-status {
-        padding: 5px 12px;
-        border-radius: 14px;
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-      }
-
-      .status-pending {
-        background-color: #fff3cd;
-        color: #856404;
-      }
-
-      .status-processing {
-        background-color: #cfe2ff;
-        color: #084298;
-      }
-
-      .status-completed {
-        background-color: #d1e7dd;
-        color: #0f5132;
-      }
-
-      .status-failed {
-        background-color: #f8d7da;
-        color: #842029;
-      }
-
-      .record-details {
-        display: grid;
-        gap: 10px;
-      }
-
-      .record-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-      }
-
-      .record-row-label {
-        color: #666;
-        font-weight: 500;
-      }
-
-      .record-row-value {
-        color: #333;
-        font-weight: 600;
-        text-align: right;
-      }
-
-      .record-amount {
-        color: #da0023;
-        font-weight: 700;
-        font-size: 18px;
-      }
-
-      .record-type {
-        display: inline-block;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: #fff;
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
       .bell-icon {
         width: 20px;
         height: 20px;
         cursor: pointer;
       }
-
-      .no-data {
-        text-align: center;
-        padding: 60px 20px;
-        color: #999;
-        font-size: 14px;
-      }
-
-      .no-data-icon {
-        font-size: 48px;
-        margin-bottom: 15px;
-        opacity: 0.3;
-      }
-
-      .loading {
-        text-align: center;
-        padding: 40px 20px;
-        color: #999;
-      }
-
-      .loading-spinner {
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        border: 3px solid #f3f3f3;
-        border-top: 3px solid #da0023;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-
-      .error-message {
-        text-align: center;
-        padding: 40px 20px;
-        color: #da0023;
-        font-size: 14px;
-      }
     </style>
   </head>
+
   <body>
-    <div class="wrapper homepage">
+    <!-- Loader -->
+    <div class="page-loader" id="pageLoader">
+      <div class="loader-spinner"></div>
+    </div>
+
+    <div class="wrapper homepage" style="display: none" id="mainContent">
       <!-- Header -->
       <div class="pxn-navbar">
         <div class="uni-navbar">
@@ -305,7 +276,7 @@
             <div
               class="uni-navbar__header"
               style="
-                color:#fff;
+                color: #fff;
                 background: linear-gradient(135deg, #da0023 0%, #da0023 100%);
                 height: 44px;
               "
@@ -314,9 +285,23 @@
                 class="uni-navbar__header-btns uni-navbar__header-btns-left"
                 style="width: 60px"
               >
-                <a href="/public/profile.html" style="display: flex; align-items: center;">
-                  <svg class="back-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L9 12L15 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <a
+                  href="/public/profile.html"
+                  style="display: flex; align-items: center"
+                >
+                  <svg
+                    class="back-arrow"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 18L9 12L15 6"
+                      stroke="#fff"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
                   </svg>
                 </a>
               </div>
@@ -335,13 +320,30 @@
                 class="uni-navbar__header-btns uni-navbar__header-btns-right"
                 style="width: 60px"
               >
-              <a href="/public/message.html">
-
-                <svg class="bell-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
+                <a href="/public/message.html">
+                  <svg
+                    class="bell-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z"
+                      stroke="#fff"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21"
+                      stroke="#fff"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
@@ -352,182 +354,191 @@
       <!-- Content -->
       <div class="recharge-content">
         <div class="recharge-info">
-          <div class="section-title" data-i18n="common.rechargeRecordTitle">RECHARGE RECORD</div>
-          
+          <div class="section-title" data-i18n="common.rechargeRecordTitle">
+            RECHARGE RECORD
+          </div>
+
           <div class="info-row">
-            <span class="info-label" data-i18n="common.cumulativeRecharge">Cumulative recharge:</span>
+            <span class="info-label" data-i18n="common.cumulativeRecharge"
+              >Cumulative recharge:</span
+            >
             <span class="info-value amount" id="totalRecharge">$0.00</span>
           </div>
 
-          <!-- Loading State -->
           <div class="loading" id="loadingState">
             <div class="loading-spinner"></div>
-            <div style="margin-top: 10px;">Loading records...</div>
+            <div style="margin-top: 10px">Loading records...</div>
           </div>
 
-          <!-- Error State -->
-          <div class="error-message" id="errorState" style="display: none;">
-            <div>Failed to load records</div>
+          <div class="error-message" id="errorState" style="display: none">
+            Failed to load records
           </div>
 
-          <!-- No Data State -->
-          <div class="no-data" id="noDataState" style="display: none;">
-            <div class="no-data-icon">📋</div>
-            <div>NOT Data</div>
+          <div class="no-data" id="noDataState" style="display: none">
+            📋 No Data
           </div>
 
-          <!-- Records List -->
-          <div class="records-list" id="recordsList" style="display: none;">
-          </div>
+          <div
+            class="records-list"
+            id="recordsList"
+            style="display: none"
+          ></div>
         </div>
       </div>
     </div>
 
-
-
-        <script src="/public/i18n.js"></script>
-
-
+    <script src="/public/i18n.js"></script>
     <script>
-      // Format timestamp to readable date
+      // Loader control
+      function hideLoader() {
+        const loader = document.getElementById("pageLoader");
+        if (loader) loader.classList.add("hidden");
+        document.getElementById("mainContent").style.display = "block";
+      }
+
+      function showLoader() {
+        const loader = document.getElementById("pageLoader");
+        if (loader) loader.classList.remove("hidden");
+        document.getElementById("mainContent").style.display = "none";
+      }
+
+      // Format timestamp
       function formatDate(timestamp) {
         const date = new Date(timestamp * 1000);
-        return date.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
+        return date.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
         });
       }
 
-      // Get status text and class based on status value
+      // Status helper
       function getStatusInfo(status) {
-        switch(parseInt(status)) {
+        switch (parseInt(status)) {
           case 0:
-            return { text: 'Pending', class: 'status-pending' };
+            return { text: "Pending", class: "status-pending" };
           case 1:
-            return { text: 'Processing', class: 'status-processing' };
+            return { text: "Processing", class: "status-processing" };
           case 2:
-            return { text: 'Completed', class: 'status-completed' };
+            return { text: "Completed", class: "status-completed" };
           case 3:
-            return { text: 'Failed', class: 'status-failed' };
+            return { text: "Failed", class: "status-failed" };
           default:
-            return { text: 'Unknown', class: 'status-pending' };
+            return { text: "Unknown", class: "status-pending" };
         }
       }
 
-      // Fetch recharge records from API
       async function fetchRechargeRecords() {
-        const csrf_token = localStorage.getItem('csrf_token');
-        const user_id = localStorage.getItem('user_id');
+        const csrf_token = localStorage.getItem("csrf_token");
+        const user_id = localStorage.getItem("user_id");
 
         if (!csrf_token || !user_id) {
-          window.location.href = '/login.html';
+          window.location.href = "/login.html";
           return;
         }
 
-        const loadingState = document.getElementById('loadingState');
-        const errorState = document.getElementById('errorState');
-        const noDataState = document.getElementById('noDataState');
-        const recordsList = document.getElementById('recordsList');
-        const totalRechargeEl = document.getElementById('totalRecharge');
+        const loadingState = document.getElementById("loadingState");
+        const errorState = document.getElementById("errorState");
+        const noDataState = document.getElementById("noDataState");
+        const recordsList = document.getElementById("recordsList");
+        const totalRechargeEl = document.getElementById("totalRecharge");
 
         try {
-          const response = await fetch('https://999.viptemugo.com/index/ctrl/recharge_admin_details', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              _token_: csrf_token,
-              user_id: user_id
-            })
-          });
+          const response = await fetch(
+            "https://999.viptemugo.com/index/ctrl/recharge_admin_details",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                _token_: csrf_token,
+                user_id: user_id,
+              }),
+            }
+          );
 
           const data = await response.json();
-          console.log('Recharge records API response:', data);
+          console.log("Recharge API:", data);
 
-          // Hide loading state
-          loadingState.style.display = 'none';
+          loadingState.style.display = "none";
 
           if (data.code === 0 && data.data) {
-            // Update total recharge amount
             const totalAmount = parseFloat(data.data.total_recharge || 0);
-            totalRechargeEl.textContent = '$' + totalAmount.toFixed(2);
+            totalRechargeEl.textContent = "$" + totalAmount.toFixed(2);
 
-            // Check if there are recharge records
             if (data.data.recharges && data.data.recharges.length > 0) {
-              // Show records list
-              recordsList.style.display = 'block';
-              
-              // Generate HTML for each record card
-              recordsList.innerHTML = data.data.recharges.map(record => {
-                const statusInfo = getStatusInfo(record.status);
-                const paymentMethod = record.pay_name ? record.pay_name.toUpperCase() : 'N/A';
-                const amount = parseFloat(record.num || 0);
-                const fee = parseFloat(record.sxf || 0);
-                
-                return `
-                  <div class="record-card">
-                    <div class="record-header">
-                      <div class="record-id">#${record.id}</div>
-                      <div class="record-status ${statusInfo.class}">${statusInfo.text}</div>
-                    </div>
-                    <div class="record-details">
-                      <div class="record-row">
-                        <span class="record-row-label">Amount:</span>
-                        <span class="record-amount">$${amount.toFixed(2)}</span>
+              recordsList.style.display = "block";
+              recordsList.innerHTML = data.data.recharges
+                .map((record) => {
+                  const statusInfo = getStatusInfo(record.status);
+                  const paymentMethod = record.pay_name
+                    ? record.pay_name.toUpperCase()
+                    : "N/A";
+                  const amount = parseFloat(record.num || 0);
+                  const fee = parseFloat(record.sxf || 0);
+                  return `
+                    <div class="record-card">
+                      <div class="record-header">
+                        <div class="record-id">#${record.id}</div>
+                        <div class="record-status ${statusInfo.class}">${
+                    statusInfo.text
+                  }</div>
                       </div>
-                      <div class="record-row">
-                        <span class="record-row-label">Payment Method:</span>
-                        <span class="record-type">${paymentMethod}</span>
+                      <div class="record-details">
+                        <div class="record-row"><span>Amount:</span><span class="record-amount">$${amount.toFixed(
+                          2
+                        )}</span></div>
+                        <div class="record-row"><span>Payment Method:</span><span class="record-type">${paymentMethod}</span></div>
+                        <div class="record-row"><span>Date:</span><span>${formatDate(
+                          record.addtime
+                        )}</span></div>
+                        ${
+                          fee > 0
+                            ? `<div class="record-row"><span>Fee:</span><span style="color:#f59e0b;">$${fee.toFixed(
+                                2
+                              )}</span></div>`
+                            : ""
+                        }
                       </div>
-                      ${record.real_name ? `
-                      <div class="record-row">
-                        <span class="record-row-label">Name:</span>
-                        <span class="record-row-value">${record.real_name}</span>
-                      </div>
-                      ` : ''}
-                      ${record.tel ? `
-                      <div class="record-row">
-                        <span class="record-row-label">Phone:</span>
-                        <span class="record-row-value">${record.tel}</span>
-                      </div>
-                      ` : ''}
-                      <div class="record-row">
-                        <span class="record-row-label">Date:</span>
-                        <span class="record-row-value">${formatDate(record.addtime)}</span>
-                      </div>
-                      ${fee > 0 ? `
-                      <div class="record-row">
-                        <span class="record-row-label">Service Fee:</span>
-                        <span class="record-row-value" style="color: #f59e0b;">$${fee.toFixed(2)}</span>
-                      </div>
-                      ` : ''}
-                    </div>
-                  </div>
-                `;
-              }).join('');
+                    </div>`;
+                })
+                .join("");
             } else {
-              // Show no data state
-              noDataState.style.display = 'block';
+              noDataState.style.display = "block";
             }
           } else {
-            // Show error state with message
-            errorState.style.display = 'block';
-            errorState.textContent = data.info || 'Failed to load records';
+            errorState.style.display = "block";
+            errorState.textContent = data.info || "Failed to load records";
           }
         } catch (error) {
-          console.error('Error fetching recharge records:', error);
-          loadingState.style.display = 'none';
-          errorState.style.display = 'block';
-          errorState.textContent = 'Network error. Please try again.';
+          console.error(error);
+          loadingState.style.display = "none";
+          errorState.style.display = "block";
+          errorState.textContent = "Network error. Please try again.";
         }
       }
 
-      // Initialize page - fetch records on load
-      document.addEventListener('DOMContentLoaded', fetchRechargeRecords);
+      // Combined initialization
+      async function initializePage() {
+        showLoader();
+        try {
+          // Wait for both i18n and API data
+          await Promise.all([
+            new Promise((resolve) => {
+              if (window.initI18n) window.initI18n(resolve);
+              else resolve();
+            }),
+            fetchRechargeRecords(),
+          ]);
+        } finally {
+          hideLoader();
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", initializePage);
     </script>
   </body>
 </html>

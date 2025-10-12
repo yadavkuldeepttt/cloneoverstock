@@ -289,9 +289,67 @@
           max-width: 100%;
         }
       }
+
+              /* Page Loader Styles */
+      .page-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .page-loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loader-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #da0023;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loader-text {
+        margin-top: 20px;
+        color: #da0023;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .loader-logo {
+        font-size: 32px;
+        color: #da0023;
+        font-weight: bold;
+        font-style: italic;
+        margin-bottom: 30px;
+      }
     </style>
   </head>
   <body>
+            <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+      <div class="loader-spinner"></div>
+    </div>
     <div class="header">
       <a
         href="/public/profile.html"
@@ -624,6 +682,37 @@
             toastError("An error occurred. Please try again.");
           }
         });
+    </script>
+
+      <script>
+      // Show loader on page load
+      window.addEventListener("load", function () {
+        // Simulate minimum loading time for better UX
+        setTimeout(function () {
+          hideLoader();
+        }, 500);
+      });
+
+      // Hide loader function
+      function hideLoader() {
+        const loader = document.getElementById("pageLoader");
+        if (loader) {
+          loader.classList.add("hidden");
+        }
+      }
+
+      // Show loader function (if needed for other purposes)
+      function showLoader() {
+        const loader = document.getElementById("pageLoader");
+        if (loader) {
+          loader.classList.remove("hidden");
+        }
+      }
+
+      // Fallback: Hide loader after max 3 seconds
+      setTimeout(function () {
+        hideLoader();
+      }, 3000);
     </script>
   </body>
 </html>
