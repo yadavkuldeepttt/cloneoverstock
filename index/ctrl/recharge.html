@@ -36,7 +36,6 @@
         background: var(--bg);
         display: flex;
         justify-content: center;
-        align-items: center;
       }
 
       .app {
@@ -102,7 +101,7 @@
       .amount-card {
         padding: 20px 16px;
         margin-bottom: 20px;
-        margin-top: 12rem;
+        margin-top: 0;
       }
 
       .muted {
@@ -110,6 +109,7 @@
         color: var(--muted);
         font-size: 13px;
         text-align: center;
+        text-transform: capitalize;
       }
 
       .amount-display {
@@ -353,7 +353,6 @@
 
       .upload-section {
         display: none;
-        padding: 20px;
       }
 
       .upload-section.active {
@@ -415,7 +414,6 @@
         display: none;
       }
 
-      /* Toast Container */
       #toast-container {
         position: fixed;
         top: 20px;
@@ -424,7 +422,6 @@
         pointer-events: none;
       }
 
-      /* Toast Styles */
       .toast {
         background: #fff;
         border-radius: 8px;
@@ -569,7 +566,6 @@
         }
       }
 
-      /* Page Loader Styles */
       .page-loader {
         position: fixed;
         top: 0;
@@ -625,7 +621,6 @@
     </style>
   </head>
   <body>
-    <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
       <div class="loader-spinner"></div>
     </div>
@@ -658,11 +653,12 @@
       <main class="content">
         <section id="amountSection" class="amount-section">
           <div class="card amount-card">
-            <p class="muted">amount: <span id="amountLabel">$100.00</span></p>
+            <p class="muted"><span data-i18n="recharge.amountLabel">amount</span>: <span id="amountLabel">$100.00</span></p>
             <input
               type="number"
               id="manualAmount"
               class="amount-input"
+              data-i18n-placeholder="recharge.enterAmountManually"
               placeholder="Enter amount manually"
               min="0"
               step="0.01"
@@ -672,27 +668,17 @@
               <button class="amount-option" data-value="100.00">100.00</button>
               <button class="amount-option" data-value="300.00">300.00</button>
               <button class="amount-option" data-value="500.00">500.00</button>
-              <button class="amount-option" data-value="1000.00">
-                1000.00
-              </button>
-              <button class="amount-option" data-value="2000.00">
-                2000.00
-              </button>
-              <button class="amount-option" data-value="3000.00">
-                3000.00
-              </button>
-              <button class="amount-option" data-value="5000.00">
-                5000.00
-              </button>
-              <button class="amount-option" data-value="8000.00">
-                8000.00
-              </button>
+              <button class="amount-option" data-value="1000.00">1000.00</button>
+              <button class="amount-option" data-value="2000.00">2000.00</button>
+              <button class="amount-option" data-value="3000.00">3000.00</button>
+              <button class="amount-option" data-value="5000.00">5000.00</button>
+              <button class="amount-option" data-value="8000.00">8000.00</button>
             </div>
           </div>
 
           <div class="payment-section">
             <h2 class="section-title">
-              You have to pay: USDT (<span id="payAmount">100.00</span>)
+              <span data-i18n="recharge.youHaveToPay">You have to pay</span>: USDT (<span id="payAmount">100.00</span>)
             </h2>
 
             <div class="carousel">
@@ -703,36 +689,24 @@
                   data-type="TRC20"
                 >
                   <div class="pay-card-header2 pay-card-header">
-                    <!-- <span class="card-icon">💳</span> -->
-                    <!-- <span class="label" data-i18n="recharge.title">RECHARGE</span> -->
-
                     <div class="action2">
                       <button id="rechargeBtn">
                         <span class="card-icon">💳</span>
-
-                        <span class="label" data-i18n="recharge.title"
-                          >RECHARGE</span
-                        >
+                        <span class="label" data-i18n="recharge.title">RECHARGE</span>
                       </button>
                     </div>
                   </div>
                   <div class="pay-card-body">
-                    <h3 class="method-name">USDT</h3>
-                    <p class="range">TRC20</p>
+                    <h3 class="method-name" data-i18n="recharge.usdt">USDT</h3>
+                    <p class="range" data-i18n="recharge.trc20">TRC20</p>
                   </div>
                 </li>
               </ul>
             </div>
 
             <div class="notice">
-              <p data-i18n="recharge.note1">
-                *1. The payment amount must be the same as the order amount,
-                otherwise it will not arrive automatically
-              </p>
-              <p data-i18n="recharge.note2">
-                *2. If you do not receive recharge and withdrawal, please
-                consult your supervisor to solve other problems.
-              </p>
+              <p data-i18n="recharge.note1">*1. The payment amount must be the same as the order amount, otherwise it will not arrive automatically</p>
+              <p data-i18n="recharge.note2">*2. If you do not receive recharge and withdrawal, please consult your supervisor to solve other problems.</p>
             </div>
           </div>
         </section>
@@ -740,16 +714,10 @@
         <section id="uploadSection" class="upload-section">
           <div class="card amount-card">
             <p class="muted">
-              <span data-i18n="recharge.amountLabel">amount</span>: $<span
-                id="confirmedAmount"
-                >100.00</span
-              >
+              <span data-i18n="recharge.amountLabel">amount</span>: $<span id="confirmedAmount">100.00</span>
             </p>
             <div class="amount-display">
-              <span data-i18n="recharge.youHaveToPay">
-                You have to pay: USDT</span
-              >
-              (<span id="confirmedPayAmount">100.00</span>)
+              <span data-i18n="recharge.youHaveToPay">You have to pay</span>: USDT (<span id="confirmedPayAmount">100.00</span>)
             </div>
           </div>
 
@@ -818,7 +786,6 @@
       let orderSn = null;
       let userId = null;
 
-      // Toast Notification System
       function createToastContainer() {
         let container = document.getElementById("toast-container");
         if (!container) {
@@ -895,13 +862,11 @@
         return showToast(message, "info", duration);
       }
 
-      // Amount selection
       const amountLabel = document.getElementById("amountLabel");
       const payAmount = document.getElementById("payAmount");
       const manualAmount = document.getElementById("manualAmount");
       const amountOptions = document.querySelectorAll(".amount-option");
 
-      // Manual amount input
       manualAmount.addEventListener("input", (e) => {
         const value = parseFloat(e.target.value) || 0;
         selectedAmount = value;
@@ -911,7 +876,6 @@
         amountOptions.forEach((btn) => btn.classList.remove("selected"));
       });
 
-      // Preset amount buttons
       amountOptions.forEach((btn) => {
         btn.addEventListener("click", () => {
           amountOptions.forEach((b) => b.classList.remove("selected"));
@@ -923,7 +887,6 @@
         });
       });
 
-      // Payment method carousel
       const track = document.getElementById("track");
       const payCards = document.querySelectorAll(".pay-card");
 
@@ -952,7 +915,6 @@
           }
 
           try {
-            // Step 1: Call recharge_do_before
             const beforeResponse = await fetch(
               "https://999.viptemugo.com/index/ctrl/recharge_do_before",
               {
@@ -979,14 +941,11 @@
               return;
             }
 
-            // Step 2: Call bit_details
-
             const bitDetailsData = await $.ajax({
               url: `https://999.viptemugo.com/index/pay/bit_details?num=${selectedAmount}&id=3&payer_name=&payer_bank=&payer_cardno=&payer_mobile=&payer_upi=&payer_email=&vip_id=${user_id}&type=0`,
               method: "POST",
               data: { user_id: user_id },
               dataType: "json",
-              // xhrFields: { withCredentials: true },
             });
 
             console.log("bit_details response:", bitDetailsData);
@@ -995,7 +954,6 @@
               orderSn = bitDetailsData.info.sn;
               console.log("Order SN:", orderSn);
 
-              // Show upload section
               document.getElementById("amountSection").style.display = "none";
               document.getElementById("uploadSection").classList.add("active");
               document.getElementById("confirmedAmount").textContent =
@@ -1024,7 +982,6 @@
 
         uploadedFile = file;
 
-        // Show preview
         const reader = new FileReader();
         reader.onload = (e) => {
           previewImage.src = e.target.result;
@@ -1107,18 +1064,40 @@
           toastError("An error occurred. Please try again.");
         }
       });
+
+      // Apply translations to placeholders
+      function applyTranslations() {
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          const translation = getTranslation(key);
+          if (translation) {
+            el.placeholder = translation;
+          }
+        });
+      }
+
+      // Helper function to get translation
+      function getTranslation(key) {
+        if (typeof window.i18n !== 'undefined' && window.i18n.t) {
+          return window.i18n.t(key);
+        }
+        return null;
+      }
+
+      // Call after i18n is loaded
+      if (typeof window.i18n !== 'undefined') {
+        window.addEventListener('languageChanged', applyTranslations);
+        setTimeout(applyTranslations, 100);
+      }
     </script>
 
     <script>
-      // Show loader on page load
       window.addEventListener("load", function () {
-        // Simulate minimum loading time for better UX
         setTimeout(function () {
           hideLoader();
         }, 500);
       });
 
-      // Hide loader function
       function hideLoader() {
         const loader = document.getElementById("pageLoader");
         if (loader) {
@@ -1126,7 +1105,6 @@
         }
       }
 
-      // Show loader function (if needed for other purposes)
       function showLoader() {
         const loader = document.getElementById("pageLoader");
         if (loader) {
@@ -1134,7 +1112,6 @@
         }
       }
 
-      // Fallback: Hide loader after max 3 seconds
       setTimeout(function () {
         hideLoader();
       }, 3000);
