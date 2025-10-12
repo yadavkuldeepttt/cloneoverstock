@@ -5,7 +5,7 @@
 
   function handleClick() {
     // Redirect to login page
-    window.location.href = "/login.html";
+    window.location.href = "/public/login.html";
   }
 
   if (topCTA) topCTA.addEventListener('click', handleClick);

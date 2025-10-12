@@ -527,7 +527,7 @@
         const user_id = localStorage.getItem("user_id");
 
         if (!csrf_token || !user_id) {
-          window.location.href = "/login.html";
+          window.location.href = "/public/login.html";
           return;
         }
 

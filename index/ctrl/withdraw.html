@@ -731,7 +731,7 @@
 
         if (!csrf_token || !user_id) {
           toastError(i18n.t("new.sessionExpired"));
-          window.location.href = "/login.html";
+          window.location.href = "/public/login.html";
           return;
         }
 
@@ -860,7 +860,7 @@
 
           if (!csrf_token || !user_id) {
             toastError("Please login first");
-            window.location.href = "/login.html";
+            window.location.href = "/public/login.html";
             return;
           }
 

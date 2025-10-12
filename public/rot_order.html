@@ -869,7 +869,7 @@
 
         if (!user_id || !csrf_token) {
           showAlert("Error", "Please log in first", function () {
-            window.location.href = "/login.html";
+            window.location.href = "/public/login.html";
           });
           return;
         }
@@ -905,7 +905,7 @@
                 "Error",
                 response.info || "Failed to load user data",
                 function () {
-                  window.location.href = "/login.html";
+                  window.location.href = "/public/login.html";
                 }
               );
             }
@@ -919,7 +919,7 @@
                 "Error",
                 "Session expired. Please log in again.",
                 function () {
-                  window.location.href = "/login.html";
+                  window.location.href = "/public/login.html";
                 }
               );
             } else {
@@ -1078,7 +1078,7 @@
             window.I18N.t("common.error"),
             "User ID not found. Please log in again.",
             function () {
-              window.location.href = "/login.html";
+              window.location.href = "/public/login.html";
             }
           );
           return;
@@ -1123,7 +1123,7 @@
                 window.I18N.t("common.error"),
                 "Session expired. Please log in again.",
                 function () {
-                  window.location.href = "/login.html";
+                  window.location.href = "/public/login.html";
                 }
               );
               return;
@@ -1191,7 +1191,7 @@
                 window.I18N.t("common.error"),
                 "Authentication failed. Please log in again.",
                 function () {
-                  window.location.href = "/login.html";
+                  window.location.href = "/public/login.html";
                 }
               );
             } else {
