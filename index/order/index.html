@@ -686,8 +686,8 @@
               <div class="card-footer">
                 <div class="row">
                   <div class="col">
-                    <p class="text-muted small">Total Amount:</p>
-                    <p class="text-muted small">Commission:</p>
+                    <p class="text-muted small" data-i18n="orderManage.totalAmount">Total Amount:</p>
+                    <p class="text-muted small" data-i18n="orderManage.commission">Commission:</p>
                   </div>
                   <div class="col-auto">
                     <p class="text-right"><strong>$${parseFloat(
@@ -704,7 +704,7 @@
                   <div class="mt-2">
                     <button onclick="openRatingModal('${
                       order.id || order.oid
-                    }')" class="btn btn-default shadow btn-rounded btn-block">Product Rating</button>
+                    }')" class="btn btn-default shadow btn-rounded btn-block" data-i18n="orderManage.ratingTitle">Product Rating</button>
                   </div>
                 `
       : ""
