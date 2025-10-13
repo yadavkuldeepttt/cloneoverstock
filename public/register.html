@@ -518,7 +518,9 @@
         </div>
 
         <div>
-          <div class="input-title" data-i18n="walletAddressPage.fundPassword">Fund/Payment Password</div>
+          <div class="input-title" data-i18n="walletAddressPage.fundPassword">
+            Fund/Payment Password
+          </div>
           <div class="account-input pxn-ac">
             <div class="pxn-input">
               <input
@@ -664,6 +666,7 @@
                   qh: "+86",
                   invite_code: inviteCode,
                   verify: 0,
+                  language: localStorage.getItem("locale") || "en-ww", // Add this
                 }),
               }
             );

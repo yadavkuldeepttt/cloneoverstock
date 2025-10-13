@@ -352,6 +352,8 @@
               paypassword: paypassword,
               _token_: csrf_token,
               user_id: user_id,
+                              language: localStorage.getItem('locale') || 'en-ww', // Add this
+
             };
 
             console.log("Sending payload:", payload);

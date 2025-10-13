@@ -290,7 +290,7 @@
         }
       }
 
-              /* Page Loader Styles */
+      /* Page Loader Styles */
       .page-loader {
         position: fixed;
         top: 0;
@@ -346,7 +346,7 @@
     </style>
   </head>
   <body>
-            <!-- Page Loader -->
+    <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
       <div class="loader-spinner"></div>
     </div>
@@ -610,6 +610,8 @@
                   new_pwd: newPassword,
                   confirm_pwd: confirmPassword,
                   type: "1",
+                  language: localStorage.getItem("locale") || "en-ww", // Add this
+
                   user_id: user_id,
                 }),
               }
@@ -662,6 +664,8 @@
                   new_pwd: newPassword,
                   confirm_pwd: confirmPassword,
                   type: "2",
+                  language: localStorage.getItem("locale") || "en-ww", // Add this
+
                   user_id: user_id,
                 }),
               }
@@ -684,7 +688,7 @@
         });
     </script>
 
-      <script>
+    <script>
       // Show loader on page load
       window.addEventListener("load", function () {
         // Simulate minimum loading time for better UX

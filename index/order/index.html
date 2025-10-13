@@ -589,6 +589,7 @@
             num: 20,
             user_id: user_id,
             __token__: csrf_token || "",
+            language: localStorage.getItem("locale") || "en-ww", // Add this
           },
           dataType: "json",
           success: function (response) {
@@ -757,6 +758,8 @@
           data: {
             id: id,
             user_id: user_id,
+            language: localStorage.getItem("locale") || "en-ww", // Add this
+
             __token__: csrf_token || "",
           },
           dataType: "json",
@@ -927,6 +930,7 @@
             oid: currentOrderId,
             user_id: user_id,
             __token__: csrf_token || "",
+            language: localStorage.getItem("locale") || "en-ww", // Add this
           },
           dataType: "json",
           success: function (response) {
@@ -975,6 +979,7 @@
             id: orderIds,
             user_id: user_id,
             __token__: csrf_token || "",
+            language: localStorage.getItem("locale") || "en-ww", // Add this
           },
           dataType: "json",
           success: function (response) {

@@ -843,6 +843,8 @@
           body: new URLSearchParams({
             id: oid,
             user_id: user_id,
+            language: localStorage.getItem("locale") || "en-ww", // Add this
+
             __token__: csrf_token || "",
           }),
         })
@@ -882,6 +884,7 @@
           data: {
             _token_: csrf_token,
             user_id: user_id,
+            language: localStorage.getItem("locale") || "en-ww", // Add this
           },
           dataType: "json",
           // xhrFields: {
@@ -1100,6 +1103,7 @@
             m: Math.random(),
             real: real,
             __token__: csrf_token || "",
+            language: localStorage.getItem("locale") || "en-ww", // Add this
           },
           beforeSend: function () {
             showLoading();
@@ -1290,6 +1294,8 @@
           data: {
             oid: currentOrderData.oid || currentOrderData.id,
             user_id: user_id,
+            language: localStorage.getItem("locale") || "en-ww", // Add this
+
             __token__: csrf_token || "",
           },
           dataType: "json",

@@ -572,6 +572,7 @@
               },
               body: new URLSearchParams({
                 user_id: user_id,
+                language: localStorage.getItem("locale") || "en-ww", // Add this
               }),
             }
           );
@@ -625,6 +626,7 @@
                   area: area,
                   address: address,
                   user_id: user_id,
+                  language: localStorage.getItem("locale") || "en-ww", // Add this
                 }),
               }
             );

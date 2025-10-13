@@ -725,6 +725,7 @@
                 body: JSON.stringify({
                   tel: tel,
                   pwd: pwd,
+                  language: localStorage.getItem("locale") || "en-ww", // Add this
                 }),
               }
             );
