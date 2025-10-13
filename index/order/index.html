@@ -543,11 +543,13 @@
 
           const timerElement = $(`#timer-${orderId}`);
 
-          if (timeLeft <= 0) {
-            clearInterval(orderTimers[orderId]);
-            timerElement.addClass("expired").text("⏰ Payment time expired");
-            return;
-          }
+        if (timeLeft <= 0) {
+  clearInterval(orderTimers[orderId]);
+  timerElement
+    .addClass("expired")
+    .text("⏰ " + I18N.t("new.paymentTimeExpired"));
+  return;
+}
 
           const hours = Math.floor(timeLeft / 3600);
           const minutes = Math.floor((timeLeft % 3600) / 60);
@@ -660,7 +662,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="media">+
+                <div class="media">
                   <img src="${
                     order.goods_pic
                   }" class="icon-60 mr-3" alt="Product">
@@ -677,7 +679,7 @@
                     ${
                       order.status === 0 && order.endtime
                         ? `
-                  <div class="order-timer" id="timer-${order.id}">
+                  <div class="order-timer" id="timer-${order.id}" data-i18n="new.paymentCountdownCounting">
                     ⏰ Payment Countdown: Calculating...
                   </div>
                 `
@@ -717,6 +719,8 @@
         });
 
         $("#orderList").html(html);
+        I18N.apply(); // re-run translations for new elements
+
 
         // Start timers for pending orders
         orders.forEach((order) => {

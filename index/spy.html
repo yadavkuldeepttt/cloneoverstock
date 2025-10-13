@@ -346,7 +346,7 @@
         <button class="back-btn" onclick="goBack()">
             <span class="material-icons">arrow_back</span>
         </button>
-        <div class="header-title">Product Details</div>
+        <div class="header-title" data-i18n="new.productDetails">Product Details</div>
         <div class="header-actions">
             <button class="icon-btn">
                 <span class="material-icons">shopping_cart</span>
@@ -391,22 +391,20 @@
             </div>
         </div>
 
-        <div class="product-details" id="productDetails">
-            <!-- Specifications will be inserted here -->
-        </div>
-
+     
         <div class="description-section">
-            <div class="section-title">Description</div>
+            <div class="section-title" data-i18n="new.description">Description</div>
             <p class="description-text" id="productDescription"></p>
         </div>
     </div>
 
     <div class="action-buttons">
-        <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
-        <button class="buy-now-btn" onclick="buyNow()">Buy it now</button>
+        <button class="add-to-cart-btn" onclick="addToCart()" data-i18n="new.addToCart">Add to Cart</button>
+        <button class="buy-now-btn" onclick="buyNow()" data-i18n="new.buyNow">Buy it now</button>
     </div>
 
     <script src="/public/popularItems.js"></script>
+    <script src="/public/i18n.js"></script>
 
     <script>
         function goBack() {
@@ -630,31 +628,7 @@
             ratingSection.appendChild(starsDiv);
             ratingSection.appendChild(ratingText);
 
-            // Create specifications
-            const productDetails = document.getElementById('productDetails');
-            const specTitle = document.createElement('div');
-            specTitle.className = 'section-title';
-            specTitle.textContent = 'Specifications';
-            productDetails.appendChild(specTitle);
-
-            if (product.specifications) {
-                Object.entries(product.specifications).forEach(([key, value]) => {
-                    const row = document.createElement('div');
-                    row.className = 'detail-row';
-                    
-                    const label = document.createElement('span');
-                    label.className = 'detail-label';
-                    label.textContent = key.replace(/([A-Z])/g, ' $1').trim();
-                    
-                    const valueSpan = document.createElement('span');
-                    valueSpan.className = 'detail-value';
-                    valueSpan.textContent = value;
-                    
-                    row.appendChild(label);
-                    row.appendChild(valueSpan);
-                    productDetails.appendChild(row);
-                });
-            }
+        
         });
     </script>
 </body>
